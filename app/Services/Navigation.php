@@ -40,9 +40,14 @@ class Navigation
                'icon' => 'i-laptop',
             ]),
             new NavItem([
-               'name' =>'Отзывы',
-               'route' => 'reviews',
-               'icon' =>'i-chat',
+                'name' =>'Отзывы',
+                'route' => 'reviews',
+                'icon' =>'i-chat',
+            ]),
+            new NavItem([
+                'name' =>'Вопросы и ответы',
+                'route' => 'questions',
+                'icon' =>'i-bookmark',
             ]),
             new NavItem([
                 'name' => 'Настройки',
