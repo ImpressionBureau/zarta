@@ -38,6 +38,7 @@
 
             </div>
             <div class="col-md-4">
+
                 <multi-uploader
                         class="mt-4"
                         :src="{{ json_encode($article->images_list) }}"></multi-uploader>

@@ -25,24 +25,23 @@
                                         </div>
                                     @endif
                                 </div>
-                                <fieldset slot="{{ $lang }}">
-                                    <div class="form-group">
-                                        <label for="title">Должность</label>
-                                        <input id="title"
-                                               type="text"
-                                               name="{{$lang}}[content][body]"
-                                               class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}"
-                                               value="{{ old($lang.'.content') ?? $command->translate('content', $lang)['body'] }}"
-                                               required>
-                                        @if($errors->has('content'))
-                                            <div class="mt-1 text-danger">
-                                                {{ $errors->first('content') }}
-                                            </div>
-                                        @endif
-                                    </div>
+                                <div class="form-group">
+                                    <label for="title">Должность</label>
+                                    <input id="title"
+                                           type="text"
+                                           name="{{$lang}}[content][body]"
+                                           class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}"
+                                           value="{{ old($lang.'.content') ?? $command->translate('content', $lang)['body'] }}"
+                                           required>
+                                    @if($errors->has('content'))
+                                        <div class="mt-1 text-danger">
+                                            {{ $errors->first('content') }}
+                                        </div>
+                                    @endif
+                                </div>
 
 
-                                </fieldset>
+                            </fieldset>
 
                         @endforeach
                     </block-editor>

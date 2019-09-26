@@ -6,6 +6,7 @@ use App\Models\Article;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Spatie\MediaLibrary\Models\Media;
 
 class ArticlesController extends Controller
 {
@@ -40,6 +41,7 @@ class ArticlesController extends Controller
             $article->addMediaFromRequest('article')
                 ->toMediaCollection('article');
         }
+        $this->handleMedia($request, $article);
         return \redirect()->route('admin.articles.index')
             ->with('message', 'Запись успешно сохранена.');
     }
@@ -69,6 +71,7 @@ class ArticlesController extends Controller
             $article->addMediaFromRequest('article')
                 ->toMediaCollection('article');
         }
+        $this->handleMedia($request, $article);
         return \redirect()->route('admin.articles.index')
             ->with('message', 'Запись успешно сохранена.');
     }
@@ -84,5 +87,21 @@ class ArticlesController extends Controller
         $article->delete();
         return \redirect()->route('admin.articles.index')
             ->with('message', 'Запись успешно удалена.');
+    }
+
+    /**
+     * @param Request $request
+     * @param Article $article
+     */
+    private function handleMedia(Request $request, Article $article): void
+    {
+        if ($request->filled('media')) {
+            foreach ($request->input('media') as $media) {
+                Media::find($media)->update([
+                    'model_type' => Article::class,
+                    'model_id' => $article->id,
+                ]);
+            }
+        }
     }
 }

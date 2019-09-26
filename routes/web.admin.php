@@ -18,7 +18,8 @@ Route::group([
     Route::resource('methods', 'MethodsController')->except('show');
     Route::resource('commands', 'CommandsController')->except('show');
     Route::resource('pages', 'PagesController')->except('show', 'create', 'store', 'destroy');
-    Route::resource('reviews', 'ReviewsController')->except('show', 'create', 'store');
+    Route::resource('reviews', 'ReviewsController')->except('show');
+    Route::resource('questions', 'QuestionsController')->except('show');
 
     Route::group([
         'as' => 'settings.',
