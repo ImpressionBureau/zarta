@@ -26,6 +26,10 @@
                                         </div>
                                     @endif
                                 </div>
+                                <wysiwyg class="mb-0"
+                                         content="{{ old('navigation') }}"
+                                         name="{{$lang}}[content][navigation]"
+                                         label="Навигация по статье"></wysiwyg>
 
                                 <wysiwyg class="mb-0"
                                          content="{{ old('body') }}"

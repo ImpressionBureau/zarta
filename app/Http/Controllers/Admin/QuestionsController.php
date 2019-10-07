@@ -15,7 +15,7 @@ class QuestionsController extends Controller
     public function index(): View
     {
         return \view('admin.questions.index', [
-            'methods' => Question::paginate(20),
+            'questions' => Question::paginate(20),
         ]);
     }
 

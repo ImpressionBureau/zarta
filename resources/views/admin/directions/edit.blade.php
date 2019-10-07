@@ -25,7 +25,12 @@
                                     </div>
                                 @endif
                             </div>
-
+                            <p>Навигация по статье</p>
+                            <wysiwyg class="mb-0"
+                                     content="{{ old('body') ?? $direction->translate('content', $lang)['navigation'] }}"
+                                     name="{{$lang}}[content][navigation]"
+                                     label="Навигация по статье"></wysiwyg>
+                            <p class="mt-2">Описание метода лечения</p>
                             <wysiwyg class="mb-0"
                                      content="{{ old('body') ?? $direction->translate('content', $lang)['body'] }}"
                                      name="{{$lang}}[content][body]"

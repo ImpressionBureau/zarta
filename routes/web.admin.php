@@ -9,7 +9,7 @@ Route::group([
     'middleware' => ['auth', 'user.admin'],
 ], function () {
     Route::get('/', function () {
-        return \redirect()->route('admin.articles.index');
+        return \redirect()->route('admin.appointments.index');
     })->name('home');
 
     Route::resource('articles', 'ArticlesController')->except('show');
@@ -17,9 +17,11 @@ Route::group([
     Route::resource('directions', 'DirectionsController')->except('show');
     Route::resource('methods', 'MethodsController')->except('show');
     Route::resource('commands', 'CommandsController')->except('show');
-    Route::resource('pages', 'PagesController')->except('show', 'create', 'store', 'destroy');
     Route::resource('reviews', 'ReviewsController')->except('show');
     Route::resource('questions', 'QuestionsController')->except('show');
+    Route::resource('services', 'ServicesController')->except('show');
+    Route::resource('appointments', 'AppointmentsController')->only('index', 'edit', 'update');
+    Route::get('subscribes', 'SubscribesController@index')->name('subscribes.index');
 
     Route::group([
         'as' => 'settings.',

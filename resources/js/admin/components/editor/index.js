@@ -1,4 +1,4 @@
-import Wysiwyg from './Wysiwyg/Editor';
+import Wysiwyg from './TinyMCE';
 import BlockEditor from './BlockEditor';
 import ImageUploader from './SingleUploader';
 import MultiUploader from './MultiUploader';

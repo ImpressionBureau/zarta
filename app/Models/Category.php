@@ -32,6 +32,23 @@ class Category extends Model implements HasMedia
     }
 
     /**
+     * @return BelongsToMany
+     */
+    public function methods(): BelongsToMany
+    {
+        return $this->belongsToMany(Method::class);
+    }
+
+    /**
+     * @return BelongsToMany
+     */
+    public function services(): BelongsToMany
+    {
+        return $this->belongsToMany(Service::class);
+    }
+
+
+    /**
      * @return string
      */
     public function getPreviewImageAttribute()
