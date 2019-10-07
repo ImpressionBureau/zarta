@@ -16,7 +16,7 @@ class Navigation
     {
         return [
             new NavItem([
-                'name',
+                'name' => 'Записи на прием',
                 'route' => 'appointments',
                 'icon' => 'i-wallet',
                 'unread' => Appointment::processing()->count(),

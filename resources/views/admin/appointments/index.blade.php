@@ -1,9 +1,9 @@
-@extends('layouts.admin', ['page_title' => 'Записи на прийом'])
+@extends('layouts.admin', ['page_title' => 'Записи на прием'])
 
 @section('content')
 
     <div class="d-flex align-items-center mb-5">
-        <h1 class="mb-0 h2">Записи на прийом</h1>
+        <h1 class="mb-0 h2">Записи на прием</h1>
     </div>
     @forelse($appointments as $appointment)
         <article class="item">

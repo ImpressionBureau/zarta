@@ -21,6 +21,7 @@ class Appointment extends Model
         'email',
         'service_id',
         'message',
+        'status'
     ];
 
     public function service(): BelongsTo
@@ -37,5 +38,4 @@ class Appointment extends Model
     {
         return $q->where('status', 'processing')->orWhere('status', 'no_dial');
     }
-
 }

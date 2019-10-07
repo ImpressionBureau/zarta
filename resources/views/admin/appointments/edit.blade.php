@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-auto">
                     <select name="status"
-                            class="form-control {{ $appointment->status == 'declined' ? 'border-danger' : ($appointment->status == 'completed' ? 'border-success' : '') }}">
+                            class="form-control {{ $appointment->status == 'no_dial' ? 'border-danger' : ($appointment->status == 'completed' ? 'border-success' : '') }}">
                         @foreach(\App\Models\Appointment::$STATUSES as $status)
                             <option value="{{ $status }}"
                                     {{ $appointment->status == $status ? 'selected' : '' }}>

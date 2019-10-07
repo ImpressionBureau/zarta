@@ -83,10 +83,6 @@
                                    value="{{ old($lang.'.content') ?? $setting->translate('content', $lang)['work_time'] }}"
                                    required>
                         </div>
-                        <wysiwyg class="mb-0"
-                                 content="{{ old('body') }}"
-                                 name="{{$lang}}[content][directions]"
-                                 label="Текст для главного экрана блока Направления работы"></wysiwyg>
                     </fieldset>
                 @endforeach
             </block-editor>
