@@ -2,9 +2,9 @@
 
 @section('content')
     <section>
-        <form action="{{ route('admin.articles.update', $command) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.commands.update', $command) }}" method="post" enctype="multipart/form-data">
             @csrf
-
+            @method('patch')
             <div class="row">
                 <div class="col-md-8">
                     <block-editor title="Новый работник">
@@ -26,8 +26,8 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <label for="title">Должность</label>
-                                    <input id="title"
+                                    <label for="body">Должность</label>
+                                    <input id="body"
                                            type="text"
                                            name="{{$lang}}[content][body]"
                                            class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}"

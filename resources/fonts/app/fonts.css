@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+@font-face {
+    font-family: 'EtelkaMediumPro';
+    src: url('EtelkaMediumPro.eot');
+    src: url('EtelkaMediumPro.eot?#iefix') format('embedded-opentype'),
+        url('EtelkaMediumPro.woff2') format('woff2'),
+        url('EtelkaMediumPro.woff') format('woff'),
+        url('EtelkaMediumPro.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}

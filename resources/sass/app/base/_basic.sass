@@ -1,0 +1,106 @@
+body, html
+    overflow-x: hidden
+        
+
+h1, .h1, h2, .h2
+    margin: 0
+
+h3, .h3, h4, .h4, h5, .h5 
+    margin: 0
+
+p 
+    line-height: 170%
+    
+section 
+    position: relative
+    overflow: hidden
+
+a, svg 
+    transition: all 0.5s ease
+
+ul 
+    list-style: none
+    padding: 0
+    margin: 0
+    
+label, button, input, textarea
+    transition: all 0.5s ease
+    outline: none
+    &:focus 
+        outline: none
+
+button 
+    cursor: pointer
+
+#otstup 
+    height: 1500px
+
+
+@media (max-width: map_get($grid-breakpoints, md)) 
+    h1
+        font-size: 30px
+    h2 
+        font-size: 25px
+
+
+.section-title
+    padding-bottom: 30px
+    position: relative
+    &:after 
+        content: ''
+        width: 120px
+        height: 4px
+        background-color: $primary 
+        position: absolute
+        left: 0 
+        bottom: 0 
+
+.section-title-center
+    display: flex
+    align-items: center
+    justify-content: center
+    &:before 
+        content: ''
+        height: 4px 
+        background-color: #F2F2F2
+        flex-grow: 1
+    &:after 
+        content: ''
+        height: 4px 
+        background-color: #F2F2F2
+        flex-grow: 1
+    span 
+        padding: 0 100px
+
+.section-title--other 
+    color: #fff 
+    &:before 
+        content: ''
+        background-color: rgba(255, 255, 255, 0.2)
+    &:after 
+        content: ''
+        background-color: rgba(255, 255, 255, 0.2)
+
+.section-decor 
+    width: auto
+    height: 200%
+    max-height: 430px
+    display: inline-block
+    background-size: contain
+    background-repeat: no-repeat
+    position: absolute
+    left: 0
+    top: 50% 
+    transform: translate(-60%, -50%)
+    img 
+        height: 100% 
+        width: auto 
+    &--article 
+        top: 0
+        transform: translate(-60%, 0)
+
+
+
+
+
+

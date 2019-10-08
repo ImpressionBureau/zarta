@@ -60,7 +60,6 @@ class CommandsController extends Controller
      */
     public function update(Request $request, Command $command)
     {
-
         $command->slug = null;
         $command->update();
         $command->updateTranslation();

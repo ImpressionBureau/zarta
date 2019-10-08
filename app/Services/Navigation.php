@@ -62,6 +62,11 @@ class Navigation
                 'icon' => 'i-bookmark',
             ]),
             new NavItem([
+                'name' =>'Страницы',
+                'route'=> 'pages',
+                'icon' => 'i-folder',
+            ]),
+            new NavItem([
                 'name' => 'Подписки',
                 'route' => 'subscribes',
                 'icon' => 'i-envelope',

@@ -27,7 +27,7 @@ class DirectionsTableSeeder extends Seeder
                     'title' => ucfirst($faker->sentence),
                     'content' => [
                         'body' => '<p>'.implode('</p><p>', $faker->sentences(rand(3, 10))).'</p>',
-                        'navigation' => ucfirst($faker->sentence),
+                        'navigation' => '<li>'.implode('</li><li>', $faker->words(10, false)) . '</li>',
                     ]
                 ]);
             }

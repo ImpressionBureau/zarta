@@ -21,6 +21,7 @@ Route::group([
     Route::resource('questions', 'QuestionsController')->except('show');
     Route::resource('services', 'ServicesController')->except('show');
     Route::resource('appointments', 'AppointmentsController')->only('index', 'edit', 'update');
+    Route::resource('pages', 'PagesController')->only('index', 'edit', 'update');
     Route::get('subscribes', 'SubscribesController@index')->name('subscribes.index');
 
     Route::group([

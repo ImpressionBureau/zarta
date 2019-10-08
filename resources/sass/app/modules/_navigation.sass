@@ -1,0 +1,64 @@
+section.navigation-section 
+    padding: 50px 0
+
+.navigation 
+    position: relative
+
+.navigation-slider 
+    &__item 
+        width: 12.5%
+        padding: 0 2px
+        transition: 0.5s ease transform
+        .content
+            padding: 20px 0
+            &__img 
+                @extend %bg-cover
+                width: 100%
+                padding-top: 125/180*100%
+            &__title 
+                font-size: 14px
+                text-align: center
+                padding: 20px 15px
+                min-height: 70px
+                transition: all 0.5s ease
+        &:hover 
+            transform: scale(1.1)
+            z-index: 1
+            .content__title 
+                background-color: #F8F8F8
+                color: $primary
+    &--minlenght 
+        display: flex
+        align-items: center
+        justify-content: space-around
+        .navigation-slider__item 
+            width: 12.5%
+
+.navigation-arrow 
+    position: absolute 
+    width: 20px
+    background-color: #F3F3F3
+    display: flex
+    align-items: center
+    justify-content: center
+    top: 20px
+    bottom: 20px
+    svg 
+        fill: #6A7C87
+    &--prev 
+        left: -30px
+    &--next 
+        right: -30px
+
+
+
+
+
+
+
+
+
+
+
+
+

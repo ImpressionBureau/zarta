@@ -1,0 +1,73 @@
+
+.nav-btn
+    padding: 0 15px
+    height: 100%
+    cursor: pointer
+    background-color: transparent
+    &__title 
+        color: #E1D0D0
+        transition: all 0.2s ease
+        font-size: 12px
+    &__line
+        width: 40px
+        height: 40px
+        cursor: pointer
+        position: relative
+        z-index: 3
+        span 
+            height: 2px
+            background-color: #fff
+            width: 100%
+            position: absolute
+            left: 0 
+            top: 19px
+            transition: transform 0.2s ease, top 0.2s ease 0.2s, width 0.2s ease 0.2s, opacity 0.2s ease 0.2s
+        span.bar1
+            width: 80%
+            top: 12px
+            transform: rotate(0)
+        span.bar2 
+            margin: 0
+        span.bar3
+            width: 50%
+            top: 26px
+            transform: rotate(0)
+    &:hover 
+        .nav-btn__title 
+            color: $primary 
+        .nav-btn__line 
+            span.bar1
+                width: 100%
+            span.bar2 
+                width: 20%
+            span.bar3 
+                width: 80%
+
+.nav-btn--open
+    span 
+        width: 100% !important
+        top: 19px !important
+        transition: transform 0.2s ease 0.2s, top 0.2s ease, width 0.2s ease
+    span.bar1 
+        transform: rotate(45deg)
+    span.bar2
+        opacity: 0
+    span.bar3
+        transform: rotate(-45deg)
+    &:hover 
+        .nav-btn__line 
+            span.bar1, span.bar3 
+                width: 100%
+
+                
+
+.from_left, .from_left_interval, .from_right, .from_right_interval, .from_bottom, .from_bottom_interval
+    @media (min-width: map_get($grid-breakpoints, xl))
+        visibility: hidden
+
+
+
+
+
+
+

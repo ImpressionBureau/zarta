@@ -1,0 +1,109 @@
+
+
+section.intro-section 
+    height: 100vh
+    @extend %bg-cover
+    &:before 
+        content: ''
+        position: absolute
+        width: 100% 
+        height: 100% 
+        left: 0 
+        top: 0 
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%)
+
+.intro-label 
+    color: #fff 
+    font-weight: bold 
+    font-size: 14px
+    position: absolute
+    top: 30px
+    right: 30px
+    padding-left: 30px
+    text-transform: lowercase
+    &:before 
+        content: ''
+        width: 100px
+        height: 1px
+        background-color: #fff
+        position: absolute 
+        right: 100% 
+        top: 50%
+
+.intro 
+    position: relative
+    flex-grow: 1
+    &__logo 
+        display: block 
+        img 
+            width: auto 
+            max-width: 300px
+    &__text 
+        padding-top: 25px
+        font-family: $headings-font-family
+        color: #fff
+        font-size: 30px
+        width: auto 
+        max-width: 700px
+        text-align: center
+        border-top: 3px solid rgba(#fff, 0.3)
+        position: relative
+        margin-top: 40px
+        &:before 
+            content: ''
+            width: 100px 
+            height: 6px
+            background-color: $primary 
+            position: absolute
+            top: -6px 
+            left: 50% 
+            transform: translateX(-50%)
+            box-shadow: 0px 0px 30px #DA2128
+
+.intro-scroll 
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    position: relative
+    cursor: pointer
+    p 
+        color: #fff 
+        font-size: 12px
+    &:after 
+        content: ''
+        height: 150px
+        width: 2px 
+        background-color: #fff
+        margin-top: 20px
+
+
+
+// intro other section
+
+section.intro-other-section 
+    display: flex
+    align-items: center
+    height: auto 
+    min-height: 350px 
+    margin-top: 50px
+    padding: 100px 0
+    @extend %bg-cover 
+    &:before 
+        content: ''
+        @extend %absolute 
+        background-color: rgba(4, 13, 18, 0.6)
+
+.intro-other-text 
+    text-align: center
+    color: #fff
+
+
+
+
+
+
+
+
+
+

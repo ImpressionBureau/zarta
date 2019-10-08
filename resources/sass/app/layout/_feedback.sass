@@ -1,0 +1,123 @@
+section.feedback-section 
+    margin: 0 -15px
+    &:before 
+        content: ''
+        height: 40px
+        width: 100% 
+        position: absolute
+        left: 0 
+        top: 0 
+        z-index: -1
+        background-color: #F2F5F8
+
+.video-feedback 
+    padding-top: 670/1100*100%
+    position: relative
+    cursor: pointer
+    overflow: hidden
+    img 
+        display: inline-block
+        position: absolute 
+        width: auto
+        height: 100%
+        left: 50%
+        top: 50% 
+        transform: translate(-50%, -50%)
+    svg 
+        position: absolute
+        top: 50% 
+        left: 50% 
+        transform: translate(-50%, -50%)
+        width: 55px 
+        height: 55px
+    iframe 
+        @extend %absolute
+
+.texting-feedback
+    padding: 50px 70px 0 70px
+    &__title 
+        text-transform: uppercase
+        font-size: 20px 
+        color: $primary 
+
+.texting-slider 
+    &__item 
+        .avatar 
+            padding-top: 100% 
+            @extend %bg-cover 
+        .text 
+            color: #555 
+            font-size: 14px
+            flex-grow: 1
+            border-bottom: 1px solid #E9E9E9
+        .date 
+            font-size: 12px
+            color: #BCBCBC 
+            text-transform: lowercase
+        .name 
+            font-size: 12px
+            svg 
+                margin-right: 10px
+
+.texting-arrow 
+    background-color: #fff
+    width: 40px 
+    height: 40px
+    border: 1px solid #E3E3E3
+    display: flex
+    align-items: center
+    justify-content: center
+    transition: all 0.5s ease
+    cursor: pointer
+    svg 
+        fill: #666
+    &:hover 
+        background-color: #333333 
+        border-color: #333 
+        svg 
+            fill: #fff
+
+            
+
+.appointment
+    margin-top: 50px
+    padding: 85px 
+    background-color: $primary 
+    color: #fff 
+    background-image: url(../images/icons/btn-bg.svg)
+    @extend %bg-cover
+    position: relative
+    &:before 
+        content: ''
+        position: absolute
+        left: 20px
+        top: 20px
+        bottom: 20px 
+        right: 20px
+        border: 5px solid #517DE2
+    h2 
+        color: #fff
+        margin-bottom: 20px
+    &__text 
+        text-align: center
+    &__link 
+        color: #fff
+        font-weight: bold
+        font-size: 12px
+        display: inline-flex
+        align-items: center
+        justify-content: center
+        svg 
+            margin-left: 10px
+            fill: #fff
+    &:hover 
+        color: #fff 
+        background-color: darken($primary, 5%)
+        
+
+
+
+
+
+
+

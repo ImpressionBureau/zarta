@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         app()->singleton('settings', function () {
-            return Setting::first();
+            return Setting::with('translates')->first();
         });
         View::composer(['app.*', 'auth.*'], function () {
             View::share('locales', collect(config('app.locales'))->filter(function ($l) {

@@ -37,10 +37,7 @@ class ArticlesController extends Controller
 
         $article = Article::create($request->only('slug'))->makeTranslation();
 
-        if ($request->hasFile('article')) {
-            $article->addMediaFromRequest('article')
-                ->toMediaCollection('article');
-        }
+
         $this->handleMedia($request, $article);
         return \redirect()->route('admin.articles.index')
             ->with('message', 'Запись успешно сохранена.');
@@ -66,11 +63,6 @@ class ArticlesController extends Controller
         $article->slug = null;
         $article->update();
         $article->updateTranslation();
-        if ($request->hasFile('article')) {
-            $article->clearMediaCollection('article');
-            $article->addMediaFromRequest('article')
-                ->toMediaCollection('article');
-        }
         $this->handleMedia($request, $article);
         return \redirect()->route('admin.articles.index')
             ->with('message', 'Запись успешно сохранена.');

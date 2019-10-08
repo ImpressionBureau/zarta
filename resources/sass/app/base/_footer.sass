@@ -1,0 +1,55 @@
+
+
+footer 
+    background-image: url(../images/footer-bg.jpg)
+    @extend %bg-cover
+    padding: 8px 30px 0 30px
+
+.footer-content
+    border-top: 2px solid #526A77
+    border-bottom: 2px solid #526A77
+    padding: 100px 150px
+
+.footer-dev 
+    display: flex
+    align-items: center
+    justify-content: flex-between
+    padding: 15px 0
+    &__item 
+        width: 33.3333%
+        p 
+            font-size: 12px
+            color: #526A77
+        a 
+            font-size: 12px
+            color: #526A77
+            span 
+                font-weight: bold
+            &:hover 
+                span 
+                    color: $primary
+        .footer-social 
+            a 
+                text-transform: uppercase
+                font-weight: bold
+                &:hover 
+                    color: $primary
+
+.footer-list 
+    a 
+        font-family: $headings-font-family 
+        font-size: 14px
+        color: #fff 
+        text-transform: uppercase
+        margin-bottom: 25px
+        &:hover 
+            color: $primary
+
+
+
+
+
+
+
+
+

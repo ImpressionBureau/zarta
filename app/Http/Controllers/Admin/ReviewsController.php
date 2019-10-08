@@ -40,7 +40,7 @@ class ReviewsController extends Controller
             $review->addMediaFromRequest('review')
                 ->toMediaCollection('review');
         }
-        return \redirect()->route('admin.articles.index')
+        return \redirect()->route('admin.reviews.index')
             ->with('message', 'Запись успешно сохранена.');
     }
 
@@ -62,7 +62,7 @@ class ReviewsController extends Controller
     {
 
         $review->slug = null;
-        $review->update($request->only( 'video', 'facebook', 'published'));
+        $review->update($request->only( 'slug','video', 'facebook', 'published'));
         $review->updateTranslation();
         if ($request->hasFile('review')) {
             $review->clearMediaCollection('review');

@@ -1,0 +1,57 @@
+.btn 
+	height: 50px
+	text-transform: uppercase
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	position: relative
+	overflow: hidden
+	&:before 
+		content: ''
+		position: absolute
+		width: 120%
+		height: 120% 
+		top: -10%
+		left: -10%
+		transform: skew(-20deg) translateX(-100%)
+		transition: all 0.5s ease
+	span 
+		position: relative
+	&:hover 
+		box-shadow: none
+		&:before 
+			transform: skew(-20deg) translateX(0)
+	&:focus 
+		box-shadow: none
+
+.btn-primary
+	background-color: $primary
+	span 
+		color: #fff
+		transition: all 0.5s ease
+	&:before 
+		background-color: #fff
+	&:hover 
+		span 
+			color: $primary 
+		
+
+.btn-secondary
+	color: #333
+	background-color: transparent 
+	border: 1px solid #BCBCBC
+	&:before 
+		background-color: $darck-grey
+	&:hover
+		background-color: transparent 
+		border-color: $darck-grey
+		color: #fff
+
+
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle
+	color: #fff
+	box-shadow: none
+
+
+

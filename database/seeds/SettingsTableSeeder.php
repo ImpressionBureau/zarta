@@ -13,8 +13,8 @@ class SettingsTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create('ru_RU');
         $setting = \App\Models\Setting::create([
-            'phone' => '+308 (096) 273 00 23',
-            'phone_additional' => '+308 (044) 275 79 99',
+            'phone' => '+38 (096) 273 00 23',
+            'phone_additional' => '+38 (044) 275 79 99',
             'email' => 'zartamail@gmail.com',
             'facebook' => 'https://www.facebook.com/',
             'instagram' => 'https://www.instagram.com/',
@@ -22,7 +22,8 @@ class SettingsTableSeeder extends Seeder
             'latitude' => '30.510974',
             'longitude' => '50.449998'
         ]);
-
+        $setting->addMediaFromUrl($faker->imageUrl(1920, 900))
+            ->toMediaCollection('banner');
         foreach (config('app.locales') as $locale) {
             $setting->translates()->create([
                 'lang' => $locale,

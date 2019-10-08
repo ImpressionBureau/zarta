@@ -1,0 +1,79 @@
+
+section.front-priview-section 
+    margin: 0 -15px
+
+.front-priview
+    width: 100%
+    padding-top: 350/640*100%
+    @extend %bg-cover
+    position: relative
+    overflow: hidden
+    &:before 
+        content: ''
+        background-image: linear-gradient(79.58deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%)
+        @extend %absolute
+        z-index: 1
+    &:after 
+        content: ''
+        position: absolute 
+        top: 100% 
+        left: 0 
+        width: 100% 
+        height: 100% 
+        background-color: #fff
+        transition: all 0.5s ease
+        z-index: 2
+    .content 
+        padding: 40px 70px
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        @extend %absolute
+        z-index: 3
+        &__title 
+            color: #fff
+            transition: all 0.5s ease
+        &__text 
+            padding: 30px 0
+        &__link 
+            font-size: 12px
+            font-weight: bold
+            color: #333 
+            display: inline-flex
+            align-items: center
+            padding-bottom: 20px
+            span 
+                position: relative
+                display: inline-block
+                padding: 10px 0
+                &:after 
+                    content: ''
+                    position: absolute
+                    left: 0 
+                    bottom: 0 
+                    width: 0
+                    height: 2px
+                    background-color: $primary
+                    transition: all 0.5s ease
+            svg 
+                margin-left: 10px
+                fill: $primary
+                transition: all 0.5s ease
+            &:hover 
+                span 
+                    &:after 
+                        width: 100%
+                svg 
+                    transform: translateX(100px)
+                    opacity: 0
+
+.front-priview:hover 
+    &:after 
+        top: 0 
+    .content__title 
+        color: #333
+
+
+.slide-wrap 
+    transition: all 0.5s ease
+    overflow: hidden
