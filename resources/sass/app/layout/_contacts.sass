@@ -7,8 +7,10 @@ section.contact-section
     margin: 0 -15px
 
 .map 
-    min-height: 600px
+    min-height: 300px
     width: 100%
+    @media (min-width: map_get($grid-breakpoints, xl)) 
+        min-height: 600px
     &__bg 
         @extend %absolute
         background-color: rgba(#fff, 0.8)
@@ -23,7 +25,9 @@ section.contact-section
             opacity: 1
 
 .contact 
-    padding: 0 100px
+    padding: 30px
+    @media (min-width: map_get($grid-breakpoints, xl)) 
+        padding: 0 100px
     &__item 
         display: flex
         justify-content: flex-between
@@ -38,9 +42,16 @@ section.contact-section
         p 
             text-align: right
             flex-grow: 1
+            line-height: 1
+            font-size: 14px
+            @media (min-width: map_get($grid-breakpoints, xl)) 
+                font-size: 16px
         a 
             display: inline-block
             margin-bottom: 10px
+            font-size: 14px
+            @media (min-width: map_get($grid-breakpoints, xl)) 
+                font-size: 16px
             &:hover 
                 color: $primary
             

@@ -24,24 +24,42 @@ section.front-priview-section
         transition: all 0.5s ease
         z-index: 2
     .content 
-        padding: 40px 70px
+        width: 100%
+        height: 100%
+        padding: 15px
         display: flex
         flex-direction: column
-        justify-content: flex-end
+        justify-content: center
         @extend %absolute
         z-index: 3
+        position: absolute
+        left: 0 
+        top: 0 
+        @media (min-width: map_get($grid-breakpoints, xl)) 
+            transform: translateY(-50px)
+            top: 100% 
+            padding: 0 70px
+            justify-content: flex-start
         &__title 
             color: #fff
             transition: all 0.5s ease
+            font-size: 14px
+            @media (min-width: map_get($grid-breakpoints, xl))
+                font-size: 1.75rem
         &__text 
             padding: 30px 0
+            display: none
+            @media (min-width: map_get($grid-breakpoints, xl))
+                display: block
         &__link 
             font-size: 12px
             font-weight: bold
             color: #333 
-            display: inline-flex
             align-items: center
             padding-bottom: 20px
+            display: none
+            @media (min-width: map_get($grid-breakpoints, xl))
+                display: inline-flex
             span 
                 position: relative
                 display: inline-block
@@ -72,6 +90,11 @@ section.front-priview-section
         top: 0 
     .content__title 
         color: #333
+    .content 
+        @media (min-width: map_get($grid-breakpoints, xl)) 
+            padding: 40px 70px
+            transform: translateY(0)
+            top: 0
 
 
 .slide-wrap 

@@ -3,17 +3,27 @@
 
 .menu 
     position: fixed
-    background-color: rgba(30, 36, 42, 0.95)
-    top: 40px 
+    background-color: #292F35
+    top: 50px 
     left: 0 
     right: 0
     bottom: 0
     z-index: 9
-    padding-top: 50px
     transform: translateY(-110%)
     transition: all 0.5s ease
+    padding-left: 50px
+    overflow: scroll
+    @media (min-width: map_get($grid-breakpoints, xl))
+        padding-left: 0
+        padding-top: 40px
+        overflow: hidden
+        background-color: rgba(30, 36, 42, 0.95)
     &-content 
-        border-top: 1px dotted #5B6670
+        padding: 20px
+        border-left: 1px dotted #5B6670
+        @media (min-width: map_get($grid-breakpoints, xl)) 
+            border-top: 1px dotted #5B6670
+            padding: 0
     &--open 
         transform: translateY(0)
 
@@ -21,18 +31,24 @@
     @extend .close-modal 
     right: auto
     left: 20px 
-    top: 20px
-    
+    top: 11px
+    transform: rotate(-90deg) translate(-100%, 50%)
+    transform-origin: 0
+    @media (min-width: map_get($grid-breakpoints, xl)) 
+        transform: none
 .menu-item 
     position: relative
     &:before 
         content: ''
-        width: 100%
+        height: 100%
+        width: 3px
         position: absolute
-        left: 0 
+        left: -37px
         top: 0 
-        height: 3px
         transition: all 0.5s ease
+        @media (min-width: map_get($grid-breakpoints, xl)) 
+            width: 100%
+            height: 3px
     &--active 
         &:before 
             background-color: $primary
@@ -41,14 +57,19 @@
         font-family: $headings-font-family
         font-size: 16px
         color: #fff
-        padding: 20px 0 40px 0
+        padding: 15px 0
+        @media (min-width: map_get($grid-breakpoints, xl)) 
+            padding: 20px 0 40px 0
 
 .list-link 
-    padding: 10px 0
-    font-size: 14px
+    font-size: 12px
     color: #6A7C87
     display: flex
     align-items: center
+    padding: 5px 0 5px 15px
+    @media (min-width: map_get($grid-breakpoints, xl))
+        padding: 10px 0
+        font-size: 14px
     &:hover 
         color: #fff
         
@@ -67,18 +88,24 @@
     
 
 .menu-drop 
-    position: fixed
-    left: 20px
-    width: calc(100vw - 60px)
-    transform: translateX(-120%)
-    background-color: #2B333A
-    padding: 15px 15px 15px 65px
-    transition: transform 0.5s
-    z-index: 1
+    transition: height 0.5s
+    overflow: hidden
+    @media (min-width: map_get($grid-breakpoints, xl))
+        position: fixed
+        left: 20px
+        width: calc(100vw - 60px)
+        transform: translateX(-120%)
+        background-color: #2B333A
+        padding: 15px 15px 15px 65px
+        z-index: 1
+        transition: transform 0.5s
     &__title 
         color: #fff 
         position: relative
         padding-bottom: 40px
+        display: none
+        @media (min-width: map_get($grid-breakpoints, xl))
+            display: block
         &:after 
             content: ''
             position: absolute
@@ -88,34 +115,48 @@
             width: 100px
             background-color: $primary
     &--open 
-        transform: translateX(0)
+        @media (min-width: map_get($grid-breakpoints, xl))
+            transform: translateX(0)
 
 
 .drop-slider
+    flex-direction: column
+    padding-left: 40px
+    @media (min-width: map_get($grid-breakpoints, xl))
+        display: block
+        flex-direction: row
     &__item 
-        width: 12.5%
-        padding: 0 2px
-        transition: 0.5s ease transform
+        @media (min-width: map_get($grid-breakpoints, xl))
+            width: 12.5%
+            padding: 0 2px
+            transition: 0.5s ease transform
         .content
-            padding: 20px 0
+            @media (min-width: map_get($grid-breakpoints, xl))
+                padding: 20px 0
             &__img 
                 @extend %bg-cover
                 width: 100%
                 padding-top: 125/180*100%
+                display: none
+                @media (min-width: map_get($grid-breakpoints, xl))
+                    display: block
             &__title 
-                padding-top: 20px
+                padding: 10px 0
                 color: #fff
                 font-size: 12px
                 transition: all 0.5s ease
+                @media (min-width: map_get($grid-breakpoints, xl))
+                    padding-top: 20px
         &:hover 
             .content__title 
                 color: $primary
     &--minlenght 
-        display: flex
-        align-items: start
-        justify-content: space-around
-        .drop-slider__item
-            width: 12.5%
+        @media (min-width: map_get($grid-breakpoints, xl))
+            display: flex
+            align-items: start
+            justify-content: space-around
+            .drop-slider__item
+                width: 12.5%
 
 
 

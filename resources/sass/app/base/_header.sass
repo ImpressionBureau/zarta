@@ -1,5 +1,4 @@
 
-
 header.header 
     position: fixed 
     align-items: center
@@ -8,24 +7,31 @@ header.header
     width: 100% 
     left: 0 
     top: 0 
-    padding: 0 30px
     display: flex
     align-items: center
     z-index: 10
+    transition: all 0.5s ease
+    @media (min-width: map_get($grid-breakpoints, xl)) 
+        padding: 0 30px
     &--front 
-        position: absolute
-        top: auto 
-        bottom: 0
+        @media (min-width: map_get($grid-breakpoints, xl)) 
+            position: absolute
+            top: auto 
+            bottom: 0
 
 .nav-btn 
     height: 100%
-    padding: 0 25px
+    width: 51px
     border-left: 1px dotted #5F666C
     border-right: 1px dotted #5F666C
     cursor: pointer
+    @media (min-width: map_get($grid-breakpoints, xl)) 
+        padding: 0 25px
+        width: auto
     &__icon 
         fill: $primary 
-        margin-right: 15px
+        @media (min-width: map_get($grid-breakpoints, xl)) 
+            margin-right: 15px
     &__title 
         text-transform: uppercase
         color: #fff
@@ -38,8 +44,13 @@ header.header
             color: #6A7C87
 
 .header-logo 
-    padding: 10px 30px
+    padding: 10px 0
     height: 100% 
+    flex-grow: 1
+    text-align: center
+    @media (min-width: map_get($grid-breakpoints, xl)) 
+        padding: 10px 30px
+        flex-grow: 0
     img 
         height: 100% 
         width: auto 

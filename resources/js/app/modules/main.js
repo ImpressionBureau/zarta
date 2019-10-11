@@ -58,24 +58,24 @@ window.addEventListener('scroll', function () {
 
 
 
-if (window.innerWidth > 992) {
-    for (i = 0; i < frontPreviews.length; i++) {
+// if (window.innerWidth > 992) {
+//     for (i = 0; i < frontPreviews.length; i++) {
 
-        let frontPreview = frontPreviews[i];
-        let frontPreviewText = frontPreview.querySelector('.slide-wrap');
-        let frontPreviewTextHeight = frontPreviewText.offsetHeight;
+//         let frontPreview = frontPreviews[i];
+//         let frontPreviewText = frontPreview.querySelector('.slide-wrap');
+//         let frontPreviewTextHeight = frontPreviewText.offsetHeight;
 
-        frontPreviewText.style.height = 0;
+//         frontPreviewText.style.height = 0;
 
-        frontPreview.onmouseenter = function () {
-            frontPreviewText.style.height = frontPreviewTextHeight + 'px';
-        }
-        frontPreview.onmouseleave = function () {
-            frontPreviewText.style.height = 0;
-        }
+//         frontPreview.onmouseenter = function () {
+//             frontPreviewText.style.height = frontPreviewTextHeight + 'px';
+//         }
+//         frontPreview.onmouseleave = function () {
+//             frontPreviewText.style.height = 0;
+//         }
 
-    }
-}
+//     }
+// }
 
 if (priceItem.length > 0) {
     priceItem.forEach(function (item) {

@@ -4,11 +4,13 @@
     <div class="team">
         <div class="team-slider">
             @foreach ($team as $teammate)
-            <div class="teammate">
-                <div class="teammate__img" style="background-image: url({{$teammate->getFirstMedia('command')->getFullUrl()}})"></div>
+                <a href="#" class="teammate">
+                    <div class="teammate__img">
+                        <img src="{{$teammate->getFirstMedia('command')->getFullUrl()}}" alt="">
+                    </div>
                 <h4 class="teammate__name">{{$teammate->title}}</h4>
                 <p class="teammate__position">{{$teammate->content->body}}</p>
-            </div>
+                </a>
             @endforeach
         </div>
 

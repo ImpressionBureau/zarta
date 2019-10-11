@@ -17,7 +17,7 @@
                     <h3 class="form__title">Записатись на прийом</h3>
                     <p class="form__description">Бажаєте поставити запитання, уточнити деталі або в чомусь сумніваєтеся? Будь ласка, залиште свій номер - ми обов'язково вам допоможемо</p>
 
-                    <div class="modal-price">Ультразвукова терапія (сеанс триває 6-8 хв) <span class="modal-price__amount">300грн</span></div>
+                    <div class="modal-price"></div>
 
                     <div class="field">
                         <label for="modal-id1">Ваше имя</label>

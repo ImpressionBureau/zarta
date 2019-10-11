@@ -70,7 +70,10 @@ button
         background-color: #F2F2F2
         flex-grow: 1
     span 
-        padding: 0 100px
+        padding: 0 40px
+        text-align: center
+        @media (min-width: map_get($grid-breakpoints, xl)) 
+            padding: 0 100px
 
 .section-title--other 
     color: #fff 

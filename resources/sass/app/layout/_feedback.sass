@@ -1,5 +1,6 @@
 section.feedback-section 
-    margin: 0 -15px
+    @media (min-width: map_get($grid-breakpoints, xl)) 
+        margin: 0 -15px
     &:before 
         content: ''
         height: 40px
@@ -34,7 +35,8 @@ section.feedback-section
         @extend %absolute
 
 .texting-feedback
-    padding: 50px 70px 0 70px
+    @media (min-width: map_get($grid-breakpoints, xl)) 
+        padding: 50px 70px 0 70px
     &__title 
         text-transform: uppercase
         font-size: 20px 
@@ -42,6 +44,10 @@ section.feedback-section
 
 .texting-slider 
     &__item 
+        overflow: visible
+        padding-bottom: 50px
+        @media (min-width: map_get($grid-breakpoints, xl)) 
+            padding-bottom: 0
         .avatar 
             padding-top: 100% 
             @extend %bg-cover 
@@ -81,12 +87,14 @@ section.feedback-section
 
 .appointment
     margin-top: 50px
-    padding: 85px 
+    padding: 50px 30px 
     background-color: $primary 
     color: #fff 
     background-image: url(../images/icons/btn-bg.svg)
     @extend %bg-cover
     position: relative
+    @media (min-width: map_get($grid-breakpoints, xl)) 
+        padding: 85px
     &:before 
         content: ''
         position: absolute

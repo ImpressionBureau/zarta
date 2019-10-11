@@ -16,9 +16,13 @@ section.article-section
 section.blog-section 
     overflow: visible
     background-color: #F4F4F4
+    padding-top: 50px
+    @media (min-width: map_get($grid-breakpoints, xl)) 
+        padding-top: 0
 
 .blog-content 
-    transform: translateY(-100px)
+    @media (min-width: map_get($grid-breakpoints, xl)) 
+        transform: translateY(-100px)
 
 .article 
     padding: 4px

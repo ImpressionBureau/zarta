@@ -1,6 +1,8 @@
 section.team-section
-	padding: 120px 0
+	padding: 50px 0
 	background-color: #F2F5F8
+	@media (min-width: map_get($grid-breakpoints, xl)) 
+		padding: 120px 0
 
 .team 
 	position: relative
@@ -10,8 +12,15 @@ section.team-section
 	width: 100%
 
 .teammate 
-	width: 25%
+	width: 100%
 	position: relative
+	transition: none
+	@media (min-width: map_get($grid-breakpoints, sm)) 
+		width: 50%
+	@media (min-width: map_get($grid-breakpoints, md)) 
+		width: 33.3333%
+	@media (min-width: map_get($grid-breakpoints, xl)) 
+		width: 25%
 	&:after 
 		content: ''
 		position: absolute
@@ -24,22 +33,34 @@ section.team-section
 	&__img 
 		width: 100%
 		padding-top: 100%
-		@extend %bg-cover
+		overflow: hidden
+		background-color: #ccc
+		img 
+			position: absolute
+			width: 100%
+			height: auto 
+			left: 0 
+			top: 0
+			filter: grayscale(1)
+			transition: all 0.5s ease
 	&__name 
 		color: #222 
 		font-size: 16px
 		text-align: center
 		font-family: $font-family-base
 		font-weight: bold
-		padding: 25px 0
+		padding: 25px 30px
 	&__position 
 		color: #555 
 		text-align: center
 		font-size: 14px
-		padding-bottom: 25px
+		padding: 0 30px 25px 30px
 	&:hover 
 		&:after 
 			background-color: $primary
+		.teammate__img 
+			img 
+				filter: grayscale(0)
 
 
 
