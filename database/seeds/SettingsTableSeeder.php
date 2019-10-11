@@ -19,8 +19,8 @@ class SettingsTableSeeder extends Seeder
             'facebook' => 'https://www.facebook.com/',
             'instagram' => 'https://www.instagram.com/',
             'youtube' => 'https://www.youtube.com/',
-            'latitude' => '30.510974',
-            'longitude' => '50.449998'
+            'latitude' => '35.094240',
+            'longitude' => '47.828660'
         ]);
         $setting->addMediaFromUrl($faker->imageUrl(1920, 900))
             ->toMediaCollection('banner');

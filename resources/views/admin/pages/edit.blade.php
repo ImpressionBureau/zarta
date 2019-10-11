@@ -37,6 +37,12 @@
                                         </div>
                                     @endif
                                 </div>
+                                @if($page->slug == 'about')
+                                    <wysiwyg class="mb-0"
+                                             content="{{ old('body') ?? $page->translate('content', $lang)['body'] }}"
+                                             name="{{$lang}}[content][body]"
+                                             label="Текст новости"></wysiwyg>
+                                @endif
                             </fieldset>
 
                         @endforeach
@@ -44,9 +50,16 @@
                     <hr class="my-5">
                 </div>
                 <div class="col-md-4">
-                    <image-uploader ratio="67%" name="page"
-                                    image-id="{{ optional($page->getFirstMedia('page'))->id }}"
-                                    src="{{ $page->getFirstMediaUrl('page') }}"></image-uploader>
+                    @if($page->slug == 'about')
+                        <multi-uploader
+                                class="mt-4"
+                                :src="{{ json_encode($page->images_list) }}"></multi-uploader>
+                    @else
+                        <image-uploader ratio="67%" name="page"
+                                        image-id="{{ optional($page->getFirstMedia('page'))->id }}"
+                                        src="{{ $page->getFirstMediaUrl('page') }}"></image-uploader>
+
+                    @endif
                 </div>
             </div>
             <div class="mt-4">

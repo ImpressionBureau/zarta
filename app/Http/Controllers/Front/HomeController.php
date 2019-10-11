@@ -14,14 +14,12 @@ class HomeController extends Controller
     public function index()
     {
         $directions = Direction::latest()->take(6)->get();
-        $ids = [1,2,3];
-        $pages= Page::where(function ($builder) use ($ids){
-            $builder->whereIn('id', $ids);
-        })->get();
+        $pages= Page::inRandomOrder()->take(3)->get();
         $team = Command::get();
-        $reviews_video = Review::has('video')->first();
+        $reviews_video = Review::whereNotNull('video')->first();
         $reviews = Review::get();
-        return view('app.home.index', compact('directions', 'pages', 'team', 'reviews_video', 'reviews'));
+        $about = Page::where('slug', 'about')->first();
+        return view('app.home.index', compact('directions', 'pages', 'team', 'reviews_video', 'reviews', 'about'));
     }
 }
 

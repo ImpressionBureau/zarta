@@ -24,7 +24,7 @@
     <main>
         @yield('content')
     </main>
-    @includeIf('partials.app.layout.footer')
+    @includeIf('partials.app.layouts.footer')
 
 </div>
 <script src="{{ asset('js/app.js') }}"></script>

@@ -1,28 +1,34 @@
 
-$(document).ready(function () {
+const fields = document.querySelectorAll('.field__item');
 
-    $(".field__item").focus(function () {
-        $(this).parents('.field').addClass('field--focus');
-    });
+fields.forEach(function (item) {
+    item.addEventListener("focus", function () {
+        
+        this.closest('.field').classList.add('field--focus');
+    })
 
-    $('.field__item').blur(function () {
-
-        let value = $(this).val();
+    item.addEventListener("blur", function () {
+        let value = this.value;
 
         if (value === "") {
-            $(this).parents('.field').removeClass('field--focus');
+            this.closest('.field').classList.remove('field--focus');
         } else {
-            $(this).parents('.field').addClass('field--focus');
+            this.closest('.field').classList.add('field--focus');
         }
-    });
 
-    let value = $('.field__item').val();
+    })
 
-    if (value === "") {
-        $('.field__item').parents('.field').removeClass('field--focus');
-    } else {
-        $('.field__item').parents('.field').addClass('field--focus');
-    }
+})
+
+
+// let value = $('.field__item').val();
+
+// if (value === "") {
+//     $('.field__item').parents('.field').removeClass('field--focus');
+// } else {
+//     $('.field__item').parents('.field').addClass('field--focus');
+// }
+
 
 
 
@@ -48,25 +54,23 @@ $(document).ready(function () {
 
 
 
-    var $page = $('html, body');
-    $('a.anchor').click(function () {
+    // var $page = $('html, body');
+    // $('a.anchor').click(function () {
 
-        $('.header-sidebar__btn').removeClass('header-sidebar__btn--open');
-        $('.sidebar-menu').removeClass('sidebar-menu--open');
-        $('body').removeClass('body-menu-open');
-        $('html').removeClass('html-menu-open');
-        $('.sidebar-backpage').fadeOut();
+    //     $('.header-sidebar__btn').removeClass('header-sidebar__btn--open');
+    //     $('.sidebar-menu').removeClass('sidebar-menu--open');
+    //     $('body').removeClass('body-menu-open');
+    //     $('html').removeClass('html-menu-open');
+    //     $('.sidebar-backpage').fadeOut();
 
-        // $('.sidebar-menu').removeClass('sidebar-menu--open');
+    //     // $('.sidebar-menu').removeClass('sidebar-menu--open');
 
-        $page.animate({
-            scrollTop: $($.attr(this, 'href')).offset().top - 80
-        }, 500);
-        return false;
+    //     $page.animate({
+    //         scrollTop: $($.attr(this, 'href')).offset().top - 80
+    //     }, 500);
+    //     return false;
 
-    });
+    // });
 
 
-
-});
 

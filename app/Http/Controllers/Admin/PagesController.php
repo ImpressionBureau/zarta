@@ -6,6 +6,7 @@ use App\Models\Page;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
+use Spatie\MediaLibrary\Models\Media;
 
 class PagesController extends Controller
 {
@@ -30,7 +31,24 @@ class PagesController extends Controller
             $page->addMediaFromRequest('page')
                 ->toMediaCollection('page');
         }
+        $this->handleMedia($request, $page);
         return \redirect()->route('admin.pages.index')
             ->with('message', 'Запись успешно сохранена.');
+    }
+
+    /**
+     * @param Request $request
+     * @param Page $page
+     */
+    private function handleMedia(Request $request, Page $page): void
+    {
+        if ($request->filled('media')) {
+            foreach ($request->input('media') as $media) {
+                Media::find($media)->update([
+                    'model_type' => Page::class,
+                    'model_id' => $page->id,
+                ]);
+            }
+        }
     }
 }

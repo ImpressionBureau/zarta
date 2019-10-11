@@ -9,8 +9,14 @@ const toggleLangMenu = () => {
 }
 
 const frontPreviews = document.querySelectorAll('.front-priview');
+const priceItem = document.querySelectorAll('.price');
+const priceBtn = document.querySelectorAll('.btn--price');
 
-const mapBg = document.querySelector('.map__bg');
+const openModalBtn = document.querySelectorAll('.modal-btn');
+const closeModalBtn = document.querySelector('.close-modal');
+const modal = document.querySelector('.custom-modal');
+const modalMask = document.querySelector('.modal-mask');
+
 
 
 
@@ -52,7 +58,7 @@ window.addEventListener('scroll', function () {
 
 
 
-if ($(window).width() > 992) {
+if (window.innerWidth > 992) {
     for (i = 0; i < frontPreviews.length; i++) {
 
         let frontPreview = frontPreviews[i];
@@ -71,12 +77,143 @@ if ($(window).width() > 992) {
     }
 }
 
+if (priceItem.length > 0) {
+    priceItem.forEach(function (item) {
 
-if (mapBg != null) {
-    // console.log(mapBg)
-    mapBg.addEventListener('click', function () {
-        this.remove();
-    });
+        let priceBtn = item.querySelector('.btn--price');
+        let priceButtonsWidth = priceBtn.offsetWidth;
+        priceBtn.style.width = 0;
+
+        item.onmouseenter = function () {
+            priceBtn.style.width = priceButtonsWidth + 'px';
+        }
+        item.onmouseleave = function () {
+            priceBtn.style.width = 0;
+        }
+
+    })
 }
+
+
+// modal & prices
+
+
+openModalBtn.forEach(function (item) {
+
+    item.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        openModal();
+
+    });
+
+})
+
+modalMask.addEventListener('click', function () {
+    closeModal();
+});
+
+closeModalBtn.addEventListener('click', function () {
+    closeModal();
+});
+
+priceBtn.forEach(function (item) {
+
+    item.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        let priceWrap = item.closest('.price');
+        let priceTitle = priceWrap.querySelector('.price__title').innerText;
+        let priceAmount = priceWrap.querySelector('.value').innerText;
+        let priceId = priceWrap.id;
+        let modalPriceElem = modal.querySelector('.modal-price');
+
+        modalPriceElem.innerHTML = `${priceTitle}<span class="modal-price__amount">${priceAmount}грн</span>`;
+        modalPriceElem.style.display = 'flex';
+
+        modal.querySelector('.form').insertAdjacentHTML('afterbegin', `<input id="inp-price-id" type="hidden" name="price-id" value="${priceId}">`);
+
+        modal.classList.add('custom-modal--price');
+
+        openModal();
+
+    });
+
+})
+
+
+
+function openModal() {
+    modal.classList.add('custom-modal--open');
+    modalMask.classList.add('modal-mask--open');
+};
+
+function closeModal() {
+    modal.classList.remove('custom-modal--open');
+    modalMask.classList.remove('modal-mask--open');
+
+    if (modal.classList.contains('custom-modal--price')) {
+        modal.classList.remove('custom-modal--price');
+        modal.querySelector('.modal-price').style.display = 'none';
+        modal.querySelector('#inp-price-id').remove();
+    }
+};
+
+
+
+
+// tabs 
+
+const tabNavBtn = document.querySelectorAll('.tab-nav');
+// const closeModalBtn = document.querySelector('.close-modal');
+
+
+tabNavBtn.forEach(function (item, index) {
+
+    let idTabContent = item.getAttribute('data-target');
+    let tabContent = document.getElementById(idTabContent);
+    let tabContentHeight = tabContent.offsetHeight;
+
+    if (index == 0) {
+        item.classList.add('tab-nav--active');
+        tabContent.classList.add('tab-content--active');
+        tabContent.style.height = tabContentHeight + 'px';
+    } else {
+        tabContent.style.height = 0;
+    }
+
+    item.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        if (!this.classList.contains('tab-nav--active')) {
+            document.querySelector('.tab-nav--active').classList.remove('tab-nav--active');
+            this.classList.add('tab-nav--active');
+
+            let activeTabContent = document.querySelector('.tab-content--active');
+            activeTabContent.classList.remove('tab-content--active');
+            activeTabContent.style.height = 0;
+
+            tabContent.style.height = tabContentHeight + 'px';
+            tabContent.classList.add('tab-content--active');
+        } else {
+            return;
+        }
+
+
+    })
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 

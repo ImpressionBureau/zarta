@@ -7,4 +7,5 @@ Route::group([
     'namespace' => 'Front',
 ], function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::post('locale', 'LocalesController')->name('locale');
 });

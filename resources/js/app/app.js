@@ -12,4 +12,6 @@ require('./modules/form');
 
 require('./modules/acordion');
 
+require('./locales');
+
 

@@ -1,0 +1,135 @@
+
+
+
+.menu 
+    position: fixed
+    background-color: rgba(30, 36, 42, 0.95)
+    top: 40px 
+    left: 0 
+    right: 0
+    bottom: 0
+    z-index: 9
+    padding-top: 50px
+    transform: translateY(-110%)
+    transition: all 0.5s ease
+    &-content 
+        border-top: 1px dotted #5B6670
+    &--open 
+        transform: translateY(0)
+
+.close-menu 
+    @extend .close-modal 
+    right: auto
+    left: 20px 
+    top: 20px
+    
+.menu-item 
+    position: relative
+    &:before 
+        content: ''
+        width: 100%
+        position: absolute
+        left: 0 
+        top: 0 
+        height: 3px
+        transition: all 0.5s ease
+    &--active 
+        &:before 
+            background-color: $primary
+    &__title 
+        display: block
+        font-family: $headings-font-family
+        font-size: 16px
+        color: #fff
+        padding: 20px 0 40px 0
+
+.list-link 
+    padding: 10px 0
+    font-size: 14px
+    color: #6A7C87
+    display: flex
+    align-items: center
+    &:hover 
+        color: #fff
+        
+
+.menu-drop-btn 
+    svg 
+        margin-left: 20px
+        fill: #6A7C87
+    &--open 
+        color: $primary 
+        svg 
+            fill: #fff 
+            transform: rotate(90deg)
+        &:hover 
+            color: $primary 
+    
+
+.menu-drop 
+    position: fixed
+    left: 20px
+    width: calc(100vw - 60px)
+    transform: translateX(-120%)
+    background-color: #2B333A
+    padding: 15px 15px 15px 65px
+    transition: transform 0.5s
+    z-index: 1
+    &__title 
+        color: #fff 
+        position: relative
+        padding-bottom: 40px
+        &:after 
+            content: ''
+            position: absolute
+            height: 3px
+            left: 0 
+            bottom: 0 
+            width: 100px
+            background-color: $primary
+    &--open 
+        transform: translateX(0)
+
+
+.drop-slider
+    &__item 
+        width: 12.5%
+        padding: 0 2px
+        transition: 0.5s ease transform
+        .content
+            padding: 20px 0
+            &__img 
+                @extend %bg-cover
+                width: 100%
+                padding-top: 125/180*100%
+            &__title 
+                padding-top: 20px
+                color: #fff
+                font-size: 12px
+                transition: all 0.5s ease
+        &:hover 
+            .content__title 
+                color: $primary
+    &--minlenght 
+        display: flex
+        align-items: start
+        justify-content: space-around
+        .drop-slider__item
+            width: 12.5%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Resources\ImageResource;
 use App\Traits\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Image\Manipulations;
@@ -50,6 +51,11 @@ class Page extends Model implements HasMedia
                     ->width(385)
                     ->height(193);
             });
+    }
+
+    public function getImagesListAttribute()
+    {
+        return ImageResource::collection($this->getMedia('uploads'));
     }
 
 }

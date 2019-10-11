@@ -11,9 +11,11 @@
 
             <div class="item-body">
                 <div class="col-auto">
-
-                    @if ($page->hasMedia('page'))
-                        <img src="{{ $page->getFirstMediaUrl('page', 'thumb') }}" class="rounded-circle"
+                    @if($page->hasMedia('uploads'))
+                        <img src="{{ $page->getFirstMediaUrl('uploads','thumb') }}" class="rounded-circle"
+                             alt="{{ $page->name }}" style="width: 100px;">
+                    @elseif ($page->hasMedia('page'))
+                        <img src="{{ $page->getFirstMediaUrl('page','thumb') }}" class="rounded-circle"
                              alt="{{ $page->name }}" style="width: 100px;">
                     @else
                         <img src="{{ asset('images/no-image.png') }}" class="rounded-circle"

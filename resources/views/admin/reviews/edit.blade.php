@@ -3,6 +3,7 @@
 @section('content')
     <form action="{{ route('admin.reviews.update', $review) }}" method="post" enctype="multipart/form-data">
         @csrf
+        @method('patch')
         <div class="row">
             <div class="col-md-8">
                 <block-editor title="Новая статья">

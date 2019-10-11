@@ -14,10 +14,12 @@ section.acordion-section
         display: flex
         min-height: 50px 
         margin-bottom: 5px
+        cursor: pointer
         .title 
             flex-grow: 1
             padding: 13px 0 13px 30px
             font-size: 18px
+            transition: all 0.5s ease
         .icon 
             width: 50px
             min-width: 50px
@@ -25,11 +27,27 @@ section.acordion-section
             align-items: center
             justify-content: center
             background-color: $primary 
+            transition: all 0.5s ease
             svg 
                 fill: #fff
+                transition: all 0.5s ease
+        &:hover 
+            .title 
+                color: $primary
     &__content 
-        padding: 20px 60px 20px 30px
         background-color: #fff
+        overflow: hidden
+        transition: all 0.5s ease
         p 
+            padding: 20px 60px 20px 30px
             color: #555 
             font-size: 14px
+        
+.acordion--open 
+    .acordion__btn 
+        .title 
+            color: $primary
+        .icon 
+            background-color: #83919A
+            svg 
+                transform: rotate(135deg)

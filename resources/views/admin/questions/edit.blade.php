@@ -4,6 +4,7 @@
     <section>
         <form action="{{ route('admin.questions.update', $question) }}" method="post" enctype="multipart/form-data">
             @csrf
+            @method('patch')
 
 
             <block-editor title="Новая статья">

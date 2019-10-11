@@ -1,4 +1,8 @@
 <section class="intro-section d-flex flex-column align-items-center justify-content-center" style="background-image: url({{app('settings')->getFirstMedia('banner')->getFullUrl()}})">
+    <form action="{{ route('app.locale') }}" method="post" id="locale" style="display: none">
+        @csrf
+        <input type="hidden" name="locale">
+    </form>
     <div class="intro d-flex flex-column align-items-center justify-content-center">
         <a href="/" class="intro__logo">
             <img src="/images/logo.png" alt="">
@@ -24,35 +28,43 @@
         </a>
 
         <div class="language">
-            <a href="#" class="language__active d-flex align-items-center justify-content-center">RU</a>
+            <a href="#" class="language__active d-flex align-items-center justify-content-center">
+                @if(app()->getLocale() == 'uk' )
+                    ua
+                @else
+                    {{ app()->getLocale() }}
+                @endif
+            </a>
 
             <ul class="language__list">
-                <li>
-                    <a href="#">EN</a>
-                </li>
-                <li>
-                    <a href="#">RU</a>
-                </li>
-                <li>
-                    <a href="#">UA</a>
-                </li>
+                @foreach($locales as $locale)
+                    <li>
+                        <a href="#{{ $locale }}" class="locales">
+                            @if ($locale == 'uk')
+                                ua
+                            @else
+                                {{ $locale }}
+                            @endif
+                        </a>
+                    </li>
+                @endforeach
             </ul>
         </div>
 
         <div class="header-contacts ml-auto d-flex align-items-center justify-content-center">
-            <a href="#" class="header-contacts__item d-inline-flex align-items-center">
+            <a href="#map" class="header-contacts__item d-inline-flex align-items-center">
                 <svg class="img" width="15" height="15">
                     <use xlink:href="#pin-icon"></use>
                 </svg>
                 {{app('settings')->content->address}}
             </a>
-            <a href="#" class="header-contacts__item d-inline-flex align-items-center">
+            <a href="tel:{{phone_link(app('settings')->phone)}}" class="header-contacts__item d-inline-flex align-items-center">
                 <svg class="img" width="15" height="15">
                     <use xlink:href="#phone-icon"></use>
                 </svg>
                 {{app('settings')->phone}}
             </a>
-            <a href="#" class="header-contacts__item d-inline-flex align-items-center">
+            <a href="tel:{{phone_link(app('settings')->phone_additional)}}" class="header-contacts__item d-inline-flex align-items-center">
                 <svg class="img" width="15" height="15">
                     <use xlink:href="#phone-icon"></use>
                 </svg>
@@ -60,7 +72,8 @@
             </a>
         </div>
 
-        <a href="#" class="btn btn-primary"><span>@lang('common.main.appointments')</span></a>
+        <a href="#" class="btn btn-primary btn--short modal-btn"><span>@lang('common.main.appointments')</span></a>
+        @include('partials.app.layouts.appointments-form')
     </header>
 
 </section>

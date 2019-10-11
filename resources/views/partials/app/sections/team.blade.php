@@ -3,7 +3,6 @@
 
     <div class="team">
         <div class="team-slider">
-
             @foreach ($team as $teammate)
             <div class="teammate">
                 <div class="teammate__img" style="background-image: url({{$teammate->getFirstMedia('command')->getFullUrl()}})"></div>
@@ -11,7 +10,6 @@
                 <p class="teammate__position">{{$teammate->content->body}}</p>
             </div>
             @endforeach
-
         </div>
 
         <div class="team-arrow team-arrow--prev">
