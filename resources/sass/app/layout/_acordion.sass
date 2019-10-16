@@ -17,9 +17,12 @@ section.acordion-section
         cursor: pointer
         .title 
             flex-grow: 1
-            padding: 13px 0 13px 30px
-            font-size: 18px
+            padding: 10px
+            font-size: 16px
             transition: all 0.5s ease
+            @media (min-width: map_get($grid-breakpoints, xl)) 
+                padding: 13px 0 13px 30px
+                font-size: 18px
         .icon 
             width: 50px
             min-width: 50px
@@ -39,9 +42,11 @@ section.acordion-section
         overflow: hidden
         transition: all 0.5s ease
         p 
-            padding: 20px 60px 20px 30px
+            padding: 20px 15px
             color: #555 
             font-size: 14px
+            @media (min-width: map_get($grid-breakpoints, xl)) 
+                padding: 20px 60px 20px 30px
         
 .acordion--open 
     .acordion__btn 

@@ -25,7 +25,7 @@ class Direction extends Model implements HasMedia
 
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class , 'category_id');
     }
 
     /**

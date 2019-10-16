@@ -1,7 +1,7 @@
-<section class="contact-section">
+<section id="map" class="contact-section">
     <div class="container-fluid">
-        <div class="row align-items-center no-gutters">
-            <div class="col-xl-4">
+        <div class="row align-items-center justify-content-center no-gutters">
+            <div class="col-12 col-sm-8 col-md-6 col-xl-4">
                 <div class="contact">
                     <h3 class="contact__title mb-5">@lang('common.contacts.title')</h3>
 
@@ -28,8 +28,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div id="map" class="map" data-long="{{app('settings')->latitude}}" data-lat="{{app('settings')->longitude}}" data-icon="../images/map-pin.png">
+            <div class="col-12 col-xl">
+                <div id="contact-map" class="map" data-long="{{app('settings')->latitude}}" data-lat="{{app('settings')->longitude}}" data-icon="../images/map-pin.png">
                     <div class="map__bg">
                         <h3>@lang('common.contacts.map')</h3>
                     </div>

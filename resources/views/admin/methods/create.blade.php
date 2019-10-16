@@ -26,12 +26,15 @@
                                         </div>
                                     @endif
                                 </div>
-                                <wysiwyg class="mb-0"
+
+                                <label for="navigation">Навигация по статье</label>
+                                <wysiwyg class="mb-2" id="navigation"
                                          content="{{ old('navigation') }}"
                                          name="{{$lang}}[content][navigation]"
                                          label="Навигация по статье"></wysiwyg>
 
-                                <wysiwyg class="mb-0"
+                                <label for="body">Текст метода лечения</label>
+                                <wysiwyg class="mb-0" id="body"
                                          content="{{ old('body') }}"
                                          name="{{$lang}}[content][body]"
                                          label="Текст метода лечения"></wysiwyg>

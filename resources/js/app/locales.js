@@ -4,6 +4,7 @@ Array.from(locales).forEach(l => {
   l.addEventListener('click', () => {
     event.preventDefault();
     form.querySelector('[name="locale"]').value = event.target.innerText;
+    console.log(form.querySelector('[name="locale"]').value);
     form.submit();
   });
 });

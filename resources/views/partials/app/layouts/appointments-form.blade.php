@@ -14,18 +14,18 @@
             </div>
             <div class="col-xl-6">
                 <div class="form">
-                    <h3 class="form__title">Записатись на прийом</h3>
-                    <p class="form__description">Бажаєте поставити запитання, уточнити деталі або в чомусь сумніваєтеся? Будь ласка, залиште свій номер - ми обов'язково вам допоможемо</p>
+                    <h3 class="form__title">@lang('common.form.title')</h3>
+                    <p class="form__description">@lang('common.form.description')</p>
 
                     <div class="modal-price"></div>
 
                     <div class="field">
-                        <label for="modal-id1">Ваше имя</label>
+                        <label for="modal-id1">@lang('common.form.name')</label>
                         <input id="modal-id1" type="text" class="field__item">
                     </div>
 
                     <div class="field">
-                        <label for="modal-id2">Номер телефона</label>
+                        <label for="modal-id2">@lang('common.form.phone')</label>
                         <input id="modal-id2" type="text" class="field__item">
                     </div>
 
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="field">
-                        <button class="btn btn-primary"><span>ЗАПИСАТИСЬ</span></button>
+                        <button class="btn btn-primary"><span>@lang('common.form.btn')</span></button>
                     </div>
                 </div>
             </div>

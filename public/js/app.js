@@ -22363,6 +22363,7 @@ Array.from(locales).forEach(function (l) {
   l.addEventListener('click', function () {
     event.preventDefault();
     form.querySelector('[name="locale"]').value = event.target.innerText;
+    console.log(form.querySelector('[name="locale"]').value);
     form.submit();
   });
 });
@@ -22694,21 +22695,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var Flickity__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(Flickity__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var flickity_dist_flickity_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! flickity/dist/flickity.css */ "./node_modules/flickity/dist/flickity.css");
 /* harmony import */ var flickity_dist_flickity_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(flickity_dist_flickity_css__WEBPACK_IMPORTED_MODULE_1__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
 if (document.querySelector('.team-slider')) {
-  var _ref;
-
-  var flktyA = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a('.team-slider', (_ref = {
+  var flktyA = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a('.team-slider', {
     wrapAround: true,
     prevNextButtons: false,
-    pageDots: true,
     cellAlign: 'left',
-    draggable: false
-  }, _defineProperty(_ref, "pageDots", false), _defineProperty(_ref, "contain", true), _defineProperty(_ref, "pauseAutoPlayOnHover", true), _defineProperty(_ref, "initialIndex", 0), _ref));
+    draggable: false,
+    pageDots: false,
+    contain: true,
+    pauseAutoPlayOnHover: true,
+    initialIndex: 0
+  });
   var prevArrowReviews = document.querySelector('.team-arrow--prev');
   prevArrowReviews.addEventListener('click', function () {
     flktyA.previous(true, false);
@@ -22720,15 +22720,16 @@ if (document.querySelector('.team-slider')) {
 }
 
 if (document.querySelector('.texting-slider')) {
-  var _ref2;
-
-  var _flktyA = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a('.texting-slider', (_ref2 = {
+  var _flktyA = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a('.texting-slider', {
     wrapAround: true,
     prevNextButtons: false,
-    pageDots: true,
     cellAlign: 'left',
-    draggable: false
-  }, _defineProperty(_ref2, "pageDots", false), _defineProperty(_ref2, "contain", true), _defineProperty(_ref2, "pauseAutoPlayOnHover", true), _defineProperty(_ref2, "initialIndex", 0), _ref2));
+    draggable: false,
+    pageDots: false,
+    contain: true,
+    pauseAutoPlayOnHover: true,
+    initialIndex: 0
+  });
 
   var prevArrowReviews = document.querySelector('.texting-arrow--left');
   prevArrowReviews.addEventListener('click', function () {
@@ -22743,15 +22744,16 @@ if (document.querySelector('.texting-slider')) {
 var aboutSliderItem = document.querySelectorAll('.about-slider__item');
 
 if (document.querySelector('.about-slider') && aboutSliderItem.length > 1) {
-  var _ref3;
-
-  var _flktyA2 = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a('.about-slider', (_ref3 = {
+  var _flktyA2 = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a('.about-slider', {
     wrapAround: true,
     prevNextButtons: false,
-    pageDots: true,
     cellAlign: 'left',
-    draggable: false
-  }, _defineProperty(_ref3, "pageDots", false), _defineProperty(_ref3, "contain", true), _defineProperty(_ref3, "pauseAutoPlayOnHover", true), _defineProperty(_ref3, "initialIndex", 0), _ref3));
+    draggable: false,
+    pageDots: false,
+    contain: true,
+    pauseAutoPlayOnHover: true,
+    initialIndex: 0
+  });
 
   var prevArrowReviews = document.querySelector('.about-arrow--left');
   prevArrowReviews.addEventListener('click', function () {
@@ -22767,15 +22769,16 @@ if (document.querySelector('.navigation-slider')) {
   var sliderItem = document.querySelectorAll('.navigation-slider__item');
 
   if (sliderItem.length > 8) {
-    var _ref4;
-
-    var _flktyA3 = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a('.navigation-slider', (_ref4 = {
+    var _flktyA3 = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a('.navigation-slider', {
       wrapAround: true,
       prevNextButtons: false,
-      pageDots: true,
       cellAlign: 'left',
-      draggable: false
-    }, _defineProperty(_ref4, "pageDots", false), _defineProperty(_ref4, "contain", true), _defineProperty(_ref4, "initialIndex", 0), _ref4));
+      draggable: false,
+      pageDots: false,
+      contain: true,
+      // pauseAutoPlayOnHover: true,
+      initialIndex: 0
+    });
 
     var sliderWrap = document.querySelector('.navigation');
     sliderWrap.insertAdjacentHTML('beforeend', '<div class="navigation-arrow navigation-arrow--prev"><svg width="7" height="12"><use xlink:href="#arrow-left"></use></svg></div><div class="navigation-arrow navigation-arrow--next"><svg width="7" height="12"><use xlink:href="#arrow-right"></use></svg></div>');
@@ -22860,27 +22863,33 @@ if (window.innerWidth > 1199) {
 
         if (menuItemActive) {
           menuItemActive.classList.remove('menu-item--active');
-        }
-
-        this.closest('.menu-item').classList.add('menu-item--active');
-
-        if (menuDropOpen) {
           menuDropOpen.querySelector('.drop-slider').classList.add('drop-slider--minlenght');
           menuDropOpen.classList.remove('menu-drop--open');
           flktyM.destroy();
         }
 
-        if (menuSliderItem.length > 8) {
-          var _ref5;
+        this.closest('.menu-item').classList.add('menu-item--active');
 
+        if (menuSliderItem.length > 8) {
           menuLocalSlider.classList.remove('drop-slider--minlenght');
-          flktyM = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a(menuLocalSlider, (_ref5 = {
+          flktyM = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a(menuLocalSlider, {
             wrapAround: true,
             prevNextButtons: false,
-            pageDots: true,
             cellAlign: 'left',
-            draggable: true
-          }, _defineProperty(_ref5, "pageDots", false), _defineProperty(_ref5, "contain", true), _defineProperty(_ref5, "initialIndex", 0), _ref5));
+            draggable: true,
+            pageDots: false,
+            contain: true,
+            initialIndex: 0
+          });
+          menuLocalSlider.insertAdjacentHTML('afterend', '<div class="menu-arrow menu-arrow--prev"><svg width="7" height="12"><use xlink:href="#arrow-left"></use></svg></div><div class="menu-arrow menu-arrow--next"><svg width="7" height="12"><use xlink:href="#arrow-right"></use></svg></div>');
+          var prevArrowReviews = document.querySelector('.menu-arrow--prev');
+          prevArrowReviews.addEventListener('click', function () {
+            flktyM.previous(true, false);
+          });
+          var nextArrowReviews = document.querySelector('.menu-arrow--next');
+          nextArrowReviews.addEventListener('click', function () {
+            flktyM.next(true, false);
+          });
         } else {
           menuLocalSlider.classList.add('drop-slider--minlenght');
         }

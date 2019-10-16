@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
+use App\Models\Direction;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -30,6 +32,9 @@ class AppServiceProvider extends ServiceProvider
 
         app()->singleton('settings', function () {
             return Setting::with('translates')->first();
+        });
+        app()->singleton('categories', function (){
+            return Category::with('translates')->get();
         });
         View::composer(['app.*', 'auth.*'], function () {
             View::share('locales', collect(config('app.locales'))->filter(function ($l) {

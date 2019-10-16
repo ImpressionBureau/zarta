@@ -3,20 +3,60 @@
 footer 
     background-image: url(../images/footer-bg.jpg)
     @extend %bg-cover
-    padding: 8px 30px 0 30px
+    @media (min-width: map_get($grid-breakpoints, xxl))
+        padding: 8px 30px 0 30px
 
 .footer-content
     border-top: 2px solid #526A77
     border-bottom: 2px solid #526A77
-    padding: 100px 150px
+    padding: 20px
+    @media (min-width: map_get($grid-breakpoints, xl))
+        padding: 30px
+    @media (min-width: map_get($grid-breakpoints, xxl))
+        padding: 100px 150px
+
+.footer-logo 
+    text-align: center
+    display: block
+    margin-bottom: 20px 
+    width: 100%
+    padding: 0 15px
+    img 
+        width: auto 
+        max-width: 100%
+        height: auto
+    @media (min-width: map_get($grid-breakpoints, xl))
+        margin-bottom: 0
+        padding: 0
+
+.footer-list 
+    a 
+        font-family: $headings-font-family 
+        font-size: 14px
+        color: #fff 
+        text-transform: uppercase
+        margin-bottom: 15px
+        text-align: center
+        @media (min-width: map_get($grid-breakpoints, xl))
+            text-align: left
+            margin-bottom: 25px
+        &:hover 
+            color: $primary
 
 .footer-dev 
     display: flex
     align-items: center
     justify-content: flex-between
+    flex-wrap: wrap
     padding: 15px 0
+    @media (min-width: map_get($grid-breakpoints, xl))
+        flex-wrap: nowrap
     &__item 
-        width: 33.3333%
+        width: 100%
+        text-align: center
+        @media (min-width: map_get($grid-breakpoints, xl))
+            text-align: left
+            width: 33.3333%
         p 
             font-size: 12px
             color: #526A77
@@ -25,25 +65,29 @@ footer
             color: #526A77
             span 
                 font-weight: bold
+                color: #fff
             &:hover 
                 span 
                     color: $primary
         .footer-social 
+            margin: 20px 0
+            @media (min-width: map_get($grid-breakpoints, xl))
+                margin: 0
             a 
                 text-transform: uppercase
                 font-weight: bold
+                color: #fff
                 &:hover 
                     color: $primary
 
-.footer-list 
-    a 
-        font-family: $headings-font-family 
+
+.footer-form 
+    margin-top: 50px
+    @media (min-width: map_get($grid-breakpoints, xl))
+        margin-top: 0
+    &__subtitle 
         font-size: 14px
-        color: #fff 
-        text-transform: uppercase
-        margin-bottom: 25px
-        &:hover 
-            color: $primary
+        color: #fff
 
 
 

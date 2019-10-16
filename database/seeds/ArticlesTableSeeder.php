@@ -26,7 +26,7 @@ class ArticlesTableSeeder extends Seeder
                     'lang' => $locale,
                     'title' => ucfirst($faker->sentence),
                     'content' => [
-                        'body' => '<p>'.implode('</p><p>', $faker->sentences(rand(3, 10))).'</p>'
+                        'body' => '<p>'.implode('</p><p>', $faker->sentences(rand(10, 30))).'</p>'
                     ]
                 ]);
             }

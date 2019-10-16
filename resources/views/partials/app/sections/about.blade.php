@@ -1,7 +1,7 @@
 <section class="about-section">
     <div class="container-fluid">
-        <div class="row justify-content-end align-items-center">
-            <div class="col-xl-4 offset-xl-1 order-xl-2 mb-4 mb-xl-0">
+        <div class="row justify-content-center justify-content-xl-end">
+            <div class="col-sm-8 col-md-6 col-lg-5 col-xl-4 offset-xl-1 order-xl-2 mb-4 mb-xl-0">
                 <div class="about-galery">
                     <div class="about-slider">
                         @foreach($about->getMedia('uploads') as $img)
@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 order-xl-1">
+            <div class="col-xl-5 col-xxl-4 order-xl-1">
 
                 <div class="section-decor section-decor--article">
                     <img src="../images/about-img.svg" alt="">

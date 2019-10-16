@@ -1,8 +1,8 @@
+<form action="{{ route('app.locale') }}" method="post" id="locale" style="display: none">
+    @csrf
+    <input type="hidden" name="locale">
+</form>
 <section class="intro-section d-flex flex-column align-items-center justify-content-center" style="background-image: url({{app('settings')->getFirstMedia('banner')->getFullUrl()}})">
-    <form action="{{ route('app.locale') }}" method="post" id="locale" style="display: none">
-        @csrf
-        <input type="hidden" name="locale">
-    </form>
     <div class="intro d-flex flex-column align-items-center justify-content-center">
         <a href="/" class="intro__logo">
             <img src="/images/logo.png" alt="">
@@ -12,9 +12,9 @@
 
     <p class="intro-label">@lang('common.main.label')</p>
 
-    <div class="intro-scroll">
+    <a href="#"  class="intro-scroll link-scroll">
         <p>@lang('common.main.appointments')</p>
-    </div>
+    </a>
 
     <header class="header header--front">
         <div class="nav-btn d-inline-flex align-items-center  justify-content-center">
@@ -28,9 +28,9 @@
         </a>
 
         <div class="language d-none d-xl-block">
-            <a href="#" class="language__active d-flex align-items-center justify-content-center">
+            <a href="#" class="language__active d-flex align-items-center justify-content-center text-uppercase">
                 @if(app()->getLocale() == 'uk' )
-                    ua
+                    UA
                 @else
                     {{ app()->getLocale() }}
                 @endif
@@ -41,7 +41,7 @@
                     <li>
                         <a href="#{{ $locale }}" class="locales">
                             @if ($locale == 'uk')
-                                ua
+                                UA
                             @else
                                 {{ $locale }}
                             @endif

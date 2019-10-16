@@ -55,9 +55,11 @@ span.wpcf7-not-valid-tip
 
 section.form-section 
     @extend %bg-cover 
-    padding-top: 250px
+    padding-top: 150px
     padding-bottom: 100px
     margin-top: -110px
+    @media (min-width: map_get($grid-breakpoints, xl)) 
+        padding-top: 250px
     &:before 
         content: ''
         @extend %absolute 
@@ -65,9 +67,11 @@ section.form-section
 
 
 .form 
-    padding: 80px 70px
+    padding: 30px
     background-color: #363F47
-    height: 100%
+    @media (min-width: map_get($grid-breakpoints, xl)) 
+        padding: 80px 70px
+        height: 100%
     &__img 
         @extend %bg-cover 
         height: 100%
@@ -77,6 +81,7 @@ section.form-section
     &__description 
         color: #fff 
         font-size: 14px
+        margin-bottom: 20px
 
 
 

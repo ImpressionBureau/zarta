@@ -19,11 +19,12 @@
 @includeIf('partials.app.layouts.icons')
 <div id="app" v-cloak>
     @if(request()->route()->getName() != 'app.home')
-    @includeIf('partials.app.layout.header')
+    @includeIf('partials.app.layouts.header')
     @endif
     <main>
         @yield('content')
     </main>
+    @includeIf('partials.app.layouts.menu')
     @includeIf('partials.app.layouts.footer')
 
 </div>

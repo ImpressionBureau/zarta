@@ -1,18 +1,17 @@
 <section class="feedback-section">
     <div class="container-fluid">
         <div class="row no-gutters align-items-center justify-content-center">
-            <div class="col-xl-5 d-flex flex-column  justify-content-center order-xl-2">
+            <div class="col-xl-4 col-xxl-5 d-flex flex-column  justify-content-center order-xl-2">
                 <div class="texting-feedback flex-grow-1">
                     <h3 class="mb-4">@lang('common.main.review')</h3>
                     <div class="texting-slider">
-
                         @foreach ($reviews as $review)
                         <div class="texting-slider__item">
-                            <div class="row">
-                                <div class="col-xl-5">
+                            <div class="row justify-content-center">
+                                <div class="col-sm-8 col-md-6 col-lg-4 col-xl-5 col-xxl-5">
                                     <div class="avatar mb-4 mb-xl-0" style="background-image: url({{$review->getFirstMedia('review')->getFullUrl()}})"></div>
                                 </div>
-                                <div class="col d-flex flex-column justify-content-center">
+                                <div class="col-lg col-xl-12 col-xxl d-flex flex-column justify-content-center">
                                     <p class="text">{!! $review->content->body!!}</p>
                                     <div class="d-flex align-items-center justify-content-between pt-3">
                                         <p class="date">{{ $review->created_at->formatLocalized('%d %B %Y') }}</p>
@@ -34,8 +33,8 @@
 
                     </div>
 
-                    <div class="row align-items-center mt-5">
-                        <div class="col-xl-5">
+                    <div class="row align-items-center mt-xx-5 justify-content-center">
+                        <div class="col-sm-6 col-xl-5">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="texting-slider-nav d-flex">
                                     <div class="texting-arrow texting-arrow--left">
@@ -55,13 +54,13 @@
                             </div>
                         </div>
                         <div class="col">
-                            <a href="#" class="btn btn-secondary w-100 my-5 my-xl-0"><span>@lang('common.main.read_reviews')</span></a>
+                            <a href="#" class="btn btn-secondary w-100 my-5 my-sm-2"><span>@lang('common.main.read_reviews')</span></a>
                         </div>
                     </div>
                 </div>
             </div>
             @if($reviews_video)
-            <div class="col-xl-7 order-xl-1">
+            <div class="col-xl-8 col-xxl-7 order-xl-1">
                 <div class="video-feedback" data-youtube="{{$reviews_video->video}}"></div>
             </div>
                 @endif

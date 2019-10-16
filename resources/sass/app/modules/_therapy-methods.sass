@@ -8,6 +8,7 @@ section.therapy-methods-section
 
 .method 
     display: flex
+    flex-wrap: wrap
     align-items: center
     justify-content: center
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05)
@@ -29,26 +30,35 @@ section.therapy-methods-section
         z-index: 2
         transition: all 0.5s ease
     &__item 
-        width: 50%
+        width: 100%
         position: relative
+        @media (min-width: map_get($grid-breakpoints, md)) 
+            width: 50%
         .img 
             width: 100%
-            padding-top: 439/365*100%
+            padding-top: 100%
             @extend %bg-cover
             position: relative
             z-index: 1
+            @media (min-width: map_get($grid-breakpoints, md)) 
+                padding-top: 439/365*100%
         .title 
             position: absolute
             text-align: center
-            left: 50px 
-            right: 50px
+            left: 20px 
+            right: 20px
             font-weight: bold
             bottom: 50px
             font-size: 18px
-            color: #333
+            color: #fff
             font-family: $font-family-base
             z-index: 3
             transition: all 0.5s ease
+            @media (min-width: map_get($grid-breakpoints, md)) 
+                color: #333
+            @media (min-width: map_get($grid-breakpoints, xl)) 
+                left: 50px 
+                right: 50px
         .list 
             position: relative
             z-index: 3
@@ -56,6 +66,9 @@ section.therapy-methods-section
             align-items: center
             justify-content: center
             flex-direction: column
+            padding: 20px
+            @media (min-width: map_get($grid-breakpoints, md)) 
+                padding: 0
             li 
                 a 
                     display: block

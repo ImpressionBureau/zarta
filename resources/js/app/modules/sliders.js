@@ -1,4 +1,3 @@
-
 import Flickity from 'Flickity';
 
 import 'flickity/dist/flickity.css';
@@ -10,7 +9,6 @@ if (document.querySelector('.team-slider')) {
     let flktyA = new Flickity('.team-slider', {
         wrapAround: true,
         prevNextButtons: false,
-        pageDots: true,
         cellAlign: 'left',
         draggable: false,
         pageDots: false,
@@ -42,7 +40,6 @@ if (document.querySelector('.texting-slider')) {
     let flktyA = new Flickity('.texting-slider', {
         wrapAround: true,
         prevNextButtons: false,
-        pageDots: true,
         cellAlign: 'left',
         draggable: false,
         pageDots: false,
@@ -70,14 +67,12 @@ if (document.querySelector('.texting-slider')) {
 
 
 
-
 const aboutSliderItem = document.querySelectorAll('.about-slider__item');
 if (document.querySelector('.about-slider') && aboutSliderItem.length > 1) {
 
     let flktyA = new Flickity('.about-slider', {
         wrapAround: true,
         prevNextButtons: false,
-        pageDots: true,
         cellAlign: 'left',
         draggable: false,
         pageDots: false,
@@ -117,7 +112,6 @@ if (document.querySelector('.navigation-slider')) {
         let flktyA = new Flickity('.navigation-slider', {
             wrapAround: true,
             prevNextButtons: false,
-            pageDots: true,
             cellAlign: 'left',
             draggable: false,
             pageDots: false,
@@ -223,26 +217,34 @@ if (window.innerWidth > 1199) {
 
                 if (menuItemActive) {
                     menuItemActive.classList.remove('menu-item--active');
-                }
-                this.closest('.menu-item').classList.add('menu-item--active');
-
-                if (menuDropOpen) {
                     menuDropOpen.querySelector('.drop-slider').classList.add('drop-slider--minlenght');
                     menuDropOpen.classList.remove('menu-drop--open');
                     flktyM.destroy();
                 }
+                this.closest('.menu-item').classList.add('menu-item--active');
 
                 if (menuSliderItem.length > 8) {
                     menuLocalSlider.classList.remove('drop-slider--minlenght');
                     flktyM = new Flickity(menuLocalSlider, {
                         wrapAround: true,
                         prevNextButtons: false,
-                        pageDots: true,
                         cellAlign: 'left',
                         draggable: true,
                         pageDots: false,
                         contain: true,
                         initialIndex: 0
+                    });
+
+                    menuLocalSlider.insertAdjacentHTML('afterend', '<div class="menu-arrow menu-arrow--prev"><svg width="7" height="12"><use xlink:href="#arrow-left"></use></svg></div><div class="menu-arrow menu-arrow--next"><svg width="7" height="12"><use xlink:href="#arrow-right"></use></svg></div>');
+
+                    var prevArrowReviews = document.querySelector('.menu-arrow--prev');
+                    prevArrowReviews.addEventListener('click', function () {
+                        flktyM.previous(true, false);
+                    });
+
+                    var nextArrowReviews = document.querySelector('.menu-arrow--next');
+                    nextArrowReviews.addEventListener('click', function () {
+                        flktyM.next(true, false);
                     });
                 } else {
                     menuLocalSlider.classList.add('drop-slider--minlenght');
@@ -307,20 +309,3 @@ if (window.innerWidth > 1199) {
     })
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

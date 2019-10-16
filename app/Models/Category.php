@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -24,27 +25,27 @@ class Category extends Model implements HasMedia
     ];
 
     /**
-     * @return BelongsToMany
+     * @return HasMany
      */
-    public function directions(): BelongsToMany
+    public function directions(): HasMany
     {
-        return $this->belongsToMany(Direction::class);
+        return $this->hasMany(Direction::class);
     }
 
     /**
-     * @return BelongsToMany
+     * @return HasMany
      */
-    public function methods(): BelongsToMany
+    public function methods(): HasMany
     {
-        return $this->belongsToMany(Method::class);
+        return $this->hasMany(Method::class);
     }
 
     /**
-     * @return BelongsToMany
+     * @return HasMany
      */
-    public function services(): BelongsToMany
+    public function services(): HasMany
     {
-        return $this->belongsToMany(Service::class);
+        return $this->hasMany(Service::class);
     }
 
 

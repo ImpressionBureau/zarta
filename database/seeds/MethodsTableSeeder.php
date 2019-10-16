@@ -13,7 +13,8 @@ class MethodsTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker\Factory::create('ru_RU');
-        for ($i = 0; $i < 20; $i++) {
+
+        for ($i = 0; $i < 50; $i++) {
             $article = Method::create([
                 'slug' => $faker->slug,
                 'category_id' => rand(6, 10),

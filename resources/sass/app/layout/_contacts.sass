@@ -10,6 +10,8 @@ section.contact-section
     min-height: 300px
     width: 100%
     @media (min-width: map_get($grid-breakpoints, xl)) 
+        min-height: 400px
+    @media (min-width: map_get($grid-breakpoints, xxl)) 
         min-height: 600px
     &__bg 
         @extend %absolute
@@ -26,7 +28,7 @@ section.contact-section
 
 .contact 
     padding: 30px
-    @media (min-width: map_get($grid-breakpoints, xl)) 
+    @media (min-width: map_get($grid-breakpoints, xxl)) 
         padding: 0 100px
     &__item 
         display: flex

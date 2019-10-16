@@ -36,6 +36,8 @@ section.feedback-section
 
 .texting-feedback
     @media (min-width: map_get($grid-breakpoints, xl)) 
+        padding: 15px
+    @media (min-width: map_get($grid-breakpoints, xxl)) 
         padding: 50px 70px 0 70px
     &__title 
         text-transform: uppercase
@@ -46,7 +48,7 @@ section.feedback-section
     &__item 
         overflow: visible
         padding-bottom: 50px
-        @media (min-width: map_get($grid-breakpoints, xl)) 
+        @media (min-width: map_get($grid-breakpoints, xxl)) 
             padding-bottom: 0
         .avatar 
             padding-top: 100% 
@@ -128,16 +130,24 @@ section.feedback-section
 
 
 section.feedback-page-section 
-    padding: 50px 180px 0 180px
+    padding: 50px 0
+    @media (min-width: map_get($grid-breakpoints, xl)) 
+        padding: 50px 180px 0 180px
 
 .tab-nav 
     display: block
-    padding: 15px 40px 
+    padding: 15px 10px
     font-family: $headings-font-family
-    font-size: 24px
     color: #333 
     border-bottom: 2px solid #DEDEDE
     position: relative
+    text-align: center
+    @media (min-width: map_get($grid-breakpoints, md)) 
+        font-size: 18px
+    @media (min-width: map_get($grid-breakpoints, xl)) 
+        padding: 15px 40px 
+        font-size: 24px
+        text-align: left
     &:hover 
         color: $primary
     &:after 
