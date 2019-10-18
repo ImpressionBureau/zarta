@@ -26,6 +26,9 @@ class CategoriesTableSeeder extends Seeder
                 $category->translates()->create([
                     'lang' => $locale,
                     'title' => ucfirst($faker->sentence),
+                    'content' => [
+                        'description' => ucfirst($faker->sentence),
+                    ]
                 ]);
             }
         }
@@ -41,6 +44,9 @@ class CategoriesTableSeeder extends Seeder
                 $category->translates()->create([
                     'lang' => $locale,
                     'title' => ucfirst($faker->sentence),
+                    'content' => [
+                        'description' => ucfirst($faker->sentence),
+                    ]
                 ]);
             }
         }

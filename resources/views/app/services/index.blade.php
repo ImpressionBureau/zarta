@@ -47,7 +47,7 @@
 
                         <div class="price-footer d-flex justify-content-end align-items-center">
                             <div class="price-footer__value">@lang('common.service.price') <span class="value">{{$service->price}}</span>@lang('common.service.currency')</div>
-                            <a href="#" class="btn btn-primary btn--short btn--price"><span>@lang('common.service.btn')</span></a>
+                            <a href="#" data-service="{{$service->id}}" class="btn btn-primary btn--short btn--price"><span>@lang('common.service.btn')</span></a>
                         </div>
                     </div>
                 </div>

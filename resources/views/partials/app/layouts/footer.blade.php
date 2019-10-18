@@ -10,21 +10,21 @@
                 <div class="col">
                     <div class="footer-list d-flex flex-column">
                         <a href="/">@lang('common.footer.main')</a>
-                        <a href="#">@lang('common.footer.about')</a>
+                        <a href="{{ route('app.pages.about') }}">@lang('common.footer.about')</a>
                         <a href="#">@lang('common.footer.direction')</a>
                     </div>
                 </div>
                 <div class="col">
                     <div class="footer-list d-flex flex-column">
                         <a href="#">@lang('common.footer.methods')</a>
-                        <a href="#">@lang('common.footer.services')</a>
-                        <a href="#">@lang('common.footer.questions')</a>
+                        <a href="{{route('app.services.index')}}">@lang('common.footer.services')</a>
+                        <a href="{{ route('app.faq.index') }}">@lang('common.footer.questions')</a>
                     </div>
                 </div>
                 <div class="col">
                     <div class="footer-list d-flex flex-column">
-                        <a href="#">@lang('common.footer.blog')</a>
-                        <a href="#">@lang('common.footer.contacts')</a>
+                        <a href="{{ route('app.articles.index') }}">@lang('common.footer.blog')</a>
+                        <a href="{{route('app.pages.contacts')}}">@lang('common.footer.contacts')</a>
                     </div>
                 </div>
                 <div class="col-xl-2">
@@ -40,9 +40,9 @@
         </div>
         <div class="footer-dev__item">
             <div class="footer-social d-flex align-items-center justify-content-around">
-                <a href="#">FACEBOOK</a>
-                <a href="#">INSTAGRAM</a>
-                <a href="#">YOUTUBE</a>
+                <a href="{{app('settings')->facebook}}">FACEBOOK</a>
+                <a href="{{app('settings')->instagram}}">INSTAGRAM</a>
+                <a href="{{app('settings')->youtube}}">YOUTUBE</a>
             </div>
         </div>
         <div class="footer-dev__item text-right">

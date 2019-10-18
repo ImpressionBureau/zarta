@@ -22380,19 +22380,21 @@ Array.from(locales).forEach(function (l) {
 var acordion = document.querySelectorAll('.acordion');
 
 if (acordion.length > 0) {
-  acordion.forEach(function (item, index) {
-    var acordionBtn = item.querySelector('.acordion__btn');
-    var acordionContent = item.querySelector('.acordion__content');
-    var acordionContentHeight = acordionContent.offsetHeight;
-    acordionContent.style.height = 0;
-    acordionBtn.addEventListener('click', function () {
-      if (item.classList.contains('acordion--open')) {
-        item.classList.remove('acordion--open');
-        acordionContent.style.height = 0;
-      } else {
-        item.classList.add('acordion--open');
-        acordionContent.style.height = acordionContentHeight + 'px';
-      }
+  window.addEventListener('load', function () {
+    acordion.forEach(function (item) {
+      var acordionBtn = item.querySelector('.acordion__btn');
+      var acordionContent = item.querySelector('.acordion__content');
+      var acordionContentHeight = acordionContent.offsetHeight;
+      acordionContent.style.height = 0;
+      acordionBtn.addEventListener('click', function () {
+        if (item.classList.contains('acordion--open')) {
+          item.classList.remove('acordion--open');
+          acordionContent.style.height = 0;
+        } else {
+          item.classList.add('acordion--open');
+          acordionContent.style.height = acordionContentHeight + 'px';
+        }
+      });
     });
   });
 }
@@ -22517,7 +22519,7 @@ window.addEventListener('scroll', function () {
 //     }
 // }
 
-if (priceItem.length > 0) {
+if (priceItem.length > 0 && window.innerWidth > 992) {
   priceItem.forEach(function (item) {
     var priceBtn = item.querySelector('.btn--price');
     var priceButtonsWidth = priceBtn.offsetWidth;
@@ -22552,11 +22554,12 @@ priceBtn.forEach(function (item) {
     var priceWrap = item.closest('.price');
     var priceTitle = priceWrap.querySelector('.price__title').innerText;
     var priceAmount = priceWrap.querySelector('.value').innerText;
-    var priceId = priceWrap.id;
+    var priceId = this.getAttribute('data-service');
     var modalPriceElem = modal.querySelector('.modal-price');
+    modalPriceElem.style.display = 'flex';
     modalPriceElem.innerHTML = "".concat(priceTitle, "<span class=\"modal-price__amount\">").concat(priceAmount, "\u0433\u0440\u043D</span>");
     modalPriceElem.style.display = 'flex';
-    modal.querySelector('.form').insertAdjacentHTML('afterbegin', "<input id=\"inp-price-id\" type=\"hidden\" name=\"price-id\" value=\"".concat(priceId, "\">"));
+    modal.querySelector('.services-form').insertAdjacentHTML('afterbegin', "<input id=\"inp-price-id\" type=\"hidden\" name=\"modal-service\" value=\"".concat(priceId, "\">"));
     modal.classList.add('custom-modal--price');
     openModal();
   });
@@ -22628,25 +22631,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var mapbox_gl__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mapbox-gl */ "./node_modules/mapbox-gl/dist/mapbox-gl.js");
 /* harmony import */ var mapbox_gl__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mapbox_gl__WEBPACK_IMPORTED_MODULE_0__);
 
-var customMap = document.getElementById('map');
+var customMap = document.querySelector('#contact-map');
 var mapBg = document.querySelector('.map__bg');
 
-if (mapBg) {
-  mapBg.addEventListener('click', function () {
-    this.remove();
-  });
-}
-
 if (customMap) {
-  // $('.map-mask').on('click', function () {
-  //     $(this).addClass('is-disabled');
-  // });
-  var mapLong = document.getElementById('map').getAttribute('data-long');
-  var mapLat = document.getElementById('map').getAttribute('data-lat');
-  var mapIcon = document.getElementById('map').getAttribute('data-icon');
+  mapBg.addEventListener('click', function () {
+    mapBg.remove();
+  });
+  var mapLong = customMap.getAttribute('data-long');
+  var mapLat = customMap.getAttribute('data-lat');
+  var mapIcon = customMap.getAttribute('data-icon');
   mapbox_gl__WEBPACK_IMPORTED_MODULE_0___default.a.accessToken = 'pk.eyJ1IjoiaW1wcmVzc2lvbi1idXJlYXUiLCJhIjoiY2swbWlkNGttMDl5czNkdDdpdnA2YnRucyJ9.ETnTJRRIl8_TU349gbBKgw';
   var map = new mapbox_gl__WEBPACK_IMPORTED_MODULE_0___default.a.Map({
-    container: 'map',
+    container: 'contact-map',
     style: 'mapbox://styles/impression-bureau/ck121zs200ajv1cnoi5lmp0l8',
     center: [mapLong, mapLat],
     zoom: 13
@@ -22695,20 +22692,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var Flickity__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(Flickity__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var flickity_dist_flickity_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! flickity/dist/flickity.css */ "./node_modules/flickity/dist/flickity.css");
 /* harmony import */ var flickity_dist_flickity_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(flickity_dist_flickity_css__WEBPACK_IMPORTED_MODULE_1__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
 if (document.querySelector('.team-slider')) {
-  var flktyA = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a('.team-slider', {
+  var _ref;
+
+  var flktyA = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a('.team-slider', (_ref = {
     wrapAround: true,
     prevNextButtons: false,
+    pageDots: true,
     cellAlign: 'left',
-    draggable: false,
-    pageDots: false,
-    contain: true,
-    pauseAutoPlayOnHover: true,
-    initialIndex: 0
-  });
+    draggable: false
+  }, _defineProperty(_ref, "pageDots", false), _defineProperty(_ref, "contain", true), _defineProperty(_ref, "pauseAutoPlayOnHover", true), _defineProperty(_ref, "initialIndex", 0), _ref));
   var prevArrowReviews = document.querySelector('.team-arrow--prev');
   prevArrowReviews.addEventListener('click', function () {
     flktyA.previous(true, false);
@@ -22720,16 +22718,25 @@ if (document.querySelector('.team-slider')) {
 }
 
 if (document.querySelector('.texting-slider')) {
-  var _flktyA = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a('.texting-slider', {
+  var _ref2;
+
+  var _flktyA = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a('.texting-slider', (_ref2 = {
     wrapAround: true,
     prevNextButtons: false,
+    pageDots: true,
     cellAlign: 'left',
-    draggable: false,
-    pageDots: false,
-    contain: true,
-    pauseAutoPlayOnHover: true,
-    initialIndex: 0
-  });
+    draggable: false
+  }, _defineProperty(_ref2, "pageDots", false), _defineProperty(_ref2, "contain", true), _defineProperty(_ref2, "pauseAutoPlayOnHover", true), _defineProperty(_ref2, "initialIndex", 0), _defineProperty(_ref2, "on", {
+    change: function change(index) {
+      var counter = document.getElementById('texting-active');
+
+      if (index <= 9) {
+        counter.innerText = "0".concat(index + 1);
+      } else {
+        counter.innerHTML = "".concat(index + 1);
+      }
+    }
+  }), _ref2));
 
   var prevArrowReviews = document.querySelector('.texting-arrow--left');
   prevArrowReviews.addEventListener('click', function () {
@@ -22739,21 +22746,31 @@ if (document.querySelector('.texting-slider')) {
   nextArrowReviews.addEventListener('click', function () {
     _flktyA.next(true, false);
   });
+  var allSlides = document.querySelectorAll('.texting-slider__item').length;
+  var countAllSlide = document.querySelector('#texting-active-all');
+
+  if (allSlides <= 9) {
+    countAllSlide.innerText = "/0".concat(allSlides);
+  } else {
+    countAllSlide.innerHTML = "/".concat(allSlides);
+  }
+
+  ;
 }
 
+;
 var aboutSliderItem = document.querySelectorAll('.about-slider__item');
 
 if (document.querySelector('.about-slider') && aboutSliderItem.length > 1) {
-  var _flktyA2 = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a('.about-slider', {
+  var _ref3;
+
+  var _flktyA2 = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a('.about-slider', (_ref3 = {
     wrapAround: true,
     prevNextButtons: false,
+    pageDots: true,
     cellAlign: 'left',
-    draggable: false,
-    pageDots: false,
-    contain: true,
-    pauseAutoPlayOnHover: true,
-    initialIndex: 0
-  });
+    draggable: false
+  }, _defineProperty(_ref3, "pageDots", false), _defineProperty(_ref3, "contain", true), _defineProperty(_ref3, "pauseAutoPlayOnHover", true), _defineProperty(_ref3, "initialIndex", 0), _ref3));
 
   var prevArrowReviews = document.querySelector('.about-arrow--left');
   prevArrowReviews.addEventListener('click', function () {
@@ -22769,16 +22786,15 @@ if (document.querySelector('.navigation-slider')) {
   var sliderItem = document.querySelectorAll('.navigation-slider__item');
 
   if (sliderItem.length > 8) {
-    var _flktyA3 = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a('.navigation-slider', {
+    var _ref4;
+
+    var _flktyA3 = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a('.navigation-slider', (_ref4 = {
       wrapAround: true,
       prevNextButtons: false,
+      pageDots: true,
       cellAlign: 'left',
-      draggable: false,
-      pageDots: false,
-      contain: true,
-      // pauseAutoPlayOnHover: true,
-      initialIndex: 0
-    });
+      draggable: false
+    }, _defineProperty(_ref4, "pageDots", false), _defineProperty(_ref4, "contain", true), _defineProperty(_ref4, "initialIndex", 0), _ref4));
 
     var sliderWrap = document.querySelector('.navigation');
     sliderWrap.insertAdjacentHTML('beforeend', '<div class="navigation-arrow navigation-arrow--prev"><svg width="7" height="12"><use xlink:href="#arrow-left"></use></svg></div><div class="navigation-arrow navigation-arrow--next"><svg width="7" height="12"><use xlink:href="#arrow-right"></use></svg></div>');
@@ -22817,6 +22833,10 @@ if (window.innerWidth > 1199) {
       document.querySelector('.menu-drop-btn--open').style.paddingBottom = 10 + 'px';
       document.querySelector('.menu-drop--open').classList.remove('menu-drop--open');
       document.querySelector('.menu-drop-btn--open').classList.remove('menu-drop-btn--open');
+      document.querySelectorAll('.menu-arrow').forEach(function (i) {
+        i.remove();
+        console.log(item);
+      });
     }
   });
   var flktyM;
@@ -22847,6 +22867,9 @@ if (window.innerWidth > 1199) {
         this.style.paddingBottom = 10 + 'px';
         menuDrop.classList.remove('menu-drop--open');
         this.classList.remove('menu-drop-btn--open');
+        document.querySelectorAll('.menu-arrow').forEach(function (i) {
+          i.remove();
+        });
       } else {
         if (dropBtnOpen) {
           dropBtnOpen.style.paddingBottom = 10 + 'px';
@@ -22856,6 +22879,9 @@ if (window.innerWidth > 1199) {
             menuDrop.style.top = menuDropBtnTopPos + 'px';
             menuDrop.classList.add('menu-drop--open');
           }, 500);
+          document.querySelectorAll('.menu-arrow').forEach(function (i) {
+            i.remove();
+          });
         } else {
           menuDrop.classList.add('menu-drop--open');
           menuDrop.style.top = menuDropBtnTopPos + 'px';
@@ -22865,22 +22891,25 @@ if (window.innerWidth > 1199) {
           menuItemActive.classList.remove('menu-item--active');
           menuDropOpen.querySelector('.drop-slider').classList.add('drop-slider--minlenght');
           menuDropOpen.classList.remove('menu-drop--open');
+          document.querySelectorAll('.menu-arrow').forEach(function (i) {
+            i.remove();
+          });
           flktyM.destroy();
         }
 
         this.closest('.menu-item').classList.add('menu-item--active');
 
         if (menuSliderItem.length > 8) {
+          var _ref5;
+
           menuLocalSlider.classList.remove('drop-slider--minlenght');
-          flktyM = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a(menuLocalSlider, {
+          flktyM = new Flickity__WEBPACK_IMPORTED_MODULE_0___default.a(menuLocalSlider, (_ref5 = {
             wrapAround: true,
             prevNextButtons: false,
+            pageDots: true,
             cellAlign: 'left',
-            draggable: true,
-            pageDots: false,
-            contain: true,
-            initialIndex: 0
-          });
+            draggable: true
+          }, _defineProperty(_ref5, "pageDots", false), _defineProperty(_ref5, "contain", true), _defineProperty(_ref5, "initialIndex", 0), _ref5));
           menuLocalSlider.insertAdjacentHTML('afterend', '<div class="menu-arrow menu-arrow--prev"><svg width="7" height="12"><use xlink:href="#arrow-left"></use></svg></div><div class="menu-arrow menu-arrow--next"><svg width="7" height="12"><use xlink:href="#arrow-right"></use></svg></div>');
           var prevArrowReviews = document.querySelector('.menu-arrow--prev');
           prevArrowReviews.addEventListener('click', function () {

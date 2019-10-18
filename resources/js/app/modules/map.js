@@ -1,25 +1,20 @@
 import mapboxgl from "mapbox-gl";
-const customMap = document.getElementById('map');
+const customMap = document.querySelector('#contact-map');
 const mapBg = document.querySelector('.map__bg');
-if (mapBg) {
-    mapBg.addEventListener('click', function () {
-        this.remove();
-    });
-}
-
 
 if (customMap) {
-    
 
-    // $('.map-mask').on('click', function () {
-    //     $(this).addClass('is-disabled');
-    // });
-    let mapLong = document.getElementById('map').getAttribute('data-long');
-    let mapLat = document.getElementById('map').getAttribute('data-lat');
-    let mapIcon = document.getElementById('map').getAttribute('data-icon');
+    mapBg.addEventListener('click', function () {
+        mapBg.remove();
+    });
+
+    let mapLong = customMap.getAttribute('data-long');
+    let mapLat = customMap.getAttribute('data-lat');
+    let mapIcon = customMap.getAttribute('data-icon');
+
     mapboxgl.accessToken = 'pk.eyJ1IjoiaW1wcmVzc2lvbi1idXJlYXUiLCJhIjoiY2swbWlkNGttMDl5czNkdDdpdnA2YnRucyJ9.ETnTJRRIl8_TU349gbBKgw';
     let map = new mapboxgl.Map({
-        container: 'map',
+        container: 'contact-map',
         style: 'mapbox://styles/impression-bureau/ck121zs200ajv1cnoi5lmp0l8',
         center: [mapLong, mapLat],
         zoom: 13

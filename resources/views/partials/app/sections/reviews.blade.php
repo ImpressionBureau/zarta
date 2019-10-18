@@ -12,7 +12,7 @@
                                     <div class="avatar mb-4 mb-xl-0" style="background-image: url({{$review->getFirstMedia('review')->getFullUrl()}})"></div>
                                 </div>
                                 <div class="col-lg col-xl-12 col-xxl d-flex flex-column justify-content-center">
-                                    <p class="text">{!! $review->content->body!!}</p>
+                                    <div class="text">{!! $review->content->body!!}</div>
                                     <div class="d-flex align-items-center justify-content-between pt-3">
                                         <p class="date">{{ $review->created_at->formatLocalized('%d %B %Y') }}</p>
                                         @if($review->facebook)
@@ -48,13 +48,14 @@
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="texting-slider-counter">
-                                    .
+                                <div class="texting-slider-counter d-flex">
+                                    <p id="texting-active" class="active-count">01</p>
+                                    <p id="texting-active-all"></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col">
-                            <a href="#" class="btn btn-secondary w-100 my-5 my-sm-2"><span>@lang('common.main.read_reviews')</span></a>
+                            <a href="{{route('app.reviews.index')}}" class="btn btn-secondary w-100 my-5 my-sm-2"><span>@lang('common.main.read_reviews')</span></a>
                         </div>
                     </div>
                 </div>

@@ -6,7 +6,12 @@
                 <div class="col-4">
                     <div class="front-priview"
                          style="background-image: url({{$page->slug == 'about'? $page->getFirstMedia('uploads')->getFullUrl(): $page->getFirstMedia('page')->getFullUrl()}})">
-                        <a href="#" class="content">
+                        <a href="{{$page->slug == 'service' ? route('app.services.index') :
+                            ($page->slug == 'about' ? route('app.pages.about') :
+                            ($page->slug == 'question' ? route('app.faq.index') :
+                            ($page->slug == 'contacts' ? route('app.pages.contacts'):
+                            ($page->slug == 'reviews' ? route('app.reviews.index'):
+                            ($page->slug == 'method' ? 'method' : 'direction')))))}}" class="content">
                             <h3 class="content__title">{{$page->title}}</h3>
                             <div class="slide-wrap d-none d-xl-block">
                                 <p class="content__text">{{$page->content->description}}</p>

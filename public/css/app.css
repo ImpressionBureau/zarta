@@ -12493,6 +12493,19 @@ section.feedback-section:before {
   background-color: #3161d4;
 }
 
+.texting-slider-counter {
+  font-size: 14px;
+  color: #BCBCBC;
+  font-weight: bold;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.texting-slider-counter .active-count {
+  color: #333;
+}
+
 section.feedback-page-section {
   padding: 50px 0;
 }

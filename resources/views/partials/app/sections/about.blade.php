@@ -34,7 +34,7 @@
                     <div class="about-text">
                         {{$about->content->description}}
                     </div>
-                    <a href="#" class="btn btn-secondary mt-4"><span>@lang('common.main.more_info')</span></a>
+                    <a href="{{ route('app.pages.about') }}" class="btn btn-secondary mt-4"><span>@lang('common.main.more_info')</span></a>
                 </div>
             </div>
         </div>

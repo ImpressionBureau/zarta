@@ -10319,7 +10319,7 @@ main {
 .data-table-item {
   display: flex;
   flex-wrap: wrap;
-  align-items: start;
+  align-items: flex-start;
   padding: 10px;
 }
 .data-table-item:hover {

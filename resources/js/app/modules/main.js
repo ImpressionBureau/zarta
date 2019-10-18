@@ -77,7 +77,7 @@ window.addEventListener('scroll', function () {
 //     }
 // }
 
-if (priceItem.length > 0) {
+if (priceItem.length > 0 && window.innerWidth > 992) {
     priceItem.forEach(function (item) {
 
         let priceBtn = item.querySelector('.btn--price');
@@ -125,13 +125,15 @@ priceBtn.forEach(function (item) {
         let priceWrap = item.closest('.price');
         let priceTitle = priceWrap.querySelector('.price__title').innerText;
         let priceAmount = priceWrap.querySelector('.value').innerText;
-        let priceId = priceWrap.id;
+        let priceId = this.getAttribute('data-service');
         let modalPriceElem = modal.querySelector('.modal-price');
+
+        modalPriceElem.style.display = 'flex';
 
         modalPriceElem.innerHTML = `${priceTitle}<span class="modal-price__amount">${priceAmount}грн</span>`;
         modalPriceElem.style.display = 'flex';
 
-        modal.querySelector('.form').insertAdjacentHTML('afterbegin', `<input id="inp-price-id" type="hidden" name="price-id" value="${priceId}">`);
+        modal.querySelector('.services-form').insertAdjacentHTML('afterbegin', `<input id="inp-price-id" type="hidden" name="modal-service" value="${priceId}">`);
 
         modal.classList.add('custom-modal--price');
 

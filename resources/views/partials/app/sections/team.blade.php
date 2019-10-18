@@ -9,7 +9,7 @@
                         <img src="{{$teammate->getFirstMedia('command')->getFullUrl()}}" alt="">
                     </div>
                 <h4 class="teammate__name">{{$teammate->title}}</h4>
-                <p class="teammate__position">{{$teammate->content->body}}</p>
+                <p class="teammate__position">{{$teammate->content->description}}</p>
                 </a>
             @endforeach
         </div>

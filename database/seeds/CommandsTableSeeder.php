@@ -18,7 +18,7 @@ class CommandsTableSeeder extends Seeder
                 'slug' => $faker->slug,
             ]);
 
-            $command->addMediaFromUrl($faker->imageUrl(1920, 900))
+            $command->addMediaFromUrl($faker->imageUrl(900, 1920))
                 ->toMediaCollection('command');
 
             foreach (config('app.locales') as $locale) {
@@ -26,7 +26,8 @@ class CommandsTableSeeder extends Seeder
                     'lang' => $locale,
                     'title' => ucfirst($faker->name),
                     'content' => [
-                        'body' => 'Должность'
+                        'description' => 'Должность',
+                        'body' => '<p>'.implode('</p><p>', $faker->sentences(rand(3, 10))).'</p>',
                     ]
                 ]);
             }

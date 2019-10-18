@@ -23,6 +23,19 @@
                                     </div>
                                 @endif
                             </div>
+                            <div class="form-group">
+                                <label for="description">Краткое описание</label>
+                                <input id="description"
+                                       type="text"
+                                       name="{{$lang}}[content][description]"
+                                       class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}"
+                                       value="{{ old($lang.'.content') ?? $category->translate('content', $lang)['description'] }}">
+                                @if($errors->has('content'))
+                                    <div class="mt-1 text-danger">
+                                        {{ $errors->first('content') }}
+                                    </div>
+                                @endif
+                            </div>
                         </fieldset>
 
                     @endforeach

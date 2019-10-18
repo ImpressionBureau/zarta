@@ -1,3 +1,4 @@
+
 import Flickity from 'Flickity';
 
 import 'flickity/dist/flickity.css';
@@ -9,6 +10,7 @@ if (document.querySelector('.team-slider')) {
     let flktyA = new Flickity('.team-slider', {
         wrapAround: true,
         prevNextButtons: false,
+        pageDots: true,
         cellAlign: 'left',
         draggable: false,
         pageDots: false,
@@ -40,12 +42,23 @@ if (document.querySelector('.texting-slider')) {
     let flktyA = new Flickity('.texting-slider', {
         wrapAround: true,
         prevNextButtons: false,
+        pageDots: true,
         cellAlign: 'left',
         draggable: false,
         pageDots: false,
         contain: true,
         pauseAutoPlayOnHover: true,
-        initialIndex: 0
+        initialIndex: 0,
+        on: {
+            change: function( index ) {
+                var counter = document.getElementById('texting-active')
+                if (index <= 9) {
+                    counter.innerText = `0${index + 1}`
+                } else {
+                    counter.innerHTML = `${index + 1}`
+                }
+            }
+        }
     });
 
 
@@ -61,8 +74,16 @@ if (document.querySelector('.texting-slider')) {
         flktyA.next(true, false);
     });
 
+    let allSlides = document.querySelectorAll('.texting-slider__item').length;
+    let countAllSlide = document.querySelector('#texting-active-all');
 
-}
+    if (allSlides <= 9) {
+        countAllSlide.innerText = `/0${allSlides}`
+    } else {
+        countAllSlide.innerHTML = `/${allSlides}`
+    };
+
+};
 
 
 
@@ -73,6 +94,7 @@ if (document.querySelector('.about-slider') && aboutSliderItem.length > 1) {
     let flktyA = new Flickity('.about-slider', {
         wrapAround: true,
         prevNextButtons: false,
+        pageDots: true,
         cellAlign: 'left',
         draggable: false,
         pageDots: false,
@@ -112,6 +134,7 @@ if (document.querySelector('.navigation-slider')) {
         let flktyA = new Flickity('.navigation-slider', {
             wrapAround: true,
             prevNextButtons: false,
+            pageDots: true,
             cellAlign: 'left',
             draggable: false,
             pageDots: false,
@@ -166,6 +189,10 @@ if (window.innerWidth > 1199) {
             document.querySelector('.menu-drop-btn--open').style.paddingBottom = 10 + 'px';
             document.querySelector('.menu-drop--open').classList.remove('menu-drop--open');
             document.querySelector('.menu-drop-btn--open').classList.remove('menu-drop-btn--open');
+            document.querySelectorAll('.menu-arrow').forEach(function (i) {
+                i.remove();
+                console.log(item)
+            });
         }
     })
 
@@ -199,6 +226,9 @@ if (window.innerWidth > 1199) {
                 this.style.paddingBottom = 10 + 'px';
                 menuDrop.classList.remove('menu-drop--open');
                 this.classList.remove('menu-drop-btn--open');
+                document.querySelectorAll('.menu-arrow').forEach(function (i) {
+                    i.remove();
+                });
             } else {
 
                 if (dropBtnOpen) {
@@ -208,7 +238,10 @@ if (window.innerWidth > 1199) {
                         menuDropBtnTopPos = item.getBoundingClientRect().top;
                         menuDrop.style.top = menuDropBtnTopPos + 'px';
                         menuDrop.classList.add('menu-drop--open');
-                    }, 500)
+                    }, 500);
+                    document.querySelectorAll('.menu-arrow').forEach(function (i) {
+                        i.remove();
+                    });
 
                 } else {
                     menuDrop.classList.add('menu-drop--open');
@@ -219,6 +252,9 @@ if (window.innerWidth > 1199) {
                     menuItemActive.classList.remove('menu-item--active');
                     menuDropOpen.querySelector('.drop-slider').classList.add('drop-slider--minlenght');
                     menuDropOpen.classList.remove('menu-drop--open');
+                    document.querySelectorAll('.menu-arrow').forEach(function (i) {
+                        i.remove();
+                    });
                     flktyM.destroy();
                 }
                 this.closest('.menu-item').classList.add('menu-item--active');
@@ -228,6 +264,7 @@ if (window.innerWidth > 1199) {
                     flktyM = new Flickity(menuLocalSlider, {
                         wrapAround: true,
                         prevNextButtons: false,
+                        pageDots: true,
                         cellAlign: 'left',
                         draggable: true,
                         pageDots: false,
@@ -309,3 +346,20 @@ if (window.innerWidth > 1199) {
     })
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,11 +18,11 @@
 
                 <div class="col-sm-10 col-md-8 col-lg-3 col-xl-auto col-sm-6">
                     <div class="menu-item">
-                        <a href="#" class="menu-item__title">@lang('common.menu.about')</a>
+                        <a href="{{ route('app.pages.about') }}" class="menu-item__title">@lang('common.menu.about')</a>
 
                         <ul class="menu-item__list">
                             <li>
-                                <a href="#" class="list-link">@lang('common.menu.review')</a>
+                                <a href="{{route('app.reviews.index')}}" class="list-link">@lang('common.menu.review')</a>
                             </li>
                         </ul>
                     </div>
@@ -30,7 +30,7 @@
 
                 <div class="col-sm-10 col-md-8 col-lg-3 col-xl-auto col-sm-6">
                     <div class="menu-item">
-                        <a href="#" class="menu-item__title">@lang('common.menu.direction')</a>
+                        <a href="{{route('app.directions.index')}}" class="menu-item__title">@lang('common.menu.direction')</a>
                         <ul class="menu-item__list">
                             @foreach(app('categories')->where('thread', 'directions')  as $direction)
                             <li>
@@ -49,7 +49,7 @@
                                         <div class="col">
                                             <div class="drop-slider drop-slider--minlenght">
                                                 @foreach($direction->directions as $post)
-                                                <a href="#" class="drop-slider__item">
+                                                <a href="{{route('app.directions.show', $post)}}" class="drop-slider__item">
                                                     <div class="content">
                                                         <div class="content__img" style="background-image: url({{$post->getFirstMedia('direction')->getFullUrl()}})"></div>
                                                     <h3 class="content__title">{{$post->title}}</h3>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="col-sm-10 col-md-8 col-lg-3 col-xl-auto col-sm-6">
                     <div class="menu-item">
-                        <a href="#" class="menu-item__title">@lang('common.menu.method')</a>
+                        <a href="{{route('app.methods.index')}}" class="menu-item__title">@lang('common.menu.method')</a>
                         <ul class="menu-item__list">
                             @foreach(app('categories')->where('thread', 'methods')  as $method)
                                 <li>

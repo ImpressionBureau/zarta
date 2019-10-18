@@ -25,22 +25,26 @@
                                         </div>
                                     @endif
                                 </div>
-                                <fieldset slot="{{ $lang }}">
-                                    <div class="form-group">
-                                        <label for="title">Должность</label>
-                                        <input id="title"
-                                               type="text"
-                                               name="{{$lang}}[content][body]"
-                                               class="form-control{{ $errors->has('content.body') ? ' is-invalid' : '' }}"
-                                               value="{{ old($lang.'.content.body') }}"
-                                               required>
-                                        @if($errors->has('content.body'))
-                                            <div class="mt-1 text-danger">
-                                                {{ $errors->first('content.body') }}
-                                            </div>
-                                        @endif
-                                    </div>
 
+                                <div class="form-group">
+                                    <label for="description">Должность</label>
+                                    <input id="description"
+                                           type="text"
+                                           name="{{$lang}}[content][description]"
+                                           class="form-control{{ $errors->has('content.description') ? ' is-invalid' : '' }}"
+                                           value="{{ old($lang.'.content.description') }}"
+                                           required>
+                                    @if($errors->has('content.description'))
+                                        <div class="mt-1 text-danger">
+                                            {{ $errors->first('content.description') }}
+                                        </div>
+                                    @endif
+                                </div>
+                                <label for="body">Описание</label>
+                                <wysiwyg class="mb-0" id="body"
+                                         content="{{ old('body') }}"
+                                         name="{{$lang}}[content][body]"
+                                         label="Текст новости"></wysiwyg>
 
                             </fieldset>
 

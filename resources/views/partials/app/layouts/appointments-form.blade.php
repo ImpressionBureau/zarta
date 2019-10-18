@@ -16,27 +16,28 @@
                 <div class="form">
                     <h3 class="form__title">@lang('common.form.title')</h3>
                     <p class="form__description">@lang('common.form.description')</p>
+                    <form action="{{ route('app.appointments.modal') }}" method="post" class="services-form">
+                        @csrf
+                        <div class="modal-price"></div>
+                        <div class="field">
+                            <label for="modal-id1">@lang('common.form.name')</label>
+                            <input id="modal-id1" name="modal-name" type="text" class="field__item" required>
+                        </div>
 
-                    <div class="modal-price"></div>
+                        <div class="field">
+                            <label for="modal-id2">@lang('common.form.phone')</label>
+                            <input id="modal-id2" name="modal-phone" type="tel" class="field__item" required>
+                        </div>
 
-                    <div class="field">
-                        <label for="modal-id1">@lang('common.form.name')</label>
-                        <input id="modal-id1" type="text" class="field__item">
-                    </div>
+                        <div class="field">
+                            <label for="modal-id3">Email</label>
+                            <input id="modal-id3" name="modal-email" type="email" class="field__item" required>
+                        </div>
 
-                    <div class="field">
-                        <label for="modal-id2">@lang('common.form.phone')</label>
-                        <input id="modal-id2" type="text" class="field__item">
-                    </div>
-
-                    <div class="field">
-                        <label for="modal-id3">Email</label>
-                        <input id="modal-id3" type="text" class="field__item">
-                    </div>
-
-                    <div class="field">
-                        <button class="btn btn-primary"><span>@lang('common.form.btn')</span></button>
-                    </div>
+                        <div class="field">
+                            <button class="btn btn-primary"><span>@lang('common.form.btn')</span></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

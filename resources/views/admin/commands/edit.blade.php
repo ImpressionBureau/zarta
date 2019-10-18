@@ -26,12 +26,12 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <label for="body">Должность</label>
-                                    <input id="body"
+                                    <label for="description">Должность</label>
+                                    <input id="description"
                                            type="text"
-                                           name="{{$lang}}[content][body]"
+                                           name="{{$lang}}[content][description]"
                                            class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}"
-                                           value="{{ old($lang.'.content') ?? $command->translate('content', $lang)['body'] }}"
+                                           value="{{ old($lang.'.content') ?? $command->translate('content', $lang)['description'] }}"
                                            required>
                                     @if($errors->has('content'))
                                         <div class="mt-1 text-danger">
@@ -39,6 +39,11 @@
                                         </div>
                                     @endif
                                 </div>
+                                <label for="body">Описание</label>
+                                <wysiwyg class="mb-0" id="body"
+                                         content="{{ old('body') ?? $command->translate('content', $lang)['body']}}"
+                                         name="{{$lang}}[content][body]"
+                                         label="Текст новости"></wysiwyg>
 
 
                             </fieldset>

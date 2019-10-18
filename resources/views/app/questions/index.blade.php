@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page_title' => trans('breadcrumb.questions')])
+@extends('layouts.app', ['page_title' => $page->title ])
 @section('content')
     <section class="intro-other-section" style="background-image: url({{$page->getFirstMedia('page')->getFullUrl()}})">
         <div class="container">

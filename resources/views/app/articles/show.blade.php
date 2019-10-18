@@ -9,7 +9,8 @@
                     <div class="about-galery">
                         <div class="about-slider">
                             @foreach($article->getMedia('uploads') as $img)
-                            <div class="about-slider__item" style="background-image: url({{$img->getFullUrl()}})"></div>
+                                <div class="about-slider__item"
+                                     style="background-image: url({{$img->getFullUrl()}})"></div>
                             @endforeach
                         </div>
                         <div class="about-slider-nav d-flex">
@@ -38,11 +39,8 @@
                         <div class="about-text">
                             {!! $article->content->body !!}
                         </div>
-
-                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

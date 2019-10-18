@@ -23,8 +23,8 @@
                                     </div>
                                 @endif
                             </div>
-
-                            <wysiwyg class="mb-0"
+                            <label for="body">Текст отзыва</label>
+                            <wysiwyg class="mb-0" id="body"
                                      content="{{ old('body') }}"
                                      name="{{$lang}}[content][body]"
                                      label="Текст отзыва"></wysiwyg>

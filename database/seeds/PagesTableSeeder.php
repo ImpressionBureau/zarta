@@ -32,6 +32,14 @@ class PagesTableSeeder extends Seeder
                 'title' => 'Питання та відповіді',
                 'slug' => 'question'
             ],
+            [
+                'title' => 'Контакти',
+                'slug' => 'contacts'
+            ],
+            [
+                'title' => 'Відгуки',
+                'slug' => 'reviews',
+            ]
         ];
         $faker = Faker\Factory::create('ru_RU');
         foreach ($pages as $item) {

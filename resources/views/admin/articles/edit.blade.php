@@ -25,8 +25,8 @@
                                     </div>
                                 @endif
                             </div>
-
-                            <wysiwyg class="mb-0"
+                            <label for="body">Текст новости</label>
+                            <wysiwyg class="mb-0" id="body"
                                      content="{{ old('body') ?? $article->translate('content', $lang)['body'] }}"
                                      name="{{$lang}}[content][body]"
                                      label="Текст новости"></wysiwyg>
