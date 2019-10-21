@@ -12,7 +12,7 @@ class ServicesController extends Controller
 {
     public function index()
     {
-        $cat= null;
+        $cat = null;
         $page = Page::where('slug', 'service')->first();
         $services = Service::query();
         $categories = Category::get();

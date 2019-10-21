@@ -11,7 +11,7 @@
                             ($page->slug == 'question' ? route('app.faq.index') :
                             ($page->slug == 'contacts' ? route('app.pages.contacts'):
                             ($page->slug == 'reviews' ? route('app.reviews.index'):
-                            ($page->slug == 'method' ? 'method' : 'direction')))))}}" class="content">
+                            ($page->slug == 'method' ? route('app.methods.index') : route('app.directions.index'))))))}}" class="content">
                             <h3 class="content__title">{{$page->title}}</h3>
                             <div class="slide-wrap d-none d-xl-block">
                                 <p class="content__text">{{$page->content->description}}</p>

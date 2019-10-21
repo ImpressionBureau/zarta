@@ -21,13 +21,14 @@
             </p>
             <p class="font-weight-bold mb-2">Телефон</p>
             <p class="mb-1">{{ $appointment->phone }}</p>
-            @if(count($appointment->service_id))
-                    {{$appointment->title}}
+            @if($appointment->service_id)
+                <p class="font-weight-bold mb-2">Услуга</p>
+                    {{$appointment->service->title}}
             @endif
             <div class="form-group">
                 <label for="comment" class="font-weight-bold mb-2">Комментарий</label>
                 <textarea class="form-control" id="comment"
-                          name="comment">{{ old('comment') ?? $order->comment }}</textarea>
+                          name="comment">{{ old('comment') ?? $appointment->comment }}</textarea>
             </div>
             <div class="row">
                 <div class="col-auto">

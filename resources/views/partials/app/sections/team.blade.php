@@ -3,13 +3,13 @@
 
     <div class="team">
         <div class="team-slider">
-            @foreach ($team as $teammate)
-                <a href="#" class="teammate">
+            @foreach ($team as $command)
+                <a href="{{route('app.command.show', $command)}}" class="teammate">
                     <div class="teammate__img">
-                        <img src="{{$teammate->getFirstMedia('command')->getFullUrl()}}" alt="">
+                        <img src="{{$command->getFirstMedia('command')->getFullUrl()}}" alt="">
                     </div>
-                <h4 class="teammate__name">{{$teammate->title}}</h4>
-                <p class="teammate__position">{{$teammate->content->description}}</p>
+                <h4 class="teammate__name">{{$command->title}}</h4>
+                <p class="teammate__position">{{$command->content->description}}</p>
                 </a>
             @endforeach
         </div>

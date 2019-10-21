@@ -17,8 +17,7 @@ Route::group([
         Route::get('/', 'ArticlesController@index')->name('index');
         Route::get('{article}', 'ArticlesController@show')->name('show');
     });
-    Route::get('reviews', 'ReviewsController@index')->name('reviews.index');
-    Route::get('faq', 'QuestionsController@index')->name('faq.index');
+
     Route::group([
         'as' => 'pages.',
         'prefix' => 'pages',
@@ -54,7 +53,9 @@ Route::group([
     ], function () {
         Route::post('/form', 'AppointmentsController@form')->name('form');
         Route::post('/modal', 'AppointmentsController@modal')->name('modal');
-
     });
+    Route::get('reviews', 'ReviewsController@index')->name('reviews.index');
+    Route::get('faq', 'QuestionsController@index')->name('faq.index');
+    Route::get('{command}', 'CommandController@show')->name('command.show');
 
 });
