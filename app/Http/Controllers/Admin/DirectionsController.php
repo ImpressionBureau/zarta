@@ -66,7 +66,7 @@ class DirectionsController extends Controller
     {
 
         $direction->slug = null;
-        $direction->update();
+        $direction->update($request->only('slug', 'category_id'));
         $direction->updateTranslation();
         if ($request->hasFile('direction')) {
             $direction->clearMediaCollection('direction');

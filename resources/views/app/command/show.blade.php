@@ -1,5 +1,11 @@
 @extends('layouts.app', ['page_title' => $command->title])
 @section('content')
+    <section class="bradcrumbs-section">
+        <ul class="bcrumb">
+            <li class="bcrumb__item"><a href="/">@lang('breadcrumb.main')</a></li>
+            <li class="bcrumb__item bcrumb__item--active">@lang('common.main.team') / {{ $command->title }}</li>
+        </ul>
+    </section>
     <section class="article-section">
 
         <div class="container-fluid">

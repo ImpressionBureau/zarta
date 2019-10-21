@@ -2,30 +2,36 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Mail\Admin\Appointments;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class AppointmentsController extends Controller
 {
     public function form(Request $request)
     {
-        Appointment::create([
+        $appointment = Appointment::create([
            'name' =>$request->input('form-name'),
            'phone' => $request->input('form-phone'),
            'email' => $request->input('form-email')
         ]);
-        return \redirect()->route('app.home');
+        $type = 'appointment';
+        Mail::send(new Appointments($appointment));
+        return \view('app.pages.thanks', compact('type'));
     }
 
     public function modal(Request $request)
     {
-        Appointment::create([
+        $appointment = Appointment::create([
             'name' =>$request->input('modal-name'),
             'phone' => $request->input('modal-phone'),
             'email' => $request->input('modal-email'),
             'service_id' => $request->input('modal-service'),
         ]);
-        return \redirect()->route('app.home');
+        $type = 'appointment';
+        Mail::send(new Appointments($appointment));
+        return \view('app.pages.thanks', compact('type'));
     }
 }

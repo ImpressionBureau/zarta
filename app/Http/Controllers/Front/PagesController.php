@@ -27,4 +27,5 @@ class PagesController extends Controller
         return \view('app.pages.about', compact('page', 'reviews_video', 'reviews', 'team', 'methods'));
     }
 
+
 }

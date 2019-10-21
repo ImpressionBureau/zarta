@@ -14,6 +14,12 @@ if (!function_exists('remove_tags')) {
         return Str::limit(preg_replace('/<[^>]*>/', ' ', $text), $limit);
     }
 }
+if (!function_exists('remove_tags_direction')) {
+    function remove_tags_direction($text, $limit = 20)
+    {
+        return Str::limit(preg_replace('/<[^>]*>/', ' ', $text), $limit);
+    }
+}
 
 if (!function_exists('get_video_id')) {
     function get_video_id($url)

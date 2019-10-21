@@ -1,5 +1,12 @@
 @extends('layouts.app', ['page_title' => trans('breadcrumb.directions')])
 @section('content')
+    <section class="bradcrumbs-section">
+        <ul class="bcrumb">
+            <li class="bcrumb__item"><a href="/">@lang('breadcrumb.main')</a></li>
+            <li class="bcrumb__item"><a href="{{route('app.directions.index')}}">@lang('breadcrumb.directions')</a></li>
+            <li class="bcrumb__item bcrumb__item--active">{{$article->title}}</li>
+        </ul>
+    </section>
     <section class="intro-page-section d-flex align-items-center">
 
         <div class="container-fluid">

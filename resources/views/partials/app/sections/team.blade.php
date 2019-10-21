@@ -6,7 +6,11 @@
             @foreach ($team as $command)
                 <a href="{{route('app.command.show', $command)}}" class="teammate">
                     <div class="teammate__img">
+                        @if ($command->hasMedia('command'))
                         <img src="{{$command->getFirstMedia('command')->getFullUrl()}}" alt="">
+                            @else
+                            <img src="/images/no-image.png">
+                        @endif
                     </div>
                 <h4 class="teammate__name">{{$command->title}}</h4>
                 <p class="teammate__position">{{$command->content->description}}</p>

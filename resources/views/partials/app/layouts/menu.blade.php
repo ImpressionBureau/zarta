@@ -51,7 +51,8 @@
                                                 @foreach($direction->directions as $post)
                                                 <a href="{{route('app.directions.show', $post)}}" class="drop-slider__item">
                                                     <div class="content">
-                                                        <div class="content__img" style="background-image: url({{$post->getFirstMedia('direction')->getFullUrl()}})"></div>
+                                                        <div class="content__img" style="background-image: url({{$post->hasMedia('direction') ?
+                                                                $post->getFirstMedia('direction')->getFullUrl() : "/images/no-image.png"}})"></div>
                                                     <h3 class="content__title">{{$post->title}}</h3>
                                                     </div>
                                                 </a>
@@ -87,9 +88,11 @@
                                             <div class="col">
                                                 <div class="drop-slider drop-slider--minlenght">
                                                     @foreach($method->methods as $post)
-                                                        <a href="#" class="drop-slider__item">
+                                                        <a href="{{route('app.methods.show', $post)}}" class="drop-slider__item">
                                                             <div class="content">
-                                                                <div class="content__img" style="background-image: url({{$post->getFirstMedia('method')->getFullUrl()}})"></div>
+
+                                                                <div class="content__img" style="background-image: url({{$post->hasMedia('method') ?
+                                                                $post->getFirstMedia('method')->getFullUrl() : "/images/no-image.png"}})"></div>
                                                                 <h3 class="content__title">{{$post->title}}</h3>
                                                             </div>
                                                         </a>

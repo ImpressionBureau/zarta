@@ -24,9 +24,7 @@
                     <p class="mb-1">
                         <a href="{{ route('admin.appointments.edit', $appointment) }}"
                            class="btn btn-sm btn-dark">
-                            <svg width="16" height="16" style="fill: #fff;">
-                                <use xlink:href="#pen"></use>
-                            </svg>
+                            <i class="i-pencil"></i>
                         </a>
                     </p>
                 </div>

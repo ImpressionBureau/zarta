@@ -1,0 +1,23 @@
+
+
+section.bradcrumbs-section 
+    margin-top: 50px
+    padding: 10px 20px
+    @media (min-width: map_get($grid-breakpoints, xl)) 
+        padding: 10px 100px
+
+.bcrumb
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+    &__item 
+        font-size: 10px
+        color: #333
+        margin-right: 10px
+        a 
+            &:after 
+                content: '/'
+                margin-left: 10px
+            &:hover 
+                color: $primary
+

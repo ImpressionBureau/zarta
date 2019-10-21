@@ -1,5 +1,11 @@
 @extends('layouts.app', ['page_title' => trans('breadcrumb.blog')])
 @section('content')
+    <section class="bradcrumbs-section">
+        <ul class="bcrumb">
+            <li class="bcrumb__item"><a href="/">@lang('breadcrumb.main')</a></li>
+            <li class="bcrumb__item bcrumb__item--active">@lang('breadcrumb.blog')</li>
+        </ul>
+    </section>
     <section class="intro-other-section" style="background-image: url(images/other-intro.jpg)">
         <div class="container">
             <div class="row justify-content-center">

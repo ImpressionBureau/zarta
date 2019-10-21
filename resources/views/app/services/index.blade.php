@@ -1,5 +1,11 @@
 @extends('layouts.app', ['page_title' => trans('breadcrumb.service')])
 @section('content')
+    <section class="bradcrumbs-section">
+        <ul class="bcrumb">
+            <li class="bcrumb__item"><a href="/">@lang('breadcrumb.main')</a></li>
+            <li class="bcrumb__item bcrumb__item--active">@lang('breadcrumb.service')</li>
+        </ul>
+    </section>
 
     <section class="intro-other-section" style="background-image: url({{$page->getFirstMediaUrl('page')}}">
         <div class="container">

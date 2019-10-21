@@ -62,7 +62,7 @@ class ServicesController extends Controller
     {
 
         $service->slug = null;
-        $service->update();
+        $service->update($request->only('slug', 'category_id', 'price'));
         $service->updateTranslation();
         return \redirect()->route('admin.services.index')
             ->with('message', 'Запись успешно сохранена.');

@@ -66,7 +66,7 @@ class MethodsController extends Controller
     {
 
         $method->slug = null;
-        $method->update();
+        $method->update($request->only('slug', 'category_id'));
         $method->updateTranslation();
         if ($request->hasFile('method')) {
             $method->clearMediaCollection('method');

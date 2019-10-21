@@ -54,8 +54,10 @@ Route::group([
         Route::post('/form', 'AppointmentsController@form')->name('form');
         Route::post('/modal', 'AppointmentsController@modal')->name('modal');
     });
+    Route::post('subscribe', 'SubscribesController@create')->name('subscribe');
     Route::get('reviews', 'ReviewsController@index')->name('reviews.index');
     Route::get('faq', 'QuestionsController@index')->name('faq.index');
     Route::get('{command}', 'CommandController@show')->name('command.show');
+
 
 });

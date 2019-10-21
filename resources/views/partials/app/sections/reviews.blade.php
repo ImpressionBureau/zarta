@@ -67,10 +67,10 @@
                 @endif
         </div>
 
-        <a href="#" class="appointment d-flex flex-column align-items-center justify-content-center" style="background-image: url(../images/appointment-bg.jpg)">
+        <a href="#" class="appointment d-flex flex-column align-items-center justify-content-center modal-btn" style="background-image: url(../images/appointment-bg.jpg)">
             <h2 class="appointment__title">@lang('common.feedback.title')</h2>
             <p class="appointment__text">@lang('common.feedback.description')</p>
-            <p class="appointment__link mt-4" href="#">
+            <p class="appointment__link mt-4">
                 @lang('common.feedback.btn')
                 <svg width="20" height="6">
                     <use xlink:href="#arrow-link"></use>

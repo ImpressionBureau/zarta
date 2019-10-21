@@ -1,5 +1,13 @@
 @extends('layouts.app', ['page_title' => $article->title])
 @section('content')
+    <section class="bradcrumbs-section">
+        <ul class="bcrumb">
+            <li class="bcrumb__item"><a href="/">@lang('breadcrumb.main')</a></li>
+            <li class="bcrumb__item"><a href="{{route('app.articles.index')}}">@lang('breadcrumb.blog')</a></li>
+            <li class="bcrumb__item bcrumb__item--active">{{$article->title}}</li>
+
+        </ul>
+    </section>
     <section class="article-section">
 
         <div class="container-fluid">

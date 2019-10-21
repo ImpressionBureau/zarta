@@ -100,8 +100,7 @@ section.intro-other-section
     display: flex
     align-items: center
     height: auto 
-    min-height: 200px 
-    margin-top: 50px
+    min-height: 200px
     padding: 50px 0
     @extend %bg-cover 
     @media (min-width: map_get($grid-breakpoints, xl)) 
@@ -116,6 +115,30 @@ section.intro-other-section
     text-align: center
     color: #fff
 
+// thanks
+section.thanks-section
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    @extend %bg-cover
+    background-image: url(../images/thanks-bg.jpg)
+    height: 100vh
+    min-height: 500px
+
+.thanks-title
+    font-size: 30px
+    color: #fff
+    font-weight: normal
+    @media (min-width: map_get($grid-breakpoints, xl))
+        font-size: 64px
+
+
+.thanks-text
+    color: #fff
+    font-size: 20px
+    @media (min-width: map_get($grid-breakpoints, xl))
+        font-size: 40px
 
 
 
