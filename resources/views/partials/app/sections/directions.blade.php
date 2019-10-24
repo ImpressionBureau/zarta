@@ -1,4 +1,4 @@
-<section class="work-areas-section">
+<section id="direction-section" class="work-areas-section">
     <div class="container-fluid">
         <div class="row align-items-center justify-content-end">
             <div class="col-xl-auto">

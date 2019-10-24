@@ -81,6 +81,11 @@ section.work-areas-section
         &:nth-of-type(2)
             .areas-item 
                 min-height: 250px
+                .list
+                    li
+                        display: none
+                        &:nth-child(-n+3)
+                            display: block
                 &:last-child 
                     min-height: 500px
                     .list 
