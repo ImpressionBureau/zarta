@@ -8,8 +8,8 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row no-gutters">
-            <div class="col-xl-6">
+        <div class="row no-gutters justify-content-center">
+            <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6">
                 <div class="form__img" style="background-image: url(../images/form-img.jpg)"></div>
             </div>
             <div class="col-xl-6">

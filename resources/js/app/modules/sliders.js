@@ -50,7 +50,7 @@ if (document.querySelector('.texting-slider')) {
         pauseAutoPlayOnHover: true,
         initialIndex: 0,
         on: {
-            change: function( index ) {
+            change: function (index) {
                 var counter = document.getElementById('texting-active')
                 if (index <= 9) {
                     counter.innerText = `0${index + 1}`
@@ -259,7 +259,31 @@ if (window.innerWidth > 1199) {
                 }
                 this.closest('.menu-item').classList.add('menu-item--active');
 
-                if (menuSliderItem.length > 8) {
+                if (window.innerWidth > 1199 && menuSliderItem.length > 5) {
+                    menuLocalSlider.classList.remove('drop-slider--minlenght');
+                    flktyM = new Flickity(menuLocalSlider, {
+                        wrapAround: true,
+                        prevNextButtons: false,
+                        pageDots: true,
+                        cellAlign: 'left',
+                        draggable: true,
+                        pageDots: false,
+                        contain: true,
+                        initialIndex: 0
+                    });
+
+                    menuLocalSlider.insertAdjacentHTML('afterend', '<div class="menu-arrow menu-arrow--prev"><svg width="7" height="12"><use xlink:href="#arrow-left"></use></svg></div><div class="menu-arrow menu-arrow--next"><svg width="7" height="12"><use xlink:href="#arrow-right"></use></svg></div>');
+
+                    var prevArrowReviews = document.querySelector('.menu-arrow--prev');
+                    prevArrowReviews.addEventListener('click', function () {
+                        flktyM.previous(true, false);
+                    });
+
+                    var nextArrowReviews = document.querySelector('.menu-arrow--next');
+                    nextArrowReviews.addEventListener('click', function () {
+                        flktyM.next(true, false);
+                    });
+                } else if (window.innerWidth > 1500 && menuSliderItem.length > 8) {
                     menuLocalSlider.classList.remove('drop-slider--minlenght');
                     flktyM = new Flickity(menuLocalSlider, {
                         wrapAround: true,

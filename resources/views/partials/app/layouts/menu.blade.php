@@ -43,7 +43,7 @@
 
                                 <div class="menu-drop">
                                     <div class="row align-items-center">
-                                        <div class="col-xl-auto col-xxl-4">
+                                        <div class="col-xl-4">
                                             <h2 class="menu-drop__title">{{$direction->title}}</h2>
                                         </div>
                                         <div class="col">
@@ -82,7 +82,7 @@
 
                                     <div class="menu-drop">
                                         <div class="row align-items-center">
-                                            <div class="col-xl-auto col-xxl-4">
+                                            <div class="col-xl-4">
                                                 <h2 class="menu-drop__title">{{$method->title}}</h2>
                                             </div>
                                             <div class="col">

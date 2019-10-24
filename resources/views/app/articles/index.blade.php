@@ -49,9 +49,9 @@
                             </div>
                         </div>
                     @endforeach
-                    <div class="align-items-center">
-                        {{ $articles->links() }}
-                    </div>
+                </div>
+                <div class="align-items-center">
+                    {{ $articles->links() }}
                 </div>
             </div>
         </div>

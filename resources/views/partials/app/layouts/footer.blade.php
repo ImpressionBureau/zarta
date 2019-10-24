@@ -2,7 +2,7 @@
     <div class="footer-content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xl-2 col-xxl-3">
+                <div class="col-xl-2 col-xxl">
                     <a href="/" class="footer-logo">
                         <img src="/images/logo.png" alt="">
                     </a>
@@ -27,7 +27,7 @@
                         <a href="{{route('app.pages.contacts')}}">@lang('common.footer.contacts')</a>
                     </div>
                 </div>
-                <div class="col-xl-3 col-xxl-2">
+                <div class="col-xl-3 col-xxl">
                     <form action="{{route('app.subscribe')}}" method="post" class="footer-form">
                         @csrf
                         <p class="footer-form__subtitle">@lang('common.subscribe.title')</p>
