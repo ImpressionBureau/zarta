@@ -81,5 +81,6 @@ return [
     'subscribe' => [
         'title'=> 'Subscribe to the news',
         'btn' => 'Subscribe',
-    ]
+    ],
+    'navigation' => 'Page navigation:'
 ];

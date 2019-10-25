@@ -56,7 +56,7 @@
             <div class="row">
                 <div class="col order-xl-4 col-xxl-2">
                     <div class="cat-content-nav">
-                        <h4 class="title">Навігація по сторінці:</h4>
+                        <h4 class="title">@lang('common.navigation')</h4>
                         {!!  $article->content->navigation!!}
                     </div>
                 </div>
