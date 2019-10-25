@@ -29,7 +29,7 @@
             let formData = new FormData();
             formData.append('img', blobInfo.blob(), blobInfo.filename());
 
-            axios.post('/admin/media/upload', formData)
+            axios.post('/admin/media/tiny', formData)
               .then(({data}) => {
                 success(data.image.src);
               })

@@ -38,6 +38,7 @@ Route::group([
     ], function () {
         Route::post('upload', 'MediaController@upload')->name('upload');
         Route::delete('{media}', 'MediaController@destroy')->name('destroy');
+        Route::post('tiny', 'MediaController@tiny')->name('tiny');
     });
 
 });

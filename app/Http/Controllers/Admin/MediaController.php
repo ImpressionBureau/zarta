@@ -38,4 +38,18 @@ class MediaController extends Controller
         $media->delete();
         return \response()->json([]);
     }
+    public function tiny(Request $request, $name = 'img')
+    {
+        $media = null;
+
+        if ($request->hasFile($name)) {
+            /** @var MediaUpload $media */
+            $media = MediaUpload::create();
+            $media->addMediaFromRequest($name)->toMediaCollection('uploads');
+        }
+
+        return response()->json([
+            'image' => $media ? new ImageResource($media->getFirstMedia('uploads')) : null,
+        ]);
+    }
 }
