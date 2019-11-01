@@ -15,7 +15,7 @@ if (!function_exists('remove_tags')) {
     }
 }
 if (!function_exists('remove_tags_direction')) {
-    function remove_tags_direction($text, $limit = 20)
+    function remove_tags_direction($text, $limit = 100)
     {
         return Str::limit(preg_replace('/<[^>]*>/', ' ', $text), $limit);
     }
