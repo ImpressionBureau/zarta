@@ -57,6 +57,7 @@ class QuestionsController extends Controller
     {
         $question->slug = null;
         $question->update();
+        $question->updateTranslation();
         return \redirect()->route('admin.questions.index')
             ->with('message', 'Запись успешно сохранена.');
     }

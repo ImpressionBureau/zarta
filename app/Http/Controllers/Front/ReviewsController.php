@@ -13,7 +13,7 @@ class ReviewsController extends Controller
     {
         $page = Page::where('slug', 'reviews')->first();
         $reviews_video = Review::whereNotNull('video')->where('published', 1)->get();
-        $reviews = Review::where('published', 1)->get();
+        $reviews = Review::where('published', 1)->whereNull('video')->get();
         return \view('app.reviews.index', compact('page', 'reviews', 'reviews_video'));
     }
 }

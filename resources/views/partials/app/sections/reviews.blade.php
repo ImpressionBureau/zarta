@@ -9,7 +9,7 @@
                         <div class="texting-slider__item">
                             <div class="row justify-content-center">
                                 <div class="col-sm-8 col-md-6 col-lg-4 col-xl-5 col-xxl-5">
-                                    <div class="avatar mb-4 mb-xl-0" style="background-image: url({{$review->getFirstMedia('review')->getFullUrl()}})"></div>
+                                    <div class="avatar mb-4 mb-xl-0" style="background-image: url({{$review->hasMedia('review')? $review->getFirstMedia('review')->getFullUrl() : 'images/no-image.png'}})"></div>
                                 </div>
                                 <div class="col-lg col-xl-12 col-xxl d-flex flex-column justify-content-center">
                                     <div class="text">{!! $review->content->body!!}</div>

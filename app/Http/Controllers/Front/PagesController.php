@@ -23,7 +23,7 @@ class PagesController extends Controller
         $team = Command::get();
         $methods = Method::inRandomOrder()->take(4)->get();
         $reviews_video = Review::whereNotNull('video')->where('published', 1)->first();
-        $reviews = Review::where('published', 1)->get();
+        $reviews = Review::where('published', 1)->whereNull('video')->get();
         return \view('app.pages.about', compact('page', 'reviews_video', 'reviews', 'team', 'methods'));
     }
 
