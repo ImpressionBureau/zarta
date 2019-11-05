@@ -14,7 +14,7 @@ class MethodsController extends Controller
         $category = Category::where('thread', 'methods')->first();
         $articles = Method::where('category_id', $category->id)->get();
         $article = $articles->first();
-        return \view('app.methods.index', compact('category', 'articles', 'article', 'methods'));
+        return \view('app.methods.index', compact('category', 'articles', 'article'));
     }
 
     public function show(Method $item)
@@ -23,6 +23,6 @@ class MethodsController extends Controller
         $article = $item;
         $category = Category::where('id', $article->category_id)->first();
         $articles = Method::where('category_id', $category->id)->get();
-        return \view('app.methods.index', compact('category', 'articles', 'article', 'methods'));
+        return \view('app.methods.index', compact('category', 'articles', 'article'));
     }
 }
