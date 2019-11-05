@@ -13,7 +13,7 @@ class DirectionsController extends Controller
     public function index()
     {
         $methods = Method::inRandomOrder()->take(4)->get();
-        $category = Category::where('thread', 'directions')->first();
+        $category = Category::where('thread', 'directions')->has('directions')->first();
         $articles = Direction::where('category_id', $category->id)->get();
         $article = $articles->first();
         return \view('app.directions.index', compact('category', 'articles', 'article', 'methods'));
