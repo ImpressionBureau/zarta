@@ -49,6 +49,7 @@ if (document.querySelector('.texting-slider')) {
         contain: true,
         pauseAutoPlayOnHover: true,
         initialIndex: 0,
+        adaptiveHeight: true,
         on: {
             change: function (index) {
                 var counter = document.getElementById('texting-active')
@@ -198,16 +199,6 @@ if (window.innerWidth > 1199) {
 
     let flktyM;
 
-    window.addEventListener('scroll', function () {
-        if (document.querySelector('.menu-drop-btn--open')) {
-            document.querySelector('.menu-item--active').classList.remove('menu-item--active');
-            document.querySelector('.menu-drop-btn--open').style.paddingBottom = 10 + 'px';
-            document.querySelector('.menu-drop--open').classList.remove('menu-drop--open');
-            document.querySelector('.menu-drop-btn--open').classList.remove('menu-drop-btn--open');
-        }
-        menu.classList.remove('menu--open');
-    });
-
     menuDropBtn.forEach(function (item) {
 
         item.addEventListener('click', function (e) {
@@ -220,7 +211,7 @@ if (window.innerWidth > 1199) {
             let menuLocalSlider = menuDrop.querySelector('.drop-slider');
             let menuSliderItem = menuLocalSlider.querySelectorAll('.drop-slider__item');
             let menuLocalSliderHeight = menuDrop.offsetHeight + 50;
-            let menuDropBtnTopPos = item.getBoundingClientRect().top;
+            let menuDropBtnTopPos = item.offsetTop + 100;
             if (item.classList.contains('menu-drop-btn--open')) {
                 this.closest('.menu-item').classList.remove('menu-item--active');
                 this.style.paddingBottom = 10 + 'px';
@@ -235,7 +226,7 @@ if (window.innerWidth > 1199) {
                     dropBtnOpen.style.paddingBottom = 10 + 'px';
                     dropBtnOpen.classList.remove('menu-drop-btn--open');
                     setTimeout(function () {
-                        menuDropBtnTopPos = item.getBoundingClientRect().top;
+                        menuDropBtnTopPos = item.offsetTop + 100;
                         menuDrop.style.top = menuDropBtnTopPos + 'px';
                         menuDrop.classList.add('menu-drop--open');
                     }, 500);

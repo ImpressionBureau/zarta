@@ -32,9 +32,14 @@
                 <div class="about">
                     <h2 class="mb-4">{{$about->title}}</h2>
                     <div class="about-text">
-                        {{$about->content->description}}
+                        @if($about->content->description)
+                            {{$about->content->description}}
+                        @else
+                            {!! remove_tags($about->content->body) !!}
+                        @endif
                     </div>
-                    <a href="{{ route('app.pages.about') }}" class="btn btn-secondary mt-4"><span>@lang('common.main.more_info')</span></a>
+                    <a href="{{ route('app.pages.about') }}"
+                       class="btn btn-secondary mt-4"><span>@lang('common.main.more_info')</span></a>
                 </div>
             </div>
         </div>

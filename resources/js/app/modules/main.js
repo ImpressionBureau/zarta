@@ -47,10 +47,13 @@ let headerTopPos = header.offsetTop;
 
 window.addEventListener('scroll', function () {
     let scrollHeight = pageYOffset;
-    if (scrollHeight >= headerTopPos) {
-        header.classList.remove('header--front');
-    } else {
-        header.classList.add('header--front');
+
+    if (!document.querySelector('.menu').classList.contains('menu--open')) {
+        if (scrollHeight >= headerTopPos) {
+            header.classList.remove('header--front');
+        } else {
+            header.classList.add('header--front');
+        }
     }
 });
 

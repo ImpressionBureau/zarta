@@ -32,7 +32,7 @@ section.therapy-methods-section
     &__item 
         width: 100%
         position: relative
-        @media (min-width: map_get($grid-breakpoints, md)) 
+        @media (min-width: map_get($grid-breakpoints, lg))
             width: 50%
         .img 
             width: 100%
@@ -40,7 +40,7 @@ section.therapy-methods-section
             @extend %bg-cover
             position: relative
             z-index: 1
-            @media (min-width: map_get($grid-breakpoints, md)) 
+            @media (min-width: map_get($grid-breakpoints, lg))
                 padding-top: 439/365*100%
         .title 
             position: absolute
@@ -54,7 +54,7 @@ section.therapy-methods-section
             font-family: $font-family-base
             z-index: 3
             transition: all 0.5s ease
-            @media (min-width: map_get($grid-breakpoints, md)) 
+            @media (min-width: map_get($grid-breakpoints, lg))
                 color: #333
             @media (min-width: map_get($grid-breakpoints, xl)) 
                 left: 50px 
@@ -67,14 +67,8 @@ section.therapy-methods-section
             justify-content: center
             flex-direction: column
             padding: 20px
-            @media (min-width: map_get($grid-breakpoints, md)) 
-                padding: 0
-            li 
-                a 
-                    display: block
-                    padding: 5px 0
-                    &:hover 
-                        color: $primary
+            @media (min-width: map_get($grid-breakpoints, lg))
+                padding: 20px 50px
     &:hover 
         .method__circle 
             width: 300%
