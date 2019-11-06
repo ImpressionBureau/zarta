@@ -35,7 +35,7 @@
                         @if($about->content->description)
                             {{$about->content->description}}
                         @else
-                            {!! remove_tags($about->content->body) !!}
+                            {!! remove_tags($about->content->body, 600) !!}
                         @endif
                     </div>
                     <a href="{{ route('app.pages.about') }}"
