@@ -54,17 +54,25 @@
             </h2>
 
             <div class="row">
-                <div class="col order-xl-4 col-xxl-2">
-                    <div class="cat-content-nav">
-                        <h4 class="title">@lang('common.navigation')</h4>
-                        {!!  $article->content->navigation!!}
+                @if($article->content->navigation)
+                    <div class="col order-xl-4 col-xxl-2">
+                        <div class="cat-content-nav">
+                            <h4 class="title">@lang('common.navigation')</h4>
+                            {!!  $article->content->navigation!!}
+                        </div>
                     </div>
-                </div>
-                <div class="col-xl-8 col-xxl-9 order-xl-1">
-                    <div class="cat-content">
-                        {!! $article->content->body!!}
+                    <div class="col-xl-8 col-xxl-9 order-xl-1">
+                        <div class="cat-content">
+                            {!! $article->content->body!!}
+                        </div>
                     </div>
-                </div>
+                @else
+                    <div class="col-12">
+                        <div class="cat-content">
+                            {!! $article->content->body!!}
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </section>
