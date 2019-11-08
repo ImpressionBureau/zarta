@@ -17,7 +17,7 @@
                                    type="text"
                                    name="{{$lang}}[title]"
                                    class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"
-                                   value="{{ old($lang.'.title') ?? $question->title}}"
+                                   value="{{ old($lang.'.title') ?? $question->translate('title', $lang)}}"
                                    required>
                             @if($errors->has('title'))
                                 <div class="mt-1 text-danger">

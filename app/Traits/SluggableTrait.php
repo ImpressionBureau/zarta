@@ -35,6 +35,6 @@ trait SluggableTrait
      */
     public function getUniqueSlugAttribute(): string
     {
-        return request('uk.title') ?? request('title');
+        return \Str::words(request('uk.title') ?? request('title'), 5, '');
     }
 }
