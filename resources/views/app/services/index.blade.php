@@ -23,6 +23,7 @@
             <div class="navigation">
                 <div class="navigation-slider">
                     @foreach($categories as $category)
+                        @if($category->services->count())
                         <a href="?category={{ $category->slug }}" class="navigation-slider__item">
                             <div class="content">
                                 <div class="content__img"
@@ -30,6 +31,7 @@
                                 <h3 class="content__title">{{$category->title}}</h3>
                             </div>
                         </a>
+                        @endif
                     @endforeach
                 </div>
             </div>
