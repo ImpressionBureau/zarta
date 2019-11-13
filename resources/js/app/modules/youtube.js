@@ -22,5 +22,5 @@ function getYoutubeVideoId(url) {
 
 function getYoutubeVideoImg(id) {
 
-    return `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+    return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
 }
