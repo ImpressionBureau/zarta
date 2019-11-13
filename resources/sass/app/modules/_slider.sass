@@ -1,33 +1,70 @@
 
+.intro-slider-wrap
+    @extend %absolute
 
-.team-arrow 
-    position: absolute
-    left: 0 
-    top: 0 
+.intro-slider
     height: 100%
-    width: 30px 
+    width: 100%
+    &__item
+        width: 100%
+        height: 100%
+        @extend %bg-cover
+        &:before
+            content: ''
+            position: absolute
+            width: 100%
+            height: 100%
+            left: 0
+            top: 0
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%)
+
+.intro-arrow
+    position: absolute
+    bottom: 50%
+    width: 40px
+    height: 90px
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: rgba(#000, 0.3)
+    transition: all 0.5s ease
+    cursor: pointer
+    svg
+        fill: #fff
+    &--next
+        left: auto
+        right: 0
+    &:hover
+        background-color: rgba(#000, 0.5)
+
+.team-arrow
+    position: absolute
+    left: 0
+    top: 0
+    height: 100%
+    width: 30px
     display: flex
     align-items: center
     justify-content: center
     background-color: rgba(#000, 0.7)
     transition: all 0.5s ease
     cursor: pointer
-    svg 
+    svg
         fill: #fff
-    &--next 
-        left: auto 
+    &--next
+        left: auto
         right: 0
-    &:hover 
+    &:hover
         background-color: #000
 
-.texting-slider 
+.texting-slider
     width: 100%
-    .texting-slider__item 
+    .texting-slider__item
         width: 100%
         margin: 0 20px
 
-.about-slider 
-    &__item 
+.about-slider
+    &__item
         width: 100%
         padding-top: 740/570*100%
         @extend %bg-cover

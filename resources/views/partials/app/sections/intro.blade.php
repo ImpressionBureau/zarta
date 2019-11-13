@@ -2,7 +2,28 @@
     @csrf
     <input type="hidden" name="locale">
 </form>
-<section class="intro-section d-flex flex-column align-items-center justify-content-center" style="background-image: url({{app('settings')->getFirstMedia('banner')->getFullUrl()}})">
+<section class="intro-section d-flex flex-column align-items-center justify-content-center">
+
+    <div class="intro-slider-wrap">
+        <div class="intro-slider">
+            @foreach(app('settings')->getMedia('banner') as $item)
+                <div class="intro-slider__item" style="background-image: url({{$item->getFullUrl()}})"></div>
+            @endforeach
+        </div>
+        @if(app('settings')->getMedia('banner')->count()>1)
+            <div class="intro-arrow intro-arrow--prev">
+                <svg width="13" height="21">
+                    <use xlink:href="#arrow-left"></use>
+                </svg>
+            </div>
+            <div class="intro-arrow intro-arrow--next">
+                <svg width="13" height="21">
+                    <use xlink:href="#arrow-right"></use>
+                </svg>
+            </div>
+        @endif
+    </div>
+
     <div class="intro d-flex flex-column align-items-center justify-content-center">
         <a href="/" class="intro__logo">
             <img src="/images/logo.png" alt="">
@@ -12,7 +33,7 @@
 
     <p class="intro-label">@lang('common.main.label')</p>
 
-    <a href="#"  class="intro-scroll anchor modal-btn">
+    <a href="#" class="intro-scroll anchor modal-btn">
         <p>@lang('common.main.appointments')</p>
     </a>
 
@@ -58,13 +79,15 @@
                 </svg>
                 {{app('settings')->content->address}}
             </a>
-            <a href="tel:{{phone_link(app('settings')->phone)}}" class="header-contacts__item d-inline-flex align-items-center">
+            <a href="tel:{{phone_link(app('settings')->phone)}}"
+               class="header-contacts__item d-inline-flex align-items-center">
                 <svg class="img" width="15" height="15">
                     <use xlink:href="#phone-icon"></use>
                 </svg>
                 {{app('settings')->phone}}
             </a>
-            <a href="tel:{{phone_link(app('settings')->phone_additional)}}" class="header-contacts__item d-inline-flex align-items-center">
+            <a href="tel:{{phone_link(app('settings')->phone_additional)}}"
+               class="header-contacts__item d-inline-flex align-items-center">
                 <svg class="img" width="15" height="15">
                     <use xlink:href="#phone-icon"></use>
                 </svg>

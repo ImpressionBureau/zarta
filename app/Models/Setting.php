@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Resources\ImageResource;
 use App\Traits\TranslatableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Image\Manipulations;
@@ -59,5 +60,10 @@ class Setting extends Model implements HasMedia
                     ->width(385)
                     ->height(193);
             });
+    }
+
+    public function getImagesListAttribute()
+    {
+        return ImageResource::collection($this->getMedia('banner'));
     }
 }

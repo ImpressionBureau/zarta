@@ -3,14 +3,38 @@ import Flickity from 'Flickity';
 
 import 'flickity/dist/flickity.css';
 
+if (document.querySelector('.intro-slider')) {
 
+    let flktyI = new Flickity('.intro-slider', {
+        wrapAround: true,
+        prevNextButtons: false,
+        cellAlign: 'left',
+        draggable: false,
+        pageDots: false,
+        contain: true,
+        autoPlay: 3000,
+        pauseAutoPlayOnHover: false
+    });
+    var prevArrowReviews = document.querySelector('.intro-arrow--prev');
+    if(prevArrowReviews){
+    prevArrowReviews.addEventListener('click', function () {
+        flktyI.previous(true, false);
+    });
+    }
+
+    var nextArrowReviews = document.querySelector('.intro-arrow--next');
+    if(nextArrowReviews){
+    nextArrowReviews.addEventListener('click', function () {
+        flktyI.next(true, false);
+    });
+    }
+}
 
 if (document.querySelector('.team-slider')) {
 
     let flktyA = new Flickity('.team-slider', {
         wrapAround: true,
         prevNextButtons: false,
-        pageDots: true,
         cellAlign: 'left',
         draggable: false,
         pageDots: false,
@@ -42,7 +66,6 @@ if (document.querySelector('.texting-slider')) {
     let flktyA = new Flickity('.texting-slider', {
         wrapAround: true,
         prevNextButtons: false,
-        pageDots: true,
         cellAlign: 'left',
         draggable: false,
         pageDots: false,
@@ -95,7 +118,6 @@ if (document.querySelector('.about-slider') && aboutSliderItem.length > 1) {
     let flktyA = new Flickity('.about-slider', {
         wrapAround: true,
         prevNextButtons: false,
-        pageDots: true,
         cellAlign: 'left',
         draggable: false,
         pageDots: false,
@@ -135,7 +157,6 @@ if (document.querySelector('.navigation-slider')) {
         let flktyA = new Flickity('.navigation-slider', {
             wrapAround: true,
             prevNextButtons: false,
-            pageDots: true,
             cellAlign: 'left',
             draggable: false,
             pageDots: false,

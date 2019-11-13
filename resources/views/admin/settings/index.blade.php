@@ -108,9 +108,12 @@
             </div>
 
             <label for="banner">Баннер для главной страницы</label>
-            <image-uploader ratio="67%" name="banner" id="banner"
+            <multi-uploader
+                    class="mt-4"
+                    :src="{{ json_encode($setting->images_list) }}"></multi-uploader>
+            {{--<image-uploader ratio="67%" name="banner" id="banner"
                             image-id="{{ optional($setting->getFirstMedia('banner'))->id }}"
-                            src="{{ $setting->getFirstMediaUrl('banner') }}"></image-uploader>
+                            src="{{ $setting->getFirstMediaUrl('banner') }}"></image-uploader>--}}
 
             <button class="btn btn-primary mt-2">Сохранить</button>
         </form>

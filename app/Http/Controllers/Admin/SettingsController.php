@@ -6,6 +6,7 @@ use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
+use Spatie\MediaLibrary\Models\Media;
 
 
 class SettingsController extends Controller
@@ -29,11 +30,20 @@ class SettingsController extends Controller
         $setting = Setting::first();
         $setting->update($request->only('phone', 'phone_additional', 'email', 'facebook', 'instagram', 'youtube'));
         $setting->updateTranslation();
-        if ($request->hasFile('banner')) {
+        if ($request->filled('media')) {
+            foreach ($request->input('media') as $media) {
+                Media::find($media)->update([
+                    'model_type' => Setting::class,
+                    'model_id' => $setting->id,
+                    'collection_name' => 'banner'
+                ]);
+            }
+        }
+       /* if ($request->hasFile('banner')) {
             $setting->clearMediaCollection('banner');
             $setting->addMediaFromRequest('banner')
                 ->toMediaCollection('banner');
-        }
+        }*/
         return \redirect()->route('admin.settings.index')
             ->with('message', 'Запись успешно сохранена.');
     }
