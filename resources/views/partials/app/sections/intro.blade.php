@@ -12,7 +12,7 @@
 
     <p class="intro-label">@lang('common.main.label')</p>
 
-    <a href="#direction-section"  class="intro-scroll anchor">
+    <a href="#"  class="intro-scroll anchor modal-btn">
         <p>@lang('common.main.appointments')</p>
     </a>
 
