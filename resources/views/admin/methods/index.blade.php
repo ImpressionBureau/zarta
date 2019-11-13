@@ -1,12 +1,12 @@
-@extends('layouts.admin', ['app_title' => 'Направления работы'])
+@extends('layouts.admin', ['app_title' => 'Методы лечения'])
 
 @section('content')
 
     <div class="d-flex align-items-center mb-5">
-        <h1 class="mb-0 h2">Направления работы</h1>
+        <h1 class="mb-0 h2">Методы лечения</h1>
         <div class="ml-3">
             <a href="{{ route('admin.methods.create') }}" class="btn btn-primary">
-                Создать новое направление работы
+                Создать новый метод лечения
             </a>
         </div>
     </div>
