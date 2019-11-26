@@ -29,7 +29,7 @@ class Subscribes extends Mailable
     public function build()
     {
         return $this
-            ->to(app('admins'))
+            ->to(app('settings')->email)
             ->subject('Подписка на рассылку')
             ->view('mail.admin.subscribe');
     }

@@ -29,7 +29,7 @@ class Appointments extends Mailable
     public function build()
     {
         return $this
-            ->to(app('admins'))
+            ->to(app('settings')->email)
             ->subject('Запись на прийом')
             ->view('mail.admin.appointment');
     }
