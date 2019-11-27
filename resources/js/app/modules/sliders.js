@@ -265,7 +265,9 @@ if (window.innerWidth > 1199) {
                     document.querySelectorAll('.menu-arrow').forEach(function (i) {
                         i.remove();
                     });
-                    flktyM.destroy();
+                    if (flktyM) {
+                        flktyM.destroy();
+                    }
                 }
                 this.closest('.menu-item').classList.add('menu-item--active');
 
