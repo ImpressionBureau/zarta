@@ -246,11 +246,9 @@ if (window.innerWidth > 1199) {
                 if (dropBtnOpen) {
                     dropBtnOpen.style.paddingBottom = 10 + 'px';
                     dropBtnOpen.classList.remove('menu-drop-btn--open');
-                    setTimeout(function () {
-                        menuDropBtnTopPos = item.offsetTop + 100;
-                        menuDrop.style.top = menuDropBtnTopPos + 'px';
-                        menuDrop.classList.add('menu-drop--open');
-                    }, 500);
+                    menuDropBtnTopPos = item.offsetTop + 100;
+                    menuDrop.style.top = menuDropBtnTopPos + 'px';
+                    menuDrop.classList.add('menu-drop--open');
                     document.querySelectorAll('.menu-arrow').forEach(function (i) {
                         i.remove();
                     });
@@ -276,7 +274,6 @@ if (window.innerWidth > 1199) {
                     flktyM = new Flickity(menuLocalSlider, {
                         wrapAround: true,
                         prevNextButtons: false,
-                        pageDots: true,
                         cellAlign: 'left',
                         draggable: true,
                         pageDots: false,
@@ -300,7 +297,6 @@ if (window.innerWidth > 1199) {
                     flktyM = new Flickity(menuLocalSlider, {
                         wrapAround: true,
                         prevNextButtons: false,
-                        pageDots: true,
                         cellAlign: 'left',
                         draggable: true,
                         pageDots: false,
