@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Models\Category;
 use App\Models\Command;
 use App\Models\Direction;
 use App\Models\Page;
@@ -13,7 +14,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $directions = Direction::latest()->take(6)->get();
+        $directions = Category::where('thread', 'directions')->inRandomOrder()->take(6)->get();;
         $pages= Page::inRandomOrder()->take(3)->get();
         $team = Command::get();
         $reviews_video = Review::whereNotNull('video')->where('published', 1)->first();

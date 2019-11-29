@@ -10,10 +10,10 @@ use App\Http\Controllers\Controller;
 
 class DirectionsController extends Controller
 {
-    public function index()
+    public function index(Category $item)
     {
-        $methods = Method::inRandomOrder()->take(4)->get();
-        $category = Category::where('thread', 'directions')->has('directions')->first();
+        $methods = Category::where('thread', 'directions')->inRandomOrder()->take(6)->get();
+        $category = $item;
         $articles = Direction::where('category_id', $category->id)->get();
         $article = $articles->first();
         return \view('app.directions.index', compact('category', 'articles', 'article', 'methods'));
@@ -24,7 +24,7 @@ class DirectionsController extends Controller
 
         $article = $item;
         $category = Category::where('id', $article->category_id)->first();
-        $methods = Method::inRandomOrder()->take(4)->get();
+        $methods = Category::where('thread', 'directions')->inRandomOrder()->take(6)->get();
         $articles = Direction::where('category_id', $category->id)->get();
         return \view('app.directions.index', compact('category', 'articles', 'article', 'methods'));
     }

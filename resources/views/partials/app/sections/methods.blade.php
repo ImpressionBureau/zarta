@@ -8,19 +8,19 @@
                     <div class="col-sm-6 col-xl-6 px-2">
                         @endif
                         @if($loop->first)
-                            <h2 class="section-title mb-5 therapy-method__title">@lang('common.menu.method')</h2>
+                            <h2 class="section-title mb-5 therapy-method__title">@lang('common.main.direction')</h2>
                         @endif
-                        <a href="{{route('app.methods.show', $method)}}">
+                        <a href="{{route('app.directions.index', $method)}}">
                             <div class="method">
                                 <div class="method__circle d-none d-lg-block"></div>
                                 <div class="method__item">
                                     <div class="img"
-                                         style="background-image: url({{$method->getFirstMediaUrl('method')}})"></div>
+                                         style="background-image: url({{$method->getFirstMediaUrl('category')}})"></div>
                                     <h3 class="title">{{$method->title}}</h3>
                                 </div>
                                 <div class="method__item">
                                     <div class="list">
-                                        {!! remove_tags_direction($method->content->body) !!}
+                                        {!! remove_tags_direction($method->content->description) !!}
 
                                     </div>
                                 </div>

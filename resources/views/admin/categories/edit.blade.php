@@ -40,14 +40,7 @@
 
                     @endforeach
                 </block-editor>
-                <select class="form-control position-relative mt-3" name="thread" id="thread" required>
-                    <option value="" disabled selected style='display:none;'>Выберите направление категории</option>
-                    <option value="directions" {{$category->thread == 'directions' ? ' selected' : ''}}>Направления
-                        работы
-                    </option>
-                    <option value="methods" {{$category->thread == 'methods' ? ' selected' : ''}}>Методы лечения
-                    </option>
-                </select>
+                <input type="hidden" name="thread" value="directions">
                 <hr class="my-5">
             </div>
             <div class="col-md-4">

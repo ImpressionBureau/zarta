@@ -24,8 +24,7 @@ return [
     ],
     'feedback'=> [
         'title' => 'Book an appointment',
-        'description'=>'Want to ask questions, clarify details or have any doubts? <br> Be it
-                 please leave your number - we will definitely help you',
+        'description'=>'Want to ask questions, clarify details or have any doubts? <br>Please leave your number - we will definitely help you.',
         'btn' => 'Book an appointment',
     ],
     'header' => [

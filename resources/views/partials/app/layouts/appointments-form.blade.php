@@ -26,12 +26,12 @@
 
                         <div class="field">
                             <label for="modal-id2">@lang('common.form.phone')</label>
-                            <input id="modal-id2" name="modal-phone" type="tel" class="field__item" required>
+                            <input type="tel" id="modal-id2" name="modal-phone"  class="field__item" maxlength="12" required>
                         </div>
 
                         <div class="field">
                             <label for="modal-id3">Email</label>
-                            <input id="modal-id3" name="modal-email" type="email" class="field__item" required>
+                            <input id="modal-id3" name="modal-email" type="email" class="field__item">
                         </div>
 
                         <div class="field">

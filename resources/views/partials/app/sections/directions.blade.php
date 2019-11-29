@@ -13,12 +13,12 @@
                         @if(($loop->iteration %2) != 0)
                             <div class="areas-col">
                                 @endif
-                                <a href="{{route('app.directions.show', $direction)}}" class="areas-item"
-                                   style="background-image: url({{$direction->getFirstMedia('direction')->getFullUrl()}})">
+                                <a href="{{route('app.directions.index', $direction)}}" class="areas-item"
+                                   style="background-image: url({{$direction->getFirstMedia('category')->getFullUrl()}})">
                                     <div class="areas-item__content">
                                         <p class="title">{{ $direction->title }}</p>
                                         <div class="content">
-                                            {!! remove_tags_direction($direction->content->body) !!}
+                                            {!! remove_tags_direction($direction->content->description) !!}
                                         </div>
                                     </div>
                                 </a>

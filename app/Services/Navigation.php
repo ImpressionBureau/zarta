@@ -37,11 +37,6 @@ class Navigation
                 'icon' => 'i-grid',
             ]),
             new NavItem([
-                'name' => 'Методы лечения',
-                'route' => 'methods',
-                'icon' => 'i-grid-2',
-            ]),
-            new NavItem([
                 'name' => 'Услуги и цены',
                 'route' => 'services',
                 'icon' => 'i-bullet-list',

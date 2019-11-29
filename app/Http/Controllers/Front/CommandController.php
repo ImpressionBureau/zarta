@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Models\Category;
 use App\Models\Command;
 use App\Models\Method;
 use Illuminate\Http\Request;
@@ -11,7 +12,7 @@ class CommandController extends Controller
 {
     public function show(Command $command)
     {
-        $methods = Method::inRandomOrder()->take(4)->get();
+        $methods = Category::where('thread', 'directions')->inRandomOrder()->take(6)->get();
         return \view('app.command.show', compact('command', 'methods'));
     }
 }

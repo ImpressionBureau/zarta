@@ -28,7 +28,7 @@
 
                                 <div class="field">
                                     <label for="form-email">Email</label>
-                                    <input id="form-email" name="form-email" type="email" class="field__item" required>
+                                    <input id="form-email" name="form-email" type="email" class="field__item">
                                 </div>
 
                                 <div class="field">

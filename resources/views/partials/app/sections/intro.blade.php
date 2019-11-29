@@ -25,7 +25,7 @@
     </div>
 
     <div class="intro d-flex flex-column align-items-center justify-content-center">
-        <a href="/" class="intro__logo">
+        <a href="/" class="intro__logo d-none d-lg-flex">
             <img src="/images/logo.png" alt="">
         </a>
         <p class="intro__text">{{app('settings')->title}}</p>

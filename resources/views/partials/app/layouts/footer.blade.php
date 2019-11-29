@@ -16,7 +16,6 @@
                 </div>
                 <div class="col-xl">
                     <div class="footer-list d-flex flex-column">
-                        <a href="{{ route('app.methods.index') }}">@lang('common.footer.methods')</a>
                         <a href="{{route('app.services.index')}}">@lang('common.footer.services')</a>
                         <a href="{{ route('app.faq.index') }}">@lang('common.footer.questions')</a>
                     </div>

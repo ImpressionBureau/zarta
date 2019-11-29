@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\Article;
+use App\Models\Category;
 use App\Models\Method;
 use App\Models\Review;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class ArticlesController extends Controller
 
     public function show(Article $article)
     {
-        $methods = Method::inRandomOrder()->take(4)->get();
+        $methods = Category::where('thread', 'directions')->inRandomOrder()->take(6)->get();
         return \view('app.articles.show', compact('article', 'methods'));
     }
 }
