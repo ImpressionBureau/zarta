@@ -1,9 +1,9 @@
 <section class="front-priview-section">
     <div class="container-fluid">
-        <div class="row no-gutters">
+        <div class="row no-gutters justify-content-center">
 
             @foreach($pages as $page)
-                <div class="col-4">
+                <div class="col-sm-6 col-xl-4 mb-4 mb-xl-0">
                     <div class="front-priview"
                          style="background-image: url({{$page->slug == 'about'? $page->getFirstMedia('uploads')->getFullUrl(): $page->getFirstMedia('page')->getFullUrl()}})">
                         <a href="{{$page->slug == 'service' ? route('app.services.index') :

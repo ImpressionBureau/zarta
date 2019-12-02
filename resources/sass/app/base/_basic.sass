@@ -1,5 +1,9 @@
-html
+html, body
     overflow-x: hidden
+
+body
+    @media (min-width: map_get($grid-breakpoints, xl))
+        overflow-x: visible
         
 
 h1, .h1, h2, .h2

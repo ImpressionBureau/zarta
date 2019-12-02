@@ -46,29 +46,28 @@ section.intro-section
             max-width: 150px
             @media (min-width: map_get($grid-breakpoints, xl)) 
                 max-width: 300px
-    &__text 
-        padding-top: 25px
+    &__text
         font-family: $headings-font-family
         color: #fff
         font-size: 20px
         width: auto 
         max-width: 700px
         text-align: center
-        border-top: 3px solid rgba(#fff, 0.3)
         position: relative
-        margin-top: 40px
-        @media (min-width: map_get($grid-breakpoints, xl)) 
+        padding: 25px 40px 0
+        @media (min-width: map_get($grid-breakpoints, xl))
             font-size: 30px
-        &:before 
-            content: ''
-            width: 100px 
-            height: 6px
-            background-color: $primary 
-            position: absolute
-            top: -6px 
-            left: 50% 
-            transform: translateX(-50%)
-            box-shadow: 0px 0px 30px $primary
+            border-top: 3px solid rgba(#fff, 0.3)
+            &:before
+                content: ''
+                width: 100px
+                height: 6px
+                background-color: $primary
+                position: absolute
+                top: -6px
+                left: 50%
+                transform: translateX(-50%)
+                box-shadow: 0px 0px 30px $primary
 
 .intro-scroll 
     display: flex

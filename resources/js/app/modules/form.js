@@ -1,4 +1,6 @@
 const fields = document.querySelectorAll('.field__item');
+const tel = document.getElementById('modal-id2');
+const tel2 = document.getElementById('form-phone');
 
 fields.forEach(function (item) {
   item.addEventListener("focus", function () {
@@ -18,21 +20,34 @@ fields.forEach(function (item) {
   })
 
 })
-/*
-const tel = document.getElementById('modal-id2');
-if (!tel.value) {
-  tel.onfocus = function () {
-    tel.value = "+";
-  };
+
+tel.onfocus = function () {
+  if (!tel.value.length) {
+    return tel.value = "+";
+  } else {
+    return tel.value
+  }
 }
 tel.onkeypress = function (e) {
   if (e.key.match(/[^0-9'".]/)) {
     return false;
   }
 }
-*/
 
-
+if (tel2) {
+  tel2.onfocus = function () {
+    if (!tel2.value.length) {
+      return tel2.value = "+";
+    } else {
+      return tel2.value
+    }
+  }
+}
+tel.onkeypress = function (e) {
+  if (e.key.match(/[^0-9'".]/)) {
+    return false;
+  }
+}
 // let value = $('.field__item').val();
 
 // if (value === "") {

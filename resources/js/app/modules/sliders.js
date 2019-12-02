@@ -36,7 +36,7 @@ if (document.querySelector('.team-slider')) {
         wrapAround: true,
         prevNextButtons: false,
         cellAlign: 'left',
-        draggable: false,
+        draggable: true,
         pageDots: false,
         contain: true,
         pauseAutoPlayOnHover: true,
@@ -60,6 +60,36 @@ if (document.querySelector('.team-slider')) {
 
 
 
+if (document.querySelector('.methods-slider') && window.innerWidth < 992) {
+
+    let flktyM = new Flickity('.methods-slider', {
+        wrapAround: true,
+        prevNextButtons: false,
+        cellAlign: 'left',
+        draggable: true,
+        pageDots: false,
+        contain: true,
+        adaptiveHeight: true,
+        pauseAutoPlayOnHover: true,
+        initialIndex: 0
+    });
+
+
+    var prevArrowReviews = document.querySelector('.methods-arrow--prev');
+
+    prevArrowReviews.addEventListener('click', function () {
+        flktyM.previous(true, false);
+    });
+
+    var nextArrowReviews = document.querySelector('.methods-arrow--next');
+
+    nextArrowReviews.addEventListener('click', function () {
+        flktyM.next(true, false);
+    });
+
+}
+
+
 
 if (document.querySelector('.texting-slider')) {
 
@@ -67,7 +97,7 @@ if (document.querySelector('.texting-slider')) {
         wrapAround: true,
         prevNextButtons: false,
         cellAlign: 'left',
-        draggable: false,
+        draggable: true,
         pageDots: false,
         contain: true,
         pauseAutoPlayOnHover: true,
@@ -119,7 +149,7 @@ if (document.querySelector('.about-slider') && aboutSliderItem.length > 1) {
         wrapAround: true,
         prevNextButtons: false,
         cellAlign: 'left',
-        draggable: false,
+        draggable: true,
         pageDots: false,
         contain: true,
         pauseAutoPlayOnHover: true,
@@ -152,13 +182,38 @@ if (document.querySelector('.navigation-slider')) {
 
     let sliderItem = document.querySelectorAll('.navigation-slider__item');
 
-    if (sliderItem.length > 8) {
+    if (window.innerWidth < 768 && sliderItem.length > 3){
+        let flktyA = new Flickity('.navigation-slider', {
+            wrapAround: true,
+            prevNextButtons: false,
+            cellAlign: 'left',
+            draggable: true,
+            pageDots: false,
+            contain: true,
+            // pauseAutoPlayOnHover: true,
+            initialIndex: 0
+        });
+
+        let sliderWrap = document.querySelector('.navigation');
+
+        sliderWrap.insertAdjacentHTML('beforeend', '<div class="navigation-arrow navigation-arrow--prev"><svg width="7" height="12"><use xlink:href="#arrow-left"></use></svg></div><div class="navigation-arrow navigation-arrow--next"><svg width="7" height="12"><use xlink:href="#arrow-right"></use></svg></div>');
+
+        var prevArrowReviews = document.querySelector('.navigation-arrow--prev');
+        prevArrowReviews.addEventListener('click', function () {
+            flktyA.previous(true, false);
+        });
+
+        var nextArrowReviews = document.querySelector('.navigation-arrow--next');
+        nextArrowReviews.addEventListener('click', function () {
+            flktyA.next(true, false);
+        });
+    } else if (window.innerWidth > 768 && window.innerWidth > 992  && sliderItem.length > 5) {
 
         let flktyA = new Flickity('.navigation-slider', {
             wrapAround: true,
             prevNextButtons: false,
             cellAlign: 'left',
-            draggable: false,
+            draggable: true,
             pageDots: false,
             contain: true,
             // pauseAutoPlayOnHover: true,
@@ -179,7 +234,32 @@ if (document.querySelector('.navigation-slider')) {
             flktyA.next(true, false);
         });
 
-    } else {
+    } else if (window.innerWidth > 992 && sliderItem.length > 8) {
+
+        let flktyA = new Flickity('.navigation-slider', {
+            wrapAround: true,
+            prevNextButtons: false,
+            cellAlign: 'left',
+            draggable: true,
+            pageDots: false,
+            contain: true,
+            // pauseAutoPlayOnHover: true,
+            initialIndex: 0
+        });
+
+        let sliderWrap = document.querySelector('.navigation');
+
+        sliderWrap.insertAdjacentHTML('beforeend', '<div class="navigation-arrow navigation-arrow--prev"><svg width="7" height="12"><use xlink:href="#arrow-left"></use></svg></div><div class="navigation-arrow navigation-arrow--next"><svg width="7" height="12"><use xlink:href="#arrow-right"></use></svg></div>');
+
+        var prevArrowReviews = document.querySelector('.navigation-arrow--prev');
+        prevArrowReviews.addEventListener('click', function () {
+            flktyA.previous(true, false);
+        });
+
+        var nextArrowReviews = document.querySelector('.navigation-arrow--next');
+        nextArrowReviews.addEventListener('click', function () {
+            flktyA.next(true, false);
+        })} else {
         document.querySelector('.navigation-slider').classList.add('navigation-slider--minlenght');
     }
 

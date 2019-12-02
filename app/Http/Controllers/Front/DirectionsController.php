@@ -12,8 +12,12 @@ class DirectionsController extends Controller
 {
     public function index(Category $item)
     {
+        if(!$item->title){
+            $category = Category::where('thread', 'directions')->has('directions')->first();
+        }else{
+            $category= $item;
+        }
         $methods = Category::where('thread', 'directions')->inRandomOrder()->take(6)->get();
-        $category = $item;
         $articles = Direction::where('category_id', $category->id)->get();
         $article = $articles->first();
         return \view('app.directions.index', compact('category', 'articles', 'article', 'methods'));
@@ -21,7 +25,6 @@ class DirectionsController extends Controller
 
     public function show(Direction $item)
     {
-
         $article = $item;
         $category = Category::where('id', $article->category_id)->first();
         $methods = Category::where('thread', 'directions')->inRandomOrder()->take(6)->get();

@@ -11,10 +11,12 @@
                             @else
                             <img src="/images/no-image.png">
                         @endif
+                            <div href="#" class="btn btn-primary modal-btn team-btn"><span>@lang('common.main.appointments')</span></div>
                     </div>
                 <h4 class="teammate__name">{{$command->title}}</h4>
                 <p class="teammate__position">{{$command->content->description}}</p>
                 </a>
+
             @endforeach
         </div>
 
@@ -28,6 +30,5 @@
                 <use xlink:href="#arrow-right"></use>
             </svg>
         </div>
-
     </div>
 </section>

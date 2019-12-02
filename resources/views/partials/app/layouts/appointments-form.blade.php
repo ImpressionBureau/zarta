@@ -26,7 +26,7 @@
 
                         <div class="field">
                             <label for="modal-id2">@lang('common.form.phone')</label>
-                            <input type="tel" id="modal-id2" name="modal-phone"  class="field__item" maxlength="12" required>
+                            <input type="tel" id="modal-id2" name="modal-phone"  class="field__item" maxlength="14" required>
                         </div>
 
                         <div class="field">

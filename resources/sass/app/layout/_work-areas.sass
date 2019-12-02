@@ -25,11 +25,13 @@ section.work-areas-section
             width: 33.3333%
         .areas-item 
             width: 100%
-            min-height: 500px
+            min-height: 200px
             margin-bottom: 8px
             @extend %bg-cover
             position: relative
             overflow: hidden
+            @media (min-width: map_get($grid-breakpoints, lg))
+                min-height: 500px
             &:after 
                 content: ''
                 position: absolute 
@@ -72,28 +74,35 @@ section.work-areas-section
                             font-size: 14px
                             margin-bottom: 10px
             &:last-child
-                min-height: 250px
+                min-height: 200px
+                @media (min-width: map_get($grid-breakpoints, lg))
+                    min-height: 250px
                 .list 
                     li 
                         display: none
                         &:nth-child(-n+3)
                             display: block
-            &:hover 
-                .areas-item__content
-                    top: 0
-                    transform: translateY(0)
-                &:after 
-                    right: -30%
+            &:hover
+                @media (min-width: map_get($grid-breakpoints, lg))
+                    .areas-item__content
+                        top: 0
+                        transform: translateY(0)
+                    &:after
+                        right: -30%
         &:nth-of-type(2)
-            .areas-item 
-                min-height: 250px
+            .areas-item
+                min-height: 200px
+                @media (min-width: map_get($grid-breakpoints, lg))
+                    min-height: 250px
                 .list
                     li
                         display: none
                         &:nth-child(-n+3)
                             display: block
-                &:last-child 
-                    min-height: 500px
+                &:last-child
+                    min-height: 200px
+                    @media (min-width: map_get($grid-breakpoints, lg))
+                        min-height: 500px
                     .list 
                         li 
                             display: block

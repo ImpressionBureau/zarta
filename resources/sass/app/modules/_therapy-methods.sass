@@ -48,17 +48,14 @@ section.therapy-methods-section
             left: 20px 
             right: 20px
             font-weight: bold
-            bottom: 50px
-            font-size: 18px
+            bottom: 20px
+            font-size: 16px
             color: #fff
             font-family: $font-family-base
             z-index: 3
             transition: all 0.5s ease
             @media (min-width: map_get($grid-breakpoints, lg))
                 color: #333
-            @media (min-width: map_get($grid-breakpoints, xl)) 
-                left: 50px 
-                right: 50px
         .list 
             position: relative
             z-index: 3
@@ -67,8 +64,6 @@ section.therapy-methods-section
             justify-content: center
             flex-direction: column
             padding: 20px
-            @media (min-width: map_get($grid-breakpoints, lg))
-                padding: 20px 50px
     &:hover 
         .method__circle 
             width: 300%
@@ -79,9 +74,34 @@ section.therapy-methods-section
             .title 
                 color: #fff
 
+.methods-slider-wrap
+    position: relative
 
+.methods-slider
+    width: 100%
+    &__item
+        width: 100%
+        transition: none
+        @media (min-width: map_get($grid-breakpoints, md))
+            width: 50%
+        .img
+            padding-top: 50%
+        .method
+            margin-bottom: 0
+        .list
+            padding: 20px 35px
+        .title
+            left: 35px
+            right: 35px
 
+.therapy-methods-media
+    padding: 0
+    margin-bottom: 150px
+    margin-top: 50px
 
+.methods-arrow--next
+    left: auto
+    right: 0
 
 
 

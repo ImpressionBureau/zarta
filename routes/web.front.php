@@ -36,7 +36,7 @@ Route::group([
         'as' => 'directions.',
         'prefix' => 'directions',
     ], function () {
-        Route::get('/{item?}', 'DirectionsController@index')->name('index');
+        Route::get('/category/{item?}', 'DirectionsController@index')->name('index');
         Route::get('{item}', 'DirectionsController@show')->name('show');
     });
 

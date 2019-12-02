@@ -51,8 +51,10 @@ section.feedback-section
         @media (min-width: map_get($grid-breakpoints, xxl)) 
             padding-bottom: 0
         .avatar 
-            padding-top: 100% 
-            @extend %bg-cover 
+            padding-top: 50%
+            @extend %bg-cover
+            @media (min-width: map_get($grid-breakpoints, xl))
+                padding-top: 100%
         .text 
             color: #555 
             font-size: 14px
