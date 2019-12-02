@@ -56,18 +56,26 @@ section.team-section
 		text-align: center
 		font-size: 14px
 		padding: 0 30px 25px 30px
+	.team-btn
+		position: absolute
+		left: 0
+		bottom: 0
+		width: 100%
+		opacity: 0
+		transition: none
+		&:before
+			display: none
 	&:hover 
 		&:after 
 			background-color: $primary
 		.teammate__img 
 			img 
 				filter: grayscale(0)
+		.team-btn
+			opacity: 1
 
-	.team-btn
-		position: absolute
-		left: 0
-		bottom: 0
-		width: 100%
+
+
 
 
 

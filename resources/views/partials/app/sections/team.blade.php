@@ -11,7 +11,7 @@
                             @else
                             <img src="/images/no-image.png">
                         @endif
-                            <div href="#" class="btn btn-primary modal-btn team-btn"><span>@lang('common.main.appointments')</span></div>
+                            <div href="#" class="btn btn-primary modal-btn team-btn">@lang('common.main.appointments')</div>
                     </div>
                 <h4 class="teammate__name">{{$command->title}}</h4>
                 <p class="teammate__position">{{$command->content->description}}</p>
