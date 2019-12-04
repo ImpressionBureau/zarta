@@ -67,6 +67,10 @@
 
                                         </div>
                                     </li>
+                                    @else
+                                    <div class="list-link-noactive">
+                                        {{$direction->title}}
+                                    </div>
                                 @endif
                             @endforeach
                         </ul>
