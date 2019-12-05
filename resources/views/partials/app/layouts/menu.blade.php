@@ -34,7 +34,7 @@
                         <div class="menu-item__title">@lang('common.menu.direction')</div>
                         <ul class="menu-item__list">
                             @foreach(app('categories')->where('thread', 'directions')->where('published', 1)  as $direction)
-                                @if($direction->directions->count())
+                                @if($direction->directions->where('published', 1)->count())
                                     <li>
                                         <a href="#" class="list-link menu-drop-btn">
                                             {{$direction->title}}
