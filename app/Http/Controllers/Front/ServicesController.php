@@ -15,12 +15,12 @@ class ServicesController extends Controller
         $cat = null;
         $page = Page::where('slug', 'service')->first();
         $services = Service::query();
-        $categories = Category::get();
+        $categories = Category::where('published', 1)->get();
         if (request()->filled('category')) {
             $cat = Category::where('slug', request('category'))->first();
-            $services = $services->where('category_id', $cat->id)->get();
+            $services = $services->where('category_id', $cat->id)->where('published', 1)->get();
         } else {
-            $services = $services->get();
+            $services = $services->where('published', 1)->get();
         }
 
         return \view('app.services.index', compact('services', 'page', 'cat', 'categories'));

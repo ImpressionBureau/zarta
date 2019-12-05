@@ -33,7 +33,7 @@
                     <div class="menu-item">
                         <div class="menu-item__title">@lang('common.menu.direction')</div>
                         <ul class="menu-item__list">
-                            @foreach(app('categories')->where('thread', 'directions')  as $direction)
+                            @foreach(app('categories')->where('thread', 'directions')->where('published', 1)  as $direction)
                                 @if($direction->directions->count())
                                     <li>
                                         <a href="#" class="list-link menu-drop-btn">
@@ -50,7 +50,7 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="drop-slider drop-slider--minlenght">
-                                                        @foreach($direction->directions as $post)
+                                                        @foreach($direction->directions->where('published', 1) as $post)
                                                             <a href="{{route('app.directions.show', $post)}}"
                                                                class="drop-slider__item">
                                                                 <div class="content">
