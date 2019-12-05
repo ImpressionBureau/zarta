@@ -15,7 +15,7 @@ class ServicesController extends Controller
         $cat = null;
         $page = Page::where('slug', 'service')->first();
         $services = Service::query();
-        $categories = Category::get();
+        $categories = Category::where('thread', 'directions')->get();
         if (request()->filled('category')) {
             $cat = Category::where('slug', request('category'))->first();
             $services = $services->where('category_id', $cat->id)->get();

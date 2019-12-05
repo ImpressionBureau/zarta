@@ -14,7 +14,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $directions = Category::where('thread', 'directions')->inRandomOrder()->take(6)->get();;
+        $directions = Category::where('thread', 'directions')->take(6)->get();;
         $pages= Page::inRandomOrder()->take(3)->get();
         $team = Command::get();
         $reviews_video = Review::whereNotNull('video')->where('published', 1)->first();
