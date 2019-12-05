@@ -18,6 +18,7 @@ class Category extends Model implements HasMedia
     protected $fillable = [
         'slug',
         'thread',
+        'published'
     ];
 
     protected $with = [

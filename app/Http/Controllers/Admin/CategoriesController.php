@@ -32,7 +32,7 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $category = Category::create($request->only('slug', 'thread'))->makeTranslation();
+        $category = Category::create($request->only('slug', 'thread', 'published'))->makeTranslation();
 
         if ($request->hasFile('category')) {
             $category->addMediaFromRequest('category')
@@ -59,7 +59,7 @@ class CategoriesController extends Controller
     public function update(Request $request, Category $category)
     {
         $category->slug = null;
-        $category->update($request->only('slug', 'thread'));
+        $category->update($request->only('slug', 'thread', 'published'));
         $category->updateTranslation();
         if ($request->hasFile('category')) {
             $category->clearMediaCollection('category');

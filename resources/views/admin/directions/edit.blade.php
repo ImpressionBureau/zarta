@@ -48,8 +48,6 @@
                         </option>
                     @endforeach
                 </select>
-                <hr class="my-5">
-
             </div>
             <div class="col-md-4">
                 <image-uploader ratio="67%" name="direction" image-id="{{ optional($direction->getFirstMedia('direction'))->id }}"
@@ -57,6 +55,16 @@
             </div>
         </div>
         <div class="mt-4">
+            <div class="form-group mt-3">
+                <div class="custom-control custom-checkbox">
+                    <input type="hidden" name="published" value="0">
+                    <input class="custom-control-input" name="published"
+                           type="checkbox" value="1" id="published" {{ $category->published ? ' checked' : '' }}>
+                    <label class="custom-control-label" for="published">
+                        Опубликовать
+                    </label>
+                </div>
+            </div>
             <button class="btn btn-primary">
                 Обновить
             </button>

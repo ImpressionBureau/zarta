@@ -37,8 +37,17 @@
                     <option value="{{ $category->id }}">{{ $category->title }}</option>
                 @endforeach
             </select>
-            <hr class="my-5">
             <div class="mt-4">
+                <div class="form-group mt-3">
+                    <div class="custom-control custom-checkbox">
+                        <input type="hidden" name="published" value="0">
+                        <input class="custom-control-input" name="published"
+                               type="checkbox" value="1" id="published">
+                        <label class="custom-control-label" for="published">
+                            Опубликовать
+                        </label>
+                    </div>
+                </div>
                 <button class="btn btn-primary">
                     Сохранить
                 </button>

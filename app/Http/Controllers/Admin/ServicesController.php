@@ -37,7 +37,7 @@ class ServicesController extends Controller
     public function store(Request $request)
     {
 
-        $service = Service::create($request->only('slug', 'category_id', 'price'))->makeTranslation();
+        $service = Service::create($request->only('slug', 'category_id', 'price', 'published'))->makeTranslation();
 
         return \redirect()->route('admin.services.index')
             ->with('message', 'Запись успешно сохранена.');
@@ -62,7 +62,7 @@ class ServicesController extends Controller
     {
 
         $service->slug = null;
-        $service->update($request->only('slug', 'category_id', 'price'));
+        $service->update($request->only('slug', 'category_id', 'price', 'published'));
         $service->updateTranslation();
         return \redirect()->route('admin.services.index')
             ->with('message', 'Запись успешно сохранена.');

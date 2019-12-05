@@ -35,7 +35,7 @@ class ArticlesController extends Controller
     public function store(Request $request)
     {
 
-        $article = Article::create($request->only('slug'))->makeTranslation();
+        $article = Article::create($request->only('slug', 'published'))->makeTranslation();
 
 
         $this->handleMedia($request, $article);
@@ -61,7 +61,7 @@ class ArticlesController extends Controller
     {
 
         $article->slug = null;
-        $article->update();
+        $article->update($request->only('published'));
         $article->updateTranslation();
         $this->handleMedia($request, $article);
         return \redirect()->route('admin.articles.index')

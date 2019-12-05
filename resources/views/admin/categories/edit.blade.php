@@ -48,13 +48,23 @@
                     <option value="methods" {{$category->thread == 'methods' ? ' selected' : ''}}>Услуги и цены
                     </option>
                 </select>
-                <hr class="my-5">
+                <div class="form-group mt-3">
+                    <div class="custom-control custom-checkbox">
+                        <input type="hidden" name="published" value="0">
+                        <input class="custom-control-input" name="published"
+                               type="checkbox" value="1" id="published" {{ $category->published ? ' checked' : '' }}>
+                        <label class="custom-control-label" for="published">
+                            Опубликовать
+                        </label>
+                    </div>
+                </div>
             </div>
             <div class="col-md-4">
                 <image-uploader ratio="67%" name="category"
                                 image-id="{{ optional($category->getFirstMedia('category'))->id }}"
                                 src="{{ $category->getFirstMediaUrl('category') }}"></image-uploader>
             </div>
+
         </div>
         <div class="mt-4">
             <button class="btn btn-primary">

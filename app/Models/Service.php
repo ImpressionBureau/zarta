@@ -14,6 +14,7 @@ class Service extends Model
         'slug',
         'category_id',
         'price',
+        'published'
     ];
     protected $with = [
         'translates',

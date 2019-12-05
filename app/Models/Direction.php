@@ -16,7 +16,8 @@ class Direction extends Model implements HasMedia
 
     protected $fillable = [
         'slug',
-        'category_id'
+        'category_id',
+        'published'
     ];
 
     protected $with = [

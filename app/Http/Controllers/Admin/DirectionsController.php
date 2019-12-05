@@ -37,7 +37,7 @@ class DirectionsController extends Controller
     public function store(Request $request)
     {
 
-        $direction = Direction::create($request->only('slug', 'category_id'))->makeTranslation();
+        $direction = Direction::create($request->only('slug', 'category_id', 'published'))->makeTranslation();
 
         if ($request->hasFile('direction')) {
             $direction->addMediaFromRequest('direction')
@@ -66,7 +66,7 @@ class DirectionsController extends Controller
     {
 
         $direction->slug = null;
-        $direction->update($request->only('slug', 'category_id'));
+        $direction->update($request->only('slug', 'category_id', 'published'));
         $direction->updateTranslation();
         if ($request->hasFile('direction')) {
             $direction->clearMediaCollection('direction');
