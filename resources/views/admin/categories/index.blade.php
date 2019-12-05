@@ -32,6 +32,13 @@
                         </a>
                     </h3>
                     <p class="mt-2 mb-0">
+                        @if($category->thread == 'directions')
+                            Направления работы
+                        @else
+                            Услуги и цены
+                        @endif
+                    </p>
+                    <p class="mt-2 mb-0">
                         Создан {{ $category->created_at->format('d.m.Y \в H:i') }}
                     </p>
                 </div>
