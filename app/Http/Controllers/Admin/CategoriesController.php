@@ -15,7 +15,7 @@ class CategoriesController extends Controller
     public function index(): View
     {
         return \view('admin.categories.index', [
-            'categories' => Category::where('thread', 'directions')->paginate(20),
+            'categories' => Category::paginate(20),
         ]);
     }
 
