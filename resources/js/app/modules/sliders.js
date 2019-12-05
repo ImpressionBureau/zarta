@@ -174,6 +174,35 @@ if (document.querySelector('.about-slider') && aboutSliderItem.length > 1) {
 
 
 
+if (document.querySelector('.pages-slider')) {
+
+    let flktyP = new Flickity('.pages-slider', {
+        wrapAround: true,
+        prevNextButtons: false,
+        cellAlign: 'left',
+        draggable: true,
+        pageDots: false,
+        contain: true,
+        pauseAutoPlayOnHover: true,
+        initialIndex: 0
+    });
+
+
+    var prevArrowReviews = document.querySelector('.pages-arrow--prev');
+
+    prevArrowReviews.addEventListener('click', function () {
+        flktyP.previous(true, false);
+    });
+
+    var nextArrowReviews = document.querySelector('.pages-arrow--next');
+
+    nextArrowReviews.addEventListener('click', function () {
+        flktyP.next(true, false);
+    });
+
+}
+
+
 
 
 
