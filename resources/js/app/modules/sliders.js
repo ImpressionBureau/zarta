@@ -207,7 +207,7 @@ if (document.querySelector('.navigation-slider')) {
         nextArrowReviews.addEventListener('click', function () {
             flktyA.next(true, false);
         });
-    } else if (window.innerWidth > 768 && window.innerWidth > 992  && sliderItem.length > 5) {
+    } else if (window.innerWidth > 768 && window.innerWidth < 992  && sliderItem.length > 5) {
 
         let flktyA = new Flickity('.navigation-slider', {
             wrapAround: true,

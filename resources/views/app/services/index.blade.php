@@ -23,7 +23,6 @@
             <div class="navigation">
                 <div class="navigation-slider">
                     @foreach($categories as $category)
-                        @if($category->services->count())
                         <a href="?category={{ $category->slug }}" class="navigation-slider__item">
                             <div class="content">
                                 <div class="content__img"
@@ -31,7 +30,6 @@
                                 <h3 class="content__title">{{$category->title}}</h3>
                             </div>
                         </a>
-                        @endif
                     @endforeach
                 </div>
             </div>
@@ -41,25 +39,33 @@
         <div class="container">
 
             @if($cat)
-            <h2 class="section-title-center mb-5">
-                <span>{{$cat->title}}</span>
-            </h2>
+                <h2 class="section-title-center mb-5">
+                    <span>{{$cat->title}}</span>
+                </h2>
             @endif
 
             <div class="row justify-content-center">
+                @if($services->count())
+                    @foreach($services as $service)
+                        <div class="col-sm-8 col-md-6 col-xl-4">
+                            <div id="{{$service->id}}" class="price">
+                                <h4 class="price__title">{{$service->title}}</h4>
 
-                @foreach($services as $service)
-                <div class="col-sm-8 col-md-6 col-xl-4">
-                    <div id="{{$service->id}}" class="price">
-                        <h4 class="price__title">{{$service->title}}</h4>
-
-                        <div class="price-footer d-flex justify-content-end align-items-center">
-                            <div class="price-footer__value">@lang('common.service.price') <span class="value">{{$service->price}}</span>@lang('common.service.currency')</div>
-                            <a href="#" data-service="{{$service->id}}" class="btn btn-primary btn--short btn--price"><span>@lang('common.service.btn')</span></a>
+                                <div class="price-footer d-flex justify-content-end align-items-center">
+                                    <div class="price-footer__value">@lang('common.service.price') <span
+                                                class="value">{{$service->price}}</span>@lang('common.service.currency')
+                                    </div>
+                                    <a href="#" data-service="{{$service->id}}"
+                                       class="btn btn-primary btn--short btn--price"><span>@lang('common.service.btn')</span></a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                @endforeach
+                    @endforeach
+                @else
+                    <h2 class="section-title-center mb-5">
+                        <span class="mb-5">@lang('common.service.message')</span>
+                    </h2>
+                @endif
 
             </div>
         </div>

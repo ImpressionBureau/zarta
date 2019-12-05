@@ -13,15 +13,26 @@
                         @if(($loop->iteration %2) != 0)
                             <div class="areas-col">
                                 @endif
-                                <a href="{{route('app.directions.index', $direction)}}" class="areas-item"
-                                   style="background-image: url({{$direction->getFirstMedia('category')->getFullUrl()}})">
-                                    <div class="areas-item__content">
-                                        <p class="title">{{ $direction->title }}</p>
-                                        <div class="content">
-                                            {!! remove_tags_direction($direction->content->description) !!}
+                                @if($direction->directions->count())
+                                    <a href="{{route('app.directions.index', $direction)}}" class="areas-item"
+                                       style="background-image: url({{$direction->getFirstMedia('category')->getFullUrl()}})">
+                                        <div class="areas-item__content">
+                                            <p class="title">{{ $direction->title }}</p>
+                                            <div class="content">
+                                                {!! remove_tags_direction($direction->content->description) !!}
+                                            </div>
+                                        </div>
+                                    </a>
+                                @else
+                                    <div class="areas-item" style="background-image: url({{$direction->getFirstMedia('category')->getFullUrl()}})">
+                                        <div class="areas-item__content">
+                                            <p class="title">{{ $direction->title }}</p>
+                                            <div class="content">
+                                                {!! remove_tags_direction($direction->content->description) !!}
+                                            </div>
                                         </div>
                                     </div>
-                                </a>
+                                @endif
                                 @if(($loop->iteration %2) == 0 || $loop->last)
                             </div>
                         @endif

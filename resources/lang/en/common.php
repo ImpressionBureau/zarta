@@ -64,7 +64,8 @@ return [
     'service' => [
         'price'=> 'price',
         'currency' => 'UAH',
-        'btn' => 'Make an appointment'
+        'btn' => 'Make an appointment',
+        'message' => 'Nothing found...',
     ],
     'reviews' => [
         'video'=> 'Video-reviews',

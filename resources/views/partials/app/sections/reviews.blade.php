@@ -1,17 +1,17 @@
 <section class="feedback-section">
     <div class="container-fluid">
         <div class="row no-gutters align-items-center justify-content-center">
-            <div class="col-xl-4 col-xxl-5 d-flex flex-column  justify-content-center order-xl-2">
+            <div class="col-xl-6 col-xxl-5 d-flex flex-column  justify-content-center order-xl-2">
                 <div class="texting-feedback flex-grow-1">
                     <h3 class="mb-4">@lang('common.main.review')</h3>
                     <div class="texting-slider">
                         @foreach ($reviews as $review)
                         <div class="texting-slider__item">
                             <div class="row justify-content-center">
-                                <div class="col-sm-8 col-md-6 col-lg-4 col-xl-5 col-xxl-5">
+                                <div class="col-sm-8 col-md-6 col-lg-4">
                                     <div class="avatar mb-4 mb-xl-0" style="background-image: url({{$review->hasMedia('review')? $review->getFirstMedia('review')->getFullUrl() : 'images/no-image.png'}})"></div>
                                 </div>
-                                <div class="col-lg col-xl-12 col-xxl d-flex flex-column justify-content-center">
+                                <div class="col-lg col-xxl d-flex flex-column justify-content-center">
                                     <div class="text">{!! $review->content->body!!}</div>
                                     <div class="d-flex align-items-center justify-content-between pt-3">
                                         <p class="date">{{ $review->created_at->formatLocalized('%d %B %Y') }}</p>
@@ -61,7 +61,7 @@
                 </div>
             </div>
             @if($reviews_video)
-            <div class="col-xl-8 col-xxl-7 order-xl-1">
+            <div class="col-xl-6 order-xl-1">
                 <div class="video-feedback" data-youtube="{{$reviews_video->video}}"></div>
             </div>
                 @endif
