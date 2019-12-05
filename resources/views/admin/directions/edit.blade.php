@@ -59,7 +59,7 @@
                 <div class="custom-control custom-checkbox">
                     <input type="hidden" name="published" value="0">
                     <input class="custom-control-input" name="published"
-                           type="checkbox" value="1" id="published" {{ $category->published ? ' checked' : '' }}>
+                           type="checkbox" value="1" id="published" {{ $direction->published ? ' checked' : '' }}>
                     <label class="custom-control-label" for="published">
                         Опубликовать
                     </label>
