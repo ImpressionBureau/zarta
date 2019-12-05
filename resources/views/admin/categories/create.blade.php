@@ -43,7 +43,6 @@
                         @endforeach
                     </block-editor>
                     <select class="form-control position-relative mt-3" name="thread" id="thread" required>
-                        <input type="hidden" name="thread" value="directions">
                         <option value="" disabled selected style='display:none;'>Выберите направление категории</option>
                         <option value="directions">Направления работы</option>
                         <option value="methods">Услуги и цены</option>
