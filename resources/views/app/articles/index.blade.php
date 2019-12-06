@@ -26,7 +26,7 @@
                         <div class="col-xxl-3 col-md-6 col-lg-4">
                             <div class="article">
                                 <a href="{{ route('app.articles.show', $article) }}" class="article__img"
-                                   style="background-image: url({{ $article->getFirstMedia('uploads')->getFullUrl()}})"></a>
+                                   style="background-image: url({{ $article->preview}})"></a>
                                 <div class="article__content">
                                     <p class="date d-flex">
                                         <svg width="10" height="10">

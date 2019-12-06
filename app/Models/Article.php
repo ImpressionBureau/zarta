@@ -29,8 +29,8 @@ class Article extends Model implements HasMedia
     {
         $media = 'images/no-image.png';
 
-        if ($this->hasMedia('article')) {
-            $media = substr($this->getFirstMediaUrl('article', 'preview'), 1);
+        if ($this->hasMedia('uploads')) {
+            $media = substr($this->getFirstMediaUrl('uploads', 'preview'), 1);
         }
 
         return asset($media);
