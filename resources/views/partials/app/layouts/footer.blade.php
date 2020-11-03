@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <div class="footer-dev">
+    <div class="footer-dev text-white text-sm">
         <div class="footer-dev__item">
             ©{{ date('Y') }} @lang('common.footer.copy')
         </div>
