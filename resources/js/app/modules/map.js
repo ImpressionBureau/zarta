@@ -1,4 +1,5 @@
 import mapboxgl from "mapbox-gl";
+
 const customMap = document.querySelector('#contact-map');
 const mapBg = document.querySelector('.map__bg');
 
@@ -20,8 +21,8 @@ if (customMap) {
         zoom: 13
     });
 
-    map.on('load', function () {
-        map.loadImage(`${ mapIcon }`, function (error, image) {
+    map.on('load', () => {
+        map.loadImage(`${mapIcon}`, function (error, image) {
             if (error) throw error;
             map.addImage('cat', image);
             map.addLayer({
