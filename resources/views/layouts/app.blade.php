@@ -19,7 +19,7 @@
 @includeIf('partials.app.layouts.icons')
 <div id="app" v-cloak>
     @if(request()->route()->getName() != 'app.home')
-    @includeIf('partials.app.layouts.header')
+        @includeIf('partials.app.layouts.header')
     @endif
     <main>
         @yield('content')
@@ -28,6 +28,8 @@
     @includeIf('partials.app.layouts.footer')
 
 </div>
-<script src="{{ asset('js/app.js') }}"></script>
-    </body>
+<script src="{{ asset('js/manifest.js') }}" defer></script>
+<script src="{{ asset('js/vendor.js') }}" defer></script>
+<script src="{{ asset('js/app.js') }}" defer></script>
+</body>
 </html>

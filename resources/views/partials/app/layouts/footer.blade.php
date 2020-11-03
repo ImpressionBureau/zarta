@@ -3,8 +3,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-2 col-xxl">
-                    <a href="/" class="footer-logo">
-                        <img src="/images/logo.png" alt="">
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('images/logo.png') }}" alt="">
                     </a>
                 </div>
                 <div class="col-xl">
@@ -43,7 +43,7 @@
 
     <div class="footer-dev">
         <div class="footer-dev__item">
-            <p>© Copyright 2018, @lang('common.footer.copy')</p>
+            ©{{ date('Y') }} @lang('common.footer.copy')
         </div>
         <div class="footer-dev__item">
             <div class="footer-social d-flex align-items-center justify-content-around">

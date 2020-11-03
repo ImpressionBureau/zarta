@@ -1,4 +1,3 @@
-
 (function ($) {
 
     $.fn.niceSelect = function (method) {
@@ -137,7 +136,6 @@
     };
 
 }(jQuery));
-
 
 
 $(document).ready(function () {

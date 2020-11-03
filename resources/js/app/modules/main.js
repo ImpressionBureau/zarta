@@ -1,5 +1,3 @@
-
-
 const header = document.querySelector('header');
 const languageWrap = document.querySelector('.language');
 const languageBtn = document.querySelector('.language__active');
@@ -18,9 +16,6 @@ const modal = document.querySelector('.custom-modal');
 const modalMask = document.querySelector('.modal-mask');
 
 
-
-
-
 // language dropdown
 languageBtn.addEventListener('click', e => {
     e.preventDefault();
@@ -29,8 +24,8 @@ languageBtn.addEventListener('click', e => {
 
 document.addEventListener('click', e => {
     let target = e.target;
-    let itsLangMenu = target == languageWrap || languageWrap.contains(target);
-    let itsLanguageBtn = target == languageBtn;
+    let itsLangMenu = target === languageWrap || languageWrap.contains(target);
+    let itsLanguageBtn = target === languageBtn;
     let itsLangMenuActive = languageWrap.classList.contains('language--active');
 
     if (!itsLangMenu && !itsLanguageBtn && itsLangMenuActive) {
@@ -39,17 +34,13 @@ document.addEventListener('click', e => {
 })
 
 
-
-
 // header fix for scroll
 
 let headerTopPos = header.offsetTop;
 
 window.addEventListener('scroll', function () {
-    let scrollHeight = pageYOffset;
-
     if (!document.querySelector('.menu').classList.contains('menu--open')) {
-        if (scrollHeight >= headerTopPos) {
+        if (pageYOffset >= headerTopPos) {
             header.classList.remove('header--front');
         } else {
             header.classList.add('header--front');
@@ -57,28 +48,6 @@ window.addEventListener('scroll', function () {
     }
 });
 
-
-
-
-
-// if (window.innerWidth > 992) {
-//     for (i = 0; i < frontPreviews.length; i++) {
-
-//         let frontPreview = frontPreviews[i];
-//         let frontPreviewText = frontPreview.querySelector('.slide-wrap');
-//         let frontPreviewTextHeight = frontPreviewText.offsetHeight;
-
-//         frontPreviewText.style.height = 0;
-
-//         frontPreview.onmouseenter = function () {
-//             frontPreviewText.style.height = frontPreviewTextHeight + 'px';
-//         }
-//         frontPreview.onmouseleave = function () {
-//             frontPreviewText.style.height = 0;
-//         }
-
-//     }
-// }
 
 if (priceItem.length > 0 && window.innerWidth > 992) {
     priceItem.forEach(function (item) {
@@ -147,11 +116,10 @@ priceBtn.forEach(function (item) {
 })
 
 
-
 function openModal() {
     modal.classList.add('custom-modal--open');
     modalMask.classList.add('modal-mask--open');
-};
+}
 
 function closeModal() {
     modal.classList.remove('custom-modal--open');
@@ -162,12 +130,10 @@ function closeModal() {
         modal.querySelector('.modal-price').style.display = 'none';
         modal.querySelector('#inp-price-id').remove();
     }
-};
+}
 
 
-
-
-// tabs 
+// tabs
 
 const tabNavBtn = document.querySelectorAll('.tab-nav');
 // const closeModalBtn = document.querySelector('.close-modal');
@@ -201,7 +167,7 @@ tabNavBtn.forEach(function (item, index) {
             tabContent.style.height = tabContentHeight + 'px';
             tabContent.classList.add('tab-content--active');
         } else {
-            return;
+
         }
 
 

@@ -1,12 +1,9 @@
 import ScrollReveal from 'ScrollReveal';
 
 
-
-
 $(document).ready(function () {
 
     if ($(window).width() > 992) {
-
 
 
         ScrollReveal().reveal('.from_left', {
@@ -47,7 +44,6 @@ $(document).ready(function () {
         });
 
 
-
         ScrollReveal().reveal('.from_bottom', {
             origin: 'bottom',
             delay: 400,
@@ -55,7 +51,6 @@ $(document).ready(function () {
             distance: '1000px',
             interval: 150
         });
-
 
 
         ScrollReveal().reveal('.from_bottom_interval', {

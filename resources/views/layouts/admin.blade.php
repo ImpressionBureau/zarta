@@ -11,7 +11,8 @@
     <title>{{ config('app.name', 'Impression Admin') . (isset($app_title) ? ' | ' . $app_title : '') }}</title>
 
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,300,400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,300,400,400i,700,700i&amp;subset=cyrillic"
+          rel="stylesheet">
 
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     @stack('styles')
@@ -27,6 +28,8 @@
     </main>
 </div>
 
+<script src="{{ asset('js/manifest.js') }}" defer></script>
+<script src="{{ asset('js/vendor.js') }}" defer></script>
 <script src="{{ asset('js/admin.js') }}" defer></script>
 @stack('scripts')
 </body>

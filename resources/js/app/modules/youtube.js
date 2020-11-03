@@ -1,4 +1,3 @@
-
 const videoBlocks = document.querySelectorAll('[data-youtube]');
 
 for (i = 0; i < videoBlocks.length; i++) {
