@@ -8,6 +8,4 @@
     @includeWhen($reviews->count(), 'partials.app.sections.reviews')
     @includeWhen($about->count(), 'partials.app.sections.about')
     @include('partials.app.sections.contacts')
-
-
 @endsection

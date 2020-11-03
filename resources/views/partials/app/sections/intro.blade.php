@@ -26,7 +26,7 @@
 
     <div class="intro d-flex flex-column align-items-center justify-content-center">
         <a href="/" class="intro__logo d-none d-lg-flex">
-            <img src="/images/logo.png" alt="">
+            <img src="{{ asset('images/logo.png') }}" alt="">
         </a>
         <p class="intro__text">{{app('settings')->title}}</p>
     </div>
@@ -45,7 +45,7 @@
             <p class="nav-btn__title d-none d-xl-block">@lang('common.header.menu')</p>
         </div>
         <a href="/" class="header-logo">
-            <img src="/images/logo.png" alt="">
+            <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name') }}">
         </a>
 
         <div class="language d-none d-xl-block">
