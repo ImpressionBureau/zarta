@@ -15,7 +15,7 @@ if (customMap) {
     mapboxgl.accessToken = 'pk.eyJ1IjoiaW1wcmVzc2lvbi1idXJlYXUiLCJhIjoiY2swbWlkNGttMDl5czNkdDdpdnA2YnRucyJ9.ETnTJRRIl8_TU349gbBKgw';
     let map = new mapboxgl.Map({
         container: 'contact-map',
-        // style: 'mapbox://styles/impression-bureau/ck121zs200ajv1cnoi5lmp0l8',
+        style: 'mapbox://styles/mapbox/streets-v11',
         center: [mapLong, mapLat],
         zoom: 13
     });
