@@ -4,91 +4,103 @@ html, body
 body
     @media (min-width: map_get($grid-breakpoints, xl))
         overflow-x: visible
-        
+
 
 h1, .h1, h2, .h2
     margin: 0
 
-h3, .h3, h4, .h4, h5, .h5 
+h3, .h3, h4, .h4, h5, .h5
     margin: 0
 
-p 
+p
     line-height: 170%
-    
-section 
+
+section
     position: relative
     overflow: hidden
 
-a, svg 
+a, svg
     transition: all 0.5s ease
 
-ul 
+ul
     list-style: none
     padding: 0
     margin: 0
-    
+
 label, button, input, textarea
     transition: all 0.5s ease
     outline: none
-    &:focus 
+
+    &:focus
         outline: none
 
-button 
+button
     cursor: pointer
 
-#otstup 
+#otstup
     height: 1500px
 
+img
+    max-width: 100%
+    display: inline-block
+    vertical-align: middle
 
-@media (max-width: map_get($grid-breakpoints, md)) 
+
+@media (max-width: map_get($grid-breakpoints, md))
     h1
         font-size: 30px
-    h2 
+    h2
         font-size: 25px
 
 
 .section-title
     padding-bottom: 30px
     position: relative
-    &:after 
+
+    &:after
         content: ''
         width: 120px
         height: 4px
-        background-color: $primary 
+        background-color: $primary
         position: absolute
-        left: 0 
-        bottom: 0 
+        left: 0
+        bottom: 0
 
 .section-title-center
     display: flex
     align-items: center
     justify-content: center
-    &:before 
+
+    &:before
         content: ''
-        height: 4px 
+        height: 4px
         background-color: #F2F2F2
         flex-grow: 1
-    &:after 
+
+    &:after
         content: ''
-        height: 4px 
+        height: 4px
         background-color: #F2F2F2
         flex-grow: 1
-    span 
+
+    span
         padding: 0 40px
         text-align: center
-        @media (min-width: map_get($grid-breakpoints, xl)) 
+        @media (min-width: map_get($grid-breakpoints, xl))
             padding: 0 100px
 
-.section-title--other 
-    color: #fff 
-    &:before 
-        content: ''
-        background-color: rgba(255, 255, 255, 0.2)
-    &:after 
+.section-title--other
+    color: #fff
+
+    &:before
         content: ''
         background-color: rgba(255, 255, 255, 0.2)
 
-.section-decor 
+    &:after
+        content: ''
+        background-color: rgba(255, 255, 255, 0.2)
+
+.section-decor
     width: auto
     height: 200%
     max-height: 430px
@@ -97,12 +109,14 @@ button
     background-repeat: no-repeat
     position: absolute
     left: 0
-    top: 50% 
+    top: 50%
     transform: translate(-60%, -50%)
-    img 
-        height: 100% 
-        width: auto 
-    &--article 
+
+    img
+        height: 100%
+        width: auto
+
+    &--article
         top: 0
         transform: translate(-60%, 0)
 
