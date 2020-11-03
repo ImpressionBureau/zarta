@@ -12,8 +12,8 @@ return [
         'review' => 'Reviews our patients',
         'read_more' => 'learn more',
     ],
-    'articles'=> [
-        'read'=> 'Read completely',
+    'articles' => [
+        'read' => 'Read completely',
     ],
     'contacts' => [
         'title' => 'Contact Information',
@@ -22,9 +22,9 @@ return [
         'work_time' => 'Schedule',
         'map' => 'Click to use'
     ],
-    'feedback'=> [
+    'feedback' => [
         'title' => 'Book an appointment',
-        'description'=>'Want to ask questions, clarify details or have any doubts? <br>Please leave your number - we will definitely help you.',
+        'description' => 'Want to ask questions, clarify details or have any doubts? <br>Please leave your number - we will definitely help you.',
         'btn' => 'Book an appointment',
     ],
     'header' => [
@@ -35,12 +35,12 @@ return [
         'about' => 'Our CENTER',
         'direction' => 'Areas of work',
         'methods' => 'Treatment method',
-        'services'=> 'Services and prices',
+        'services' => 'Services and prices',
         'questions' => 'FAQ',
         'blog' => 'Blog',
         'contacts' => 'Contacts',
-        'copy' => 'ZARTA - Center for Orthopedics and Rehabilitation',
-        'dev' => 'Website development by studio',
+        'copy' => 'КНП «Міська лікарня екстреної та швидкої медичної допомоги» ЗМР',
+        'dev' => 'Development',
     ],
     'menu' => [
         'close' => 'Close',
@@ -48,8 +48,8 @@ return [
         'about' => 'Our center',
         'review' => 'Reviews our patients',
         'direction' => 'Areas of work',
-        'method'=> 'Treatment method',
-        'services'=> 'Services and prices',
+        'method' => 'Treatment method',
+        'services' => 'Services and prices',
         'questions' => 'FAQ',
         'blog' => 'Blog',
         'contacts' => 'Contacts',
@@ -62,14 +62,14 @@ return [
         'btn' => 'Make an appointment',
     ],
     'service' => [
-        'price'=> 'price',
+        'price' => 'price',
         'currency' => 'UAH',
         'btn' => 'Make an appointment',
         'message' => 'Nothing found...',
     ],
     'reviews' => [
-        'video'=> 'Video-reviews',
-        'text'=> 'Reviews',
+        'video' => 'Video-reviews',
+        'text' => 'Reviews',
         'not' => 'Sorry, no reviews yet.'
     ],
     'thk' => [
@@ -79,7 +79,7 @@ return [
         'subscribe' => 'You have subscribed to the news.'
     ],
     'subscribe' => [
-        'title'=> 'Subscribe to the news',
+        'title' => 'Subscribe to the news',
         'btn' => 'Subscribe',
     ],
     'navigation' => 'Page navigation:'
