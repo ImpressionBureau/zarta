@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use App\Models\Category;
-use App\Models\Direction;
 use App\Models\Setting;
+use App\Services\Navigation;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -33,9 +33,15 @@ class AppServiceProvider extends ServiceProvider
         app()->singleton('settings', function () {
             return Setting::with('translates')->first();
         });
-        app()->singleton('categories', function (){
+
+        app()->singleton('categories', function () {
             return Category::with('translates')->get();
         });
+
+        app()->singleton('nav', function () {
+            return new Navigation();
+        });
+
         View::composer(['app.*', 'auth.*'], function () {
             View::share('locales', collect(config('app.locales'))->filter(function ($l) {
                 return $l !== app()->getLocale();
