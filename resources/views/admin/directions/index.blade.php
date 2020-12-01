@@ -19,10 +19,10 @@
 
                     @if ($direction->hasMedia('direction'))
                         <img src="{{ $direction->getFirstMediaUrl('direction', 'thumb') }}" class="rounded-circle"
-                             alt="{{ $direction->name }}" style="width: 100px;">
+                             alt="{{ $direction->name }}">
                     @else
                         <img src="{{ asset('images/no-image.png') }}" class="rounded-circle"
-                             alt="{{ $direction->name }}" style="width: 100px;">
+                             alt="{{ $direction->name }}">
                     @endif
                 </div>
                 <div class="col">

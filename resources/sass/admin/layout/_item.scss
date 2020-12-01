@@ -5,6 +5,11 @@
     border-radius: $border-radius;
     position: relative;
 
+    img {
+        width: 100px;
+        height: 100px;
+    }
+
     &:hover {
         background-color: $body-bg;
     }

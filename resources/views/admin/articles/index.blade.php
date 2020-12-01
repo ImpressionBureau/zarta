@@ -19,10 +19,10 @@
 
                     @if ($article->hasMedia('uploads'))
                         <img src="{{ $article->getFirstMediaUrl('uploads', 'thumb') }}" class="rounded-circle"
-                             alt="{{ $article->name }}" style="width: 100px;">
+                             alt="{{ $article->name }}">
                     @else
                         <img src="{{ asset('images/no-image.png') }}" class="rounded-circle"
-                             alt="{{ $article->name }}" style="width: 100px;">
+                             alt="{{ $article->name }}">
                     @endif
                 </div>
                 <div class="col">

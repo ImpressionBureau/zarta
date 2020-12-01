@@ -19,10 +19,10 @@
 
                     @if ($command->hasMedia('command'))
                         <img src="{{ $command->getFirstMediaUrl('command', 'thumb') }}" class="rounded-circle"
-                             alt="{{ $command->name }}" style="width: 100px;">
+                             alt="{{ $command->name }}">
                     @else
                         <img src="{{ asset('images/no-image.png') }}" class="rounded-circle"
-                             alt="{{ $command->name }}" style="width: 100px;">
+                             alt="{{ $command->name }}">
                     @endif
                 </div>
                 <div class="col">

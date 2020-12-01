@@ -13,13 +13,13 @@
                 <div class="col-auto">
                     @if($page->hasMedia('uploads'))
                         <img src="{{ $page->getFirstMediaUrl('uploads','thumb') }}" class="rounded-circle"
-                             alt="{{ $page->name }}" style="width: 100px;">
+                             alt="{{ $page->name }}">
                     @elseif ($page->hasMedia('page'))
                         <img src="{{ $page->getFirstMediaUrl('page','thumb') }}" class="rounded-circle"
-                             alt="{{ $page->name }}" style="width: 100px;">
+                             alt="{{ $page->name }}">
                     @else
                         <img src="{{ asset('images/no-image.png') }}" class="rounded-circle"
-                             alt="{{ $page->name }}" style="width: 100px;">
+                             alt="{{ $page->name }}">
                     @endif
                 </div>
                 <div class="col">

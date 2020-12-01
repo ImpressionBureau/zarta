@@ -18,10 +18,10 @@
 
                     @if ($review->hasMedia('review'))
                         <img src="{{ $review->getFirstMediaUrl('review', 'thumb') }}" class="rounded-circle"
-                             alt="{{ $review->name }}" style="width: 100px;">
+                             alt="{{ $review->name }}">
                     @else
                         <img src="{{ asset('images/no-image.png') }}" class="rounded-circle"
-                             alt="{{ $review->name }}" style="width: 100px;">
+                             alt="{{ $review->name }}">
                     @endif
                 </div>
                 <div class="col">

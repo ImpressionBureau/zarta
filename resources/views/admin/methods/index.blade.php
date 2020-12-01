@@ -19,10 +19,10 @@
 
                     @if ($method->hasMedia('method'))
                         <img src="{{ $method->getFirstMediaUrl('method', 'thumb') }}" class="rounded-circle"
-                             alt="{{ $method->name }}" style="width: 100px;">
+                             alt="{{ $method->name }}">
                     @else
                         <img src="{{ asset('images/no-image.png') }}" class="rounded-circle"
-                             alt="{{ $method->name }}" style="width: 100px;">
+                             alt="{{ $method->name }}">
                     @endif
                 </div>
                 <div class="col">

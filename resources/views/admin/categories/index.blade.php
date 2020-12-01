@@ -19,10 +19,10 @@
 
                     @if ($category->hasMedia('category'))
                         <img src="{{ $category->getFirstMediaUrl('category', 'thumb') }}" class="rounded-circle"
-                             alt="{{ $category->name }}" style="width: 100px;">
+                             alt="{{ $category->name }}">
                     @else
                         <img src="{{ asset('images/no-image.png') }}" class="rounded-circle"
-                             alt="{{ $category->name }}" style="width: 100px;">
+                             alt="{{ $category->name }}">
                     @endif
                 </div>
                 <div class="col">
