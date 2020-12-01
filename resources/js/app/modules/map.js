@@ -1,10 +1,11 @@
-import mapboxgl from "mapbox-gl";
+// import mapboxgl from "mapbox-gl";
 
 const customMap = document.querySelector('#contact-map');
 const mapBg = document.querySelector('.map__bg');
 
-if (customMap) {
+mapboxgl.accessToken = 'pk.eyJ1IjoiaW1wcmVzc2lvbi1idXJlYXUiLCJhIjoiY2swbWlkNGttMDl5czNkdDdpdnA2YnRucyJ9.ETnTJRRIl8_TU349gbBKgw';
 
+if (customMap) {
     mapBg.addEventListener('click', function () {
         mapBg.remove();
     });
@@ -13,7 +14,6 @@ if (customMap) {
     let mapLat = customMap.getAttribute('data-lat');
     let mapIcon = customMap.getAttribute('data-icon');
 
-    mapboxgl.accessToken = 'pk.eyJ1IjoiaW1wcmVzc2lvbi1idXJlYXUiLCJhIjoiY2swbWlkNGttMDl5czNkdDdpdnA2YnRucyJ9.ETnTJRRIl8_TU349gbBKgw';
     let map = new mapboxgl.Map({
         container: 'contact-map',
         style: 'mapbox://styles/mapbox/streets-v11',

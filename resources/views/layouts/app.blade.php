@@ -7,13 +7,16 @@
     <title>{{ (isset($page_title) ? $page_title . ' | ' : '') . config('app.name') }}</title>
 
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="prefetch" href="{{ asset('css/app.css') }}">
+    <link rel="prefetch" href="https://api.mapbox.com">
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet'/>
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-
-
-    <link rel="prefetch" href="{{ asset('css/app.css') }}">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
 @includeIf('partials.app.layouts.icons')
@@ -28,8 +31,10 @@
     @includeIf('partials.app.layouts.footer')
 
 </div>
+
 <script src="{{ asset('js/manifest.js') }}" defer></script>
 <script src="{{ asset('js/vendor.js') }}" defer></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js' defer></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>
