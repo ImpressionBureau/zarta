@@ -7,12 +7,10 @@
     <title>{{ (isset($page_title) ? $page_title . ' | ' : '') . config('app.name') }}</title>
 
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="prefetch" href="{{ asset('css/app.css') }}">
-    <link rel="prefetch" href="https://api.mapbox.com">
+    <link rel="dns-prefetch" href="https://api.mapbox.com">
 
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet'/>
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ url(mix('css/app.css')) }}" rel="stylesheet">
 
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
@@ -29,12 +27,11 @@
     </main>
     @includeIf('partials.app.layouts.menu')
     @includeIf('partials.app.layouts.footer')
-
 </div>
 
-<script src="{{ asset('js/manifest.js') }}" defer></script>
-<script src="{{ asset('js/vendor.js') }}" defer></script>
-<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js' defer></script>
-<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ url(mix('js/manifest.js')) }}" defer></script>
+<script src="{{ url(mix('js/vendor.js')) }}" defer></script>
+<script src="{{ url(mix('js/app.js')) }}" defer></script>
+@stack('scripts')
 </body>
 </html>

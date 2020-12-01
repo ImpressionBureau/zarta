@@ -8,3 +8,7 @@ mix.js('resources/js/app/app.js', 'public/js/app.js')
     .options({
         processCssUrls: false
     });
+
+if (mix.inProduction()) {
+    mix.version();
+}

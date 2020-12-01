@@ -6,7 +6,7 @@ require('./modules/sliders');
 
 require('./modules/youtube');
 
-require('./modules/map');
+// require('./modules/map');
 
 require('./modules/form');
 
