@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'blog'=> 'Blog',
+    'blog'=> 'News',
     'main'=> 'Home',
     'service' => 'Services and prices',
     'directions' => 'Areas of work',

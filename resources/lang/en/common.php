@@ -37,7 +37,7 @@ return [
         'methods' => 'Treatment method',
         'services' => 'Services and prices',
         'questions' => 'FAQ',
-        'blog' => 'Blog',
+        'blog' => 'News',
         'contacts' => 'Contacts',
         'copy' => 'КНП «Міська лікарня екстреної та швидкої медичної допомоги» ЗМР',
         'dev' => 'Development',
@@ -51,7 +51,7 @@ return [
         'method' => 'Treatment method',
         'services' => 'Services and prices',
         'questions' => 'FAQ',
-        'blog' => 'Blog',
+        'blog' => 'News',
         'contacts' => 'Contacts',
     ],
     'form' => [
