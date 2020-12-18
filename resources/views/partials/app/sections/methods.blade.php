@@ -1,7 +1,5 @@
 <section class="therapy-methods-section d-none d-lg-block">
-
     <div class="container">
-
         <div class="row no-gutters">
             @foreach($methods as $method)
                 @if($loop->index%2 ==0)
@@ -15,14 +13,13 @@
                                 <div class="method">
                                     <div class="method__circle d-none d-lg-block"></div>
                                     <div class="method__item">
-                                        <div class="img"
-                                             style="background-image: url({{$method->getFirstMediaUrl('category')}})"></div>
+                                        <div class="img lozad"
+                                             data-background-image="{{$method->getFirstMediaUrl('category')}}"></div>
                                         <h3 class="title">{{$method->title}}</h3>
                                     </div>
                                     <div class="method__item">
                                         <div class="list">
                                             {!! remove_tags_direction($method->content->description) !!}
-
                                         </div>
                                     </div>
                                 </div>
@@ -32,14 +29,13 @@
                                 <div class="method">
                                     <div class="method__circle d-none d-lg-block"></div>
                                     <div class="method__item">
-                                        <div class="img"
-                                             style="background-image: url({{$method->getFirstMediaUrl('category')}})"></div>
+                                        <div class="img lozad"
+                                             data-background-image="{{$method->getFirstMediaUrl('category')}}"></div>
                                         <h3 class="title">{{$method->title}}</h3>
                                     </div>
                                     <div class="method__item">
                                         <div class="list">
                                             {!! remove_tags_direction($method->content->description) !!}
-
                                         </div>
                                     </div>
                                 </div>
@@ -51,12 +47,10 @@
             @endforeach
         </div>
     </div>
-
 </section>
 
 
 <section class="therapy-methods-media d-lg-none">
-
     <h2 class="section-title mb-5 mx-4 therapy-method__title">@lang('common.main.direction')</h2>
 
     <div class="methods-slider-wrap">
@@ -66,14 +60,13 @@
                     <a href="{{route('app.directions.index', $method)}}" class="d-block methods-slider__item">
                         <div class="method">
                             <div class="method__item">
-                                <div class="img"
-                                     style="background-image: url({{$method->getFirstMediaUrl('category')}})"></div>
+                                <div class="img lozad"
+                                     data-background-image="{{$method->getFirstMediaUrl('category')}}"></div>
                                 <h3 class="title">{{$method->title}}</h3>
                             </div>
                             <div class="method__item">
                                 <div class="list">
                                     {!! remove_tags_direction($method->content->description) !!}
-
                                 </div>
                             </div>
                         </div>
@@ -82,14 +75,13 @@
                     <div class="d-block methods-slider__item">
                         <div class="method">
                             <div class="method__item">
-                                <div class="img"
-                                     style="background-image: url({{$method->getFirstMediaUrl('category')}})"></div>
+                                <div class="img lozad"
+                                     data-background-image="{{$method->getFirstMediaUrl('category')}}"></div>
                                 <h3 class="title">{{$method->title}}</h3>
                             </div>
                             <div class="method__item">
                                 <div class="list">
                                     {!! remove_tags_direction($method->content->description) !!}
-
                                 </div>
                             </div>
                         </div>
@@ -108,6 +100,4 @@
             </svg>
         </div>
     </div>
-
-
 </section>

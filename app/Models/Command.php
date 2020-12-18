@@ -42,15 +42,15 @@ class Command extends Model implements HasMedia
             ->registerMediaConversions(function (Media $media = null) {
                 $this
                     ->addMediaConversion('thumb')
-                    ->crop(Manipulations::CROP_CENTER, 100, 100)
+                    ->fit(Manipulations::FIT_CROP, 100, 100)
                     ->width(100)
                     ->height(100);
 
                 $this
                     ->addMediaConversion('preview')
-                    ->crop(Manipulations::CROP_CENTER, 385, 193)
-                    ->width(385)
-                    ->height(193);
+                    ->fit(Manipulations::FIT_CROP, 480, 480)
+                    ->width(480)
+                    ->height(480);
             });
     }
 }

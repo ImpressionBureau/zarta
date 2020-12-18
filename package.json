@@ -20,8 +20,8 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "@tinymce/tinymce-vue": "^2.0.0",
         "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+        "@tinymce/tinymce-vue": "^2.0.0",
         "axios": "^0.19.0",
         "bootstrap": "^4.3.1",
         "flickity": "^2.2.0",
@@ -29,14 +29,15 @@
         "imports-loader": "^0.8.0",
         "jquery": "^3.4.1",
         "jquery-viewport-checker": "^1.8.8",
+        "lozad": "^1.16.0",
         "mapbox-gl": "^1.1.1",
         "masonry-layout": "^4.2.2",
         "paroller.js": "^1.4.4",
         "popper.js": "^1.14.7",
+        "scrollreveal": "^4.0.5",
+        "simplebar": "^3.1.5",
         "tiptap": "^1.25.0",
         "tiptap-extensions": "^1.27.0",
-        "simplebar": "^3.1.5",
-        "scrollreveal": "^4.0.5",
         "vue-perfect-scrollbar": "^0.2.0",
         "vue-select": "^3.2.0"
     }

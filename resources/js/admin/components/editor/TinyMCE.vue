@@ -21,7 +21,6 @@
         output: this.content || '',
         options: {
           language: 'ru',
-          language_url: '/js/langs/ru.js',
           plugins: "textpattern visualblocks table image imagetools media lists link anchor",
           toolbar: "formatselect | alignleft aligncenter alignright | bold italic | link unlink | numlist bullist | forecolor backcolor | image media | anchor | table",
           automatic_uploads: true,

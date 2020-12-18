@@ -7,16 +7,15 @@
                 <a href="{{route('app.command.show', $command)}}" class="teammate">
                     <div class="teammate__img">
                         @if ($command->hasMedia('command'))
-                        <img src="{{$command->getFirstMedia('command')->getFullUrl()}}" alt="">
-                            @else
-                            <img src="/images/no-image.png">
+                            <img class="lozad" data-src="{{$command->getFirstMedia('command')->getFullUrl('preview')}}" alt="">
+                        @else
+                            <img class="lozad" data-src="{{ asset('images/no-image.png') }}">
                         @endif
-                            <div href="#" class="btn btn-primary modal-btn team-btn">@lang('common.main.appointments')</div>
+                        <div class="btn btn-primary modal-btn team-btn">@lang('common.main.appointments')</div>
                     </div>
-                <h4 class="teammate__name">{{$command->title}}</h4>
-                <p class="teammate__position">{{$command->content->description}}</p>
+                    <h4 class="teammate__name">{{$command->title}}</h4>
+                    <p class="teammate__position">{{$command->content->description}}</p>
                 </a>
-
             @endforeach
         </div>
 

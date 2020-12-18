@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Http\Resources\ImageResource;
 use App\Traits\SluggableTrait;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
@@ -18,9 +19,15 @@ class Article extends Model implements HasMedia
         'slug',
         'published'
     ];
+
     protected $with = [
         'translates',
     ];
+
+    public function scopePublished(Builder $query): Builder
+    {
+        return $query->where('published', 1);
+    }
 
     /**
      * @return string
@@ -43,15 +50,15 @@ class Article extends Model implements HasMedia
             ->registerMediaConversions(function (Media $media = null) {
                 $this
                     ->addMediaConversion('thumb')
-                    ->crop(Manipulations::CROP_CENTER, 100, 100)
+                    ->fit(Manipulations::FIT_CROP, 100, 100)
                     ->width(100)
                     ->height(100);
 
                 $this
                     ->addMediaConversion('preview')
-                    ->crop(Manipulations::CROP_CENTER, 385, 193)
-                    ->width(385)
-                    ->height(193);
+                    ->fit(Manipulations::FIT_CROP, 362, 232)
+                    ->width(362)
+                    ->height(232);
             });
     }
 

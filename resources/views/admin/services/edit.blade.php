@@ -11,12 +11,14 @@
                     <fieldset slot="{{ $lang }}">
                         <div class="form-group">
                             <label for="title">Название услуги</label>
-                            <input id="title"
-                                   type="text"
-                                   name="{{$lang}}[title]"
-                                   class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"
-                                   value="{{ old($lang.'.title') ?? $service->translate('title', $lang) }}"
-                                   required>
+                            <input
+                                id="title"
+                                type="text"
+                                name="{{$lang}}[title]"
+                                class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"
+                                value="{{ old($lang.'.title') ?? $service->translate('title', $lang) }}"
+                                required
+                            >
                             @if($errors->has('title'))
                                 <div class="mt-1 text-danger">
                                     {{ $errors->first('title') }}
@@ -34,7 +36,8 @@
             <select class="form-control position-relative mt-3" name="category_id" id="category_id" required>
                 <option value="" disabled selected style='display:none;'>Выберите категорию</option>
                 @foreach($categories as $category)
-                    <option value="{{ $category->id }}"{{ $category->id === $service->category->id ? ' selected' : '' }}>
+                    <option
+                        value="{{ $category->id }}"{{ $category->id === $service->category->id ? ' selected' : '' }}>
                         {{ $category->title }}
                     </option>
                 @endforeach

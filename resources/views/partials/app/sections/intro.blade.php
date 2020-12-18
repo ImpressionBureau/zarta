@@ -7,7 +7,7 @@
     <div class="intro-slider-wrap">
         <div class="intro-slider">
             @foreach(app('settings')->getMedia('banner') as $item)
-                <div class="intro-slider__item" style="background-image: url({{$item->getFullUrl()}})"></div>
+                <div class="intro-slider__item lozad" data-background-image="{{$item->getFullUrl()}}"></div>
             @endforeach
         </div>
         @if(app('settings')->getMedia('banner')->count()>1)

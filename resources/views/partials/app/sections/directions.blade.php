@@ -14,8 +14,8 @@
                             <div class="areas-col">
                                 @endif
                                 @if($direction->directions->count())
-                                    <a href="{{route('app.directions.index', $direction)}}" class="areas-item"
-                                       style="background-image: url({{$direction->getFirstMedia('category')->getFullUrl()}})">
+                                    <a href="{{route('app.directions.index', $direction)}}" class="areas-item lozad"
+                                       data-background-image="{{$direction->getFirstMedia('category')->getFullUrl()}}">
                                         <div class="areas-item__content">
                                             <p class="title">{{ $direction->title }}</p>
                                             <div class="content">

@@ -3,8 +3,8 @@
     <div class="pages-slider">
         @foreach($pages as $page)
             <div class="pages-slider__item">
-                <div class="front-priview"
-                     style="background-image: url({{$page->slug == 'about'? $page->getFirstMedia('uploads')->getFullUrl(): $page->getFirstMedia('page')->getFullUrl()}})">
+                <div class="front-priview lozad"
+                     data-background-image="{{$page->slug == 'about'? $page->getFirstMedia('uploads')->getFullUrl(): $page->getFirstMedia('page')->getFullUrl()}}">
                     <a href="{{$page->slug == 'service' ? route('app.services.index') :
                             ($page->slug == 'about' ? route('app.pages.about') :
                             ($page->slug == 'question' ? route('app.faq.index') :

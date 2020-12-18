@@ -5,7 +5,7 @@
                 <div class="about-galery">
                     <div class="about-slider">
                         @foreach($about->getMedia('uploads') as $img)
-                            <div class="about-slider__item" style="background-image: url({{$img->getFullUrl()}})"></div>
+                            <div class="about-slider__item lozad" data-background-image="{{$img->getFullUrl()}}"></div>
                         @endforeach
                     </div>
 
@@ -24,9 +24,8 @@
                 </div>
             </div>
             <div class="col-xl-5 col-xxl-4 order-xl-1">
-
                 <div class="section-decor section-decor--article">
-                    <img src="../images/about-img.svg" alt="">
+                    <img src="{{ asset('images/about-img.svg') }}" alt="">
                 </div>
 
                 <div class="about">
