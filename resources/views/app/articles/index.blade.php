@@ -25,7 +25,7 @@
                 <div class="row no-gutters">
                     @each('partials.app.blog.article', $articles, 'article')
                 </div>
-                <div class="align-items-center">
+                <div class="d-flex justify-content-center">
                     {{ $articles->links() }}
                 </div>
             </div>
