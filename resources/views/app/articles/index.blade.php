@@ -22,7 +22,7 @@
     <section class="blog-section">
         <div class="blog-content">
             <div class="container">
-                <div class="row no-gutters">
+                <div class="row justify-content-center no-gutters">
                     @each('partials.app.blog.article', $articles, 'article')
                 </div>
                 <div class="d-flex justify-content-center">
