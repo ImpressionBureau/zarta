@@ -14,6 +14,7 @@ return [
     ],
     'articles' => [
         'read' => 'Read completely',
+        'more_articles' => 'More articles',
     ],
     'contacts' => [
         'title' => 'Contact Information',

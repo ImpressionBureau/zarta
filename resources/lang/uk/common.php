@@ -14,6 +14,7 @@ return [
     ],
     'articles'=> [
         'read'=> 'Читати повнiстю',
+        'more_articles' => 'Більше новин',
     ],
     'contacts' => [
         'title' => 'Контактна інформація',
