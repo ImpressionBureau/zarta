@@ -7,20 +7,22 @@ use App\Models\Category;
 use App\Models\Direction;
 use App\Models\Method;
 use App\Http\Controllers\Controller;
+use function view;
 
 class DirectionsController extends Controller
 {
     public function index(Category $item)
     {
-        if(!$item->title){
+        if (!$item->title) {
             $category = Category::where('thread', 'directions')->where('published', 1)->has('directions')->first();
-        }else{
-            $category= $item;
+        } else {
+            $category = $item;
         }
         $methods = Category::where('thread', 'directions')->where('published', 1)->inRandomOrder()->take(6)->get();
         $articles = Direction::where('category_id', $category->id)->where('published', 1)->get();
         $article = $articles->first();
-        return \view('app.directions.index', compact('category', 'articles', 'article', 'methods'));
+
+        return view('app.directions.index', compact('category', 'articles', 'article', 'methods'));
     }
 
     public function show(Direction $item)
@@ -29,6 +31,6 @@ class DirectionsController extends Controller
         $category = Category::where('id', $article->category_id)->first();
         $methods = Category::where('thread', 'directions')->where('published', 1)->inRandomOrder()->take(6)->get();
         $articles = Direction::where('category_id', $category->id)->where('published', 1)->get();
-        return \view('app.directions.index', compact('category', 'articles', 'article', 'methods'));
+        return view('app.directions.index', compact('category', 'articles', 'article', 'methods'));
     }
 }

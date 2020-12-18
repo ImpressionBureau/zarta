@@ -12,7 +12,7 @@ Route::group([
     /** Articles */
     Route::group([
         'as' => 'articles.',
-        'prefix' => 'articles',
+        'prefix' => 'news',
     ], function () {
         Route::get('/', 'ArticlesController@index')->name('index');
         Route::get('{article}', 'ArticlesController@show')->name('show');

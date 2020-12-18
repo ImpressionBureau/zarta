@@ -7,6 +7,7 @@
             <li class="bcrumb__item bcrumb__item--active">{{$article->title}}</li>
         </ul>
     </section>
+
     <section class="navigation-section">
         <div class="container">
             <h2 class="section-title-center ">
@@ -15,17 +16,19 @@
             <div class="navigation">
                 <div class="navigation-slider">
                     @foreach($articles as $item)
-                    <a href="{{route('app.directions.show', $item)}}" class="navigation-slider__item">
-                        <div class="content">
-                            <div class="content__img" style="background-image: url({{$item->getFirstMediaUrl('direction')}})"></div>
-                            <h3 class="content__title">{{$item->title}}</h3>
-                        </div>
-                    </a>
+                        <a href="{{route('app.directions.show', $item)}}" class="navigation-slider__item">
+                            <div class="content">
+                                <div class="content__img lozad"
+                                     data-background-image="{{$item->getFirstMediaUrl('direction')}}"></div>
+                                <h3 class="content__title">{{$item->title}}</h3>
+                            </div>
+                        </a>
                     @endforeach
                 </div>
             </div>
         </div>
     </section>
+
     <section class="category-content-section">
         <div class="container">
 
@@ -38,7 +41,7 @@
                     <div class="col order-xl-4 col-xxl-2">
                         <div class="cat-content-nav">
                             <h4 class="title">@lang('common.navigation')</h4>
-                            {!!  $article->content->navigation!!}
+                            {!!  $article->content->navigation !!}
                         </div>
                     </div>
                     <div class="col-xl-8 col-xxl-9 order-xl-1">
