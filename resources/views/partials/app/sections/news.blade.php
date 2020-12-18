@@ -7,7 +7,9 @@
         </div>
 
         <div class="text-center">
-            <a href="{{ route('app.articles.index') }}" class="btn btn-primary">{{ __('common.articles.more_articles') }}</a>
+            <a href="{{ route('app.articles.index') }}" class="btn btn-primary">
+                <span>{{ __('common.articles.more_articles') }}</span>
+            </a>
         </div>
     </div>
 </section>
