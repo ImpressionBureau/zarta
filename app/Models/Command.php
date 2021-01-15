@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\SluggableTrait;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Image\Manipulations;
@@ -23,6 +24,11 @@ class Command extends Model implements HasMedia, Sortable
     protected $with = [
         'translates',
     ];
+
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(Category::class);
+    }
 
     /**
      * @return string

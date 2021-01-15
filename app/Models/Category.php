@@ -28,35 +28,27 @@ class Category extends Model implements HasMedia, Sortable
         'translates',
     ];
 
-    /**
-     * @return BelongsToMany
-     */
     public function directions(): BelongsToMany
     {
         return $this->belongsToMany(Direction::class);
     }
 
-    /**
-     * @return HasMany
-     */
+    public function commands(): BelongsToMany
+    {
+        return $this->belongsToMany(Command::class);
+    }
+
     public function methods(): HasMany
     {
         return $this->hasMany(Method::class);
     }
 
-    /**
-     * @return HasMany
-     */
     public function services(): HasMany
     {
         return $this->hasMany(Service::class);
     }
 
-
-    /**
-     * @return string
-     */
-    public function getPreviewImageAttribute()
+    public function getPreviewImageAttribute(): string
     {
         $media = 'images/no-image.png';
 

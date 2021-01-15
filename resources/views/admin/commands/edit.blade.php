@@ -48,7 +48,24 @@
 
                         @endforeach
                     </block-editor>
-                    <hr class="my-5">
+
+                    <div class="form-group mt-3">
+                        <label for="category_id">Отделения</label>
+                        <select class="form-control position-relative" name="categories[]" id="category_id"
+                                multiple
+                                required>
+                            <option value="" disabled selected style='display:none;'>Выберите одно или несколько отделений
+                            </option>
+                            @foreach($categories as $category)
+                                <option
+                                    value="{{ $category->id }}"
+                                    {{ in_array($category->id, old('categories', $command->categories->pluck('id')->all())) ? ' selected' : '' }}
+                                >
+                                    {{ $category->title }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <image-uploader name="command" ratio="67%"
