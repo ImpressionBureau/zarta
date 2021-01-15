@@ -1,12 +1,12 @@
-@extends('layouts.admin', ['app_title' => 'Категории'])
+@extends('layouts.admin', ['app_title' => 'Отделения'])
 
 @section('content')
 
     <div class="d-flex align-items-center mb-5">
-        <h1 class="mb-0 h2">Категории</h1>
+        <h1 class="mb-0 h2">Отделения</h1>
         <div class="ml-3">
             <a href="{{ route('admin.categories.create') }}" class="btn btn-primary">
-                Создать новую категорию
+                Добавить отделение
             </a>
         </div>
     </div>
@@ -31,13 +31,6 @@
                             {{ $category->title }}
                         </a>
                     </h3>
-                    <p class="mt-2 mb-0">
-                        @if($category->thread == 'directions')
-                            Методы лечения
-                        @else
-                            Услуги и цены
-                        @endif
-                    </p>
                     <p class="mt-2 mb-0">
                         Создан {{ $category->created_at->format('d.m.Y \в H:i') }}
                     </p>
@@ -67,7 +60,7 @@
             </div>
         </article>
     @empty
-        Категории пока не созданы!
+        Отделения пока не созданы!
     @endforelse
     {{ $categories->links() }}
 @endsection
