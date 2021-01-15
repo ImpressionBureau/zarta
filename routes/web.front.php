@@ -25,6 +25,7 @@ Route::group([
         Route::get('contacts', 'PagesController@contacts')->name('contacts');
         Route::get('about', 'PagesController@about')->name('about');
     });
+
     Route::group([
         'as' => 'services.',
         'prefix' => 'services',
@@ -36,7 +37,7 @@ Route::group([
         'as' => 'directions.',
         'prefix' => 'directions',
     ], function () {
-        Route::get('/category/{item?}', 'DirectionsController@index')->name('index');
+//        Route::get('/category/{item?}', 'DirectionsController@index')->name('index');
         Route::get('{item}', 'DirectionsController@show')->name('show');
     });
 

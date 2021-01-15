@@ -12,7 +12,7 @@
                         @if(($loop->iteration % 2) != 0)
                             <div class="areas-col">
                                 @endif
-                                <a href="{{route('app.directions.index', $direction)}}" class="areas-item lozad"
+                                <a href="{{route('app.directions.show', $direction)}}" class="areas-item lozad"
                                    data-background-image="{{$direction->getFirstMediaUrl('category')}}">
                                     <div class="areas-item__content">
                                         <p class="title">{{ $direction->title }}</p>
