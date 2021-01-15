@@ -15,7 +15,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $directions = Category::take(6)->get();
+        $departments = Category::take(6)->get();
         $pages= Page::get();
         $team = Command::get();
         $reviews_video = Review::whereNotNull('video')->where('published', 1)->first();
@@ -23,7 +23,7 @@ class HomeController extends Controller
         $about = Page::where('slug', 'about')->first();
         $articles = Article::latest()->published()->take(6)->get();
 
-        return view('app.home.index', compact('directions', 'pages', 'team', 'reviews_video', 'reviews', 'about', 'articles'));
+        return view('app.home.index', compact('departments', 'pages', 'team', 'reviews_video', 'reviews', 'about', 'articles'));
     }
 }
 

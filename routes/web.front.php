@@ -9,6 +9,13 @@ Route::group([
     Route::get('/', 'HomeController@index')->name('home');
     Route::post('locale', 'LocalesController')->name('locale');
 
+    Route::group([
+        'as' => 'pages.',
+    ], function () {
+        Route::get('contacts', 'PagesController@contacts')->name('contacts');
+        Route::get('about', 'PagesController@about')->name('about');
+    });
+
     /** Articles */
     Route::group([
         'as' => 'articles.',
@@ -16,14 +23,6 @@ Route::group([
     ], function () {
         Route::get('/', 'ArticlesController@index')->name('index');
         Route::get('{article}', 'ArticlesController@show')->name('show');
-    });
-
-    Route::group([
-        'as' => 'pages.',
-        'prefix' => 'pages',
-    ], function () {
-        Route::get('contacts', 'PagesController@contacts')->name('contacts');
-        Route::get('about', 'PagesController@about')->name('about');
     });
 
     Route::group([
@@ -37,8 +36,8 @@ Route::group([
         'as' => 'directions.',
         'prefix' => 'directions',
     ], function () {
-//        Route::get('/category/{item?}', 'DirectionsController@index')->name('index');
-        Route::get('{item}', 'DirectionsController@show')->name('show');
+        Route::get('/', 'DirectionsController@index')->name('index');
+        Route::get('{category}', 'DirectionsController@show')->name('show');
     });
 
     Route::group([

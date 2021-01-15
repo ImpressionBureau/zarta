@@ -8,16 +8,16 @@
             </div>
             <div class="col-xl">
                 <div class="areas-row d-flex align-items-center justify-content-center">
-                    @foreach($directions as $direction)
+                    @foreach($departments as $category)
                         @if(($loop->iteration % 2) != 0)
                             <div class="areas-col">
                                 @endif
-                                <a href="{{route('app.directions.show', $direction)}}" class="areas-item lozad"
-                                   data-background-image="{{$direction->getFirstMediaUrl('category')}}">
+                                <a href="{{route('app.directions.show', $category)}}" class="areas-item lozad"
+                                   data-background-image="{{$category->getFirstMediaUrl('category')}}">
                                     <div class="areas-item__content">
-                                        <p class="title">{{ $direction->title }}</p>
+                                        <p class="title">{{ $category->title }}</p>
                                         <div class="content">
-                                            {!! remove_tags_direction($direction->content->description) !!}
+                                            {!! remove_tags_direction($category->content->description) !!}
                                         </div>
                                     </div>
                                 </a>
