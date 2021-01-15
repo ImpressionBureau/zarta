@@ -31,9 +31,7 @@ class DirectionsController extends Controller
      */
     public function create(): View
     {
-        return \view('admin.directions.create', [
-            'categories' => Category::get(),
-        ]);
+        return \view('admin.directions.create');
     }
 
     /**
@@ -64,8 +62,7 @@ class DirectionsController extends Controller
      */
     public function edit(Direction $direction): View
     {
-        $categories = Category::get();
-        return \view('admin.directions.edit', compact('direction', 'categories'));
+        return \view('admin.directions.edit', compact('direction'));
     }
 
     /**

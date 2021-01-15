@@ -47,5 +47,9 @@ class AppServiceProvider extends ServiceProvider
                 return $l !== app()->getLocale();
             }));
         });
+
+        View::composer(['admin.commands', 'admin.directions'], function() {
+           View::share('categories', Category::all());
+        });
     }
 }
