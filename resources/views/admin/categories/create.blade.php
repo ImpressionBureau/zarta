@@ -38,15 +38,18 @@
                                     @endif
                                 </div>
 
+                                <div class="form-group mb-0">
+                                    <label for="body">Описание</label>
+                                    <wysiwyg class="mb-0" id="body"
+                                             content="{{ old('body') }}"
+                                             name="{{$lang}}[content][body]"
+                                             label="Описание"></wysiwyg>
+                                </div>
                             </fieldset>
 
                         @endforeach
                     </block-editor>
-                    <select class="form-control position-relative mt-3" name="thread" id="thread" required>
-                        <option value="" disabled selected style='display:none;'>Выберите направление категории</option>
-                        <option value="directions">Направления работы</option>
-                        <option value="methods">Услуги и цены</option>
-                    </select>
+
                     <div class="form-group mt-3">
                         <div class="custom-control custom-checkbox">
                             <input type="hidden" name="published" value="0">

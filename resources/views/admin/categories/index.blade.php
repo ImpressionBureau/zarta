@@ -33,7 +33,7 @@
                     </h3>
                     <p class="mt-2 mb-0">
                         @if($category->thread == 'directions')
-                            Направления работы
+                            Методы лечения
                         @else
                             Услуги и цены
                         @endif

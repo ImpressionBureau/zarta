@@ -3,18 +3,21 @@
 namespace App\Models;
 
 use App\Traits\SluggableTrait;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
 
-class Command extends Model implements HasMedia
+class Command extends Model implements HasMedia, Sortable
 {
-    use SluggableTrait, HasMediaTrait;
+    use SluggableTrait, HasMediaTrait, SortableTrait;
 
     protected $fillable = [
-        'slug',
+        'slug', 'order_no',
     ];
 
     protected $with = [
@@ -52,5 +55,16 @@ class Command extends Model implements HasMedia
                     ->width(480)
                     ->height(480);
             });
+    }
+
+    /* Model boot */
+
+    protected static function booted(): void
+    {
+        parent::booted();
+
+        self::addGlobalScope('ordered', function (Builder $builder) {
+            $builder->orderBy('order_no');
+        });
     }
 }

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container auth">
+    <div class="container my-auto">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-8 col-lg-5">
                 <div class="card card-auth my-5">
                     <div class="card-header">
                        <h3>@lang('auth.login')</h3>

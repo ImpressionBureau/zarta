@@ -1,9 +1,9 @@
-@extends('layouts.admin', ['app_title' => 'Услуги и цены'])
+@extends('layouts.admin', ['app_title' => 'Услуги'])
 
 @section('content')
 
     <div class="d-flex align-items-center mb-5">
-        <h1 class="mb-0 h2">Услуги и цены</h1>
+        <h1 class="mb-0 h2">Услуги</h1>
         <div class="ml-3">
             <a href="{{ route('admin.services.create') }}" class="btn btn-primary">
                 Создать новую услугу

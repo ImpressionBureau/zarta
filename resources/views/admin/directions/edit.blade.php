@@ -25,11 +25,6 @@
                                     </div>
                                 @endif
                             </div>
-                            <label for="navigation">Навигация по статье</label>
-                            <wysiwyg class="mb-0" id="navigation"
-                                     content="{{ old('navigation') ?? $direction->translate('content', $lang)['navigation'] }}"
-                                     name="{{$lang}}[content][navigation]"
-                                     label="Навигация по статье"></wysiwyg>
                             <label for="body">Текст метода лечения</label>
                             <wysiwyg class="mb-0" id="body"
                                      content="{{ old('body') ?? $direction->translate('content', $lang)['body'] }}"
@@ -40,17 +35,27 @@
                     @endforeach
                 </block-editor>
 
-                <select class="form-control position-relative mt-3" name="category_id" id="category_id" required>
-                    <option value="" disabled selected style='display:none;'>Выберите категорию</option>
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}"{{ $category->id === $direction->category->id ? ' selected' : '' }}>
-                            {{ $category->title }}
+                <div class="form-group mt-3">
+                    <label for="category_id">Отделения</label>
+                    <select class="form-control position-relative" name="categories[]" id="category_id"
+                            multiple
+                            required>
+                        <option value="" disabled selected style='display:none;'>Выберите одно или несколько отделений
                         </option>
-                    @endforeach
-                </select>
+                        @foreach($categories as $category)
+                            <option
+                                value="{{ $category->id }}"
+                                {{ in_array($category->id, old('categories', $direction->categories->pluck('id')->all())) ? ' selected' : '' }}
+                            >
+                                {{ $category->title }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
             <div class="col-md-4">
-                <image-uploader ratio="67%" name="direction" image-id="{{ optional($direction->getFirstMedia('direction'))->id }}"
+                <image-uploader ratio="67%" name="direction"
+                                image-id="{{ optional($direction->getFirstMedia('direction'))->id }}"
                                 src="{{ $direction->getFirstMediaUrl('direction') }}"></image-uploader>
             </div>
         </div>

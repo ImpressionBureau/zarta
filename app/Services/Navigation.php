@@ -27,22 +27,22 @@ class Navigation
                 'icon' => 'i-newspaper',
             ]),
             new NavItem([
-                'name' => 'Категории',
+                'name' => 'Отделения',
                 'route' => 'categories',
                 'icon' => 'i-bullet-list',
             ]),
             new NavItem([
-                'name' => 'Направления работы',
+                'name' => 'Методы лечения',
                 'route' => 'directions',
                 'icon' => 'i-grid',
             ]),
             new NavItem([
-                'name' => 'Услуги и цены',
+                'name' => 'Услуги',
                 'route' => 'services',
                 'icon' => 'i-bullet-list',
             ]),
             new NavItem([
-                'name' => 'Наша комманда',
+                'name' => 'Наша команда',
                 'route' => 'commands',
                 'icon' => 'i-laptop',
             ]),
@@ -61,11 +61,11 @@ class Navigation
                 'route'=> 'pages',
                 'icon' => 'i-folder',
             ]),
-            new NavItem([
-                'name' => 'Подписки',
-                'route' => 'subscribes',
-                'icon' => 'i-envelope',
-            ]),
+//            new NavItem([
+//                'name' => 'Подписки',
+//                'route' => 'subscribes',
+//                'icon' => 'i-envelope',
+//            ]),
             new NavItem([
                 'name' => 'Настройки',
                 'route' => 'settings',

@@ -25,16 +25,20 @@
                                 </div>
                             @endif
                         </div>
+
+                        <div class="form-group mb-0">
+                            <label for="body">Описание</label>
+                            <wysiwyg class="mb-0" id="body"
+                                     content="{{ old('body') ?? $service->translate('content', $lang)['body'] ?? ''}}"
+                                     name="{{$lang}}[content][body]"
+                                     label="Описание"></wysiwyg>
+                        </div>
                     </fieldset>
                 @endforeach
             </block-editor>
-            <div class="form-group">
-                <label for="price">Цена</label>
-                <input type="number" min="0" step="1" name="price" class="form-control"
-                       value="{{ old('price') ?? $service->price}}" required>
-            </div>
+
             <select class="form-control position-relative mt-3" name="category_id" id="category_id" required>
-                <option value="" disabled selected style='display:none;'>Выберите категорию</option>
+                <option value="" disabled>Выберите отделение</option>
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}"
                         {{ $category->id === optional($service->category)->id ? 'selected' : '' }}

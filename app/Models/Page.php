@@ -4,17 +4,21 @@ namespace App\Models;
 
 use App\Http\Resources\ImageResource;
 use App\Traits\SluggableTrait;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
 
-class Page extends Model implements HasMedia
+class Page extends Model implements HasMedia, Sortable
 {
-    use SluggableTrait, HasMediaTrait;
+    use SluggableTrait, HasMediaTrait, SortableTrait;
+
     protected $fillable = [
-        'slug',
+        'slug', 'order_no',
     ];
     protected $with = [
         'translates',
@@ -58,4 +62,14 @@ class Page extends Model implements HasMedia
         return ImageResource::collection($this->getMedia('uploads'));
     }
 
+    /* Model boot */
+
+    protected static function booted(): void
+    {
+        parent::booted();
+
+        self::addGlobalScope('ordered', function (Builder $builder) {
+            $builder->orderBy('order_no');
+        });
+    }
 }

@@ -5,14 +5,12 @@
     <div class="d-flex align-items-center mb-5">
         <h1 class="mb-0 h2">Наша комманда</h1>
         <div class="ml-3">
-            <a href="{{ route('admin.commands.create') }}" class="btn btn-primary">
-                Создать нового работника
-            </a>
+            <a href="{{ route('admin.commands.create') }}" class="btn btn-primary">Добавить работника</a>
         </div>
     </div>
     @forelse($commands as $command)
         <article class="item">
-            <div class="item-id">{{ $command->id }}</div>
+            <div class="item-id">{{ $command->order_no }}</div>
 
             <div class="item-body">
                 <div class="col-auto">

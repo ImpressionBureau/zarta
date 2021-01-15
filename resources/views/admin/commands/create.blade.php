@@ -44,8 +44,7 @@
                                 <wysiwyg class="mb-0" id="body"
                                          content="{{ old('body') }}"
                                          name="{{$lang}}[content][body]"
-                                         label="Текст новости"></wysiwyg>
-
+                                         label="Описание"></wysiwyg>
                             </fieldset>
 
                         @endforeach

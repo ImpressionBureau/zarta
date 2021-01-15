@@ -40,5 +40,4 @@ Route::group([
         Route::delete('{media}', 'MediaController@destroy')->name('destroy');
         Route::post('tiny', 'MediaController@tiny')->name('tiny');
     });
-
 });
