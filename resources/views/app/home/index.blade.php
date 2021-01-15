@@ -2,7 +2,7 @@
 
 @section('content')
     @include('partials.app.sections.intro')
-    @includeWhen($directions->count(), 'partials.app.sections.directions')
+    @includeWhen($departments->count(), 'partials.app.sections.directions')
     @includeWhen($pages->count(), 'partials.app.sections.pages')
     @includeWhen($articles->count(), 'partials.app.sections.news')
     @includeWhen($team->count(),'partials.app.sections.team')
