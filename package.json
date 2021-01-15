@@ -12,19 +12,19 @@
     "devDependencies": {
         "cross-env": "^5.1",
         "laravel-mix": "^4.0.7",
-        "lodash": "^4.17.13",
+        "lodash": "^4.17.20",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.15.2",
+        "sass": "^1.32.4",
         "sass-loader": "^7.1.0",
-        "vue": "^2.6.10",
-        "vue-template-compiler": "^2.6.10"
+        "vue": "^2.6.12",
+        "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
         "@babel/plugin-syntax-dynamic-import": "^7.2.0",
         "@tinymce/tinymce-vue": "^2.0.0",
         "axios": "^0.19.0",
         "bootstrap": "^4.3.1",
-        "flickity": "^2.2.0",
+        "flickity": "^2.2.2",
         "imask": "^5.2.1",
         "imports-loader": "^0.8.0",
         "jquery": "^3.4.1",
@@ -36,9 +36,7 @@
         "popper.js": "^1.14.7",
         "scrollreveal": "^4.0.5",
         "simplebar": "^3.1.5",
-        "tiptap": "^1.25.0",
-        "tiptap-extensions": "^1.27.0",
         "vue-perfect-scrollbar": "^0.2.0",
-        "vue-select": "^3.2.0"
+        "vue-select": "^3.11.2"
     }
 }

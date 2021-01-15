@@ -9,7 +9,6 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://api.mapbox.com">
 
-
     <link href="{{ url(mix('css/app.css')) }}" rel="stylesheet">
 
     <meta name="msapplication-TileColor" content="#ffffff">

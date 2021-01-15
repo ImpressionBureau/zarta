@@ -14,10 +14,11 @@
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,300,400,400i,700,700i&amp;subset=cyrillic"
           rel="stylesheet">
 
-    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    <link href="{{ url(mix('css/admin.css')) }}" rel="stylesheet">
     @stack('styles')
 </head>
 <body>
+@includeIf('partials.admin.notifications')
 @include('partials.admin.icons')
 <div id="app">
     @includeIf('partials.admin.header')
@@ -28,9 +29,9 @@
     </main>
 </div>
 
-<script src="{{ asset('js/manifest.js') }}" defer></script>
-<script src="{{ asset('js/vendor.js') }}" defer></script>
-<script src="{{ asset('js/admin.js') }}" defer></script>
+<script src="{{ url(mix('js/manifest.js')) }}" defer></script>
+<script src="{{ url(mix('js/vendor.js')) }}" defer></script>
+<script src="{{ url(mix('js/admin.js')) }}" defer></script>
 @stack('scripts')
 </body>
 </html>

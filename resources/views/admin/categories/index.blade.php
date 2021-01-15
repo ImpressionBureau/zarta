@@ -43,6 +43,9 @@
                     </p>
                 </div>
                 <div class="col-auto align-self-center">
+                    @includeIf('partials.admin.order', ['route' => 'admin.categories.order', 'item' => $category])
+                </div>
+                <div class="col-auto align-self-center">
                     <p class="mb-1">
                         <a href="{{ route('admin.categories.edit', $category) }}"
                            class="btn btn-sm btn-dark">

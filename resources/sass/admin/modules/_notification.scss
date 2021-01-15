@@ -1,6 +1,9 @@
-.notification {
+.notifications {
     position: fixed;
     right: 20px;
+    left: 20px;
     top: 20px;
     z-index: 9999;
+    max-width: 280px;
+    margin: 0 auto;
 }

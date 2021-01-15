@@ -1,9 +1,7 @@
-const notification = document.querySelectorAll('.notification');
+const notification = document.querySelector('.notifications');
+const hide = () => notification.style.display = 'none';
 
-if (notification.length) {
-  Array.from(notification).map(item => {
-    setTimeout(() => {
-      item.style.display = 'none';
-    }, 4000);
-  })
+if (notification) {
+    setTimeout(hide, 8000);
+    notification.addEventListener('click', hide);
 }

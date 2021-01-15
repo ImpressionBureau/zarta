@@ -34,6 +34,9 @@
                     </p>
                 </div>
                 <div class="col-auto align-self-center">
+                    @includeIf('partials.admin.order', ['route' => 'admin.commands.order', 'item' => $command])
+                </div>
+                <div class="col-auto align-self-center">
                     <p class="mb-1">
                         <a href="{{ route('admin.commands.edit', $command) }}"
                            class="btn btn-sm btn-dark">

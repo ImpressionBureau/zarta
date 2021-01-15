@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Command;
+use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
+use function redirect;
 
 class CommandsController extends Controller
 {
@@ -29,18 +32,17 @@ class CommandsController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
-
         $command = Command::create($request->only('slug'))->makeTranslation();
 
         if ($request->hasFile('command')) {
             $command->addMediaFromRequest('command')
                 ->toMediaCollection('command');
         }
-        return \redirect()->route('admin.commands.index')
+        return redirect()->route('admin.commands.index')
             ->with('message', 'Запись успешно сохранена.');
     }
 
@@ -56,7 +58,7 @@ class CommandsController extends Controller
     /**
      * @param Request $request
      * @param Command $command
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function update(Request $request, Command $command)
     {
@@ -68,20 +70,32 @@ class CommandsController extends Controller
             $command->addMediaFromRequest('command')
                 ->toMediaCollection('command');
         }
-        return \redirect()->route('admin.commands.index')
+        return redirect()->route('admin.commands.index')
             ->with('message', 'Запись успешно сохранена.');
     }
 
     /**
+     * @param Request $request
      * @param Command $command
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
+     * @return RedirectResponse
+     */
+    public function order(Request $request, Command $command): RedirectResponse
+    {
+        $command->{$request->input('order')}();
+
+        return back();
+    }
+
+    /**
+     * @param Command $command
+     * @return RedirectResponse
+     * @throws Exception
      */
     public function destroy(Command $command)
     {
         $command->clearMediaCollection('command');
         $command->delete();
-        return \redirect()->route('admin.commands.index')
+        return redirect()->route('admin.commands.index')
             ->with('message', 'Запись успешно удалена.');
     }
 }

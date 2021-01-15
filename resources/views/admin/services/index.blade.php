@@ -12,7 +12,7 @@
     </div>
     @forelse($services as $service)
         <article class="item">
-            <div class="item-id">{{ $service->id }}</div>
+            <div class="item-id">{{ $service->order_no }}</div>
 
             <div class="item-body">
                 <div class="col">
@@ -24,6 +24,9 @@
                     <p class="mt-2 mb-0">
                         Создан {{ $service->created_at->format('d.m.Y \в H:i') }}
                     </p>
+                </div>
+                <div class="col-auto align-self-center">
+                    @includeIf('partials.admin.order', ['route' => 'admin.services.order', 'item' => $service])
                 </div>
                 <div class="col-auto align-self-center">
                     <p class="mb-1">

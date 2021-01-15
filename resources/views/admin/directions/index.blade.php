@@ -12,7 +12,7 @@
     </div>
     @forelse($directions as $direction)
         <article class="item">
-            <div class="item-id">{{ $direction->id }}</div>
+            <div class="item-id">{{ $direction->order_no }}</div>
 
             <div class="item-body">
                 <div class="col-auto">

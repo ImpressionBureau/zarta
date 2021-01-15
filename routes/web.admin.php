@@ -13,13 +13,21 @@ Route::group([
     })->name('home');
 
     Route::resource('articles', 'ArticlesController')->except('show');
+
     Route::resource('categories', 'CategoriesController')->except('show');
+    Route::post('categories/{category}/order', 'CategoriesController@order')->name('categories.order');
+
     Route::resource('directions', 'DirectionsController')->except('show');
     Route::resource('methods', 'MethodsController')->except('show');
+
     Route::resource('commands', 'CommandsController')->except('show');
+    Route::post('commands/{command}/order', 'CommandsController@order')->name('commands.order');
+
+    Route::resource('services', 'ServicesController')->except('show');
+    Route::post('services/{service}/order', 'ServicesController@order')->name('services.order');
+
     Route::resource('reviews', 'ReviewsController')->except('show');
     Route::resource('questions', 'QuestionsController')->except('show');
-    Route::resource('services', 'ServicesController')->except('show');
     Route::resource('appointments', 'AppointmentsController')->only('index', 'edit', 'update');
     Route::resource('pages', 'PagesController')->only('index', 'edit', 'update');
     Route::get('subscribes', 'SubscribesController@index')->name('subscribes.index');
