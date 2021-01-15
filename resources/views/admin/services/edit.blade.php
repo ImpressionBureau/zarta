@@ -36,8 +36,9 @@
             <select class="form-control position-relative mt-3" name="category_id" id="category_id" required>
                 <option value="" disabled selected style='display:none;'>Выберите категорию</option>
                 @foreach($categories as $category)
-                    <option
-                        value="{{ $category->id }}"{{ $category->id === $service->category->id ? ' selected' : '' }}>
+                    <option value="{{ $category->id }}"
+                        {{ $category->id === optional($service->category)->id ? 'selected' : '' }}
+                    >
                         {{ $category->title }}
                     </option>
                 @endforeach
