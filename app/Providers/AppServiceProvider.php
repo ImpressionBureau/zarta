@@ -48,7 +48,7 @@ class AppServiceProvider extends ServiceProvider
             }));
         });
 
-        View::composer(['admin.commands', 'admin.directions'], function() {
+        View::composer(['admin.commands.*', 'admin.directions.*'], function() {
            View::share('categories', Category::all());
         });
     }
