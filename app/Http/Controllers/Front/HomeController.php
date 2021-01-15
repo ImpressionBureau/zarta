@@ -15,11 +15,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $directions = Category::where([
-            'thread' => 'directions',
-            'published' => 1
-        ])->take(6)->get();
-
+        $directions = Category::take(6)->get();
         $pages= Page::get();
         $team = Command::get();
         $reviews_video = Review::whereNotNull('video')->where('published', 1)->first();

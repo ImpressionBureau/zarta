@@ -48,6 +48,13 @@ class Category extends Model implements HasMedia, Sortable
         return $this->hasMany(Service::class);
     }
 
+    /* Scopes */
+
+    public function scopePublished(Builder $builder): Builder
+    {
+        return $builder->where('published', 1);
+    }
+
     public function getPreviewImageAttribute(): string
     {
         $media = 'images/no-image.png';
