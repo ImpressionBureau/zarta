@@ -24,7 +24,8 @@
                                         </div>
                                     </a>
                                 @else
-                                    <div class="areas-item" style="background-image: url({{$direction->getFirstMedia('category')->getFullUrl()}})">
+                                    <div class="areas-item"
+                                         style="background-image: url({{$direction->getFirstMediaUrl('category')}})">
                                         <div class="areas-item__content">
                                             <p class="title">{{ $direction->title }}</p>
                                             <div class="content">
