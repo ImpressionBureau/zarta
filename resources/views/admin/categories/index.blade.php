@@ -16,7 +16,6 @@
 
             <div class="item-body">
                 <div class="col-auto">
-
                     @if ($category->hasMedia('category'))
                         <img src="{{ $category->getFirstMediaUrl('category', 'thumb') }}" class="rounded-circle"
                              alt="{{ $category->name }}">
@@ -67,12 +66,12 @@
 
 @push('scripts')
     <script>
-      function confirmDelete(id) {
-        event.preventDefault();
-        const agree = confirm('Уверены?');
-        if (agree) {
-          document.getElementById('delete-form-' + id).submit();
+        function confirmDelete(id) {
+            event.preventDefault();
+            const agree = confirm('Уверены?');
+            if (agree) {
+                document.getElementById('delete-form-' + id).submit();
+            }
         }
-      }
     </script>
 @endpush
