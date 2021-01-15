@@ -9,31 +9,18 @@
             <div class="col-xl">
                 <div class="areas-row d-flex align-items-center justify-content-center">
                     @foreach($directions as $direction)
-
                         @if(($loop->iteration % 2) != 0)
                             <div class="areas-col">
                                 @endif
-                                @if($direction->directions->count())
-                                    <a href="{{route('app.directions.index', $direction)}}" class="areas-item lozad"
-                                       data-background-image="{{$direction->getFirstMediaUrl('category')}}">
-                                        <div class="areas-item__content">
-                                            <p class="title">{{ $direction->title }}</p>
-                                            <div class="content">
-                                                {!! remove_tags_direction($direction->content->description) !!}
-                                            </div>
-                                        </div>
-                                    </a>
-                                @else
-                                    <div class="areas-item"
-                                         style="background-image: url({{$direction->getFirstMediaUrl('category')}})">
-                                        <div class="areas-item__content">
-                                            <p class="title">{{ $direction->title }}</p>
-                                            <div class="content">
-                                                {!! remove_tags_direction($direction->content->description) !!}
-                                            </div>
+                                <a href="{{route('app.directions.index', $direction)}}" class="areas-item lozad"
+                                   data-background-image="{{$direction->getFirstMediaUrl('category')}}">
+                                    <div class="areas-item__content">
+                                        <p class="title">{{ $direction->title }}</p>
+                                        <div class="content">
+                                            {!! remove_tags_direction($direction->content->description) !!}
                                         </div>
                                     </div>
-                                @endif
+                                </a>
                                 @if(($loop->iteration %2) == 0 || $loop->last)
                             </div>
                         @endif
