@@ -8,6 +8,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
+use Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\DiskDoesNotExist;
+use Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileDoesNotExist;
+use Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileIsTooBig;
 use function redirect;
 
 class CommandsController extends Controller
@@ -37,11 +40,13 @@ class CommandsController extends Controller
     public function store(Request $request)
     {
         $command = Command::create($request->only('slug'))->makeTranslation();
+        $command->categories()->attach($request->input('categories'));
 
         if ($request->hasFile('command')) {
             $command->addMediaFromRequest('command')
                 ->toMediaCollection('command');
         }
+
         return redirect()->route('admin.commands.index')
             ->with('message', 'Запись успешно сохранена.');
     }
@@ -59,17 +64,23 @@ class CommandsController extends Controller
      * @param Request $request
      * @param Command $command
      * @return RedirectResponse
+     * @throws DiskDoesNotExist
+     * @throws FileDoesNotExist
+     * @throws FileIsTooBig
      */
     public function update(Request $request, Command $command)
     {
         $command->slug = null;
         $command->update();
         $command->updateTranslation();
+        $command->categories()->sync($request->input('categories'));
+
         if ($request->hasFile('command')) {
             $command->clearMediaCollection('command');
             $command->addMediaFromRequest('command')
                 ->toMediaCollection('command');
         }
+
         return redirect()->route('admin.commands.index')
             ->with('message', 'Запись успешно сохранена.');
     }
