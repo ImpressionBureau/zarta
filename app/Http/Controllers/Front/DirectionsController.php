@@ -7,11 +7,19 @@ use App\Models\Category;
 use App\Models\Direction;
 use App\Models\Method;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\View\View;
 use function view;
 
 class DirectionsController extends Controller
 {
-    public function show(Category $category)
+    public function index(): View
+    {
+        return view('app.directions.index', [
+            'categories' => Category::all(),
+        ]);
+    }
+
+    public function show(Category $category): View
     {
         return view('app.directions.show', [
             'category' => $category,

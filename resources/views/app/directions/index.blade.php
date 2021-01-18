@@ -10,10 +10,21 @@
 
     <section class="category-content-section mb-4">
         <div class="container">
-            <h2 class="section-title-center mb-5">
-                <span>{{ $category->title }}</span>
-            </h2>
-            <div class="col-lg-9 mx-auto">{!! $category->content->body!!}</div>
+            <div class="row">
+                @foreach($categories as $category)
+                    <div class="col-md-6 col-lg-4">
+                        <a href="{{route('app.directions.show', $category)}}" class="areas-item lozad"
+                           data-background-image="{{$category->getFirstMediaUrl('category', 'preview')}}">
+                            <div class="areas-item__content">
+                                <p class="title">{{ $category->title }}</p>
+                                <div class="content">
+                                    {!! remove_tags_direction($category->content->description) !!}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </section>
 
