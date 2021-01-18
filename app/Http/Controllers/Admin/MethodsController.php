@@ -36,13 +36,13 @@ class MethodsController extends Controller
      */
     public function store(Request $request)
     {
-
         $method = Method::create($request->only('slug', 'category_id'))->makeTranslation();
 
         if ($request->hasFile('method')) {
             $method->addMediaFromRequest('method')
                 ->toMediaCollection('method');
         }
+
         return \redirect()->route('admin.methods.index')
             ->with('message', 'Запись успешно сохранена.');
     }
@@ -53,8 +53,7 @@ class MethodsController extends Controller
      */
     public function edit(Method $method): View
     {
-        $categories = Category::where('thread', 'methods')->get();
-        return \view('admin.methods.edit', compact('method', 'categories'));
+        return \view('admin.methods.edit', compact('method'));
     }
 
     /**
@@ -64,10 +63,10 @@ class MethodsController extends Controller
      */
     public function update(Request $request, Method $method)
     {
-
         $method->slug = null;
         $method->update($request->only('slug', 'category_id'));
         $method->updateTranslation();
+
         if ($request->hasFile('method')) {
             $method->clearMediaCollection('method');
             $method->addMediaFromRequest('method')
