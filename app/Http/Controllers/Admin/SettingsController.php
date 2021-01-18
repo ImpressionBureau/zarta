@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Resources\ImageResource;
+use App\Models\MediaUpload;
 use App\Models\Setting;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 use Spatie\MediaLibrary\Models\Media;
+use function redirect;
 
 
 class SettingsController extends Controller
@@ -23,7 +27,7 @@ class SettingsController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function update(Request $request)
     {
@@ -39,12 +43,27 @@ class SettingsController extends Controller
                 ]);
             }
         }
-       /* if ($request->hasFile('banner')) {
-            $setting->clearMediaCollection('banner');
-            $setting->addMediaFromRequest('banner')
-                ->toMediaCollection('banner');
-        }*/
-        return \redirect()->route('admin.settings.index')
+        /* if ($request->hasFile('banner')) {
+             $setting->clearMediaCollection('banner');
+             $setting->addMediaFromRequest('banner')
+                 ->toMediaCollection('banner');
+         }*/
+        return redirect()->route('admin.settings.index')
             ->with('message', 'Запись успешно сохранена.');
+    }
+
+    public function images(Request $request)
+    {
+        $model = Setting::find(1);
+
+        if ($request->hasFile($request->input('name', 'image'))) {
+            $model
+                ->addMediaFromRequest($request->input('name', 'image'))
+                ->toMediaCollection($request->input('collection', 'uploads'));
+        }
+
+        return response()->json(new ImageResource($model->getFirstMedia(
+            $request->input('collection', 'uploads'), 'thumb',
+        )));
     }
 }

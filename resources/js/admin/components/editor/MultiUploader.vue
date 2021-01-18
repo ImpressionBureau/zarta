@@ -33,235 +33,237 @@
 </template>
 
 <script>
-  export default {
+export default {
     props: {
-      src: Array,
-      name: {
-        type: String,
-        default() {
-          return 'image';
-        }
-      },
-      tooltip: String,
+        src: Array,
+        name: {
+            type: String,
+            default: 'image'
+        },
+        route: {
+            type: String,
+            default: '/admin/media/upload'
+        },
+        tooltip: String,
     },
     data() {
-      return {
-        images: this.src || [],
-        loading: false
-      }
+        return {
+            images: this.src || [],
+            loading: false
+        }
     },
     methods: {
-      uploadFile(file) {
-        this.loading = true;
-        const formData = new FormData();
-        formData.set('image', file);
+        uploadFile(file) {
+            this.loading = true;
+            const formData = new FormData();
+            formData.set(this.name, file);
 
-        axios.post('/admin/media/upload', formData)
-          .then(({data}) => {
-            this.images.push(data);
-            this.loading = false;
-          });
-      },
+            axios.post(this.route, formData)
+                .then(({ data }) => {
+                    this.images.push(data);
+                    this.loading = false;
+                });
+        },
 
-      handleImages(event) {
-        const fileList = event.target.files;
+        handleImages(event) {
+            const fileList = event.target.files;
 
-        if (!fileList.length) return;
+            if (!fileList.length) return;
 
-        for (let i = 0; i < event.target.files.length; i++) {
-          this.uploadFile(fileList[i]);
+            for (let i = 0; i < event.target.files.length; i++) {
+                this.uploadFile(fileList[i]);
+            }
+        },
+
+        removeImage(index, route) {
+            if (!!route) {
+                axios.delete(route);
+            }
+
+            this.images.splice(index, 1);
         }
-      },
-
-      removeImage(index, route) {
-        if (!!route) {
-          axios.delete(route);
-        }
-
-        this.images.splice(index, 1);
-      }
     }
-  }
+}
 </script>
 
 <style lang="scss" scoped>
-    .previews {
-        margin: -0.5rem;
+.previews {
+    margin: -0.5rem;
+}
+
+.images-list {
+    margin: -5px;
+
+    [class^="col"] {
+        padding: 5px;
     }
+}
 
-    .images-list {
-        margin: -5px;
+.image-preview {
+    position: relative;
+    background-size: cover;
+    background-position: 50% 50%;
+    padding-top: 100%;
+    overflow: hidden;
 
-        [class^="col"] {
-            padding: 5px;
-        }
-    }
-
-    .image-preview {
-        position: relative;
-        background-size: cover;
-        background-position: 50% 50%;
-        padding-top: 100%;
-        overflow: hidden;
-
-        .btn-delete {
-            opacity: 0;
-            padding: 0;
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            transition: 0.35s;
-            transform: scale(0);
-
-            svg {
-                margin: auto;
-                fill: #fff;
-            }
-        }
-
-        &:hover {
-            .btn-delete {
-                opacity: 1;
-                visibility: visible;
-                transform: scale(1);
-            }
-        }
-    }
-
-    .image-uploader {
-        overflow: hidden;
-
-        [type="file"] {
-            position: absolute;
-            left: -9999px;
-        }
-    }
-
-    .material-icons {
-        font-size: 14px;
-    }
-
-    @keyframes lds-flickr-opacity {
-        0% {
-            -webkit-transform: translate(0 0);
-            transform: translate(0 0);
-            opacity: 1;
-        }
-        49.99% {
-            opacity: 1;
-            -webkit-transform: translate(80px, 0);
-            transform: translate(80px, 0);
-        }
-        50% {
-            opacity: 0;
-            -webkit-transform: translate(80px, 0);
-            transform: translate(80px, 0);
-        }
-        100% {
-            opacity: 0;
-            -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-        }
-    }
-
-    @-webkit-keyframes lds-flickr-opacity {
-        0% {
-            -webkit-transform: translate(0 0);
-            transform: translate(0 0);
-            opacity: 1;
-        }
-        49.99% {
-            opacity: 1;
-            -webkit-transform: translate(80px, 0);
-            transform: translate(80px, 0);
-        }
-        50% {
-            opacity: 0;
-            -webkit-transform: translate(80px, 0);
-            transform: translate(80px, 0);
-        }
-        100% {
-            opacity: 0;
-            -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-        }
-    }
-
-    @keyframes lds-flickr {
-        0% {
-            -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-        }
-        50% {
-            -webkit-transform: translate(80px, 0);
-            transform: translate(80px, 0);
-        }
-        100% {
-            -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-        }
-    }
-
-    @-webkit-keyframes lds-flickr {
-        0% {
-            -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-        }
-        50% {
-            -webkit-transform: translate(80px, 0);
-            transform: translate(80px, 0);
-        }
-        100% {
-            -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-        }
-    }
-
-    .lds-flickr {
-        position: relative;
-    }
-
-    .lds-flickr div {
+    .btn-delete {
+        opacity: 0;
+        padding: 0;
         position: absolute;
-        width: 80px;
-        height: 80px;
+        top: 12px;
+        right: 12px;
+        width: 24px;
+        height: 24px;
         border-radius: 50%;
-        top: 60px;
-        left: 20px;
+        transition: 0.35s;
+        transform: scale(0);
+
+        svg {
+            margin: auto;
+            fill: #fff;
+        }
     }
 
-    .lds-flickr div:nth-child(1) {
-        background: #a12d2b;
-        -webkit-animation: lds-flickr 1.8s linear infinite;
-        animation: lds-flickr 1.8s linear infinite;
-        -webkit-animation-delay: -0.9s;
-        animation-delay: -0.9s;
+    &:hover {
+        .btn-delete {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
     }
+}
 
-    .lds-flickr div:nth-child(2) {
-        background: #be8039;
-        -webkit-animation: lds-flickr 1.8s linear infinite;
-        animation: lds-flickr 1.8s linear infinite;
-        -webkit-animation-delay: 0s;
-        animation-delay: 0s;
-    }
+.image-uploader {
+    overflow: hidden;
 
-    .lds-flickr div:nth-child(3) {
-        background: #a12d2b;
-        -webkit-animation: lds-flickr-opacity 1.8s linear infinite;
-        animation: lds-flickr-opacity 1.8s linear infinite;
-        -webkit-animation-delay: -0.9s;
-        animation-delay: -0.9s;
+    [type="file"] {
+        position: absolute;
+        left: -9999px;
     }
+}
 
-    .lds-flickr {
-        margin: 0 auto;
-        width: 47px !important;
-        height: 32px !important;
-        -webkit-transform: translate(-23.5px, -23.5px) scale(0.235) translate(23.5px, 23.5px);
-        transform: translate(-23.5px, -23.5px) scale(0.235) translate(23.5px, 23.5px);
+.material-icons {
+    font-size: 14px;
+}
+
+@keyframes lds-flickr-opacity {
+    0% {
+        -webkit-transform: translate(0 0);
+        transform: translate(0 0);
+        opacity: 1;
     }
+    49.99% {
+        opacity: 1;
+        -webkit-transform: translate(80px, 0);
+        transform: translate(80px, 0);
+    }
+    50% {
+        opacity: 0;
+        -webkit-transform: translate(80px, 0);
+        transform: translate(80px, 0);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+@-webkit-keyframes lds-flickr-opacity {
+    0% {
+        -webkit-transform: translate(0 0);
+        transform: translate(0 0);
+        opacity: 1;
+    }
+    49.99% {
+        opacity: 1;
+        -webkit-transform: translate(80px, 0);
+        transform: translate(80px, 0);
+    }
+    50% {
+        opacity: 0;
+        -webkit-transform: translate(80px, 0);
+        transform: translate(80px, 0);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes lds-flickr {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    50% {
+        -webkit-transform: translate(80px, 0);
+        transform: translate(80px, 0);
+    }
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+@-webkit-keyframes lds-flickr {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    50% {
+        -webkit-transform: translate(80px, 0);
+        transform: translate(80px, 0);
+    }
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+.lds-flickr {
+    position: relative;
+}
+
+.lds-flickr div {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    top: 60px;
+    left: 20px;
+}
+
+.lds-flickr div:nth-child(1) {
+    background: #a12d2b;
+    -webkit-animation: lds-flickr 1.8s linear infinite;
+    animation: lds-flickr 1.8s linear infinite;
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+.lds-flickr div:nth-child(2) {
+    background: #be8039;
+    -webkit-animation: lds-flickr 1.8s linear infinite;
+    animation: lds-flickr 1.8s linear infinite;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.lds-flickr div:nth-child(3) {
+    background: #a12d2b;
+    -webkit-animation: lds-flickr-opacity 1.8s linear infinite;
+    animation: lds-flickr-opacity 1.8s linear infinite;
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+.lds-flickr {
+    margin: 0 auto;
+    width: 47px !important;
+    height: 32px !important;
+    -webkit-transform: translate(-23.5px, -23.5px) scale(0.235) translate(23.5px, 23.5px);
+    transform: translate(-23.5px, -23.5px) scale(0.235) translate(23.5px, 23.5px);
+}
 </style>

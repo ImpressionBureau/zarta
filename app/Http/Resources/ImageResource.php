@@ -17,6 +17,7 @@ class ImageResource extends JsonResource
         return [
             'id' => $this->id,
             'src' => $this->getFullUrl(),
+            'thumb' => $this->hasGeneratedConversion('thumb') ? $this->getFullUrl('thumb') : $this->getFullUrl(),
             'remove' => route('admin.media.destroy', $this->id)
         ];
     }

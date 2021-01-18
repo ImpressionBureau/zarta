@@ -13,15 +13,18 @@ class MediaController extends Controller
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\DiskDoesNotExist
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileDoesNotExist
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileIsTooBig
      */
     public function upload(Request $request)
     {
         $media = null;
 
-        if ($request->hasFile('image')) {
+        if ($request->hasFile($request->input('name', 'image'))) {
             /** @var MediaUpload $media */
             $media = MediaUpload::create();
-            $media->addMediaFromRequest('image')
+            $media->addMediaFromRequest($request->input('name', 'image'))
                 ->toMediaCollection('uploads');
         }
 

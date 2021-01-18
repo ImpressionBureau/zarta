@@ -49,15 +49,31 @@ class Setting extends Model implements HasMedia
             ->addMediaCollection('banner')
             ->registerMediaConversions(function (Media $media = null) {
                 $this
+                    ->addMediaConversion('thumb')
+                    ->fit(Manipulations::FIT_CROP, 200, 200)
+                    ->width(200)
+                    ->height(200);
+
+                $this
                     ->addMediaConversion('preview')
                     ->fit(Manipulations::FIT_CROP, 1920, 1080)
                     ->width(1920)
                     ->height(1080);
             });
+
+        $this
+            ->addMediaCollection('awards')
+            ->registerMediaConversions(function (Media $media = null) {
+                $this
+                    ->addMediaConversion('thumb')
+                    ->fit(Manipulations::FIT_CROP, 200, 200)
+                    ->width(200)
+                    ->height(200);
+            });
     }
 
-    public function getImagesListAttribute()
+    public function getImagesList($collection)
     {
-        return ImageResource::collection($this->getMedia('banner'));
+        return ImageResource::collection($this->getMedia($collection));
     }
 }

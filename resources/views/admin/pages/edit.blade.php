@@ -36,7 +36,7 @@
                                         type="text"
                                         name="{{$lang}}[content][description]"
                                         class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}"
-                                    >{{ old($lang.'.content') ?? $page->translate('content', $lang)['description'] }}</textarea>
+                                    >{{ old($lang.'.content') ?? $page->translate('content', $lang)['description'] ?? '' }}</textarea>
                                     @if($errors->has('content'))
                                         <div class="mt-1 text-danger">
                                             {{ $errors->first('content') }}

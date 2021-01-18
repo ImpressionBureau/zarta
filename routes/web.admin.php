@@ -9,7 +9,7 @@ Route::group([
     'middleware' => ['auth', 'user.admin'],
 ], function () {
     Route::get('/', function () {
-        return \redirect()->route('admin.appointments.index');
+        return redirect()->route('admin.appointments.index');
     })->name('home');
 
     Route::resource('articles', 'ArticlesController')->except('show');
@@ -38,6 +38,7 @@ Route::group([
     ], function () {
         Route::get('/', 'SettingsController@index')->name('index');
         Route::patch('/', 'SettingsController@update')->name('update');
+        Route::post('images', 'SettingsController@images')->name('images');
     });
 
     Route::group([

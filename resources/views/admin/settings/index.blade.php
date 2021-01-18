@@ -111,11 +111,24 @@
                 </div>
             </fieldset>
 
-            <label for="banner">Баннер для главной страницы</label>
-            <multi-uploader
+            <fieldset class="my-4">
+                <label for="banner">Баннер для главной страницы</label>
+                <multi-uploader
                     class="mt-4"
-                    :src="{{ json_encode($setting->images_list) }}"
-            ></multi-uploader>
+                    route="{{ route('admin.settings.images', ['collection' => 'banner']) }}"
+                    :src="{{ json_encode($setting->getImagesList('banner')) }}"
+                ></multi-uploader>
+            </fieldset>
+
+            <fieldset class="my-4">
+                <label for="banner">Награды</label>
+                <multi-uploader
+                    class="mt-4"
+                    route="{{ route('admin.settings.images', ['collection' => 'awards']) }}"
+                    :src="{{ json_encode($setting->getImagesList('awards')) }}"
+                ></multi-uploader>
+            </fieldset>
+
             {{--<image-uploader ratio="67%" name="banner" id="banner"
                             image-id="{{ optional($setting->getFirstMedia('banner'))->id }}"
                             src="{{ $setting->getFirstMediaUrl('banner') }}"></image-uploader>--}}
