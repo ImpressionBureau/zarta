@@ -47,7 +47,7 @@
                                     <label for="body">Описание</label>
                                     <wysiwyg
                                         class="mb-0" id="body"
-                                        content="{{ old('body') ?? $page->translate('content', $lang)['body'] }}"
+                                        content="{{ old('body') ?? $page->translate('content', $lang)['body'] ?? '' }}"
                                         name="{{$lang}}[content][body]"
                                         label="Текст новости"
                                     ></wysiwyg>
