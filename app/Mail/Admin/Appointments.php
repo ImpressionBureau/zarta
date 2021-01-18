@@ -2,6 +2,7 @@
 
 namespace App\Mail\Admin;
 
+use App\Models\Appointment;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -10,13 +11,15 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class Appointments extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $appointment;
+
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param Appointment $appointment
      */
-    public function __construct($appointment)
+    public function __construct(Appointment $appointment)
     {
         $this->appointment = $appointment;
     }
@@ -30,7 +33,7 @@ class Appointments extends Mailable
     {
         return $this
             ->to(app('settings')->email)
-            ->subject('Запись на прийом')
-            ->view('mail.admin.appointment');
+            ->subject('Запись на приём')
+            ->markdown('mail.admin.appointment');
     }
 }

@@ -21,11 +21,12 @@ class PagesController extends Controller
     public function about()
     {
         $page = Page::where('slug', 'about')->first();
-        $team = Command::get();
-        $methods = Category::published()->inRandomOrder()->take(6)->get();
+        $team = Command::where('show_on_home', 1)->get();
         $reviews_video = Review::whereNotNull('video')->where('published', 1)->first();
         $reviews = Review::where('published', 1)->whereNull('video')->get();
-        return \view('app.pages.about', compact('page', 'reviews_video', 'reviews', 'team', 'methods'));
+        $departments = Category::take(6)->get();
+
+        return \view('app.pages.about', compact('page', 'reviews_video', 'reviews', 'team', 'departments'));
     }
 
 

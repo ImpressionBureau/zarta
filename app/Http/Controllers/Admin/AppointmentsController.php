@@ -16,7 +16,7 @@ class AppointmentsController extends Controller
     public function index(): View
     {
         return \view('admin.appointments.index', [
-            'appointments' => Appointment::paginate(20),
+            'appointments' => Appointment::latest()->paginate(20),
         ]);
     }
     /**

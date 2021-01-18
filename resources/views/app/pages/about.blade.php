@@ -48,7 +48,7 @@
     </section>
     @includeWhen($reviews->count(), 'partials.app.sections.reviews')
     @includeWhen($team->count(),'partials.app.sections.team')
-    @includeWhen($methods->count(), 'partials.app.sections.methods')
-    @include('partials.app.layouts.form')
+    @includeWhen($departments->count(), 'partials.app.sections.directions')
+    @include('partials.app.layouts.form', ['classes' => 'mt-0'])
     @include('partials.app.sections.contacts')
 @endsection

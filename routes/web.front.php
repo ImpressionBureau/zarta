@@ -48,14 +48,10 @@ Route::group([
         Route::redirect('/', url('/'))->name('index');
         Route::get('{direction}', 'MethodsController@show')->name('show');
     });
-    Route::group([
-        'as' => 'appointments.',
-        'prefix' => 'appointments',
-    ], function () {
-        Route::post('/form', 'AppointmentsController@form')->name('form');
-        Route::post('/modal', 'AppointmentsController@modal')->name('modal');
-    });
+
+    Route::post('appointments', 'AppointmentsController@form')->name('appointments');
     Route::post('subscribe', 'SubscribesController@create')->name('subscribe');
+
     Route::get('reviews', 'ReviewsController@index')->name('reviews.index');
     Route::get('faq', 'QuestionsController@index')->name('faq.index');
     Route::get('{command}', 'CommandController@show')->name('command.show');

@@ -1,11 +1,10 @@
-<h3>Запись на прийом:</h3>
-<h4>Имя:</h4>
-<p>{{$appointment->name}}</p>
-<h4>Телефон:</h4>
-<p>{{$appointment->phone}}</p>
-<h4>E-mail:</h4>
-<p>{{$appointment->email}}</p>
-@if($appointment->service_id)
-    <h4>На услугу:</h4>
-    <p>{{$appointment->service->title}}</p>
+@component('mail::message')
+# Запись на прийом:
+**Имя:** {{$appointment->name}}
+**Телефон:** {{$appointment->phone}}
+**E-mail:** {{$appointment->email}}
+@if($appointment->service)
+<br>
+**Страница записи:** {{$appointment->service->title}}
 @endif
+@endcomponent

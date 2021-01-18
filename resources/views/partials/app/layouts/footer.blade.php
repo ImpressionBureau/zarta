@@ -26,7 +26,7 @@
                         <a href="{{route('app.pages.contacts')}}">@lang('common.footer.contacts')</a>
                     </div>
                 </div>
-                <div class="col-xl-3 col-xxl">
+                {{--<div class="col-xl-3 col-xxl">
                     <form action="{{route('app.subscribe')}}" method="post" class="footer-form">
                         @csrf
                         <p class="footer-form__subtitle">@lang('common.subscribe.title')</p>
@@ -36,7 +36,7 @@
                         </div>
                         <button class="btn btn-primary mt-3"><span>@lang('common.subscribe.btn')</span></button>
                     </form>
-                </div>
+                </div>--}}
             </div>
         </div>
     </div>

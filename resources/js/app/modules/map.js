@@ -4,7 +4,7 @@ const mapBg = document.querySelector('.map__bg');
 mapboxgl.accessToken = 'pk.eyJ1IjoiaW1wcmVzc2lvbi1idXJlYXUiLCJhIjoiY2swbWlkNGttMDl5czNkdDdpdnA2YnRucyJ9.ETnTJRRIl8_TU349gbBKgw';
 
 if (customMap) {
-    mapBg.addEventListener('click', function () {
+    mapBg.addEventListener('click', () => {
         mapBg.remove();
     });
 
@@ -41,7 +41,7 @@ if (customMap) {
                 },
                 "layout": {
                     "icon-image": "cat",
-                    "icon-size": 1
+                    "icon-size": .5
                 }
             });
         });

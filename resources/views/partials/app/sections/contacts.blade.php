@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="col-12 col-xl">
-                <div id="contact-map" class="map" data-long="{{app('settings')->latitude}}" data-lat="{{app('settings')->longitude}}" data-icon="../images/map-pin.png">
+                <div id="contact-map" class="map" data-long="{{app('settings')->latitude}}" data-lat="{{app('settings')->longitude}}" data-icon="{{ asset('images/map-pin.png') }}">
                     <div class="map__bg">
                         <h3>@lang('common.contacts.map')</h3>
                     </div>
@@ -87,7 +87,7 @@
                             },
                             "layout": {
                                 "icon-image": "cat",
-                                "icon-size": 1
+                                "icon-size": .25
                             }
                         });
                     });

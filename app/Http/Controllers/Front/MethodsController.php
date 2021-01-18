@@ -22,6 +22,10 @@ class MethodsController extends Controller
 
     public function show(Direction $direction)
     {
-        return view('app.methods.show', compact('direction'));
+        return view('app.methods.show', [
+            'direction' => $direction,
+            'model' => $direction->id,
+            'type' => Direction::class,
+        ]);
     }
 }

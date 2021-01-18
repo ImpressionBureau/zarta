@@ -7,23 +7,13 @@
         <form action="{{ route('admin.appointments.update', $appointment) }}" method="post">
             @csrf
             @method('patch')
-            <h4 class="mb-3">Имя</h4>
-            <h5 class="position-relative">
-                <div class="indicator bg-success"></div>
-                <p class="mb-1">
-                    {{ $appointment->name }}
-                </p>
-            </h5>
-            <p class="font-weight-bold mb-2">Почта</p>
-            <p>
-                <a class="mb-1 dashed"
-                   href="mailto:{{ $appointment->email }}">{{ $appointment->email }}</a>
-            </p>
-            <p class="font-weight-bold mb-2">Телефон</p>
-            <p class="mb-1">{{ $appointment->phone }}</p>
-            @if($appointment->service_id)
-                <p class="font-weight-bold mb-2">Услуга</p>
-                    {{$appointment->service->title}}
+
+            <p><strong>Имя:</strong> {{ $appointment->name }}</p>
+            <p><strong>Телефон:</strong> {{ $appointment->phone }}</p>
+            <p><strong>E-mail:</strong> {{ $appointment->email }}</p>
+            @if($appointment->service)
+                <p class="font-weight-bold mb-1">Страница:</p>
+                <p>{{$appointment->service->title}}</p>
             @endif
             <div class="form-group">
                 <label for="comment" class="font-weight-bold mb-2">Комментарий</label>
@@ -42,7 +32,7 @@
                         @foreach(\App\Models\Appointment::$STATUSES as $status)
                             <option value="{{ $status }}"
                                     {{ $appointment->status == $status ? 'selected' : '' }}>
-                                {{$status}}
+                                {{ __('statuses.' . $status) }}
                             </option>
                         @endforeach
                     </select>

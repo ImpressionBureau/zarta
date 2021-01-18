@@ -19,15 +19,11 @@ class Appointment extends Model
         'name',
         'phone',
         'email',
+        'service_type',
         'service_id',
         'message',
         'status'
     ];
-
-    public function service(): BelongsTo
-    {
-        return $this->belongsTo(Service::class);
-    }
 
     /**
      * Scope orders by non-finished status
@@ -37,5 +33,10 @@ class Appointment extends Model
     public function scopeProcessing(Builder $q)
     {
         return $q->where('status', 'processing')->orWhere('status', 'no_dial');
+    }
+
+    public function getServiceAttribute()
+    {
+        return $this->service_type::find($this->service_id);
     }
 }
