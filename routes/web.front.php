@@ -46,7 +46,7 @@ Route::group([
     ], function () {
 //        Route::get('/', 'MethodsController@index')->name('index');
         Route::redirect('/', url('/'))->name('index');
-        Route::get('{item}', 'MethodsController@show')->name('show');
+        Route::get('{direction}', 'MethodsController@show')->name('show');
     });
     Route::group([
         'as' => 'appointments.',
