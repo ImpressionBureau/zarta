@@ -5,6 +5,84 @@ section.work-areas-section
     @media (min-width: map_get($grid-breakpoints, xl))
         padding: 30px 30px
 
+.areas-item
+    width: 100%
+    min-height: 200px
+    margin-bottom: 8px
+    @extend %bg-cover
+    position: relative
+    overflow: hidden
+    @media (min-width: map_get($grid-breakpoints, lg))
+        min-height: 350px
+
+    &:after
+        content: ''
+        position: absolute
+        width: 160%
+        height: 120%
+        right: 100%
+        top: -10%
+        transform: skew(20deg)
+        background-color: $primary
+        opacity: 0.9
+        transition: all 0.5s ease
+
+    &:before
+        content: ''
+        @extend %absolute
+        background-image: linear-gradient(6.99deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 50.7%)
+
+    &__content
+        padding: 50px
+        z-index: 2
+        position: absolute
+        left: 0
+        top: 100%
+        width: 100%
+        height: 100%
+        transform: translateY(-130px)
+        transition: all 0.5s ease
+
+        .title
+            color: #fff !important
+            font-weight: bold
+            max-width: 300px
+            min-height: 80px
+
+        .content
+            color: #fff
+            font-size: 14px
+
+            p
+                color: #fff
+                font-size: 14px
+
+            ul
+                li
+                    color: #fff
+                    font-size: 14px
+                    margin-bottom: 10px
+
+    &:last-child
+        min-height: 200px
+        @media (min-width: map_get($grid-breakpoints, lg))
+            min-height: 250px
+
+        .list
+            li
+                display: none
+
+                &:nth-child(-n+3)
+                    display: block
+
+    &:hover
+        @media (min-width: map_get($grid-breakpoints, lg))
+            .areas-item__content
+                top: 0
+                transform: translateY(0)
+            &:after
+                right: -30%
+
 .areas-row
     flex-wrap: wrap
     @media (min-width: map_get($grid-breakpoints, xl))
@@ -21,84 +99,6 @@ section.work-areas-section
         @media (min-width: map_get($grid-breakpoints, xl))
             padding: 4px
             width: 33.3333%
-
-        .areas-item
-            width: 100%
-            min-height: 200px
-            margin-bottom: 8px
-            @extend %bg-cover
-            position: relative
-            overflow: hidden
-            @media (min-width: map_get($grid-breakpoints, lg))
-                min-height: 350px
-
-            &:after
-                content: ''
-                position: absolute
-                width: 160%
-                height: 120%
-                right: 100%
-                top: -10%
-                transform: skew(20deg)
-                background-color: $primary
-                opacity: 0.9
-                transition: all 0.5s ease
-
-            &:before
-                content: ''
-                @extend %absolute
-                background-image: linear-gradient(6.99deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 50.7%)
-
-            &__content
-                padding: 50px
-                z-index: 2
-                position: absolute
-                left: 0
-                top: 100%
-                width: 100%
-                height: 100%
-                transform: translateY(-130px)
-                transition: all 0.5s ease
-
-                .title
-                    color: #fff !important
-                    font-weight: bold
-                    max-width: 300px
-                    min-height: 80px
-
-                .content
-                    color: #fff
-                    font-size: 14px
-
-                    p
-                        color: #fff
-                        font-size: 14px
-
-                    ul
-                        li
-                            color: #fff
-                            font-size: 14px
-                            margin-bottom: 10px
-
-            &:last-child
-                min-height: 200px
-                @media (min-width: map_get($grid-breakpoints, lg))
-                    min-height: 250px
-
-                .list
-                    li
-                        display: none
-
-                        &:nth-child(-n+3)
-                            display: block
-
-            &:hover
-                @media (min-width: map_get($grid-breakpoints, lg))
-                    .areas-item__content
-                        top: 0
-                        transform: translateY(0)
-                    &:after
-                        right: -30%
 
         &:nth-of-type(2)
             .areas-item
@@ -152,19 +152,3 @@ section.work-areas-section
             position: absolute
             top: 50%
             left: 50%
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -15,7 +15,7 @@
                                 <a href="{{route('app.directions.show', $category)}}" class="areas-item lozad"
                                    data-background-image="{{$category->getFirstMediaUrl('category', 'preview')}}">
                                     <div class="areas-item__content">
-                                        <p class="title">{{ $category->title }}</p>
+                                        <h6 class="title">{{ $category->title }}</h6>
                                         <div class="content">
                                             {!! remove_tags_direction($category->content->description) !!}
                                         </div>

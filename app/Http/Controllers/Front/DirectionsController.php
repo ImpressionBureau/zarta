@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Command;
 use App\Models\Direction;
 use App\Models\Method;
 use App\Http\Controllers\Controller;
@@ -16,6 +17,7 @@ class DirectionsController extends Controller
     {
         return view('app.directions.index', [
             'categories' => Category::all(),
+            'team' => Command::all(),
         ]);
     }
 
