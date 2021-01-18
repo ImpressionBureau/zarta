@@ -45,7 +45,7 @@ Route::group([
         'prefix' => 'directions',
     ], function () {
 //        Route::get('/', 'MethodsController@index')->name('index');
-        Route::redirect('/', url('/'));
+        Route::redirect('/', url('/'))->name('index');
         Route::get('{item}', 'MethodsController@show')->name('show');
     });
     Route::group([
