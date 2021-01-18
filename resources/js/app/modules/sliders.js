@@ -13,16 +13,16 @@ if (document.querySelector('.intro-slider')) {
         pauseAutoPlayOnHover: true
     });
 
-    document.querySelector('.intro-arrow--prev');
-    if (prevArrowReviews) {
-        prevArrowReviews.addEventListener('click', function () {
+    const pbIS = document.querySelector('.intro-arrow--prev');
+    if (pbIS) {
+        pbIS.addEventListener('click', function () {
             flktyI.previous(true, false);
         });
     }
 
-    document.querySelector('.intro-arrow--next');
-    if (nextArrowReviews) {
-        nextArrowReviews.addEventListener('click', function () {
+    const nbIS = document.querySelector('.intro-arrow--next');
+    if (nbIS) {
+        nbIS.addEventListener('click', function () {
             flktyI.next(true, false);
         });
     }

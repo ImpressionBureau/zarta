@@ -4,7 +4,7 @@
         <ul class="bcrumb">
             <li class="bcrumb__item"><a href="/">@lang('breadcrumb.main')</a></li>
             <li class="bcrumb__item"><a href="{{route('app.methods.index')}}">@lang('breadcrumb.methods')</a></li>
-            <li class="bcrumb__item bcrumb__item--active">{{$article->title}}</li>
+            <li class="bcrumb__item bcrumb__item--active">{{$method->title}}</li>
         </ul>
     </section>
     <section class="intro-page-section d-flex align-items-center">
@@ -51,26 +51,26 @@
         <div class="container">
 
             <h2 class="section-title-center mb-5">
-                <span>{{$article->title}}</span>
+                <span>{{$method->title}}</span>
             </h2>
 
             <div class="row">
-                @if($article->content->navigation)
+                @if($method->content->navigation)
                     <div class="col order-xl-4 col-xxl-2">
                         <div class="cat-content-nav">
                             <h4 class="title">@lang('common.navigation')</h4>
-                            {!!  $article->content->navigation!!}
+                            {!!  $method->content->navigation!!}
                         </div>
                     </div>
                     <div class="col-xl-8 col-xxl-9 order-xl-1">
                         <div class="cat-content">
-                            {!! $article->content->body!!}
+                            {!! $method->content->body!!}
                         </div>
                     </div>
                 @else
                     <div class="col-12">
                         <div class="cat-content">
-                            {!! $article->content->body!!}
+                            {!! $method->content->body!!}
                         </div>
                     </div>
                 @endif
