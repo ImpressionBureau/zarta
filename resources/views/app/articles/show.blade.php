@@ -36,8 +36,7 @@
                     </div>
                 </div>
 
-                <div class="col-xl-7 col-xxl-5 mt-5 order-xl-1">
-
+                <div class="col-xl-7 col-xxl-5 order-xl-1">
                     <div class="section-decor section-decor--article">
                         <img src="{{ asset('images/about-img.svg') }}" alt="">
                     </div>
