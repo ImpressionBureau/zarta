@@ -14,7 +14,7 @@
                 <span>{{$method->title}}</span>
             </h2>
             <div class="cat-content">
-                {!! $method->content->body!!}
+                {!! optional($method->content)->body ?? '' !!}
             </div>
         </div>
     </section>
