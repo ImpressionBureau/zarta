@@ -21,9 +21,6 @@ class MethodsController extends Controller
 
     public function show(Method $method)
     {
-        $category = $method->category->load('methods');
-        $articles = $category->methods;
-
-        return view('app.methods.index', compact('category', 'articles', 'method'));
+        return view('app.methods.index', compact('method'));
     }
 }

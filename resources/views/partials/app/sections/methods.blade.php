@@ -27,7 +27,7 @@
     <div class="methods-slider-wrap">
         <div class="methods-slider">
             @foreach($methods as $method)
-                <div class="d-block methods-slider__item">
+                <a href="{{ route('app.methods.show', $method) }}" class="d-block methods-slider__item">
                     <div class="method">
                         <div class="method__item">
                             <div class="img lozad"
@@ -35,7 +35,7 @@
                             <h3 class="title">{{$method->title}}</h3>
                         </div>
                     </div>
-                </div>
+                </a>
             @endforeach
         </div>
         <div class="team-arrow methods-arrow--prev">

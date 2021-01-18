@@ -6,6 +6,7 @@ use App\Traits\SluggableTrait;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Image\Manipulations;
@@ -19,7 +20,6 @@ class Method extends Model implements HasMedia, Sortable
 
     protected $fillable = [
         'slug',
-        'category_id',
         'order_no',
     ];
 
@@ -27,9 +27,9 @@ class Method extends Model implements HasMedia, Sortable
         'translates',
     ];
 
-    public function category(): BelongsTo
+    public function categories(): BelongsToMany
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsToMany(Category::class);
     }
 
     /**
