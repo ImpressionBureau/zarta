@@ -11,25 +11,11 @@ use function view;
 
 class DirectionsController extends Controller
 {
-    public function index()
-    {
-        if (!$item->title) {
-            $category = Category::where('thread', 'directions')->where('published', 1)->has('directions')->first();
-        } else {
-            $category = $item;
-        }
-        $methods = Category::where('thread', 'directions')->where('published', 1)->inRandomOrder()->take(6)->get();
-        $articles = Direction::where('category_id', $category->id)->where('published', 1)->get();
-        $article = $articles->first();
-
-        return view('app.directions.index', compact('category', 'articles', 'article', 'methods'));
-    }
-
     public function show(Category $category)
     {
         $methods = $category->methods;
         $team = $category->commands;
 
-        return view('app.directions.index', compact('category', 'methods', 'team'));
+        return view('app.directions.show', compact('category', 'methods', 'team'));
     }
 }
