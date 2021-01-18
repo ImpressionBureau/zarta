@@ -22,6 +22,7 @@ class MethodsController extends Controller
 
     public function show(Direction $direction)
     {
+        dd($direction);
         return view('app.methods.show', compact('direction'));
     }
 }
