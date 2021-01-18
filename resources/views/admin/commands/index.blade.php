@@ -14,7 +14,6 @@
 
             <div class="item-body">
                 <div class="col-auto">
-
                     @if ($command->hasMedia('command'))
                         <img src="{{ $command->getFirstMediaUrl('command', 'thumb') }}" class="rounded-circle"
                              alt="{{ $command->name }}">

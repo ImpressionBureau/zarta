@@ -72,16 +72,10 @@ class Category extends Model implements HasMedia, Sortable
             ->addMediaCollection('category')
             ->registerMediaConversions(function (Media $media = null) {
                 $this
-                    ->addMediaConversion('thumb')
-                    ->crop(Manipulations::CROP_CENTER, 100, 100)
-                    ->width(100)
-                    ->height(100);
-
-                $this
                     ->addMediaConversion('preview')
-                    ->crop(Manipulations::CROP_CENTER, 385, 193)
-                    ->width(385)
-                    ->height(193);
+                    ->fit(Manipulations::FIT_CROP, 500, 350)
+                    ->width(500)
+                    ->height(350);
             });
     }
 

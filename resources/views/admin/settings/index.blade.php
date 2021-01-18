@@ -87,30 +87,35 @@
                 @endforeach
             </block-editor>
 
-            <h2 class="mt-2">Данные для карты</h2>
-            <div class="form-group">
-                <label for="latitude">Широта</label>
-                <input id="latitude"
-                       type="text"
-                       name="latitude"
-                       class="form-control"
-                       value="{{ old('latitude') ?? $setting->latitude }}"
-                       required>
-            </div>
-            <div class="form-group">
-                <label for="longitude">Долгота</label>
-                <input id="address"
-                       type="text"
-                       name="longitude"
-                       class="form-control"
-                       value="{{ old('longitude') ?? $setting->longitude }}"
-                       required>
-            </div>
+            <fieldset>
+                <h2 class="mt-2">Данные для карты</h2>
+
+                <div class="form-group">
+                    <label for="latitude">Широта</label>
+                    <input id="latitude"
+                           type="text"
+                           name="latitude"
+                           class="form-control"
+                           value="{{ old('latitude') ?? $setting->latitude }}"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="longitude">Долгота</label>
+                    <input id="address"
+                           type="text"
+                           name="longitude"
+                           class="form-control"
+                           value="{{ old('longitude') ?? $setting->longitude }}"
+                           required>
+                </div>
+            </fieldset>
 
             <label for="banner">Баннер для главной страницы</label>
             <multi-uploader
                     class="mt-4"
-                    :src="{{ json_encode($setting->images_list) }}"></multi-uploader>
+                    :src="{{ json_encode($setting->images_list) }}"
+            ></multi-uploader>
             {{--<image-uploader ratio="67%" name="banner" id="banner"
                             image-id="{{ optional($setting->getFirstMedia('banner'))->id }}"
                             src="{{ $setting->getFirstMediaUrl('banner') }}"></image-uploader>--}}

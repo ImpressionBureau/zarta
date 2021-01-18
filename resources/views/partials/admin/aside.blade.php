@@ -14,13 +14,13 @@
                             {{ $nav->name }}
                         </a>
                     @else
-                        <a data-toggle="collapse" href="#{{ str_slug($nav->name) }}" role="button" aria-expanded="false"
-                           aria-controls="{{ str_slug($nav->name) }}" class="d-flex align-items-center">
+                        <a data-toggle="collapse" href="#{{ Str::slug($nav->name) }}" role="button" aria-expanded="false"
+                           aria-controls="{{ Str::slug($nav->name) }}" class="d-flex align-items-center">
                             <i class="nav-icon {{ $nav->icon }} mr-3"></i>
                             {{ $nav->name }}
                         </a>
                         <ul class="collapse list-unstyled submenu {{ app('router')->currentRouteNamed($nav->compare) ? 'show' : '' }}"
-                            id="{{ str_slug($nav->name) }}">
+                            id="{{ Str::slug($nav->name) }}">
                             @foreach($nav->submenu as $submenu)
                                 <li class="submenu-item">
                                     <a href="{{ route($submenu['route']) }}">
