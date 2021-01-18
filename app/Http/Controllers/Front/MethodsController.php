@@ -21,6 +21,7 @@ class MethodsController extends Controller
 
     public function show(Method $method)
     {
+        dd($method);
         return view('app.methods.index', compact('method'));
     }
 }
