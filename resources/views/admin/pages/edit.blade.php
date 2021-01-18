@@ -26,23 +26,26 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Краткое описание</label>
-                                    <input id="description"
-                                           type="text"
-                                           name="{{$lang}}[content][description]"
-                                           class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}"
-                                           value="{{ old($lang.'.content') ?? $page->translate('content', $lang)['description'] }}">
+                                    <textarea
+                                        id="description"
+                                        type="text"
+                                        name="{{$lang}}[content][description]"
+                                        class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}"
+                                    >{{ old($lang.'.content') ?? $page->translate('content', $lang)['description'] }}</textarea>
                                     @if($errors->has('content'))
                                         <div class="mt-1 text-danger">
                                             {{ $errors->first('content') }}
                                         </div>
                                     @endif
                                 </div>
-                                @if($page->slug == 'about')
+                                @if(in_array($page->slug, ['about', 'documents']))
                                     <label for="body">Описание</label>
-                                    <wysiwyg class="mb-0" id="body"
-                                             content="{{ old('body') ?? $page->translate('content', $lang)['body'] }}"
-                                             name="{{$lang}}[content][body]"
-                                             label="Текст новости"></wysiwyg>
+                                    <wysiwyg
+                                        class="mb-0" id="body"
+                                        content="{{ old('body') ?? $page->translate('content', $lang)['body'] }}"
+                                        name="{{$lang}}[content][body]"
+                                        label="Текст новости"
+                                    ></wysiwyg>
                                 @endif
                             </fieldset>
 
@@ -53,8 +56,8 @@
                 <div class="col-md-4">
                     @if($page->slug == 'about')
                         <multi-uploader
-                                class="mt-4"
-                                :src="{{ json_encode($page->images_list) }}"></multi-uploader>
+                            class="mt-4"
+                            :src="{{ json_encode($page->images_list) }}"></multi-uploader>
                     @else
                         <image-uploader ratio="67%" name="page"
                                         image-id="{{ optional($page->getFirstMedia('page'))->id }}"
