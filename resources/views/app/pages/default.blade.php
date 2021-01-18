@@ -10,12 +10,19 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-8">
-                    <h2 class="section-title-center section-title--other mb-5">
+                    <h2 class="section-title-center section-title--other mb-0">
                         <span>{{$page->title}}</span>
                     </h2>
                 </div>
             </div>
         </div>
     </section>
-@include('partials.app.sections.contacts')
+    @isset ($page->content->body)
+    <section class="container py-3 py-lg-5">
+        <div class="col-xl-8 mx-auto">
+            {!! optional($page->content)->body !!}
+        </div>
+    </section>
+    @endisset
+    @include('partials.app.sections.contacts')
 @endsection

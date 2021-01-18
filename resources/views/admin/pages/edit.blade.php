@@ -8,6 +8,11 @@
             <div class="row">
                 <div class="col-md-8">
                     <block-editor title="Новая запись">
+                        <div class="form-group">
+                            <label for="slug">{{ __('Слаг') }}</label>
+                            <input type="text" name="slug" class="form-control" value="{{ old('slug', $page->slug) }}" required>
+                        </div>
+
                         @foreach(config('app.locales') as $lang)
                             <fieldset slot="{{ $lang }}">
                                 <div class="form-group">
@@ -51,7 +56,6 @@
 
                         @endforeach
                     </block-editor>
-                    <hr class="my-5">
                 </div>
                 <div class="col-md-4">
                     @if($page->slug == 'about')
@@ -59,14 +63,24 @@
                             class="mt-4"
                             :src="{{ json_encode($page->images_list) }}"></multi-uploader>
                     @else
-                        <image-uploader ratio="67%" name="page"
-                                        image-id="{{ optional($page->getFirstMedia('page'))->id }}"
-                                        src="{{ $page->getFirstMediaUrl('page') }}"></image-uploader>
+                        <image-uploader
+                            ratio="67%" name="page"
+                            image-id="{{ optional($page->getFirstMedia('page'))->id }}"
+                            src="{{ $page->getFirstMediaUrl('page') }}"></image-uploader>
 
                     @endif
                 </div>
             </div>
             <div class="mt-4">
+                <div class="form-group mt-3">
+                    <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input" name="show_in_slider"
+                               type="checkbox" id="show_in_slider" {{ $page->show_in_slider ? ' checked' : '' }}>
+                        <label class="custom-control-label" for="show_in_slider">
+                            Показывать в главном слайдере
+                        </label>
+                    </div>
+                </div>
                 <button class="btn btn-primary">
                     Обновить
                 </button>

@@ -9,13 +9,6 @@ Route::group([
     Route::get('/', 'HomeController@index')->name('home');
     Route::post('locale', 'LocalesController')->name('locale');
 
-    Route::group([
-        'as' => 'pages.',
-    ], function () {
-        Route::get('contacts', 'PagesController@contacts')->name('contacts');
-        Route::get('about', 'PagesController@about')->name('about');
-    });
-
     /** Articles */
     Route::group([
         'as' => 'articles.',
@@ -49,12 +42,10 @@ Route::group([
         Route::get('{direction}', 'MethodsController@show')->name('show');
     });
 
+    Route::get('team/{command}', 'CommandController@show')->name('command.show');
+
     Route::post('appointments', 'AppointmentsController@form')->name('appointments');
     Route::post('subscribe', 'SubscribesController@create')->name('subscribe');
 
-    Route::get('reviews', 'ReviewsController@index')->name('reviews.index');
-    Route::get('faq', 'QuestionsController@index')->name('faq.index');
-    Route::get('{command}', 'CommandController@show')->name('command.show');
-
-
+    Route::get('{page}', 'PagesController@show');
 });

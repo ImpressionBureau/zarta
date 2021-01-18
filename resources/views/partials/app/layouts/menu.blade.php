@@ -18,11 +18,11 @@
 
                 <div class="col-sm-10 col-md-8 col-lg-3 col-xl-auto col-sm-6">
                     <div class="menu-item">
-                        <a href="{{ route('app.pages.about') }}" class="menu-item__title">@lang('common.menu.about')</a>
+                        <a href="{{ url('/about') }}" class="menu-item__title">@lang('common.menu.about')</a>
 
                         <ul class="menu-item__list">
                             <li>
-                                <a href="{{route('app.reviews.index')}}"
+                                <a href="{{ url('/reviews') }}"
                                    class="list-link">@lang('common.menu.review')</a>
                             </li>
                         </ul>
@@ -76,27 +76,24 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-10 col-md-8 col-lg-3 col-xl-auto col-sm-6">
-                    <div class="menu-item">
-                        <a href="{{route('app.services.index')}}"
-                           class="menu-item__title">@lang('common.menu.services')</a>
-                    </div>
-                </div>
+
                 <div class="col-sm-10 col-md-8 col-lg-3 col-xl-auto col-sm-6">
                     <div class="menu-item">
                         <a href="{{ route('app.articles.index') }}"
                            class="menu-item__title">@lang('common.menu.blog')</a>
                     </div>
                 </div>
+
                 <div class="col-sm-10 col-md-8 col-lg-3 col-xl-auto col-sm-6">
                     <div class="menu-item">
-                        <a href="{{ route('app.faq.index') }}"
+                        <a href="{{ url('/faq') }}"
                            class="menu-item__title">@lang('common.menu.questions')</a>
                     </div>
                 </div>
+
                 <div class="col-sm-10 col-md-8 col-lg-3 col-xl-auto col-sm-6">
                     <div class="menu-item">
-                        <a href="{{route('app.pages.contacts')}}"
+                        <a href="{{ url('/contacts') }}"
                            class="menu-item__title">@lang('common.menu.contacts')</a>
                     </div>
                 </div>

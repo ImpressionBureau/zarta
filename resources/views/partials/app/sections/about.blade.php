@@ -29,16 +29,17 @@
                 </div>
 
                 <div class="about">
-                    <h2 class="mb-4">{{$about->title}}</h2>
+                    <h2 class="mb-4">{{ $about->title }}</h2>
                     <div class="about-text">
                         @if($about->content->description)
-                            {{$about->content->description}}
+                            {{ $about->content->description }}
                         @else
                             {!! remove_tags($about->content->body, 1000) !!}
                         @endif
                     </div>
-                    <a href="{{ route('app.pages.about') }}"
-                       class="btn btn-secondary mt-4"><span>@lang('common.main.more_info')</span></a>
+                    <a href="{{ url('/about') }}" class="btn btn-secondary mt-4">
+                        <span>@lang('common.main.more_info')</span>
+                    </a>
                 </div>
             </div>
         </div>

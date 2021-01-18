@@ -4,13 +4,8 @@
         @foreach($pages as $page)
             <div class="pages-slider__item">
                 <div class="front-priview lozad"
-                     data-background-image="{{$page->slug == 'about'? $page->getFirstMedia('uploads')->getFullUrl(): $page->getFirstMedia('page')->getFullUrl()}}">
-                    <a href="{{$page->slug == 'service' ? route('app.services.index') :
-                            ($page->slug == 'about' ? route('app.pages.about') :
-                            ($page->slug == 'question' ? route('app.faq.index') :
-                            ($page->slug == 'contacts' ? route('app.pages.contacts'):
-                            ($page->slug == 'reviews' ? route('app.reviews.index'):
-                            ($page->slug == 'method' ? route('app.methods.index') : route('app.directions.index'))))))}}"
+                     data-background-image="{{$page->slug == 'about' ? optional($page->getFirstMedia('uploads'))->getFullUrl() : optional($page->getFirstMedia('page'))->getFullUrl()}}">
+                    <a href="{{ url($page->slug)  }}"
                        class="content">
                         <h3 class="content__title">{{$page->title}}</h3>
                         <div class="slide-wrap d-none d-xl-block">

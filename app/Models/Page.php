@@ -18,7 +18,7 @@ class Page extends Model implements HasMedia, Sortable
     use SluggableTrait, HasMediaTrait, SortableTrait;
 
     protected $fillable = [
-        'slug', 'order_no',
+        'slug', 'order_no', 'show_in_slider',
     ];
     protected $with = [
         'translates',

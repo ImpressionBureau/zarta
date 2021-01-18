@@ -10,20 +10,20 @@
                 <div class="col-xl">
                     <div class="footer-list d-flex flex-column">
                         <a href="/">@lang('common.footer.main')</a>
-                        <a href="{{ route('app.pages.about') }}">@lang('common.footer.about')</a>
+                        <a href="{{ url('/about') }}">@lang('common.footer.about')</a>
                         <a href="{{ route('app.directions.index') }}">@lang('common.footer.direction')</a>
                     </div>
                 </div>
                 <div class="col-xl">
                     <div class="footer-list d-flex flex-column">
-                        <a href="{{route('app.services.index')}}">@lang('common.footer.services')</a>
-                        <a href="{{ route('app.faq.index') }}">@lang('common.footer.questions')</a>
+                        <a href="{{ route('app.services.index' )}}">@lang('common.footer.services')</a>
+                        <a href="{{ url('/faq') }}">@lang('common.footer.questions')</a>
                     </div>
                 </div>
                 <div class="col-xl">
                     <div class="footer-list d-flex flex-column">
                         <a href="{{ route('app.articles.index') }}">@lang('common.footer.blog')</a>
-                        <a href="{{route('app.pages.contacts')}}">@lang('common.footer.contacts')</a>
+                        <a href="{{ url('/contacts') }}">@lang('common.footer.contacts')</a>
                     </div>
                 </div>
                 {{--<div class="col-xl-3 col-xxl">
