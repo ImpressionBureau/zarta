@@ -39,7 +39,9 @@ class CommandsController extends Controller
      */
     public function store(Request $request)
     {
-        $command = Command::create($request->only('slug'))->makeTranslation();
+        $command = Command::create([
+            'show_on_home' => $request->has('show_on_home'),
+        ])->makeTranslation();
         $command->categories()->attach($request->input('categories'));
 
         if ($request->hasFile('command')) {
@@ -71,7 +73,9 @@ class CommandsController extends Controller
     public function update(Request $request, Command $command)
     {
         $command->slug = null;
-        $command->update();
+        $command->update([
+            'show_on_home' => $request->has('show_on_home'),
+        ]);
         $command->updateTranslation();
         $command->categories()->sync($request->input('categories'));
 

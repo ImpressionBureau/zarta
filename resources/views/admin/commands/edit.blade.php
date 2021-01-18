@@ -76,6 +76,17 @@
                 </div>
             </div>
             <div class="mt-4">
+                <div class="form-group mt-3">
+                    <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input" name="show_on_home"
+                               type="checkbox" id="show_on_home"
+                            {{ $command->show_on_home ? 'checked' : '' }}>
+                        <label class="custom-control-label" for="show_on_home">
+                            Показывать на главной
+                        </label>
+                    </div>
+                </div>
+
                 <button class="btn btn-primary">
                     Сохранить
                 </button>
