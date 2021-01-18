@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\Category;
+use App\Models\Direction;
 use App\Models\Method;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,9 +20,8 @@ class MethodsController extends Controller
         return view('app.methods.index', compact('category', 'articles', 'article'));
     }
 
-    public function show(Method $method)
+    public function show(Direction $direction)
     {
-        dd($method);
-        return view('app.methods.index', compact('method'));
+        return view('app.methods.show', compact('direction'));
     }
 }

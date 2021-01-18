@@ -42,9 +42,10 @@ Route::group([
 
     Route::group([
         'as' => 'methods.',
-        'prefix' => 'methods',
+        'prefix' => 'directions',
     ], function () {
-        Route::get('/', 'MethodsController@index')->name('index');
+//        Route::get('/', 'MethodsController@index')->name('index');
+        Route::redirect('/', url('/'));
         Route::get('{item}', 'MethodsController@show')->name('show');
     });
     Route::group([
