@@ -1,18 +1,21 @@
-<section class="form-section" style="background-image: url(../images/form-bg.jpg)">
+<section class="form-section lozad" data-background-image="{{ asset('images/form-bg.jpg') }}">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg col-xl-10">
 
                 <div class="row no-gutters">
                     <div class="col-lg-6">
-                        <div class="form__img d-none d-lg-block"
-                             style="background-image: url(../images/form-img.jpg)"></div>
+                        <div class="form__img d-none d-lg-block lozad"
+                             data-background-image="{{ asset('images/form-img.jpg') }}"></div>
                     </div>
                     <div class="col-lg-6">
 
                         <div class="form">
                             <form action="{{ route('app.appointments.form') }}" method="post">
                                 @csrf
+                                <input type="hidden" name="type" value="{{ $type ?? '' }}">
+                                <input type="hidden" name="model" value="{{ $model ?? '' }}">
+
                                 <h3 class="form__title">@lang('common.form.title')</h3>
                                 <p class="form__description">@lang('common.form.description')</p>
 
