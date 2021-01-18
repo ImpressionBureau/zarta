@@ -1,23 +1,22 @@
-
-
-section.intro-section 
+section.intro-section
     padding-top: 100px
     @extend %bg-cover
-    @media (min-width: map_get($grid-breakpoints, xl)) 
+    @media (min-width: map_get($grid-breakpoints, xl))
         height: 100vh
         padding-top: 0
-    &:before 
+
+    &:before
         content: ''
         position: absolute
-        width: 100% 
-        height: 100% 
-        left: 0 
-        top: 0 
+        width: 100%
+        height: 100%
+        left: 0
+        top: 0
         background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%)
 
-.intro-label 
-    color: #fff 
-    font-weight: bold 
+.intro-label
+    color: #fff
+    font-weight: bold
     font-size: 14px
     position: absolute
     top: 30px
@@ -25,32 +24,36 @@ section.intro-section
     padding-left: 30px
     text-transform: lowercase
     display: none
-    @media (min-width: map_get($grid-breakpoints, xl)) 
+    @media (min-width: map_get($grid-breakpoints, xl))
         display: block
-    &:before 
+
+    &:before
         content: ''
         width: 100px
         height: 1px
         background-color: #fff
-        position: absolute 
-        right: 100% 
+        position: absolute
+        right: 100%
         top: 50%
 
-.intro 
+.intro
     position: relative
     flex-grow: 1
-    &__logo 
-        display: block 
-        img 
-            width: auto 
+
+    &__logo
+        display: block
+
+        img
+            width: auto
             max-width: 150px
-            @media (min-width: map_get($grid-breakpoints, xl)) 
+            @media (min-width: map_get($grid-breakpoints, xl))
                 max-width: 300px
+
     &__text
         font-family: $headings-font-family
         color: #fff
         font-size: 20px
-        width: auto 
+        width: auto
         max-width: 700px
         text-align: center
         position: relative
@@ -69,7 +72,7 @@ section.intro-section
                 transform: translateX(-50%)
                 box-shadow: 0px 0px 30px $primary
 
-.intro-scroll 
+.intro-scroll
     display: flex
     align-items: center
     justify-content: center
@@ -77,40 +80,42 @@ section.intro-section
     position: relative
     cursor: pointer
     margin-top: 100px
-    @media (min-width: map_get($grid-breakpoints, xl)) 
+    @media (min-width: map_get($grid-breakpoints, xl))
         margin-top: 0
-    p 
-        color: #fff 
+
+    p
+        color: #fff
         font-size: 12px
-    &:after 
+
+    &:after
         content: ''
         height: 50px
-        width: 2px 
+        width: 2px
         background-color: #fff
         margin-top: 20px
-        @media (min-width: map_get($grid-breakpoints, xxl)) 
+        @media (min-width: map_get($grid-breakpoints, xxl))
             height: 150px
-
 
 
 // intro other section
 
-section.intro-other-section 
+section.intro-other-section
     display: flex
     align-items: center
-    height: auto 
+    height: auto
     min-height: 200px
     padding: 50px 0
-    @extend %bg-cover 
-    @media (min-width: map_get($grid-breakpoints, xl)) 
-        min-height: 350px 
+    @extend %bg-cover
+    @media (min-width: map_get($grid-breakpoints, xl))
+        min-height: 350px
         padding: 100px 0
-    &:before 
+
+    &:before
         content: ''
-        @extend %absolute 
+        @extend %absolute
         background-color: rgba(4, 13, 18, 0.6)
 
-.intro-other-text 
+.intro-other-text
     text-align: center
     color: #fff
 
@@ -139,11 +144,11 @@ section.thanks-section
     @media (min-width: map_get($grid-breakpoints, xl))
         font-size: 40px
 
-
-
-
-
-
-
-
-
+.intro
+    &__social
+        position: absolute
+        top: 30px
+        right: 30px
+        color: #fff
+        svg
+            fill: currentColor

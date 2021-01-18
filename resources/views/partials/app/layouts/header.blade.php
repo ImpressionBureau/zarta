@@ -9,8 +9,8 @@
         </svg>
         <p class="nav-btn__title d-none d-xl-block">@lang('common.header.menu')</p>
     </div>
-    <a href="/" class="header-logo">
-        <img src="/images/logo.png" alt="">
+    <a href="{{ url('/') }}" class="header-logo">
+        <img src="{{ asset('images/logo.png') }}" alt="">
     </a>
 
     <div class="language d-none d-xl-block">

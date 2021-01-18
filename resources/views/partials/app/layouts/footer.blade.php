@@ -52,8 +52,8 @@
                 <a href="{{app('settings')->youtube}}">YOUTUBE</a>
             </div>
         </div>
-        <div class="footer-dev__item text-xl-right">
-            <a href="https://impressionbureau.pro">@lang('common.footer.dev') <span>Impression Bureau</span></a>
-        </div>
+{{--        <div class="footer-dev__item text-xl-right">--}}
+{{--            <a href="https://impressionbureau.pro">@lang('common.footer.dev') <span>Impression Bureau</span></a>--}}
+{{--        </div>--}}
     </div>
 </footer>

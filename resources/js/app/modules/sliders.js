@@ -10,16 +10,17 @@ if (document.querySelector('.intro-slider')) {
         pageDots: false,
         contain: true,
         autoPlay: 3000,
-        pauseAutoPlayOnHover: false
+        pauseAutoPlayOnHover: true
     });
-    var prevArrowReviews = document.querySelector('.intro-arrow--prev');
+
+    document.querySelector('.intro-arrow--prev');
     if (prevArrowReviews) {
         prevArrowReviews.addEventListener('click', function () {
             flktyI.previous(true, false);
         });
     }
 
-    var nextArrowReviews = document.querySelector('.intro-arrow--next');
+    document.querySelector('.intro-arrow--next');
     if (nextArrowReviews) {
         nextArrowReviews.addEventListener('click', function () {
             flktyI.next(true, false);
