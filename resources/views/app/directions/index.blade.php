@@ -4,47 +4,20 @@
         <ul class="bcrumb">
             <li class="bcrumb__item"><a href="/">@lang('breadcrumb.main')</a></li>
             <li class="bcrumb__item"><a href="{{route('app.directions.index')}}">@lang('breadcrumb.directions')</a></li>
-            <li class="bcrumb__item bcrumb__item--active">{{$category->title}}</li>
+            <li class="bcrumb__item bcrumb__item--active">{{ $category->title }}</li>
         </ul>
     </section>
 
-    <section class="navigation-section">
+    <section class="category-content-section mb-4">
         <div class="container">
-            <h2 class="section-title-center"><span>{{$category->title}}</span></h2>
-            {!! $category->content->body !!}
+            <h2 class="section-title-center mb-5">
+                <span>{{ $category->title }}</span>
+            </h2>
+            <div class="col-lg-9 mx-auto">{!! $category->content->body!!}</div>
         </div>
     </section>
 
-{{--    <section class="category-content-section">--}}
-{{--        <div class="container">--}}
-{{--            <h2 class="section-title-center mb-5">--}}
-{{--                <span>{{$article->title}}</span>--}}
-{{--            </h2>--}}
-
-{{--            <div class="row">--}}
-{{--                @if($article->content->navigation)--}}
-{{--                    <div class="col order-xl-4 col-xxl-2">--}}
-{{--                        <div class="cat-content-nav">--}}
-{{--                            <h4 class="title">@lang('common.navigation')</h4>--}}
-{{--                            {!!  $article->content->navigation !!}--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="col-xl-8 col-xxl-9 order-xl-1">--}}
-{{--                        <div class="cat-content">--}}
-{{--                            {!! $article->content->body!!}--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                @else--}}
-{{--                    <div class="col-12">--}}
-{{--                        <div class="cat-content">--}}
-{{--                            {!! $article->content->body!!}--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                @endif--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </section>--}}
-    @includeWhen($methods->count(), 'partials.app.sections.methods')
+    @includeWhen($category->directions->count(), 'partials.app.sections.methods')
     @include('partials.app.layouts.form')
     @include('partials.app.sections.contacts')
 @endsection

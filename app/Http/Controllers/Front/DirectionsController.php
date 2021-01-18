@@ -27,10 +27,6 @@ class DirectionsController extends Controller
 
     public function show(Category $category)
     {
-        $methods = Direction::published()->whereHas('categories', function($query) use ($category) {
-            $query->where('id', $category);
-        });
-
-        return view('app.directions.index', compact('category', 'methods'));
+        return view('app.directions.index', compact('category'));
     }
 }

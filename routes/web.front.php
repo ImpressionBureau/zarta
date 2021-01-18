@@ -34,7 +34,7 @@ Route::group([
 
     Route::group([
         'as' => 'directions.',
-        'prefix' => 'directions',
+        'prefix' => 'departments',
     ], function () {
         Route::get('/', 'DirectionsController@index')->name('index');
         Route::get('{category}', 'DirectionsController@show')->name('show');

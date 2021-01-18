@@ -40,10 +40,11 @@
                                     @endif
                                 </div>
                                 <label for="body">Описание</label>
-                                <wysiwyg class="mb-0" id="body"
-                                         content="{{ old('body') ?? $command->translate('content', $lang)['body']}}"
-                                         name="{{$lang}}[content][body]"
-                                         label="Описание"></wysiwyg>
+                                <wysiwyg
+                                    class="mb-0" id="body"
+                                    content="{{ old('body') ?? $command->translate('content', $lang)['body']}}"
+                                    name="{{$lang}}[content][body]"
+                                    label="Описание"></wysiwyg>
                             </fieldset>
 
                         @endforeach
@@ -54,7 +55,8 @@
                         <select class="form-control position-relative" name="categories[]" id="category_id"
                                 multiple
                                 required>
-                            <option value="" disabled selected style='display:none;'>Выберите одно или несколько отделений
+                            <option value="" disabled selected style='display:none;'>Выберите одно или несколько
+                                отделений
                             </option>
                             @foreach($categories as $category)
                                 <option

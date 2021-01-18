@@ -29,6 +29,10 @@
                             {{ $command->title }}
                         </a>
                     </h3>
+                    <p class="my-1">{{ $command->translate('content', 'ru')['description'] }}</p>
+                    @if ($command->categories->count())
+                    <p class="my-1">{{ $command->categories->pluck('title')->implode(', ') }}</p>
+                    @endif
                     <p class="mt-2 mb-0">
                         Создан {{ $command->created_at->format('d.m.Y \в H:i') }}
                     </p>
