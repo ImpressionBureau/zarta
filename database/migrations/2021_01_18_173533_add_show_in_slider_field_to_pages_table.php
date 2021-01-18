@@ -15,6 +15,7 @@ class AddShowInSliderFieldToPagesTable extends Migration
     {
         Schema::table('pages', function (Blueprint $table) {
             $table->boolean('show_in_slider')->after('slug')->default(1);
+            $table->softDeletes();
         });
     }
 

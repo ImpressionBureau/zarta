@@ -6,6 +6,7 @@ use App\Http\Resources\ImageResource;
 use App\Traits\SluggableTrait;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Image\Manipulations;
@@ -15,7 +16,7 @@ use Spatie\MediaLibrary\Models\Media;
 
 class Page extends Model implements HasMedia, Sortable
 {
-    use SluggableTrait, HasMediaTrait, SortableTrait;
+    use SluggableTrait, HasMediaTrait, SortableTrait, SoftDeletes;
 
     protected $fillable = [
         'slug', 'order_no', 'show_in_slider',
