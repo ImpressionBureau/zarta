@@ -7,10 +7,10 @@
     <div class="intro-slider-wrap">
         <div class="intro-slider">
             @foreach(app('settings')->getMedia('banner') as $item)
-                <div class="intro-slider__item lozad" data-background-image="{{$item->getFullUrl()}}"></div>
+                <div class="intro-slider__item lozad" data-background-image="{{$item->getFullUrl('preview')}}"></div>
             @endforeach
         </div>
-        @if(app('settings')->getMedia('banner')->count()>1)
+        @if(app('settings')->getMedia('banner')->count() > 1)
             <div class="intro-arrow intro-arrow--prev">
                 <svg width="13" height="21">
                     <use xlink:href="#arrow-left"></use>
