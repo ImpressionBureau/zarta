@@ -14,7 +14,7 @@ class PagesController extends Controller
     public function index(): View
     {
         return view('admin.pages.index', [
-            'pages' => Page::paginate(20),
+            'pages' => Page::all(),
         ]);
     }
 

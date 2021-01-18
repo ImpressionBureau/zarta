@@ -7,7 +7,7 @@
     </div>
     @forelse($pages as $page)
         <article class="item">
-            <div class="item-id">{{ $page->id }}</div>
+            <div class="item-id">{{ $loop->iteration }}</div>
 
             <div class="item-body">
                 <div class="col-auto">
@@ -45,5 +45,4 @@
     @empty
         Страницы пока не созданы!
     @endforelse
-    {{ $pages->links() }}
 @endsection
