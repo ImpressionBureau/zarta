@@ -28,7 +28,8 @@ class DirectionsController extends Controller
     public function show(Category $category)
     {
         $methods = $category->methods;
+        $team = $category->commands;
 
-        return view('app.directions.index', compact('category', 'methods'));
+        return view('app.directions.index', compact('category', 'methods', 'team'));
     }
 }
