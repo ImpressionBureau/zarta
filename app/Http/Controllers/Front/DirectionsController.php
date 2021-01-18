@@ -27,6 +27,8 @@ class DirectionsController extends Controller
 
     public function show(Category $category)
     {
-        return view('app.directions.index', compact('category'));
+        $methods = $category->methods;
+
+        return view('app.directions.index', compact('category', 'methods'));
     }
 }

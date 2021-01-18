@@ -25,7 +25,7 @@ class Category extends Model implements HasMedia, Sortable
     ];
 
     protected $with = [
-        'translates',
+        'translates', 'methods',
     ];
 
     public function directions(): BelongsToMany
