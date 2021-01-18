@@ -16,6 +16,8 @@ class DirectionsController extends Controller
         $methods = $category->methods;
         $team = $category->commands;
 
+        dd($category, $methods, $team);
+
         return view('app.directions.show', compact('category', 'methods', 'team'));
     }
 }
