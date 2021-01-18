@@ -18,7 +18,7 @@
                         <div class="about-slider">
                             @foreach($article->getMedia('uploads') as $img)
                                 <div class="about-slider__item"
-                                     style="background-image: url({{$img->getFullUrl()}})"></div>
+                                     style="background-image: url({{$img->getFullUrl('preview')}})"></div>
                             @endforeach
                         </div>
                         <div class="about-slider-nav d-flex">
@@ -39,7 +39,7 @@
                 <div class="col-xl-7 col-xxl-5 mt-5 order-xl-1">
 
                     <div class="section-decor section-decor--article">
-                        <img src="../images/about-img.svg" alt="">
+                        <img src="{{ asset('images/about-img.svg') }}" alt="">
                     </div>
 
                     <div class="about">

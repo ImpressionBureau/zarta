@@ -1,7 +1,7 @@
 <section class="therapy-methods-section d-none d-lg-block">
     <div class="container">
         <div class="row no-gutters">
-            @foreach($category->directions as $method)
+            @foreach($methods as $method)
                 @if($loop->index%2 ==0)
                     <div class="col-sm-6 col-xl-4 px-2">
                         @endif
@@ -26,7 +26,7 @@
 <section class="therapy-methods-media d-lg-none">
     <div class="methods-slider-wrap">
         <div class="methods-slider">
-            @foreach($category->directions as $method)
+            @foreach($methods as $method)
                 <div class="d-block methods-slider__item">
                     <div class="method">
                         <div class="method__item">
