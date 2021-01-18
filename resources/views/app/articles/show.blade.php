@@ -18,7 +18,7 @@
                         <div class="about-slider">
                             @foreach($article->getMedia('uploads') as $img)
                                 <div class="about-slider__item"
-                                     style="background-image: url({{$img->getFullUrl('preview')}})"></div>
+                                     style="background-image: url({{$img->getFullUrl()}})"></div>
                             @endforeach
                         </div>
                         <div class="about-slider-nav d-flex">
