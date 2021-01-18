@@ -1,4 +1,5 @@
-<section class="form-section lozad" data-background-image="{{ asset('images/form-bg.jpg') }}">
+<section class="form-section lozad {{ $classes ?? '' }}"
+         data-background-image="{{ asset('images/form-bg.jpg') }}">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg col-xl-10">

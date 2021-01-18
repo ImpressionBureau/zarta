@@ -17,7 +17,7 @@
         </div>
     </section>
 
-    @includeWhen($team->count(), 'partials.app.sections.team')
+    @includeWhen($team->count(), 'partials.app.sections.team', ['classes' => 'p-lg-0'])
     @includeWhen($category->directions->count(), 'partials.app.sections.methods')
     @include('partials.app.layouts.form', ['type' => \App\Models\Category::class, 'model' => $category->id])
     @include('partials.app.sections.contacts')

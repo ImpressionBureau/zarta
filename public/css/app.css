@@ -12673,7 +12673,7 @@ section.thanks-section {
 
 section.work-areas-section {
   padding: 30px 0;
-  background-image: url(../images/areas-bg.jpg);
+  background-image: url("/images/areas-bg.jpg");
 }
 @media (min-width: 1200px) {
   section.work-areas-section {

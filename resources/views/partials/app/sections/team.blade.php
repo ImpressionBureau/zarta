@@ -1,4 +1,4 @@
-<section class="team-section bg-white">
+<section class="team-section bg-white {{ $classes ?? '' }}">
     <h2 class="section-title-center"><span>@lang('common.main.team')</span></h2>
 
     <div class="team">

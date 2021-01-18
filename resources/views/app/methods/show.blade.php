@@ -20,6 +20,6 @@
     </section>
 
     @includeWhen($direction->categories->count(), 'partials.app.sections.directions', ['departments' => $direction->categories])
-    @include('partials.app.layouts.form')
+    @include('partials.app.layouts.form', ['classes' => 'mt-0'])
     @include('partials.app.sections.contacts')
 @endsection
