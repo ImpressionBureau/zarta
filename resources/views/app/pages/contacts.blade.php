@@ -6,6 +6,7 @@
             <li class="bcrumb__item bcrumb__item--active">{{$page->title}}</li>
         </ul>
     </section>
+
     <section class="intro-other-section" style="background-image: url({{$page->getFirstMediaUrl('page')}})">
         <div class="container">
             <div class="row justify-content-center">

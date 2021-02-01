@@ -6,10 +6,10 @@
             <li class="bcrumb__item bcrumb__item--active">{{$page->title}}</li>
         </ul>
     </section>
+
     <section class="article-section">
         <div class="container-fluid">
             <div class="row justify-content-center justify-content-xl-end">
-
                 <div class="col-sm-8 col-md-6 col-lg-5 col-xl-4 offset-xxl-1 order-xl-2 mb-4 mb-xl-0">
                     <div class="about-galery">
                         <div class="about-slider">
@@ -34,11 +34,11 @@
                 </div>
                 <div class="col-xl-7 col-xxl-5 mt-5 order-xl-1">
                     <div class="section-decor section-decor--article">
-                        <img src="../images/about-img.svg" alt="">
+                        <img src="{{ asset('images/about-img.svg') }}" alt="">
                     </div>
                     <div class="about">
                         <h2 class="mb-4">{{$page->title}}</h2>
-                        <div class="about-text">
+                        <div class="about-text content">
                             {!! $page->content->body !!}
                         </div>
                     </div>

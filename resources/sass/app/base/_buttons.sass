@@ -1,65 +1,85 @@
-.btn 
-	height: 50px
-	text-transform: uppercase
-	display: inline-flex
-	align-items: center
-	justify-content: center
-	position: relative
-	overflow: hidden
-	@media (max-width: map_get($grid-breakpoints, lg)) 
-		font-size: 10px
-	&:before 
-		content: ''
-		position: absolute
-		width: 120%
-		height: 120% 
-		top: -10%
-		left: -10%
-		transform: skew(-20deg) translateX(-100%)
-		transition: all 0.5s ease
-	span 
-		position: relative
-	&:hover 
-		box-shadow: none
-		&:before 
-			transform: skew(-20deg) translateX(0)
-	&:focus 
-		box-shadow: none
+.btn
+    height: 50px
+    text-transform: uppercase
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    position: relative
+    overflow: hidden
+    @media (max-width: map_get($grid-breakpoints, lg))
+        font-size: 10px
+
+    &:before
+        content: ''
+        position: absolute
+        width: 120%
+        height: 120%
+        top: -10%
+        left: -10%
+        transform: skew(-20deg) translateX(-100%)
+        transition: all 0.5s ease
+
+    span
+        position: relative
+
+    &:hover
+        box-shadow: none
+
+        &:before
+            transform: skew(-20deg) translateX(0)
+
+    &:focus
+        box-shadow: none
 
 .btn-primary
-	background-color: $primary
-	span 
-		color: #fff
-		transition: all 0.5s ease
-	&:before 
-		background-color: #fff
-	&:hover 
-		span 
-			color: $primary 
-		
+    background-color: $primary
+
+    span
+        color: #fff
+        transition: all 0.5s ease
+
+    &:before
+        background-color: #fff
+
+    &:hover
+        span
+            color: $primary
+
 
 .btn-secondary
-	color: #333
-	background-color: transparent 
-	border: 1px solid #BCBCBC
-	&:before 
-		background-color: $darck-grey
-	&:hover
-		background-color: transparent 
-		border-color: $darck-grey
-		color: #fff
+    color: #333
+    background-color: transparent
+    border: 1px solid #BCBCBC
 
+    &:before
+        background-color: $darck-grey
+
+    &:hover
+        background-color: transparent
+        border-color: $darck-grey
+        color: #fff
 
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle
-	color: #fff
-	box-shadow: none
+    color: #fff
+    box-shadow: none
 
+.btn--short
+    padding: 0
 
-.btn--short 
-	padding: 0
-	span 
-		padding: 12px 25px
-		max-width: 140px
-		text-align: center
+    span
+        padding: 12px 25px
+        max-width: 140px
+        text-align: center
 
+.btn-flag
+    display: block
+    background: linear-gradient(to bottom, #005bbc 50%, #ffd600 50%)
+    color: #fff
+    line-height: 1.25
+    max-width: 140px
+    &:hover
+        color: #fff
+
+    > span
+        color: #005bbc

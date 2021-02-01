@@ -43,7 +43,7 @@
 
                     <div class="about">
                         <h2 class="mb-4">{{$article->title}}</h2>
-                        <div class="about-text">
+                        <div class="about-text content">
                             {!! $article->content->body !!}
                         </div>
                     </div>

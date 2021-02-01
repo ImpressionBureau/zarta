@@ -70,6 +70,17 @@ class Setting extends Model implements HasMedia
                     ->width(200)
                     ->height(200);
             });
+
+        $this
+            ->addMediaCollection('feedback')
+            ->singleFile()
+            ->registerMediaConversions(function (Media $media = null) {
+                $this
+                    ->addMediaConversion('thumb')
+                    ->fit(Manipulations::FIT_CROP, 600, 600)
+                    ->width(600)
+                    ->height(600);
+            });
     }
 
     public function getImagesList($collection)

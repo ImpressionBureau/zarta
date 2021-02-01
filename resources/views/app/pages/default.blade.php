@@ -19,7 +19,7 @@
     </section>
     @isset ($page->content->body)
     <section class="container py-3 py-lg-5">
-        <div class="col-xl-8 mx-auto">
+        <div class="col-xl-8 mx-auto content">
             {!! optional($page->content)->body !!}
         </div>
     </section>

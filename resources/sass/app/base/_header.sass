@@ -1,66 +1,70 @@
-
-header.header 
-    position: fixed 
+header.header
+    position: fixed
     align-items: center
-    height: 50px 
+    height: 50px
     background-color: #363F47
-    width: 100% 
-    left: 0 
-    top: 0 
+    width: 100%
+    left: 0
+    top: 0
     display: flex
     z-index: 10
     transition: all 0.5s ease
-    @media (min-width: map_get($grid-breakpoints, xl)) 
-        padding: 0 30px
-    &--front 
-        @media (min-width: map_get($grid-breakpoints, xl)) 
+
+    &--front
+        @media (min-width: map_get($grid-breakpoints, xl))
             position: absolute
-            top: auto 
+            top: auto
             bottom: 0
 
-.nav-btn 
+.nav-btn
     height: 100%
     width: 51px
     border-left: 1px dotted #5F666C
     border-right: 1px dotted #5F666C
     cursor: pointer
-    @media (min-width: map_get($grid-breakpoints, xl)) 
+    @media (min-width: map_get($grid-breakpoints, xl))
         padding: 0 25px
         width: auto
-    &__icon 
-        fill: $primary 
-        @media (min-width: map_get($grid-breakpoints, xl)) 
+
+    &__icon
+        fill: $primary
+        @media (min-width: map_get($grid-breakpoints, xl))
             margin-right: 15px
-    &__title 
+
+    &__title
         text-transform: uppercase
         color: #fff
         font-size: 12px
         transition: all 0.5s ease
-    &:hover 
-        .nav-btn__icon 
+
+    &:hover
+        .nav-btn__icon
             fill: #6A7C87
-        .nav-btn__title 
+
+        .nav-btn__title
             color: #6A7C87
 
-.header-logo 
+.header-logo
     padding: 15px 0
-    height: 100% 
+    height: 100%
     flex-grow: 1
     text-align: center
-    @media (min-width: map_get($grid-breakpoints, xl)) 
+    @media (min-width: map_get($grid-breakpoints, xl))
         padding: 10px 30px
         flex-grow: 0
-    img 
-        height: 100% 
-        width: auto 
 
-.language 
+    img
+        height: 100%
+        width: auto
+
+.language
     border-left: 1px dotted #5F666C
     border-right: 1px dotted #5F666C
-    height: 100% 
+    height: 100%
     width: 50px
-    position: relative 
-    &__active 
+    position: relative
+
+    &__active
         width: 100%
         height: 100%
         background-color: #363F47
@@ -70,21 +74,24 @@ header.header
         color: #fff
         position: relative
         z-index: 2
-        &:hover 
+
+        &:hover
             background-color: $primary
             color: #fff
-    &__list 
+
+    &__list
         width: 100%
         display: flex
         align-items: center
         flex-direction: column
         position: absolute
-        left: 0 
+        left: 0
         top: 100%
         transform: translateY(-100%)
         transition: all 0.5s ease
+
         li
-            a 
+            a
                 display: inline-block
                 width: 50px
                 height: 50px
@@ -95,45 +102,52 @@ header.header
                 font-size: 12px
                 color: #fff
                 text-transform: uppercase
-                &:hover 
-                    color: $primary 
+
+                &:hover
+                    color: $primary
                     background-color: #fff
-    &--active 
-        .language__active 
-            background-color: $primary
-            color: #fff
-        .language__list 
+
+    &--active
+        .language__active
+        background-color: $primary
+        color: #fff
+
+        .language__list
             transform: translateY(0)
 
-.header--front 
-    .language 
-        &__list 
+.header--front
+    .language
+        &__list
             transform: translateY(0)
             display: none
-            top: auto 
+            top: auto
             bottom: 100%
-        &--active 
-            .language__list 
-                transform: translateY(0)
-                display: flex
 
-.header-contacts 
+        &--active
+            .language__list
+            transform: translateY(0)
+            display: flex
+
+.header-contacts
     padding: 0 20px
-    &__item 
+
+    &__item
         height: 50px
-        font-size: 12px 
+        font-size: 12px
         color: #fff
         padding: 0 15px
         background-color: #363F47
-        .img 
+
+        .img
             fill: $primary
             margin-right: 10px
-        &:hover 
+
+        &:hover
             background-color: darken(#363F47, 10%)
             color: #fff
 
 
-    
+
 
 
 

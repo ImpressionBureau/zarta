@@ -1,7 +1,17 @@
 import Flickity from 'Flickity';
 
-if (document.querySelector('.intro-slider')) {
+if (document.querySelector('.awards-slider')) {
+    new Flickity('.awards-slider', {
+        wrapAround: true,
+        prevNextButtons: false,
+        pageDots: false,
+        contain: true,
+        autoPlay: 5000,
+        pauseAutoPlayOnHover: true,
+    });
+}
 
+if (document.querySelector('.intro-slider')) {
     let flktyI = new Flickity('.intro-slider', {
         wrapAround: true,
         prevNextButtons: false,
@@ -9,7 +19,7 @@ if (document.querySelector('.intro-slider')) {
         draggable: false,
         pageDots: false,
         contain: true,
-        autoPlay: 3000,
+        autoPlay: 5000,
         pauseAutoPlayOnHover: true
     });
 
@@ -135,7 +145,6 @@ if (document.querySelector('.texting-slider')) {
 
 
 }
-
 
 
 const aboutSliderItem = document.querySelectorAll('.about-slider__item');

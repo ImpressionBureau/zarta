@@ -129,6 +129,11 @@
                 ></multi-uploader>
             </fieldset>
 
+            <fieldset class="my-4 col-md-4 col-lg-3 px-0">
+                <label for="feedback">Изображение формы записи</label>
+                <image-uploader name="feedback" ratio="125%"></image-uploader>
+            </fieldset>
+
             {{--<image-uploader ratio="67%" name="banner" id="banner"
                             image-id="{{ optional($setting->getFirstMedia('banner'))->id }}"
                             src="{{ $setting->getFirstMediaUrl('banner') }}"></image-uploader>--}}

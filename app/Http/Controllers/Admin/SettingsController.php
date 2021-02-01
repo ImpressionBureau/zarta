@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Resources\ImageResource;
-use App\Models\MediaUpload;
 use App\Models\Setting;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 use Spatie\MediaLibrary\Models\Media;
 use function redirect;
@@ -32,8 +32,10 @@ class SettingsController extends Controller
     public function update(Request $request)
     {
         $setting = Setting::first();
-        $setting->update($request->only('phone', 'phone_additional', 'email', 'facebook', 'instagram', 'youtube'));
+
+        $setting->update($request->only('phone', 'phone_additional', 'email', 'facebook', 'instagram', 'youtube', 'latitude', 'longitude'));
         $setting->updateTranslation();
+
         if ($request->filled('media')) {
             foreach ($request->input('media') as $media) {
                 Media::find($media)->update([
@@ -43,16 +45,16 @@ class SettingsController extends Controller
                 ]);
             }
         }
-        /* if ($request->hasFile('banner')) {
-             $setting->clearMediaCollection('banner');
-             $setting->addMediaFromRequest('banner')
-                 ->toMediaCollection('banner');
-         }*/
+
+        if ($request->hasFile('feedback')) {
+            $setting->addMediaFromRequest('feedback')->toMediaCollection('feedback');
+        }
+
         return redirect()->route('admin.settings.index')
             ->with('message', 'Запись успешно сохранена.');
     }
 
-    public function images(Request $request)
+    public function images(Request $request): JsonResponse
     {
         $model = Setting::find(1);
 
@@ -62,8 +64,12 @@ class SettingsController extends Controller
                 ->toMediaCollection($request->input('collection', 'uploads'));
         }
 
-        return response()->json(new ImageResource($model->getFirstMedia(
-            $request->input('collection', 'uploads'), 'thumb',
-        )));
+        return response()->json(
+            new ImageResource(
+                $model->getFirstMedia(
+                    $request->input('collection', 'uploads')
+                )
+            )
+        );
     }
 }
