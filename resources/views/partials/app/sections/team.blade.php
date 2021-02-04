@@ -11,7 +11,7 @@
                         @else
                             <img class="lozad" data-src="{{ asset('images/no-image.png') }}">
                         @endif
-                        <div class="btn btn-primary modal-btn team-btn">@lang('common.main.appointments')</div>
+                        <div class="btn btn-primary modal-btn team-btn btn-block">@lang('common.main.appointments')</div>
                     </div>
                     <h4 class="teammate__name">{{$command->title}}</h4>
                     <p class="teammate__position">{{$command->content->description}}</p>
