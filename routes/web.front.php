@@ -18,12 +18,12 @@ Route::group([
         Route::get('{article}', 'ArticlesController@show')->name('show');
     });
 
-    Route::group([
-        'as' => 'services.',
-        'prefix' => 'services',
-    ], function () {
-        Route::get('/', 'ServicesController@index')->name('index');
-    });
+//    Route::group([
+//        'as' => 'services.',
+//        'prefix' => 'services',
+//    ], function () {
+//        Route::get('/', 'ServicesController@index')->name('index');
+//    });
 
     Route::group([
         'as' => 'directions.',
@@ -35,10 +35,9 @@ Route::group([
 
     Route::group([
         'as' => 'methods.',
-        'prefix' => 'directions',
+        'prefix' => 'services',
     ], function () {
-//        Route::get('/', 'MethodsController@index')->name('index');
-        Route::redirect('/', url('/'))->name('index');
+        Route::get('/', 'MethodsController@index')->name('index');
         Route::get('{direction}', 'MethodsController@show')->name('show');
     });
 

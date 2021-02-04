@@ -3,24 +3,25 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\Category;
+use App\Models\Command;
 use App\Models\Direction;
 use App\Models\Method;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use function view;
 
 class MethodsController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        $category = Category::where('thread', 'methods')->has('methods')->first();
-        $articles = Method::where('category_id', $category->id)->get();
-        $article = $articles->first();
-
-        return view('app.methods.index', compact('category', 'articles', 'article'));
+        return view('app.methods.index', [
+            'methods' => Direction::all(),
+            'team' => Command::all(),
+        ]);
     }
 
-    public function show(Direction $direction)
+    public function show(Direction $direction): View
     {
         return view('app.methods.show', [
             'direction' => $direction,

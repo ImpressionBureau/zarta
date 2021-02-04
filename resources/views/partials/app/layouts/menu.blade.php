@@ -9,9 +9,6 @@
                     <a href="{{ url('/about') }}" class="nav-link">@lang('common.menu.about')</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/reviews') }}" class="nav-link">@lang('common.menu.review')</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#directions" aria-expanded="false"
                        aria-controls="directions">
                         @lang('common.menu.direction')
@@ -28,6 +25,14 @@
                             @endforeach
                         </ul>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('app.methods.index') }}">
+                        {{ __('common.menu.services') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('/reviews') }}" class="nav-link">@lang('common.menu.review')</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('app.articles.index') }}" class="nav-link">@lang('common.menu.blog')</a>
