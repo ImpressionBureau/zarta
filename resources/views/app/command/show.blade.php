@@ -10,7 +10,6 @@
 
         <div class="container-fluid">
             <div class="row justify-content-center justify-content-xl-end">
-
                 <div class="col-sm-8 col-md-6 col-lg-5 col-xl-4 offset-xxl-1 order-xl-2 mb-4 mb-xl-0">
                     <div class="about-galery">
                         <div class="about-slider">
@@ -22,7 +21,7 @@
                     </div>
                 </div>
 
-                <div class="col-xl-7 col-xxl-5 mt-5 lg:mt-0 order-xl-1">
+                <div class="col-xl-7 col-xxl-5 mt-5 mt-lg-0 order-xl-1">
                     <div class="section-decor section-decor--article">
                         <img src="{{ asset('images/about-img.svg') }}" alt="">
                     </div>
