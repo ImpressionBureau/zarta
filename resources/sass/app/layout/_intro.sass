@@ -46,8 +46,10 @@ section.intro-section
         img
             width: auto
             max-width: 150px
+            max-height: 150px
             @media (min-width: map_get($grid-breakpoints, xl))
                 max-width: 300px
+                max-height: 300px
 
     &__text
         font-family: $headings-font-family
@@ -126,7 +128,7 @@ section.thanks-section
     justify-content: center
     flex-direction: column
     @extend %bg-cover
-    background-image: url(../images/thanks-bg.jpg)
+    background-image: url('/images/thanks-bg.jpg')
     height: 100vh
     min-height: 500px
 
