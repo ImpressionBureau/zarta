@@ -7,20 +7,12 @@
         </ul>
     </section>
 
-    <section class="intro-other-section" style="background-image: url({{$page->getFirstMediaUrl('page')}}">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-8">
-                    <h2 class="section-title-center section-title--other mb-5">
-                        <span>@lang('breadcrumb.service')</span>
-                    </h2>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="price-section">
         <div class="container">
+            <h1 class="section-title-center mb-5">
+                <span>@lang('breadcrumb.service')</span>
+            </h1>
+
             <div class="row justify-content-center">
                 @if($services->count())
                     @foreach($services as $service)
