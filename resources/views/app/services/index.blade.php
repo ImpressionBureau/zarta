@@ -17,8 +17,9 @@
                 @if($services->count())
                     @foreach($services as $service)
                         <div class="col-sm-8 col-md-6 col-xl-4 mb-3">
-                            <a href="{{ route('app.services.show', $service) }}" id="service-{{ $service->id }}" class="price d-flex align-items-center justify-content-center">
-                                <h4 class="price__title">{{ $service->title }}</h4>
+                            <a href="{{ route('app.services.show', $service) }}" id="service-{{ $service->id }}"
+                               class="price d-flex align-items-center justify-content-center h-100">
+                                <h4 class="text-center">{{ $service->title }}</h4>
                             </a>
                         </div>
                     @endforeach
