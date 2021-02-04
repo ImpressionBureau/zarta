@@ -13,22 +13,13 @@
                 <span>@lang('breadcrumb.service')</span>
             </h1>
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mb-n3">
                 @if($services->count())
                     @foreach($services as $service)
-                        <div class="col-sm-8 col-md-6 col-xl-4">
-                            <div id="service-{{ $service->id }}" class="price">
-                                <h4 class="price__title">
-                                    <a href="{{ route('app.services.show', $service) }}">
-                                        {{ $service->title }}
-                                    </a>
-                                </h4>
-
-                                <div class="price-footer d-flex justify-content-end align-items-center">
-                                    <a href="{{ route('app.services.show', $service) }}#enroll"
-                                       class="btn btn-primary btn--short btn--price"><span>@lang('common.service.btn')</span></a>
-                                </div>
-                            </div>
+                        <div class="col-sm-8 col-md-6 col-xl-4 mb-3">
+                            <a href="{{ route('app.services.show', $service) }}" id="service-{{ $service->id }}" class="price d-flex align-items-center justify-content-center">
+                                <h4 class="price__title">{{ $service->title }}</h4>
+                            </a>
                         </div>
                     @endforeach
                 @else
