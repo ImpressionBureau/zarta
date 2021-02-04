@@ -2,13 +2,14 @@
     @csrf
     <input type="hidden" name="locale">
 </form>
-<header class="header{{ isset($sticky) ? ' header--front' : '' }}">
+<header class="header">
     <div class="nav-btn d-inline-flex align-items-center justify-content-center">
         <svg class="nav-btn__icon" width="24" height="24">
             <use xlink:href="#nav-btn-icon"></use>
         </svg>
-        <p class="nav-btn__title d-none d-xl-block">@lang('common.header.menu')</p>
+        <div class="nav-btn__title d-none d-xl-block">@lang('common.header.menu')</div>
     </div>
+
     <a href="{{ url('/') }}" class="header-logo">
         <img src="{{ asset('images/logo.png') }}" alt="">
     </a>

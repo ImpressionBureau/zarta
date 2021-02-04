@@ -34,10 +34,6 @@ class AppServiceProvider extends ServiceProvider
             return Setting::with('translates')->first();
         });
 
-        app()->singleton('categories', function () {
-            return Category::with('translates')->get();
-        });
-
         app()->singleton('nav', function () {
             return new Navigation();
         });
@@ -46,6 +42,8 @@ class AppServiceProvider extends ServiceProvider
             View::share('locales', collect(config('app.locales'))->filter(function ($l) {
                 return $l !== app()->getLocale();
             }));
+
+            View::share('departments', Category::where('published', 1)->get());
         });
 
         View::composer(['admin.commands.*', 'admin.directions.*', 'admin.services.*'], function() {

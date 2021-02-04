@@ -4,6 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="title" content="{{ (isset($page_title) ? $page_title . ' | ' : '') . config('app.name') }}">
+    <meta name="description" content="{{ __('common.footer.copy') }}">
+    <meta name="og:title" content="{{ (isset($page_title) ? $page_title . ' | ' : '') . config('app.name') }}">
+    <meta name="og:description" content="{{ __('common.footer.copy') }}">
+    <meta name="og:image" content="{{ asset('images/logo.png') }}">
+    <meta name="og:image:width" content="520">
+    <meta name="og:image:height" content="520">
+    <meta name="og:site_name" content="{{ url('/') }}">
+
     <title>{{ (isset($page_title) ? $page_title . ' | ' : '') . config('app.name') }}</title>
 
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -11,8 +20,13 @@
 
     <link href="{{ url(mix('css/app.css')) }}" rel="stylesheet">
 
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/images/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="/images/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/images/favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>

@@ -33,7 +33,7 @@ class SettingsController extends Controller
     {
         $setting = Setting::first();
 
-        $setting->update($request->only('phone', 'phone_additional', 'email', 'facebook', 'instagram', 'youtube', 'latitude', 'longitude'));
+        $setting->update($request->only('phone', 'phone_additional', 'email', 'facebook', 'instagram', 'youtube', 'telegram', 'latitude', 'longitude'));
         $setting->updateTranslation();
 
         if ($request->filled('media')) {

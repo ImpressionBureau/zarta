@@ -15,7 +15,6 @@ class HomeController extends Controller
     public function index()
     {
         return view('app.home.index', [
-            'departments' => Category::take(6)->get(),
             'pages' => Page::where('show_in_slider', 1)->get(),
             'team' => Command::where('show_on_home', 1)->get(),
             'reviews' => Review::where('published', 1)->whereNull('video')->get(),

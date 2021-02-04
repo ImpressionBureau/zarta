@@ -1,6 +1,10 @@
-require('./bootstrap');
+import Vue from "vue";
 
-import {Wysiwyg, ImageUploader, MultiUploader, BlockEditor, Options} from './components/Editor';
+import Wysiwyg from './components/editor/TinyMCE';
+import ImageUploader from './components/editor/SingleUploader';
+import MultiUploader from "./components/editor/MultiUploader";
+import BlockEditor from "./components/editor/BlockEditor";
+import Options from "./components/editor/Options";
 
 new Vue({
   el: '#app',
@@ -17,3 +21,4 @@ new Vue({
   }
 });
 
+require('./bootstrap');

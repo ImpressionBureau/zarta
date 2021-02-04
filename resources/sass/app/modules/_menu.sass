@@ -1,70 +1,68 @@
-
-
-
-.menu 
+.menu
     position: fixed
-    background-color: #292F35
-    top: 50px 
-    left: 0 
-    right: 0
-    bottom: 0
+    background-color: rgba(#fff, 0.85)
+    top: 50px
+    left: 0
     z-index: 9
     transform: translateY(-110%)
     transition: all 0.5s ease
-    padding-left: 50px
     overflow-y: scroll
+    max-width: 260px
+    max-height: calc(100vh - 50px)
     @media (min-width: map_get($grid-breakpoints, xl))
-        padding-left: 0
-        padding-top: 40px
         overflow-y: scroll
-        background-color: rgba(30, 36, 42, 0.95)
-    &-content 
+
+    a:hover
+        color: $primary
+
+    &-content
         padding: 20px
-        border-left: 1px dotted #5B6670
-        @media (min-width: map_get($grid-breakpoints, xl)) 
-            border-top: 1px dotted #5B6670
-            padding: 0
-    &--open 
+
+    &--open
         transform: translateY(0)
 
-.close-menu 
-    @extend .close-modal 
+.close-menu
+    @extend .close-modal
     right: auto
-    left: 20px 
+    left: 20px
     top: 11px
     transform: rotate(-90deg) translate(-100%, 50%)
     transform-origin: 0
-    @media (min-width: map_get($grid-breakpoints, xl)) 
+    @media (min-width: map_get($grid-breakpoints, xl))
         transform: none
-.menu-item 
+
+.menu-item
     position: relative
-    &:before 
+
+    &:before
         content: ''
         height: 100%
         width: 3px
         position: absolute
         left: -37px
-        top: 0 
+        top: 0
         transition: all 0.5s ease
-        @media (min-width: map_get($grid-breakpoints, lg)) 
+        @media (min-width: map_get($grid-breakpoints, lg))
             left: -20px
-        @media (min-width: map_get($grid-breakpoints, xl)) 
+        @media (min-width: map_get($grid-breakpoints, xl))
             width: 100%
             height: 3px
             left: 0
-    &--active 
-        &:before 
+
+    &--active
+        &:before
             background-color: $primary
-    &__title 
+
+    &__title
         display: block
         font-family: $headings-font-family
         font-size: 16px
         color: #fff
         padding: 15px 0
-        @media (min-width: map_get($grid-breakpoints, xl)) 
+        @media (min-width: map_get($grid-breakpoints, xl))
             padding: 20px 0 40px 0
 
-.list-link 
+.list-link
     font-size: 12px
     color: #6A7C87
     display: flex
@@ -76,9 +74,10 @@
         font-size: 14px
     @media (min-width: map_get($grid-breakpoints, xl))
         padding: 10px 0
-    &:hover 
+
+    &:hover
         color: #fff
-        
+
 .list-link-noactive
     font-size: 12px
     color: #6A7C87
@@ -91,20 +90,24 @@
         font-size: 14px
     @media (min-width: map_get($grid-breakpoints, xl))
         padding: 10px 0
-.menu-drop-btn 
-    svg 
+
+.menu-drop-btn
+    svg
         margin-left: 20px
         fill: #6A7C87
-    &--open 
-        color: $primary 
-        svg 
-            fill: #fff 
-            transform: rotate(90deg)
-        &:hover 
-            color: $primary 
-    
 
-.menu-drop 
+    &--open
+        color: $primary
+
+        svg
+            fill: #fff
+            transform: rotate(90deg)
+
+        &:hover
+            color: $primary
+
+
+.menu-drop
     transition: height 0.5s
     overflow: hidden
     @media (min-width: map_get($grid-breakpoints, xl))
@@ -118,8 +121,9 @@
         transition: transform 0.5s
         @media (min-width: map_get($grid-breakpoints, xxl))
             padding: 15px 15px 15px 65px
-    &__title 
-        color: #fff 
+
+    &__title
+        color: #fff
         position: relative
         padding-bottom: 20px
         display: none
@@ -129,15 +133,17 @@
         @media (min-width: map_get($grid-breakpoints, xxl))
             padding-bottom: 40px
             font-size: 2.5rem
-        &:after 
+
+        &:after
             content: ''
             position: absolute
             height: 3px
-            left: 0 
-            bottom: 0 
+            left: 0
+            bottom: 0
             width: 100px
             background-color: $primary
-    &--open 
+
+    &--open
         @media (min-width: map_get($grid-breakpoints, xl))
             transform: translateX(0)
 
@@ -148,26 +154,30 @@
     @media (min-width: map_get($grid-breakpoints, xl))
         display: block
         flex-direction: row
-    &__item 
-        @media (min-width: map_get($grid-breakpoints, lg)) 
+
+    &__item
+        @media (min-width: map_get($grid-breakpoints, lg))
             width: 33%
-        @media (min-width: map_get($grid-breakpoints, xl)) 
+        @media (min-width: map_get($grid-breakpoints, xl))
             width: 20%
             padding: 0 2px
             transition: 0.5s ease transform
         @media (min-width: map_get($grid-breakpoints, xxl))
-            width: 12.5% 
+            width: 12.5%
+
         .content
             @media (min-width: map_get($grid-breakpoints, xl))
                 padding: 20px 0
-            &__img 
+
+            &__img
                 @extend %bg-cover
                 width: 100%
                 padding-top: 125/180*100%
                 display: none
                 @media (min-width: map_get($grid-breakpoints, xl))
                     display: block
-            &__title 
+
+            &__title
                 padding: 10px 0
                 color: #fff
                 font-size: 12px
@@ -176,15 +186,16 @@
                     font-size: 16px
                 @media (min-width: map_get($grid-breakpoints, xl))
                     font-size: 12px
-                    padding-top: 20px
                     padding-top: 10px
                 @media (min-width: map_get($grid-breakpoints, xxl))
                     font-size: 12px
                     padding-top: 20px
-        &:hover 
-            .content__title 
+
+        &:hover
+            .content__title
                 color: $primary
-    &--minlenght 
+
+    &--minlenght
         @media (min-width: map_get($grid-breakpoints, xl))
             display: flex
             align-items: flex-start
@@ -196,8 +207,8 @@
             .drop-slider__item
                 width: 12.5%
 
-.menu-arrow 
-    position: absolute 
+.menu-arrow
+    position: absolute
     width: 20px
     background-color: #1C2328
     display: flex
@@ -205,14 +216,18 @@
     justify-content: center
     top: -15px
     bottom: -15px
-    svg 
+
+    svg
         fill: #6A7C87
-    &:hover 
-        svg 
+
+    &:hover
+        svg
             fill: $primary
-    &--prev 
+
+    &--prev
         left: 0
-    &--next 
+
+    &--next
         right: 0
 
 

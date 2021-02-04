@@ -300,7 +300,6 @@ if (document.querySelector('.navigation-slider')) {
 
 const menuOpenBtn = document.querySelector('.nav-btn');
 const menu = document.querySelector('.menu');
-const menuCloseBtn = document.querySelector('.close-menu');
 
 menuOpenBtn.addEventListener('click', function () {
     menu.classList.toggle('menu--open');
@@ -308,201 +307,170 @@ menuOpenBtn.addEventListener('click', function () {
         document.querySelector('.header').classList.remove('header--front');
     }
 })
-
-const menuDropBtn = document.querySelectorAll('.menu-drop-btn');
-
-if (window.innerWidth > 1199) {
-
-    menuCloseBtn.addEventListener('click', function () {
-        menu.classList.toggle('menu--open');
-        if (document.querySelector('.menu-drop-btn--open')) {
-            document.querySelector('.menu-item--active').classList.remove('menu-item--active');
-            document.querySelector('.menu-drop-btn--open').style.paddingBottom = 10 + 'px';
-            document.querySelector('.menu-drop--open').classList.remove('menu-drop--open');
-            document.querySelector('.menu-drop-btn--open').classList.remove('menu-drop-btn--open');
-            document.querySelectorAll('.menu-arrow').forEach(function (i) {
-                i.remove();
-                console.log(item)
-            });
-        }
-    })
-
-    let flktyM;
-
-    menuDropBtn.forEach(function (item) {
-
-        item.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            let dropBtnOpen = document.querySelector('.menu-drop-btn--open');
-            let menuItemActive = document.querySelector('.menu-item--active');
-            let menuDropOpen = document.querySelector('.menu-drop--open');
-            let menuDrop = this.nextElementSibling;
-            let menuLocalSlider = menuDrop.querySelector('.drop-slider');
-            let menuSliderItem = menuLocalSlider.querySelectorAll('.drop-slider__item');
-            let menuLocalSliderHeight = menuDrop.offsetHeight + 50;
-            let menuDropBtnTopPos = item.offsetTop + 100;
-            if (item.classList.contains('menu-drop-btn--open')) {
-                this.closest('.menu-item').classList.remove('menu-item--active');
-                this.style.paddingBottom = 10 + 'px';
-                menuDrop.classList.remove('menu-drop--open');
-                this.classList.remove('menu-drop-btn--open');
-                document.querySelectorAll('.menu-arrow').forEach(function (i) {
-                    i.remove();
-                });
-            } else {
-
-                if (dropBtnOpen) {
-                    dropBtnOpen.style.paddingBottom = 10 + 'px';
-                    dropBtnOpen.classList.remove('menu-drop-btn--open');
-                    menuDropBtnTopPos = item.offsetTop + 100;
-                    menuDrop.style.top = menuDropBtnTopPos + 'px';
-                    menuDrop.classList.add('menu-drop--open');
-                    document.querySelectorAll('.menu-arrow').forEach(function (i) {
-                        i.remove();
-                    });
-
-                } else {
-                    menuDrop.classList.add('menu-drop--open');
-                    menuDrop.style.top = menuDropBtnTopPos + 'px';
-                }
-
-                if (menuItemActive) {
-                    menuItemActive.classList.remove('menu-item--active');
-                    menuDropOpen.querySelector('.drop-slider').classList.add('drop-slider--minlenght');
-                    menuDropOpen.classList.remove('menu-drop--open');
-                    document.querySelectorAll('.menu-arrow').forEach(function (i) {
-                        i.remove();
-                    });
-                    if (flktyM) {
-                        flktyM.destroy();
-                    }
-                }
-                this.closest('.menu-item').classList.add('menu-item--active');
-
-                if (window.innerWidth > 1199 && menuSliderItem.length > 5) {
-                    menuLocalSlider.classList.remove('drop-slider--minlenght');
-                    flktyM = new Flickity(menuLocalSlider, {
-                        wrapAround: true,
-                        prevNextButtons: false,
-                        cellAlign: 'left',
-                        draggable: true,
-                        pageDots: false,
-                        contain: true,
-                        initialIndex: 0
-                    });
-
-                    menuLocalSlider.insertAdjacentHTML('afterend', '<div class="menu-arrow menu-arrow--prev"><svg width="7" height="12"><use xlink:href="#arrow-left"></use></svg></div><div class="menu-arrow menu-arrow--next"><svg width="7" height="12"><use xlink:href="#arrow-right"></use></svg></div>');
-
-                    var prevArrowReviews = document.querySelector('.menu-arrow--prev');
-                    prevArrowReviews.addEventListener('click', function () {
-                        flktyM.previous(true, false);
-                    });
-
-                    var nextArrowReviews = document.querySelector('.menu-arrow--next');
-                    nextArrowReviews.addEventListener('click', function () {
-                        flktyM.next(true, false);
-                    });
-                } else if (window.innerWidth > 1500 && menuSliderItem.length > 8) {
-                    menuLocalSlider.classList.remove('drop-slider--minlenght');
-                    flktyM = new Flickity(menuLocalSlider, {
-                        wrapAround: true,
-                        prevNextButtons: false,
-                        cellAlign: 'left',
-                        draggable: true,
-                        pageDots: false,
-                        contain: true,
-                        initialIndex: 0
-                    });
-
-                    menuLocalSlider.insertAdjacentHTML('afterend', '<div class="menu-arrow menu-arrow--prev"><svg width="7" height="12"><use xlink:href="#arrow-left"></use></svg></div><div class="menu-arrow menu-arrow--next"><svg width="7" height="12"><use xlink:href="#arrow-right"></use></svg></div>');
-
-                    var prevArrowReviews = document.querySelector('.menu-arrow--prev');
-                    prevArrowReviews.addEventListener('click', function () {
-                        flktyM.previous(true, false);
-                    });
-
-                    var nextArrowReviews = document.querySelector('.menu-arrow--next');
-                    nextArrowReviews.addEventListener('click', function () {
-                        flktyM.next(true, false);
-                    });
-                } else {
-                    menuLocalSlider.classList.add('drop-slider--minlenght');
-                }
-
-                this.classList.add('menu-drop-btn--open');
-                this.style.paddingBottom = menuLocalSliderHeight + 'px';
-
-            }
-
-
-        })
-
-    })
-
-} else {
-
-    menuCloseBtn.addEventListener('click', function () {
-        menu.classList.toggle('menu--open');
-        if (document.querySelector('.menu-drop-btn--open')) {
-            document.querySelector('.menu-item--active').classList.remove('menu-item--active');
-            document.querySelector('.menu-drop--open').style.height = 0;
-            document.querySelector('.menu-drop--open').classList.remove('menu-drop--open');
-            document.querySelector('.menu-drop-btn--open').classList.remove('menu-drop-btn--open');
-        }
-    })
-
-    menuDropBtn.forEach(function (item) {
-
-        let menuDrop = item.nextElementSibling;
-        let menuLocalSliderHeight = menuDrop.offsetHeight;
-
-        menuDrop.style.height = 0;
-
-
-        item.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            if (item.classList.contains('menu-drop-btn--open')) {
-                this.closest('.menu-item').classList.remove('menu-item--active');
-                menuDrop.style.height = 0;
-                menuDrop.classList.remove('menu-drop--open');
-                this.classList.remove('menu-drop-btn--open');
-            } else {
-
-                let menuDropOpen = document.querySelector('.menu-drop--open');
-                if (menuDropOpen) {
-                    menuDropOpen.classList.remove('menu-drop--open');
-                    menuDropOpen.style.height = 0;
-                    document.querySelector('.menu-item--active').classList.remove('menu-item--active');
-                    document.querySelector('.menu-drop-btn--open').classList.remove('menu-drop-btn--open');
-                }
-
-                menuDrop.style.height = menuLocalSliderHeight + 'px';
-                menuDrop.classList.add('menu-drop--open');
-                this.classList.add('menu-drop-btn--open');
-                this.closest('.menu-item').classList.add('menu-item--active');
-            }
-
-        });
-
-    })
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//
+// const menuDropBtn = document.querySelectorAll('.menu-drop-btn');
+//
+// if (window.innerWidth > 1199) {
+//     let flktyM;
+//
+//     menuDropBtn.forEach(function (item) {
+//
+//         item.addEventListener('click', function (e) {
+//             e.preventDefault();
+//
+//             let dropBtnOpen = document.querySelector('.menu-drop-btn--open');
+//             let menuItemActive = document.querySelector('.menu-item--active');
+//             let menuDropOpen = document.querySelector('.menu-drop--open');
+//             let menuDrop = this.nextElementSibling;
+//             let menuLocalSlider = menuDrop.querySelector('.drop-slider');
+//             let menuSliderItem = menuLocalSlider.querySelectorAll('.drop-slider__item');
+//             let menuLocalSliderHeight = menuDrop.offsetHeight + 50;
+//             let menuDropBtnTopPos = item.offsetTop + 100;
+//             if (item.classList.contains('menu-drop-btn--open')) {
+//                 this.closest('.menu-item').classList.remove('menu-item--active');
+//                 this.style.paddingBottom = 10 + 'px';
+//                 menuDrop.classList.remove('menu-drop--open');
+//                 this.classList.remove('menu-drop-btn--open');
+//                 document.querySelectorAll('.menu-arrow').forEach(function (i) {
+//                     i.remove();
+//                 });
+//             } else {
+//
+//                 if (dropBtnOpen) {
+//                     dropBtnOpen.style.paddingBottom = 10 + 'px';
+//                     dropBtnOpen.classList.remove('menu-drop-btn--open');
+//                     menuDropBtnTopPos = item.offsetTop + 100;
+//                     menuDrop.style.top = menuDropBtnTopPos + 'px';
+//                     menuDrop.classList.add('menu-drop--open');
+//                     document.querySelectorAll('.menu-arrow').forEach(function (i) {
+//                         i.remove();
+//                     });
+//
+//                 } else {
+//                     menuDrop.classList.add('menu-drop--open');
+//                     menuDrop.style.top = menuDropBtnTopPos + 'px';
+//                 }
+//
+//                 if (menuItemActive) {
+//                     menuItemActive.classList.remove('menu-item--active');
+//                     menuDropOpen.querySelector('.drop-slider').classList.add('drop-slider--minlenght');
+//                     menuDropOpen.classList.remove('menu-drop--open');
+//                     document.querySelectorAll('.menu-arrow').forEach(function (i) {
+//                         i.remove();
+//                     });
+//                     if (flktyM) {
+//                         flktyM.destroy();
+//                     }
+//                 }
+//                 this.closest('.menu-item').classList.add('menu-item--active');
+//
+//                 if (window.innerWidth > 1199 && menuSliderItem.length > 5) {
+//                     menuLocalSlider.classList.remove('drop-slider--minlenght');
+//                     flktyM = new Flickity(menuLocalSlider, {
+//                         wrapAround: true,
+//                         prevNextButtons: false,
+//                         cellAlign: 'left',
+//                         draggable: true,
+//                         pageDots: false,
+//                         contain: true,
+//                         initialIndex: 0
+//                     });
+//
+//                     menuLocalSlider.insertAdjacentHTML('afterend', '<div class="menu-arrow menu-arrow--prev"><svg width="7" height="12"><use xlink:href="#arrow-left"></use></svg></div><div class="menu-arrow menu-arrow--next"><svg width="7" height="12"><use xlink:href="#arrow-right"></use></svg></div>');
+//
+//                     var prevArrowReviews = document.querySelector('.menu-arrow--prev');
+//                     prevArrowReviews.addEventListener('click', function () {
+//                         flktyM.previous(true, false);
+//                     });
+//
+//                     var nextArrowReviews = document.querySelector('.menu-arrow--next');
+//                     nextArrowReviews.addEventListener('click', function () {
+//                         flktyM.next(true, false);
+//                     });
+//                 } else if (window.innerWidth > 1500 && menuSliderItem.length > 8) {
+//                     menuLocalSlider.classList.remove('drop-slider--minlenght');
+//                     flktyM = new Flickity(menuLocalSlider, {
+//                         wrapAround: true,
+//                         prevNextButtons: false,
+//                         cellAlign: 'left',
+//                         draggable: true,
+//                         pageDots: false,
+//                         contain: true,
+//                         initialIndex: 0
+//                     });
+//
+//                     menuLocalSlider.insertAdjacentHTML('afterend', '<div class="menu-arrow menu-arrow--prev"><svg width="7" height="12"><use xlink:href="#arrow-left"></use></svg></div><div class="menu-arrow menu-arrow--next"><svg width="7" height="12"><use xlink:href="#arrow-right"></use></svg></div>');
+//
+//                     var prevArrowReviews = document.querySelector('.menu-arrow--prev');
+//                     prevArrowReviews.addEventListener('click', function () {
+//                         flktyM.previous(true, false);
+//                     });
+//
+//                     var nextArrowReviews = document.querySelector('.menu-arrow--next');
+//                     nextArrowReviews.addEventListener('click', function () {
+//                         flktyM.next(true, false);
+//                     });
+//                 } else {
+//                     menuLocalSlider.classList.add('drop-slider--minlenght');
+//                 }
+//
+//                 this.classList.add('menu-drop-btn--open');
+//                 this.style.paddingBottom = menuLocalSliderHeight + 'px';
+//
+//             }
+//
+//
+//         })
+//
+//     })
+//
+// } else {
+//
+//     menuCloseBtn.addEventListener('click', function () {
+//         menu.classList.toggle('menu--open');
+//         if (document.querySelector('.menu-drop-btn--open')) {
+//             document.querySelector('.menu-item--active').classList.remove('menu-item--active');
+//             document.querySelector('.menu-drop--open').style.height = 0;
+//             document.querySelector('.menu-drop--open').classList.remove('menu-drop--open');
+//             document.querySelector('.menu-drop-btn--open').classList.remove('menu-drop-btn--open');
+//         }
+//     })
+//
+//     menuDropBtn.forEach(function (item) {
+//
+//         let menuDrop = item.nextElementSibling;
+//         let menuLocalSliderHeight = menuDrop.offsetHeight;
+//
+//         menuDrop.style.height = 0;
+//
+//
+//         item.addEventListener('click', function (e) {
+//             e.preventDefault();
+//
+//             if (item.classList.contains('menu-drop-btn--open')) {
+//                 this.closest('.menu-item').classList.remove('menu-item--active');
+//                 menuDrop.style.height = 0;
+//                 menuDrop.classList.remove('menu-drop--open');
+//                 this.classList.remove('menu-drop-btn--open');
+//             } else {
+//
+//                 let menuDropOpen = document.querySelector('.menu-drop--open');
+//                 if (menuDropOpen) {
+//                     menuDropOpen.classList.remove('menu-drop--open');
+//                     menuDropOpen.style.height = 0;
+//                     document.querySelector('.menu-item--active').classList.remove('menu-item--active');
+//                     document.querySelector('.menu-drop-btn--open').classList.remove('menu-drop-btn--open');
+//                 }
+//
+//                 menuDrop.style.height = menuLocalSliderHeight + 'px';
+//                 menuDrop.classList.add('menu-drop--open');
+//                 this.classList.add('menu-drop-btn--open');
+//                 this.closest('.menu-item').classList.add('menu-item--active');
+//             }
+//
+//         });
+//
+//     })
+//
+// }
+//

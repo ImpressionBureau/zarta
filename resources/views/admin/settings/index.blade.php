@@ -43,6 +43,11 @@
                         <input type="text" class="form-control" id="youtube" name="youtube"
                                value="{{ old('youtube') ?? $setting->youtube }}">
                     </div>
+                    <div class="form-group">
+                        <label for="telegram">Telegram</label>
+                        <input type="text" class="form-control" id="telegram" name="telegram"
+                               value="{{ old('telegram') ?? $setting->telegram }}">
+                    </div>
                 </div>
             </div>
 

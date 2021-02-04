@@ -8,7 +8,7 @@
             </div>
             <div class="col-xl">
                 <div class="areas-row d-flex align-items-center justify-content-center">
-                    @foreach($departments as $category)
+                    @foreach($departments->take(6) as $category)
                         @if(($loop->iteration % 2) != 0)
                             <div class="areas-col">
                                 @endif
