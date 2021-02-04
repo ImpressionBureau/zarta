@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Article;
+use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Spatie\MediaLibrary\Models\Media;
+use function redirect;
 
 class ArticlesController extends Controller
 {
@@ -30,16 +33,14 @@ class ArticlesController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
-
         $article = Article::create($request->only('slug', 'published'))->makeTranslation();
-
-
         $this->handleMedia($request, $article);
-        return \redirect()->route('admin.articles.index')
+
+        return redirect()->route('admin.articles.index')
             ->with('message', 'Запись успешно сохранена.');
     }
 
@@ -55,29 +56,30 @@ class ArticlesController extends Controller
     /**
      * @param Request $request
      * @param Article $article
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, Article $article): RedirectResponse
     {
-
         $article->slug = null;
         $article->update($request->only('published'));
         $article->updateTranslation();
         $this->handleMedia($request, $article);
-        return \redirect()->route('admin.articles.index')
+
+        return redirect()->route('admin.articles.index')
             ->with('message', 'Запись успешно сохранена.');
     }
 
     /**
      * @param Article $article
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
+     * @return RedirectResponse
+     * @throws Exception
      */
-    public function destroy(Article $article)
+    public function destroy(Article $article): RedirectResponse
     {
         $article->clearMediaCollection('article');
         $article->delete();
-        return \redirect()->route('admin.articles.index')
+
+        return redirect()->route('admin.articles.index')
             ->with('message', 'Запись успешно удалена.');
     }
 

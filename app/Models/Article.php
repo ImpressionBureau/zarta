@@ -6,6 +6,7 @@ use App\Http\Resources\ImageResource;
 use App\Traits\SluggableTrait;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -29,10 +30,7 @@ class Article extends Model implements HasMedia
         return $query->where('published', 1);
     }
 
-    /**
-     * @return string
-     */
-    public function getPreviewImageAttribute()
+    public function getPreviewImageAttribute(): string
     {
         $media = 'images/no-image.png';
 
@@ -41,6 +39,11 @@ class Article extends Model implements HasMedia
         }
 
         return asset($media);
+    }
+
+    public function getImagesListAttribute(): AnonymousResourceCollection
+    {
+        return ImageResource::collection($this->getMedia('uploads'));
     }
 
     public function registerMediaCollections()
@@ -60,11 +63,21 @@ class Article extends Model implements HasMedia
                     ->width(362)
                     ->height(232);
             });
-    }
 
+        $this
+            ->addMediaCollection('uploads')
+            ->registerMediaConversions(function (Media $media = null) {
+                $this
+                    ->addMediaConversion('thumb')
+                    ->fit(Manipulations::FIT_CROP, 100, 100)
+                    ->width(100)
+                    ->height(100);
 
-    public function getImagesListAttribute()
-    {
-        return ImageResource::collection($this->getMedia('uploads'));
+                $this
+                    ->addMediaConversion('preview')
+                    ->fit(Manipulations::FIT_CROP, 362, 232)
+                    ->width(362)
+                    ->height(232);
+            });
     }
 }
