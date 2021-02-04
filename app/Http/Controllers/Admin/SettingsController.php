@@ -29,7 +29,7 @@ class SettingsController extends Controller
      * @param Request $request
      * @return RedirectResponse
      */
-    public function update(Request $request)
+    public function update(Request $request): RedirectResponse
     {
         $setting = Setting::first();
 
