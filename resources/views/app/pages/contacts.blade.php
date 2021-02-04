@@ -11,9 +11,9 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-8">
-                    <h2 class="section-title-center section-title--other mb-5">
+                    <h1 class="section-title-center section-title--other mb-5">
                         <span>{{$page->title}}</span>
-                    </h2>
+                    </h1>
                 </div>
             </div>
         </div>

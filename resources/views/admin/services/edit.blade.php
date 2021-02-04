@@ -52,12 +52,13 @@
                     <div class="custom-control custom-checkbox">
                         <input type="hidden" name="published" value="0">
                         <input class="custom-control-input" name="published"
-                               type="checkbox" value="1" id="published">
+                               type="checkbox" value="1" id="published" {{ $service->published ? 'checked' : '' }}>
                         <label class="custom-control-label" for="published">
                             Опубликовать
                         </label>
                     </div>
                 </div>
+
                 <button class="btn btn-primary">
                     Сохранить
                 </button>

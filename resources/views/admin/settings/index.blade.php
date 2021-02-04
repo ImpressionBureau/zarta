@@ -12,14 +12,19 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="phone">Телефон</label>
+                        <label for="phone">Телефон 1</label>
                         <input type="text" class="form-control" id="phone" name="phone"
                                value="{{ old('phone') ?? $setting->phone }}">
                     </div>
                     <div class="form-group">
-                        <label for="phone_additional">Дополнительный телефон</label>
+                        <label for="phone_additional">Телефон 2</label>
                         <input type="text" class="form-control" id="phone_additional" name="phone_additional"
                                value="{{ old('phone_additional') ?? $setting->phone_additional }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone_additional_2">Телефон 3</label>
+                        <input type="text" class="form-control" id="phone_additional_2" name="phone_additional_2"
+                               value="{{ old('phone_additional_2') ?? $setting->phone_additional_2 }}">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -53,7 +58,6 @@
 
             <block-editor title="">
                 @foreach(config('app.locales') as $lang)
-
                     <fieldset slot="{{ $lang }}">
                         <div class="form-group">
                             <label for="title">Заголовок для главного экрана на баннере</label>

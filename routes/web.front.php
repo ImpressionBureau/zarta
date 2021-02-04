@@ -23,6 +23,7 @@ Route::group([
         'prefix' => 'services',
     ], function () {
         Route::get('/', 'ServicesController@index')->name('index');
+        Route::get('{service}', 'ServicesController@show')->name('show');
     });
 
     Route::group([
@@ -35,7 +36,7 @@ Route::group([
 
     Route::group([
         'as' => 'methods.',
-        'prefix' => 'services',
+        'prefix' => 'directions',
     ], function () {
         Route::get('/', 'MethodsController@index')->name('index');
         Route::get('{direction}', 'MethodsController@show')->name('show');

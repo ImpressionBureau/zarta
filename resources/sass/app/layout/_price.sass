@@ -1,80 +1,56 @@
-section.price-section 
+section.price-section
     padding: 50px 0
 
-.price 
-    min-height: 150px 
+.price
+    min-height: 100px
     padding: 6px
     display: flex
-    align-items: flex-start
+    align-items: center
+    justify-content: center
     flex-direction: column
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05)
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05)
     background-color: #fff
     margin-bottom: 30px
     position: relative
     z-index: 2
-    @media (min-width: map_get($grid-breakpoints, xl)) 
-        padding: 25px 0 6px 30px
-    &__title 
+    @media (min-width: map_get($grid-breakpoints, xl))
+        padding: 20px
+
+    &__title
         font-family: $font-family-base
-        font-size: 16px
+        font-size: 1.25rem
         padding: 20px
         text-align: center
         @media (min-width: map_get($grid-breakpoints, xl))
             padding: 0
             text-align: left
-    &-footer 
-        margin-top: auto 
+
+    &-footer
+        margin-top: auto
         width: 100%
         flex-direction: column
         @media (min-width: map_get($grid-breakpoints, xl))
             flex-direction: row
             height: 50px
-        &__value 
+
+        &__value
             padding: 0 20px
             background-color: #F7F7F7
             height: 50px
             line-height: 50px
             font-size: 14px
-            width: 100% 
+            width: 100%
             text-align: center
             @media (min-width: map_get($grid-breakpoints, xl))
                 width: auto
-            span 
+
+            span
                 font-weight: bold
-                color: #555 
+                color: #555
                 font-size: 24px
-        .btn--price 
+
+        .btn--price
             @media (max-width: map_get($grid-breakpoints, xl))
                 width: 100%
-                span 
+                span
                     max-width: 100%
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

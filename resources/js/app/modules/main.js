@@ -8,7 +8,6 @@ const toggleLangMenu = () => {
 
 const frontPreviews = document.querySelectorAll('.front-priview');
 const priceItem = document.querySelectorAll('.price');
-const priceBtn = document.querySelectorAll('.btn--price');
 
 const openModalBtn = document.querySelectorAll('.modal-btn');
 const closeModalBtn = document.querySelector('.close-modal');
@@ -88,32 +87,6 @@ modalMask.addEventListener('click', function () {
 closeModalBtn.addEventListener('click', function () {
     closeModal();
 });
-
-priceBtn.forEach(function (item) {
-
-    item.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        let priceWrap = item.closest('.price');
-        let priceTitle = priceWrap.querySelector('.price__title').innerText;
-        let priceAmount = priceWrap.querySelector('.value').innerText;
-        let priceId = this.getAttribute('data-service');
-        let modalPriceElem = modal.querySelector('.modal-price');
-
-        modalPriceElem.style.display = 'flex';
-
-        modalPriceElem.innerHTML = `${priceTitle}<span class="modal-price__amount">${priceAmount}грн</span>`;
-        modalPriceElem.style.display = 'flex';
-
-        modal.querySelector('.services-form').insertAdjacentHTML('afterbegin', `<input id="inp-price-id" type="hidden" name="modal-service" value="${priceId}">`);
-
-        modal.classList.add('custom-modal--price');
-
-        openModal();
-
-    });
-
-})
 
 
 function openModal() {

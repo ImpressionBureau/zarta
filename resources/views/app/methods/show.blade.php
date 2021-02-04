@@ -8,14 +8,12 @@
         </ul>
     </section>
 
-    <section class="category-content-section">
-        <div class="container">
-            <h2 class="section-title-center mb-5">
-                <span>{{$direction->title}}</span>
-            </h2>
-            <div class="cat-content">
-                {!! optional($direction->content)->body ?? '' !!}
-            </div>
+    <section class="container pb-4">
+        <h1 class="section-title-center mb-5">
+            <span>{{$direction->title}}</span>
+        </h1>
+        <div class="content">
+            {!! optional($direction->content)->body ?? '' !!}
         </div>
     </section>
 

@@ -37,7 +37,7 @@
                         <img src="{{ asset('images/about-img.svg') }}" alt="">
                     </div>
                     <div class="about">
-                        <h2 class="mb-4">{{$page->title}}</h2>
+                        <h1 class="h2 mb-4">{{$page->title}}</h1>
                         <div class="about-text content">
                             {!! $page->content->body !!}
                         </div>
