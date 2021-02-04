@@ -12,7 +12,7 @@ class Appointments extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $appointment;
+    public Appointment $appointment;
 
     /**
      * Create a new message instance.
@@ -29,10 +29,10 @@ class Appointments extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(): Appointments
     {
         return $this
-            ->to(app('settings')->email)
+            ->to(['ml-shmd@ukr.net'])
             ->subject('Запись на приём')
             ->markdown('mail.admin.appointment');
     }

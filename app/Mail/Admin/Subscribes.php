@@ -10,13 +10,15 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class Subscribes extends Mailable
 {
     use Queueable, SerializesModels;
-    public $subscribe;
+
+    public array $subscribe;
+
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param array $subscribe
      */
-    public function __construct($subscribe)
+    public function __construct(array $subscribe)
     {
         $this->subscribe = $subscribe;
     }
@@ -26,10 +28,10 @@ class Subscribes extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(): Subscribes
     {
         return $this
-            ->to(app('settings')->email)
+            ->to(['ml-shmd@ukr.net'])
             ->subject('Подписка на рассылку')
             ->view('mail.admin.subscribe');
     }
