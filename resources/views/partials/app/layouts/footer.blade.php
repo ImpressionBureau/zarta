@@ -4,7 +4,7 @@
             <div class="row align-items-center text-center lg:text-left">
                 <div class="col-xl-2 col-xxl">
                     <a href="{{ url('/') }}">
-                        <img src="{{ asset('images/logo.png') }}" alt="">
+                        <img src="{{ asset('images/logo.png') }}" style="max-height: 160px" alt="">
                     </a>
                 </div>
                 <div class="col-xl">
