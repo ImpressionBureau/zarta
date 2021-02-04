@@ -1,13 +1,13 @@
-<section class="therapy-methods-section d-none d-lg-block">
+<section class="therapy-methods-section">
     <div class="container">
         <div class="row no-gutters">
             @foreach($methods as $method)
                 @if($loop->index%2 ==0)
                     <div class="col-sm-6 col-xl-4 px-2">
                         @endif
-                        <a href="{{ route('app.methods.show', $method) }}" class="d-block">
+                        <a href="{{ route('app.directions.show', $method) }}" class="d-block">
                             <div class="method lozad"
-                                 data-background-image="{{ $method->getFirstMediaUrl('direction', 'preview') }}">
+                                 data-background-image="{{ $method->getFirstMediaUrl('category', 'preview') }}">
                                 <div class="method__circle d-none d-lg-block"></div>
                                 <div class="method__item">
                                     <div class="img"></div>
@@ -19,34 +19,6 @@
                     </div>
                 @endif
             @endforeach
-        </div>
-    </div>
-</section>
-
-<section class="therapy-methods-media d-lg-none">
-    <div class="methods-slider-wrap">
-        <div class="methods-slider">
-            @foreach($methods as $method)
-                <a href="{{ route('app.methods.show', $method) }}" class="d-block methods-slider__item">
-                    <div class="method">
-                        <div class="method__item">
-                            <div class="img lozad"
-                                 data-background-image="{{ $method->getFirstMediaUrl('direction', 'preview') }}"></div>
-                            <h3 class="title">{{$method->title}}</h3>
-                        </div>
-                    </div>
-                </a>
-            @endforeach
-        </div>
-        <div class="team-arrow methods-arrow--prev">
-            <svg width="13" height="21">
-                <use xlink:href="#arrow-left"></use>
-            </svg>
-        </div>
-        <div class="team-arrow methods-arrow--next">
-            <svg width="13" height="21">
-                <use xlink:href="#arrow-right"></use>
-            </svg>
         </div>
     </div>
 </section>

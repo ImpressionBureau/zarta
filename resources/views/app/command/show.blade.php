@@ -15,23 +15,22 @@
                     <div class="about-galery">
                         <div class="about-slider">
                             @foreach($command->getMedia('command') as $img)
-                                <div class="about-slider__item"
+                                <div class="about-slider__item rounded"
                                      style="background-image: url({{$img->getFullUrl()}})"></div>
                             @endforeach
                         </div>
                     </div>
                 </div>
 
-                <div class="col-xl-7 col-xxl-5 mt-5 order-xl-1">
-
+                <div class="col-xl-7 col-xxl-5 mt-5 lg:mt-0 order-xl-1">
                     <div class="section-decor section-decor--article">
-                        <img src="../images/about-img.svg" alt="">
+                        <img src="{{ asset('images/about-img.svg') }}" alt="">
                     </div>
 
                     <div class="about">
                         <h2 class="mb-4">{{$command->title}}</h2>
-
                         <h3 class="mb-4">{{$command->content->description}}</h3>
+
                         <div class="about-text">
                             {!! $command->content->body !!}
                         </div>
@@ -42,4 +41,4 @@
     </section>
     @includeWhen($methods->count(), 'partials.app.sections.methods')
     @include('partials.app.sections.contacts')
-    @endsection
+@endsection
