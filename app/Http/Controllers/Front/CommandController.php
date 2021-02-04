@@ -12,8 +12,6 @@ class CommandController extends Controller
 {
     public function show(Command $command)
     {
-        $methods = Category::published()->inRandomOrder()->take(6)->get();
-
-        return \view('app.command.show', compact('command', 'methods'));
+        return \view('app.command.show', compact('command'));
     }
 }

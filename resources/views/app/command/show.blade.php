@@ -6,8 +6,8 @@
             <li class="bcrumb__item bcrumb__item--active">@lang('common.main.team') / {{ $command->title }}</li>
         </ul>
     </section>
-    <section class="article-section">
 
+    <section class="article-section">
         <div class="container-fluid">
             <div class="row justify-content-center justify-content-xl-end">
                 <div class="col-sm-8 col-md-6 col-lg-5 col-xl-4 offset-xxl-1 order-xl-2 mb-4 mb-xl-0">
@@ -38,6 +38,7 @@
             </div>
         </div>
     </section>
-    @includeWhen($methods->count(), 'partials.app.sections.methods')
+
+    @includeWhen($departments->count(), 'partials.app.sections.directions')
     @include('partials.app.sections.contacts')
 @endsection
