@@ -27,7 +27,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('app.methods.index') }}" class="nav-link">
+                    <a href="{{ route('app.services.index') }}" class="nav-link">
                         {{ __('common.menu.services') }}
                     </a>
                 </li>

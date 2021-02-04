@@ -18,12 +18,12 @@ Route::group([
         Route::get('{article}', 'ArticlesController@show')->name('show');
     });
 
-//    Route::group([
-//        'as' => 'services.',
-//        'prefix' => 'services',
-//    ], function () {
-//        Route::get('/', 'ServicesController@index')->name('index');
-//    });
+    Route::group([
+        'as' => 'services.',
+        'prefix' => 'services',
+    ], function () {
+        Route::get('/', 'ServicesController@index')->name('index');
+    });
 
     Route::group([
         'as' => 'directions.',

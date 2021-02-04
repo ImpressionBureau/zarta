@@ -7,7 +7,7 @@
                         @endif
                         <a href="{{ route('app.methods.show', $method) }}" class="d-block">
                             <div class="method lozad"
-                                 data-background-image="{{ $method->getFirstMediaUrl('method', 'preview') }}">
+                                 data-background-image="{{ $method->getFirstMediaUrl('direction', 'preview') }}">
                                 <div class="method__circle d-none d-lg-block"></div>
                                 <div class="method__item">
                                     <div class="img"></div>
