@@ -21,6 +21,7 @@ class Setting extends Model implements HasMedia
         'facebook',
         'instagram',
         'youtube',
+        'telegram',
         'latitude',
         'longitude',
     ];
