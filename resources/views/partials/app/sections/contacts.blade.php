@@ -14,6 +14,9 @@
                         <div class="d-inline-flex flex-column align-items-end flex-grow-1">
                             <a href="tel:{{phone_link(app('settings')->phone)}}">{{app('settings')->phone}}</a>
                             <a href="tel:{{phone_link(app('settings')->phone_additional)}}">{{app('settings')->phone_additional}}</a>
+                            @if (app('settings')->phone_additional_2)
+                            <a href="tel:{{phone_link(app('settings')->phone_additional_2)}}">{{app('settings')->phone_additional_2}}</a>
+                            @endif
                         </div>
                     </div>
                     <div class="contact__item">

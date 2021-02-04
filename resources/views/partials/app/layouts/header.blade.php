@@ -59,6 +59,15 @@
             </svg>
             {{app('settings')->phone_additional}}
         </a>
+        @if (app('settings')->phone_additional_2)
+            <a href="tel:{{phone_link(app('settings')->phone_additional_2)}}"
+               class="header-contacts__item d-inline-flex align-items-center">
+                <svg class="img" width="15" height="15">
+                    <use xlink:href="#phone-icon"></use>
+                </svg>
+                {{app('settings')->phone_additional_2}}
+            </a>
+        @endif
     </div>
 
     <button class="btn btn-flag modal-btn text-uppercase">
