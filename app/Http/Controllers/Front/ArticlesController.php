@@ -21,8 +21,6 @@ class ArticlesController extends Controller
 
     public function show(Article $article)
     {
-        $methods = Category::published()->inRandomOrder()->take(6)->get();
-
-        return view('app.articles.show', compact('article', 'methods'));
+        return view('app.articles.show', compact('article'));
     }
 }

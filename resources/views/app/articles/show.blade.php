@@ -51,6 +51,7 @@
             </div>
         </div>
     </section>
-    @includeWhen($methods->count(), 'partials.app.sections.methods')
+
+    @includeWhen($departments->count(), 'partials.app.sections.directions')
     @include('partials.app.sections.contacts')
 @endsection
