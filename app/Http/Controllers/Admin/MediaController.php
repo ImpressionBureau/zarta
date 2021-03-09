@@ -5,54 +5,100 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ImageResource;
 use App\Models\MediaUpload;
+use Exception;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Spatie\Image\Exceptions\InvalidManipulation;
+use Spatie\Image\Image;
+use Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\DiskDoesNotExist;
+use Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileDoesNotExist;
+use Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileIsTooBig;
 use Spatie\MediaLibrary\Models\Media;
+use function response;
 
 class MediaController extends Controller
 {
     /**
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\DiskDoesNotExist
-     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileDoesNotExist
-     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileIsTooBig
+     * @return JsonResponse
+     * @throws DiskDoesNotExist
+     * @throws FileDoesNotExist
+     * @throws FileIsTooBig|InvalidManipulation
      */
     public function upload(Request $request)
     {
-        $media = null;
+        $name = $request->input('name', 'image');
 
-        if ($request->hasFile($request->input('name', 'image'))) {
-            /** @var MediaUpload $media */
-            $media = MediaUpload::create();
-            $media->addMediaFromRequest($request->input('name', 'image'))
-                ->toMediaCollection('uploads');
-        }
+        $media = $this->handleMedia($request, $name);
 
-        return response()->json($media ? new ImageResource($media->getFirstMedia('uploads')) : null);
+        return response()->json(
+            $media
+                ? new ImageResource($media->getFirstMedia('uploads'))
+                : null
+        );
     }
 
     /**
      * @param Media $media
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \Exception
+     * @return JsonResponse
+     * @throws Exception
      */
     public function destroy(Media $media)
     {
         $media->delete();
-        return \response()->json([]);
+        return response()->json([]);
     }
+
+    /**
+     * @param Request $request
+     * @param string $name
+     * @return JsonResponse
+     * @throws DiskDoesNotExist
+     * @throws FileDoesNotExist
+     * @throws FileIsTooBig
+     * @throws InvalidManipulation
+     */
     public function tiny(Request $request, $name = 'img')
+    {
+        $media = $this->handleMedia($request, $name);
+
+        return response()->json([
+            'image' => $media
+                ? new ImageResource($media->getFirstMedia('uploads'))
+                : null,
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @param $name
+     * @return MediaUpload
+     * @throws InvalidManipulation
+     * @throws DiskDoesNotExist
+     * @throws FileDoesNotExist
+     * @throws FileIsTooBig
+     */
+    private function handleMedia(Request $request, $name): MediaUpload
     {
         $media = null;
 
         if ($request->hasFile($name)) {
+            $path = storage_path('tmp/uploads');
+            $file = $request->file($name);
+            $name = md5(uniqid());
+            $file->move($path, $name);
+
+            Image::load($path . '/' . $name)
+                ->width(1140)
+                ->height(1140)
+                ->save();
+
             /** @var MediaUpload $media */
             $media = MediaUpload::create();
-            $media->addMediaFromRequest($name)->toMediaCollection('uploads');
+            $media->addMedia($path . '/' . $name)
+                ->toMediaCollection('uploads');
         }
 
-        return response()->json([
-            'image' => $media ? new ImageResource($media->getFirstMedia('uploads')) : null,
-        ]);
+        return $media;
     }
 }
