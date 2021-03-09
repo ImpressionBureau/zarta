@@ -51,19 +51,19 @@
     display: flex
     align-items: center
     justify-content: center
-    background-color: rgba(#000, 0.7)
+    background-color: transparent
     transition: all 0.5s ease
     cursor: pointer
 
     svg
-        fill: #fff
+        fill: $gray-700
 
     &--next
         left: auto
         right: 0
 
-    &:hover
-        background-color: #000
+    &:hover svg
+        fill: $dark
 
 .texting-slider
     width: 100%
