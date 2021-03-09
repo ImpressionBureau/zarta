@@ -11,10 +11,10 @@
             <p><strong>Имя:</strong> {{ $appointment->name }}</p>
             <p><strong>Телефон:</strong> {{ $appointment->phone }}</p>
             <p><strong>E-mail:</strong> {{ $appointment->email }}</p>
-            @if($appointment->service)
-                <p class="font-weight-bold mb-1">Страница:</p>
-                <p>{{optional($appointment->service)->title}}</p>
-            @endif
+{{--            @if($appointment->service)--}}
+{{--                <p class="font-weight-bold mb-1">Страница:</p>--}}
+{{--                <p>{{optional($appointment->service)->title}}</p>--}}
+{{--            @endif--}}
             <div class="form-group">
                 <label for="comment" class="font-weight-bold mb-2">Комментарий</label>
                 <textarea class="form-control" id="comment"
