@@ -37,6 +37,6 @@ class Appointment extends Model
 
     public function getServiceAttribute()
     {
-        return $this->service_type::find($this->service_id);
+        return $this->service_type ? $this->service_type::find($this->service_id) : null;
     }
 }
