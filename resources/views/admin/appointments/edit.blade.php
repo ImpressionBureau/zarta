@@ -13,7 +13,7 @@
             <p><strong>E-mail:</strong> {{ $appointment->email }}</p>
             @if($appointment->service)
                 <p class="font-weight-bold mb-1">Страница:</p>
-                <p>{{$appointment->service->title}}</p>
+                <p>{{optional($appointment->service)->title}}</p>
             @endif
             <div class="form-group">
                 <label for="comment" class="font-weight-bold mb-2">Комментарий</label>
