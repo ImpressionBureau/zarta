@@ -32,7 +32,7 @@ class Appointments extends Mailable
     public function build(): Appointments
     {
         return $this
-            ->to(['ml-shmd@ukr.net'])
+            ->to('5.miska.likarnya@gmail.com')
             ->subject('Запись на приём')
             ->markdown('mail.admin.appointment');
     }

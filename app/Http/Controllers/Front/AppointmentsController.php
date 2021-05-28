@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Http\Controllers\Controller;
 use App\Mail\Admin\Appointments;
 use App\Models\Appointment;
+use Exception;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use function view;
 
@@ -17,10 +18,14 @@ class AppointmentsController extends Controller
             $request->only('name', 'phone', 'email', 'service_type', 'service_id')
         );
 
-        $type = 'appointment';
+        try {
+            Mail::send(new Appointments($appointment));
+        } catch (Exception$exception) {
+            // silent mode
+        }
 
-        Mail::send(new Appointments($appointment));
-
-        return view('app.pages.thanks', compact('type'));
+        return view('app.pages.thanks', [
+            'type' => 'appointment'
+        ]);
     }
 }
