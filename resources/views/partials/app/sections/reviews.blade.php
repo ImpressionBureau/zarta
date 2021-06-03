@@ -54,10 +54,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <a href="{{route('app.reviews.index')}}"
-                               class="btn btn-secondary w-100 my-5 my-sm-2"><span>@lang('common.main.read_reviews')</span></a>
-                        </div>
+{{--                        <div class="col">--}}
+{{--                            <a href="{{route('app.reviews.index')}}"--}}
+{{--                               class="btn btn-secondary w-100 my-5 my-sm-2"><span>@lang('common.main.read_reviews')</span></a>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
